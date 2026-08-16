@@ -1420,17 +1420,7 @@
  });
  });
  
-    const pageWipe = document.querySelector('.page-wipe');
-    document.querySelectorAll('.case-link').forEach(link => {
-      link.addEventListener('click', event => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        event.preventDefault();
-        const destination = link.getAttribute('href');
-        pageWipe.style.background = link.dataset.color || '#0A0A0A';
-        pageWipe.classList.add('is-active');
-        window.setTimeout(() => { window.location.href = destination; }, 390);
-      });
-    });
+
 
 </script>
 </body>
