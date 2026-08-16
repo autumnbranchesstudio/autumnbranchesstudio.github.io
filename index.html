@@ -1,595 +1,1437 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name | Social Media & Content Portfolio</title>
-  <meta name="description" content="Social media marketing, content strategy, and content creation portfolio for small businesses." />
-  <style>
-    :root{
-      --bg:#f6f3ee;
-      --surface:#ffffff;
-      --ink:#1f1f1f;
-      --muted:#6c675f;
-      --accent:#8a4fff;
-      --accent-soft:#eee7ff;
-      --line:#ded8cf;
-      --dark:#18171b;
-      --radius:22px;
-      --shadow:0 14px 38px rgba(0,0,0,.08);
-      --max:1120px;
-    }
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <meta name="theme-color" content="#F4F1E9" />
+ <meta name="description" content="Autumn Branches Studio, creative strategy, social media and content shaped around how your brand needs to show up." />
+ <title>Autumn Branches Studio, Prototype</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,300..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+ <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%230A0A0A"/><path d="M10 32H30M30 32V16M30 32V48M30 16H52M30 48H46" fill="none" stroke="%23F4F1E9" stroke-width="4"/><circle cx="10" cy="32" r="3" fill="%231739E6"/><circle cx="52" cy="16" r="3" fill="%231739E6"/><circle cx="46" cy="48" r="3" fill="%231739E6"/></svg>'>
+ <style>
+ :root {
+ --ink: #0A0A0A;
+ --ivory: #F4F1E9;
+ --white: #FFFFFF;
+ --cobalt: #1739E6;
+ --muted: #A6A49E;
+ --line: rgba(10, 10, 10, 0.18);
+ --nura: #285F73;
+ --nura-ice: #DDECF0;
+ --cafe: #F4C82E;
+ --verde: #B9FF24;
+ --mara: #6A4CFF;
+ --aqua: #C9FFF4;
+ --active-accent: var(--cobalt);
+ --nav-neutral: var(--ink);
+ --pad: clamp(20px, 3vw, 48px);
+ --gutter: clamp(14px, 2vw, 28px);
+ --display: clamp(64px, 10.7vw, 172px);
+ --section-title: clamp(48px, 7vw, 118px);
+ --large: clamp(34px, 4.6vw, 74px);
+ --medium: clamp(22px, 2.5vw, 40px);
+ --body: clamp(16px, 1.15vw, 19px);
+ }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:var(--bg);
-      color:var(--ink);
-      line-height:1.6;
-    }
+ * { box-sizing: border-box; }
+ html { scroll-behavior: smooth; background: var(--ivory); }
+ body {
+ margin: 0;
+ background: var(--ivory);
+ color: var(--ink);
+ font-family: "Archivo", Arial, sans-serif;
+ font-variation-settings: "wdth" 100;
+ font-style: normal;
+ overflow-x: hidden;
+ }
+ body * { font-style: normal !important; }
+ a { color: inherit; text-decoration: none; }
+ button { font: inherit; color: inherit; }
 
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+ ::selection { background: var(--active-accent); color: var(--white); }
 
-    .wrap{width:min(var(--max), calc(100% - 40px));margin:auto}
+ .mono {
+ font-family: "IBM Plex Mono", "Courier New", monospace;
+ font-size: 11px;
+ letter-spacing: 0.06em;
+ text-transform: uppercase;
+ }
 
-    nav{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(246,243,238,.88);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(222,216,207,.75);
-    }
+ .site-header {
+ position: fixed;
+ inset: 0 0 auto 0;
+ z-index: 80;
+ display: grid;
+ grid-template-columns: 1fr auto;
+ align-items: start;
+ gap: 20px;
+ padding: 16px var(--pad);
+ mix-blend-mode: difference;
+ color: white;
+ pointer-events: none;
+ }
+ .site-header a, .site-header button { pointer-events: auto; }
+ .brand {
+ font-weight: 800;
+ letter-spacing: -0.055em;
+ text-transform: uppercase;
+ font-size: 14px;
+ line-height: 0.95;
+ }
+ .brand span { display:block; }
+ .header-links {
+ display: flex;
+ gap: 18px;
+ align-items: center;
+ }
+ .header-links a {
+ font-family: "IBM Plex Mono", monospace;
+ font-size: 10px;
+ letter-spacing: 0.06em;
+ text-transform: uppercase;
+ }
+ .menu-toggle {
+ display: none;
+ background: none;
+ border: 0;
+ padding: 0;
+ font-family: "IBM Plex Mono", monospace;
+ text-transform: uppercase;
+ font-size: 10px;
+ cursor: pointer;
+ }
 
-    .nav-inner{
-      min-height:72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
+ .mobile-index {
+ position: fixed;
+ inset: 0;
+ z-index: 100;
+ background: var(--ink);
+ color: var(--ivory);
+ padding: 72px var(--pad) 32px;
+ display: none;
+ flex-direction: column;
+ justify-content: space-between;
+ }
+ .mobile-index.open { display:flex; }
+ .mobile-index nav { display:grid; gap:10px; }
+ .mobile-index a { font-size: clamp(34px, 11vw, 66px); line-height: .94; font-weight: 800; letter-spacing: -0.055em; }
+ .mobile-index .close { position:absolute; top:18px; right:var(--pad); border:0; background:none; color:inherit; cursor:pointer; }
 
-    .brand{font-weight:800;letter-spacing:-.02em}
-    .nav-links{display:flex;gap:22px;align-items:center;font-size:.95rem}
-    .nav-cta{
-      background:var(--dark);
-      color:#fff;
-      padding:10px 16px;
-      border-radius:999px;
-    }
+ .branch-progress {
+ position: fixed;
+ right: 14px;
+ top: 50%;
+ transform: translateY(-50%);
+ z-index: 70;
+ width: 26px;
+ height: min(62vh, 520px);
+ pointer-events: none;
+ mix-blend-mode: difference;
+ }
+ .branch-progress svg { width:100%; height:100%; overflow:visible; }
+ .branch-progress .trunk,
+ .branch-progress .branch { stroke: white; stroke-width: 1.5; fill:none; opacity:.42; vector-effect:non-scaling-stroke; }
+ .branch-progress .progress-line { stroke: var(--active-accent); stroke-width: 2.5; fill:none; vector-effect:non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke .35s ease; }
+ .branch-progress circle { fill:white; opacity:.38; transition: all .25s ease; }
+ .branch-progress circle.active { fill: var(--active-accent); opacity:1; r:4.6; }
 
-    .hero{
-      padding:94px 0 72px;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:50px;
-      align-items:center;
-    }
+ main { position: relative; }
+ .scene {
+ position: relative;
+ min-height: 100svh;
+ padding: clamp(84px, 10vh, 132px) var(--pad) clamp(54px, 9vh, 120px);
+ border-bottom: 1px solid var(--line);
+ overflow: clip;
+ isolation: isolate;
+ }
 
-    .eyebrow{
-      display:inline-flex;
-      padding:7px 11px;
-      border-radius:999px;
-      background:var(--accent-soft);
-      color:#5b2fc2;
-      font-size:.82rem;
-      font-weight:700;
-      letter-spacing:.03em;
-      text-transform:uppercase;
-    }
+ .scene .scene-id {
+ position: absolute;
+ left: var(--pad);
+ bottom: 22px;
+ z-index: 4;
+ color: currentColor;
+ opacity: .6;
+ }
 
-    h1,h2,h3{line-height:1.08;letter-spacing:-.04em;margin:0}
-    h1{font-size:clamp(3rem,7vw,6.4rem);max-width:10ch;margin-top:20px}
-    h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:18px}
-    h3{font-size:1.55rem}
-    p{margin:0}
+ .scene-marker {
+ position: absolute;
+ left: var(--pad);
+ top: 74px;
+ width: min(360px, 34vw);
+ height: 1px;
+ background: currentColor;
+ opacity: .24;
+ }
+ .scene-marker::before,
+ .scene-marker::after {
+ content: "";
+ position:absolute;
+ top:-3px;
+ width:7px;
+ height:7px;
+ border-radius:50%;
+ background: var(--active-accent);
+ }
+ .scene-marker::before { left:0; }
+ .scene-marker::after { right:0; }
 
-    .hero-copy{
-      margin-top:24px;
-      font-size:1.16rem;
-      color:var(--muted);
-      max-width:650px;
-    }
+ .hero {
+ background: var(--ivory);
+ display:grid;
+ grid-template-columns: repeat(12, 1fr);
+ grid-template-rows: auto 1fr auto;
+ column-gap: var(--gutter);
+ padding-top: clamp(100px, 13vh, 150px);
+ }
+ .hero-title {
+ grid-column: 1 / 10;
+ align-self:center;
+ font-size: var(--display);
+ line-height: .78;
+ letter-spacing: -0.075em;
+ text-transform: uppercase;
+ font-weight: 820;
+ font-variation-settings: "wdth" 98;
+ margin: 0;
+ position: relative;
+ z-index: 3;
+ }
+ .hero-title .language { display:block; position:relative; }
+ .hero-title .language::after {
+ content:"";
+ position:absolute;
+ left: 5%;
+ right: -8vw;
+ height: .14em;
+ bottom: .09em;
+ background: var(--cobalt);
+ z-index:-1;
+ }
+ .hero-copy {
+ grid-column: 9 / 13;
+ align-self:end;
+ font-size: var(--body);
+ line-height:1.35;
+ max-width: 30ch;
+ margin-bottom: 44px;
+ }
+ .hero-code {
+ grid-column: 1 / 7;
+ align-self:end;
+ display:flex;
+ gap: 10px;
+ align-items:center;
+ padding-bottom: 8px;
+ }
+ .branch-code {
+ display:flex;
+ align-items:center;
+ gap:7px;
+ height:16px;
+ }
+ .branch-code i { display:block; background: currentColor; opacity:.7; }
+ .branch-code .dot { width:5px; height:5px; border-radius:50%; background:var(--cobalt); opacity:1; }
+ .branch-code .dash-sm { width:18px; height:1px; }
+ .branch-code .dash-lg { width:58px; height:1px; }
+ .hero-field {
+ position:absolute;
+ right:0;
+ top:0;
+ width: 22vw;
+ min-width: 260px;
+ height: 100%;
+ background: var(--cobalt);
+ z-index:0;
+ transform: translateX(68%);
+ }
+ .hero-field::before,
+ .hero-field::after {
+ content:"";
+ position:absolute;
+ background: var(--ivory);
+ opacity:.7;
+ }
+ .hero-field::before { width:1px; height:34%; left:26%; top:26%; }
+ .hero-field::after { height:1px; width:46%; left:26%; top:60%; }
 
-    .hero-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:13px 20px;
-      border-radius:999px;
-      font-weight:700;
-      border:1px solid var(--dark);
-    }
-    .btn.primary{background:var(--dark);color:#fff}
-    .btn.secondary{background:transparent}
+ .question {
+ background: var(--ivory);
+ display:grid;
+ grid-template-columns: repeat(12, 1fr);
+ column-gap:var(--gutter);
+ align-content:center;
+ }
+ .question h2 {
+ grid-column: 1 / 9;
+ font-size: var(--section-title);
+ line-height:.84;
+ letter-spacing:-.065em;
+ text-transform:uppercase;
+ margin:0;
+ }
+ .question .intro {
+ grid-column: 9 / 13;
+ font-size:var(--body);
+ line-height:1.35;
+ align-self:end;
+ margin-bottom: 12px;
+ }
+ .pillars {
+ grid-column: 1 / 13;
+ margin-top: clamp(64px, 9vh, 120px);
+ display:grid;
+ grid-template-columns: repeat(4, 1fr);
+ border-top:1px solid var(--ink);
+ border-bottom:1px solid var(--ink);
+ }
+ .pillar { padding: 18px 16px 54px 0; border-right:1px solid var(--line); }
+ .pillar:last-child { border-right:0; }
+ .pillar strong { display:block; font-size:clamp(22px,2.6vw,38px); line-height:.95; letter-spacing:-.045em; text-transform:uppercase; margin-top:30px; }
+ .pillar p { max-width:24ch; font-size:13px; line-height:1.4; margin:12px 0 0; }
 
-    .hero-card{
-      background:var(--dark);
-      color:#fff;
-      border-radius:32px;
-      padding:28px;
-      box-shadow:var(--shadow);
-      min-height:420px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      overflow:hidden;
-      position:relative;
-    }
+ .project {
+ min-height: 110svh;
+ display:grid;
+ grid-template-columns: repeat(12, 1fr);
+ column-gap:var(--gutter);
+ align-content:center;
+ border-bottom:0;
+ }
+ .project .project-no {
+ position:absolute;
+ left:var(--pad);
+ top:clamp(96px, 11vh, 130px);
+ font-family:"IBM Plex Mono", monospace;
+ font-size:11px;
+ text-transform:uppercase;
+ letter-spacing:.06em;
+ opacity:.7;
+ }
+ .project h2 {
+ margin:0;
+ font-size:clamp(64px, 12vw, 190px);
+ line-height:.74;
+ letter-spacing:-.078em;
+ text-transform:uppercase;
+ font-weight:850;
+ font-variation-settings:"wdth" 90;
+ }
+ .project .project-thesis {
+ font-size:clamp(24px, 3.3vw, 52px);
+ line-height:.98;
+ letter-spacing:-.05em;
+ font-weight:720;
+ max-width:14ch;
+ text-transform:uppercase;
+ }
+ .project .project-meta { font-size:13px; line-height:1.45; max-width:34ch; }
+ .asset-frame {
+ position:relative;
+ border:1px solid currentColor;
+ min-height: 320px;
+ overflow:hidden;
+ display:flex;
+ align-items:flex-end;
+ padding:18px;
+ }
+ .asset-frame::before {
+ content:"";
+ position:absolute;
+ inset:14%;
+ border:1px solid currentColor;
+ opacity:.3;
+ }
+ .asset-frame::after {
+ content:"";
+ position:absolute;
+ left:50%; top:0; bottom:0;
+ width:1px;
+ background:currentColor;
+ opacity:.18;
+ }
+ .asset-frame span { position:relative; z-index:2; }
 
-    .hero-card:before{
-      content:"";
-      position:absolute;
-      width:280px;height:280px;
-      border-radius:50%;
-      background:linear-gradient(135deg,#a77bff,#ff8db6);
-      top:-80px;right:-80px;
-      filter:blur(2px);
-      opacity:.9;
-    }
+ .nura { background: var(--nura); color: var(--white); }
+ .nura h2 { grid-column:1 / 9; align-self:end; }
+ .nura .project-thesis { grid-column:9 / 13; align-self:end; }
+ .nura .asset-frame { grid-column:2 / 8; margin-top:70px; min-height:390px; background:rgba(255,255,255,.04); }
+ .nura .project-meta { grid-column:9 / 13; margin-top:70px; }
+ .nura .branch-stamp { color:white; }
 
-    .hero-card > *{position:relative}
-    .mini-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;opacity:.65}
-    .hero-card .big{font-size:clamp(2.4rem,5vw,4.6rem);font-weight:800;line-height:.95;max-width:7ch}
-    .hero-card .small{max-width:30ch;color:#cbc7d0}
+ .cafe { background: var(--cafe); color: var(--ink); }
+ .cafe h2 { grid-column:1 / 8; }
+ .cafe .project-thesis { grid-column:8 / 13; align-self:end; }
+ .cafe .asset-strip {
+ grid-column:1 / 13;
+ display:grid;
+ grid-template-columns: 1.4fr .7fr 1fr;
+ gap:var(--gutter);
+ margin-top:70px;
+ }
+ .cafe .asset-frame:nth-child(2) { min-height:220px; margin-top:90px; }
+ .cafe .asset-frame:nth-child(3) { min-height:300px; }
+ .cafe .project-meta { grid-column:2 / 6; margin-top:26px; }
 
-    section{padding:84px 0}
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      gap:28px;
-      margin-bottom:34px;
-    }
-    .section-head p{max-width:520px;color:var(--muted)}
+ .verde { background: var(--ink); color: var(--verde); }
+ .verde h2 { grid-column:1 / 13; white-space:nowrap; }
+ .verde .project-thesis { grid-column:1 / 5; margin-top:66px; }
+ .verde .system-grid {
+ grid-column:5 / 13;
+ display:grid;
+ grid-template-columns:repeat(3, 1fr);
+ gap:10px;
+ margin-top:58px;
+ }
+ .verde .system-grid div {
+ border:1px solid rgba(185,255,36,.5);
+ padding:14px;
+ min-height:140px;
+ display:flex;
+ justify-content:space-between;
+ flex-direction:column;
+ }
+ .verde .system-grid div:nth-child(2), .verde .system-grid div:nth-child(5) { background:var(--verde); color:var(--ink); }
+ .verde .project-meta { grid-column:1 / 4; margin-top:28px; }
 
-    .services{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    .card{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:0 8px 24px rgba(0,0,0,.03);
-    }
-    .card p{color:var(--muted);margin-top:11px}
-    .number{
-      width:38px;height:38px;
-      border-radius:50%;
-      display:grid;place-items:center;
-      background:var(--accent-soft);
-      color:#5b2fc2;
-      font-weight:800;
-      margin-bottom:42px;
-    }
+ .mara { background: var(--ivory); color: var(--ink); min-height:120svh; }
+ .mara::before {
+ content:"";
+ position:absolute;
+ width:46vw;
+ height:54vh;
+ right:-6vw;
+ top:18vh;
+ background:var(--mara);
+ z-index:-2;
+ }
+ .mara::after {
+ content:"";
+ position:absolute;
+ width:26vw;
+ height:38vh;
+ left:30vw;
+ bottom:6vh;
+ background:var(--aqua);
+ z-index:-2;
+ }
+ .mara h2 { grid-column:1 / 7; position:relative; z-index:2; }
+ .mara .project-thesis { grid-column:8 / 13; align-self:end; position:relative; z-index:2; }
+ .mara .mosaic {
+ grid-column:1 / 13;
+ margin-top:42px;
+ display:grid;
+ grid-template-columns: 1.1fr .55fr .85fr;
+ grid-template-rows: 210px 260px;
+ gap:12px;
+ }
+ .mara .mosaic div { border:1px solid var(--ink); padding:14px; background:rgba(244,241,233,.72); backdrop-filter:blur(2px); }
+ .mara .mosaic div:nth-child(1) { grid-row:1 / 3; background:var(--ink); color:var(--ivory); }
+ .mara .mosaic div:nth-child(4) { background:var(--mara); color:white; }
+ .mara .mosaic div:nth-child(5) { background:var(--aqua); }
+ .mara .project-meta { grid-column:8 / 12; margin-top:26px; }
 
-    .projects{display:grid;gap:26px}
-    .project{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:30px;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      min-height:470px;
-    }
+ .return {
+ min-height:100svh;
+ background:var(--ivory);
+ display:grid;
+ place-items:center;
+ text-align:center;
+ }
+ .return h2 {
+ font-size:clamp(58px, 10vw, 160px);
+ line-height:.8;
+ letter-spacing:-.075em;
+ text-transform:uppercase;
+ margin:0;
+ max-width:9ch;
+ }
+ .return h2 span { color:var(--cobalt); }
+ .return p { margin-top:36px; font-size:var(--body); max-width:32ch; }
 
-    .project-visual{
-      padding:30px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg,#eee7ff,#ffe8ef);
-    }
+ .method { background:var(--ink); color:var(--ivory); min-height:auto; padding-top:120px; padding-bottom:120px; }
+ .method-header { display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter); margin-bottom:50px; }
+ .method-header h2 { grid-column:1 / 8; font-size:var(--large); letter-spacing:-.055em; line-height:.92; text-transform:uppercase; margin:0; }
+ .method-header p { grid-column:9 / 13; font-size:var(--body); line-height:1.35; margin:0; align-self:end; }
+ .method-list { border-top:1px solid rgba(244,241,233,.32); }
+ .method-item {
+ display:grid;
+ grid-template-columns: 90px minmax(0,1fr) minmax(220px, .55fr);
+ gap:24px;
+ align-items:center;
+ border-bottom:1px solid rgba(244,241,233,.22);
+ min-height:120px;
+ }
+ .method-item .verb { font-size:clamp(38px,6vw,100px); line-height:.8; letter-spacing:-.06em; font-weight:800; text-transform:uppercase; }
+ .method-item p { margin:0; font-size:13px; line-height:1.4; max-width:34ch; opacity:.7; }
+ .method-item.active .verb { color:var(--cobalt); }
 
-    .project:nth-child(2) .project-visual{background:linear-gradient(135deg,#e7f5ee,#fff0d9)}
-    .project:nth-child(3) .project-visual{background:linear-gradient(135deg,#e8eefc,#f4e8ff)}
+ .origin { background:var(--ivory); display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter); align-content:center; }
+ .origin h2 { grid-column:1 / 9; margin:0; font-size:var(--section-title); line-height:.82; letter-spacing:-.065em; text-transform:uppercase; }
+ .origin .story { grid-column:9 / 13; font-size:var(--body); line-height:1.5; align-self:end; }
+ .archive {
+ grid-column:1 / 13;
+ margin-top:70px;
+ display:grid;
+ grid-template-columns:repeat(6,1fr);
+ gap:8px;
+ }
+ .archive div { aspect-ratio:4/3; border:1px solid var(--ink); background:linear-gradient(135deg, rgba(10,10,10,.92), rgba(10,10,10,.62)); color:var(--ivory); display:flex; align-items:flex-end; padding:10px; }
+ .archive div:nth-child(even) { background:var(--ivory); color:var(--ink); }
+ .archive div:nth-child(3) { background:var(--cobalt); color:white; }
 
-    .phone{
-      width:250px;
-      border:9px solid #17171a;
-      border-radius:34px;
-      background:#fff;
-      box-shadow:var(--shadow);
-      padding:12px;
-      transform:rotate(-3deg);
-    }
-    .phone-top{
-      height:12px;
-      width:74px;
-      border-radius:999px;
-      background:#1d1d1f;
-      margin:0 auto 14px;
-    }
-    .social-post{
-      border:1px solid #e6e6e6;
-      border-radius:16px;
-      overflow:hidden;
-      background:#fff;
-    }
-    .post-head{padding:10px 12px;font-size:.75rem;font-weight:700}
-    .post-image{
-      aspect-ratio:1/1;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:20px;
-      font-size:1.65rem;
-      line-height:1.05;
-      font-weight:850;
-      letter-spacing:-.04em;
-      background:#18171b;
-      color:#fff;
-    }
-    .project:nth-child(2) .post-image{background:#ffe1a8;color:#513a15}
-    .project:nth-child(3) .post-image{background:#6e63ff;color:#fff}
-    .post-copy{padding:12px;font-size:.72rem;color:#666}
+ .philosophy { background:var(--cobalt); color:white; display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter); align-content:center; }
+ .philosophy h2 { grid-column:1 / 11; font-size:clamp(66px,11vw,178px); line-height:.78; letter-spacing:-.075em; text-transform:uppercase; margin:0; }
+ .philosophy p { grid-column:8 / 13; margin-top:52px; font-size:var(--body); line-height:1.4; }
 
-    .project-body{padding:38px;display:flex;flex-direction:column;justify-content:center}
-    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 22px}
-    .tag{
-      padding:6px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      font-size:.78rem;
-      color:var(--muted);
-    }
-    .project-body p{color:var(--muted)}
-    .project-list{padding-left:20px;color:var(--muted);margin:18px 0 0}
-    .note{
-      margin-top:22px;
-      font-size:.82rem;
-      color:#746d63;
-      font-style:italic;
-    }
+ .thinking { background:var(--ivory); min-height:auto; padding-top:110px; padding-bottom:110px; }
+ .thinking-head { display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter); margin-bottom:52px; }
+ .thinking h2 { grid-column:1/7; margin:0; font-size:var(--large); line-height:.9; letter-spacing:-.055em; text-transform:uppercase; }
+ .thinking-head p { grid-column:9/13; align-self:end; margin:0; font-size:14px; line-height:1.4; }
+ .journal { border-top:1px solid var(--ink); }
+ .journal a { display:grid; grid-template-columns:90px minmax(0,1fr) auto; gap:20px; align-items:center; min-height:86px; border-bottom:1px solid var(--line); transition:background .2s ease, color .2s ease, padding .2s ease; }
+ .journal a:hover { background:var(--cobalt); color:white; padding-left:14px; padding-right:14px; }
+ .journal .title { font-size:clamp(20px,2.2vw,34px); line-height:1; letter-spacing:-.04em; }
 
-    .process{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-    }
-    .step{
-      border-top:1px solid var(--line);
-      padding-top:18px;
-    }
-    .step strong{display:block;margin-bottom:7px}
-    .step p{color:var(--muted);font-size:.94rem}
+ .contact { background:var(--ink); color:var(--ivory); min-height:100svh; display:grid; grid-template-columns:repeat(12,1fr); gap:var(--gutter); align-content:center; }
+ .contact h2 { grid-column:1 / 11; font-size:clamp(66px,11vw,178px); line-height:.77; letter-spacing:-.075em; text-transform:uppercase; margin:0; }
+ .contact .contact-link { grid-column:8 / 13; margin-top:64px; font-size:clamp(23px,3vw,44px); line-height:1; letter-spacing:-.04em; border-bottom:1px solid currentColor; padding-bottom:10px; }
+ .contact .socials { grid-column:1 / 8; margin-top:68px; display:flex; gap:20px; flex-wrap:wrap; }
+ .contact .socials a { font-family:"IBM Plex Mono",monospace; font-size:11px; text-transform:uppercase; letter-spacing:.06em; }
 
-    .about{
-      display:grid;
-      grid-template-columns:.85fr 1.15fr;
-      gap:30px;
-      align-items:stretch;
-    }
-    .about-photo{
-      border-radius:28px;
-      min-height:420px;
-      background:
-        radial-gradient(circle at 30% 25%, #c6b2ff 0 13%, transparent 14%),
-        radial-gradient(circle at 65% 60%, #ffb2c7 0 16%, transparent 17%),
-        linear-gradient(135deg,#27232e,#111);
-    }
-    .about-copy{
-      border-radius:28px;
-      background:var(--surface);
-      border:1px solid var(--line);
-      padding:38px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .about-copy p{color:var(--muted);margin-top:16px}
-    .about-points{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:25px}
-    .about-points div{
-      padding:14px;
-      border-radius:16px;
-      background:#f7f5f1;
-      font-size:.9rem;
-      font-weight:650;
-    }
+ .reveal-line {
+ position:absolute;
+ left:0;
+ top:0;
+ width:100%;
+ height:2px;
+ transform:scaleX(0);
+ transform-origin:left center;
+ background:var(--active-accent);
+ transition:transform .58s cubic-bezier(.2,.8,.2,1), background .35s ease;
+ z-index:6;
+ }
+ .scene.in-view .reveal-line { transform:scaleX(1); }
 
-    .cta{
-      background:var(--dark);
-      color:#fff;
-      border-radius:32px;
-      padding:54px;
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:30px;
-    }
-    .cta p{color:#c9c6cd;max-width:530px;margin-top:16px}
-    .cta .btn{background:#fff;color:#17171a;border-color:#fff;white-space:nowrap}
+ @media (max-width: 900px) {
+ :root { --display: clamp(62px, 17vw, 120px); --section-title: clamp(50px, 13vw, 94px); }
+ .header-links { display:none; }
+ .menu-toggle { display:block; }
+ .site-header { grid-template-columns:1fr auto; }
+ .branch-progress { right:7px; height:46vh; opacity:.7; }
+ .hero { grid-template-columns:repeat(6,1fr); }
+ .hero-title { grid-column:1 / 7; margin-top:9vh; }
+ .hero-copy { grid-column:2 / 7; margin-top:42px; margin-bottom:70px; }
+ .hero-code { grid-column:1 / 7; }
+ .hero-field { width:42vw; transform:translateX(72%); }
+ .question { grid-template-columns:1fr; }
+ .question h2, .question .intro, .pillars { grid-column:auto; }
+ .question .intro { margin-top:34px; max-width:34ch; }
+ .pillars { grid-template-columns:1fr 1fr; }
+ .pillar:nth-child(2) { border-right:0; }
+ .pillar:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+ .project { grid-template-columns:repeat(6,1fr); }
+ .nura h2, .nura .project-thesis, .nura .asset-frame, .nura .project-meta,
+ .cafe h2, .cafe .project-thesis, .cafe .asset-strip, .cafe .project-meta,
+ .verde h2, .verde .project-thesis, .verde .system-grid, .verde .project-meta,
+ .mara h2, .mara .project-thesis, .mara .mosaic, .mara .project-meta { grid-column:1 / 7; }
+ .project .project-thesis { margin-top:34px; }
+ .nura .asset-frame, .nura .project-meta { margin-top:34px; }
+ .cafe .asset-strip { grid-template-columns:1fr 1fr; }
+ .cafe .asset-strip .asset-frame:first-child { grid-column:1 / 3; }
+ .verde h2 { white-space:normal; }
+ .verde .system-grid { grid-template-columns:1fr 1fr; }
+ .mara::before { width:72vw; right:-18vw; }
+ .mara::after { width:48vw; left:12vw; }
+ .mara .mosaic { grid-template-columns:1fr 1fr; grid-template-rows:220px 220px 220px; }
+ .mara .mosaic div:nth-child(1) { grid-row:1/3; }
+ .method-header { grid-template-columns:1fr; }
+ .method-header h2, .method-header p { grid-column:auto; }
+ .method-header p { margin-top:24px; }
+ .method-item { grid-template-columns:56px 1fr; padding:22px 0; }
+ .method-item p { grid-column:2; }
+ .origin, .philosophy, .thinking-head, .contact { grid-template-columns:1fr; }
+ .origin h2, .origin .story, .archive, .philosophy h2, .philosophy p, .thinking h2, .thinking-head p, .contact h2, .contact .contact-link, .contact .socials { grid-column:auto; }
+ .origin .story { margin-top:36px; max-width:34ch; }
+ .archive { grid-template-columns:repeat(3,1fr); }
+ .philosophy p { margin-left:auto; max-width:30ch; }
+ .thinking-head p { margin-top:24px; }
+ .journal a { grid-template-columns:52px 1fr; padding:16px 0; }
+ .journal a .mono:last-child { display:none; }
+ .contact .contact-link { max-width:13ch; }
+ }
 
-    footer{padding:34px 0 50px;color:var(--muted);font-size:.9rem}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+ @media (max-width: 560px) {
+ :root { --pad:18px; --gutter:10px; }
+ .scene { padding-top:96px; }
+ .branch-progress { display:none; }
+ .hero-title { line-height:.82; }
+ .hero-title .language::after { left:0; right:-18vw; height:.11em; }
+ .hero-field { display:none; }
+ .pillars { grid-template-columns:1fr; }
+ .pillar { border-right:0; border-bottom:1px solid var(--line); padding-bottom:34px; }
+ .pillar:last-child { border-bottom:0; }
+ .cafe .asset-strip { grid-template-columns:1fr; }
+ .cafe .asset-strip .asset-frame:first-child { grid-column:auto; }
+ .cafe .asset-frame:nth-child(2) { margin-top:0; }
+ .verde .system-grid { grid-template-columns:1fr; }
+ .mara .mosaic { grid-template-columns:1fr; grid-template-rows:repeat(5, 190px); }
+ .mara .mosaic div:nth-child(1) { grid-row:auto; }
+ .archive { grid-template-columns:1fr 1fr; }
+ .method-item { grid-template-columns:42px 1fr; }
+ .journal a { grid-template-columns:42px 1fr; }
+ }
 
-    @media (max-width:860px){
-      .nav-links a:not(.nav-cta){display:none}
-      .hero,.project,.about{grid-template-columns:1fr}
-      .hero{padding-top:62px}
-      .services{grid-template-columns:1fr}
-      .process{grid-template-columns:1fr 1fr}
-      .project-visual{min-height:380px}
-      .section-head,.cta{align-items:flex-start;flex-direction:column}
-    }
+ @media (prefers-reduced-motion: reduce) {
+ html { scroll-behavior:auto; }
+ *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+ .reveal-line { transform:scaleX(1); }
+ }
 
-    @media (max-width:540px){
-      .wrap{width:min(var(--max), calc(100% - 24px))}
-      .process{grid-template-columns:1fr}
-      .about-points{grid-template-columns:1fr}
-      .cta{padding:30px}
-      .project-body{padding:28px}
-      section{padding:64px 0}
-    }
-  </style>
+ /* --- v2 refinement: spacing, fluid navigation branch, quieter studio blue --- */
+ .site-header {
+ grid-template-columns: minmax(170px,1fr) auto;
+ padding-top:18px;
+ mix-blend-mode:difference;
+ }
+ .header-links { position:relative; padding-bottom:16px; gap:24px; }
+ .header-branch {
+ position:absolute; left:-10px; right:0; bottom:0; width:calc(100% + 10px); height:17px;
+ overflow:visible; pointer-events:none;
+ }
+ .header-branch path { fill:none; stroke:currentColor; stroke-width:1.05; opacity:.48; vector-effect:non-scaling-stroke; stroke-linecap:round; }
+ .header-branch circle { fill:currentColor; opacity:.78; }
+
+ .branch-progress {
+ right:0; top:72px; transform:none; width:92px; height:calc(100vh - 92px);
+ opacity:.9; mix-blend-mode:normal;
+ }
+ .branch-progress .trunk, .branch-progress .branch {
+ stroke:var(--nav-neutral); stroke-width:1.2; opacity:.42; stroke-linecap:round; stroke-linejoin:round;
+ }
+ .branch-progress .branch { opacity:.28; }
+ .branch-progress .progress-line { stroke:var(--active-accent); stroke-width:2.15; stroke-linecap:round; stroke-linejoin:round; }
+ .branch-progress circle { fill:var(--nav-neutral); opacity:.42; }
+ .branch-progress circle.active { fill:var(--active-accent); opacity:1; r:5; }
+
+ .scene {
+ min-height:100svh;
+ padding-top:clamp(112px,14vh,164px);
+ padding-bottom:clamp(72px,10vh,126px);
+ }
+ .scene-marker { top:96px; }
+
+ .hero { grid-template-rows:auto 1fr auto; align-content:stretch; }
+ .hero-title {
+ grid-column:1 / 9; align-self:center;
+ font-size:clamp(70px,9.3vw,154px); line-height:.84; letter-spacing:-.068em;
+ max-width:8.6ch;
+ }
+ .hero-title .language::after {
+ left:.02em; right:.15em; height:4px; bottom:-.08em; z-index:0;
+ }
+ .hero-copy { grid-column:10 / 13; align-self:end; margin-bottom:58px; max-width:26ch; }
+ .hero-code { grid-column:1 / 6; padding-bottom:4px; }
+ .hero .branch-code .dot { background:var(--ink); }
+ .hero-field { display:none !important; }
+
+ .question { align-content:center; row-gap:0; }
+ .question h2 { grid-column:1 / 8; font-size:clamp(62px,7.2vw,118px); line-height:.88; max-width:8.8ch; }
+ .question .intro { grid-column:9 / 13; max-width:31ch; align-self:center; margin:0; }
+ .pillars { margin-top:clamp(56px,8vh,96px); }
+ .pillar { padding:20px 22px 48px 0; min-height:220px; }
+
+ .project {
+ min-height:108svh; align-content:start;
+ padding-top:clamp(126px,15vh,178px);
+ padding-bottom:clamp(84px,11vh,132px);
+ }
+ .project .project-no { top:92px; }
+ .project h2 {
+ font-size:clamp(66px,8.7vw,142px); line-height:.82; letter-spacing:-.065em;
+ max-width:100%; overflow-wrap:normal;
+ }
+ .project .project-thesis { font-size:clamp(24px,2.8vw,46px); line-height:1; max-width:13ch; }
+ .project .project-meta { max-width:38ch; }
+
+ .nura { background:var(--nura); }
+ .nura h2 { grid-column:1 / 8; }
+ .nura .project-thesis { grid-column:9 / 13; align-self:end; }
+ .nura .asset-frame { grid-column:1 / 8; margin-top:58px; min-height:360px; background:var(--nura-ice); color:var(--ink); border-color:rgba(255,255,255,.35); }
+ .nura .project-meta { grid-column:9 / 13; margin-top:58px; }
+
+ .cafe h2 { grid-column:1 / 7; max-width:6ch; font-size:clamp(64px,8.2vw,136px); }
+ .cafe .project-thesis { grid-column:9 / 13; align-self:center; max-width:8ch; }
+ .cafe .asset-strip { margin-top:60px; gap:clamp(14px,1.7vw,26px); }
+ .cafe .asset-frame:nth-child(2) { margin-top:58px; }
+ .cafe .project-meta { grid-column:2 / 6; margin-top:30px; }
+
+ .verde h2 { grid-column:1 / 10; white-space:normal; max-width:8.7ch; font-size:clamp(62px,8.2vw,136px); }
+ .verde .project-thesis { grid-column:10 / 13; margin-top:18px; align-self:end; }
+ .verde .system-grid { grid-column:4 / 13; margin-top:54px; }
+ .verde .project-meta { grid-column:1 / 4; margin-top:54px; align-self:start; }
+
+ .mara { min-height:115svh; }
+ .mara::before { width:38vw; height:34vh; right:-2vw; top:20vh; }
+ .mara::after { width:28vw; height:28vh; left:42vw; bottom:8vh; }
+ .mara h2 { grid-column:1 / 6; max-width:5.5ch; font-size:clamp(66px,8.4vw,138px); }
+ .mara .project-thesis { grid-column:8 / 13; align-self:center; max-width:10ch; padding:34px 0; }
+ .mara .mosaic { margin-top:62px; grid-template-columns:1.15fr .75fr .95fr; grid-template-rows:minmax(220px,26vh) minmax(240px,30vh); }
+ .mara .project-meta { grid-column:8 / 13; margin-top:34px; }
+
+ .return h2 span { color:var(--cobalt); }
+
+ @media (max-width:1100px) {
+ .hero-title { grid-column:1 / 10; font-size:clamp(68px,10vw,128px); }
+ .hero-copy { grid-column:9 / 13; }
+ .branch-progress { width:68px; opacity:.78; }
+ .header-links { gap:17px; }
+ .question h2 { grid-column:1 / 9; }
+ .question .intro { grid-column:9 / 13; }
+ .project h2 { font-size:clamp(60px,9.4vw,118px); }
+ }
+
+ @media (max-width:900px) {
+ .header-branch { display:none; }
+ .branch-progress { right:1px; top:74px; width:50px; height:calc(100vh - 90px); }
+ .hero-title, .hero-copy, .hero-code { grid-column:1 / 7; }
+ .hero-copy { margin-top:44px; max-width:31ch; }
+ .question h2, .question .intro, .pillars { grid-column:auto; }
+ .project { padding-top:118px; }
+ .project h2 { font-size:clamp(58px,14vw,106px); line-height:.84; }
+ .nura h2, .nura .project-thesis, .nura .asset-frame, .nura .project-meta,
+ .cafe h2, .cafe .project-thesis, .cafe .asset-strip, .cafe .project-meta,
+ .verde h2, .verde .project-thesis, .verde .system-grid, .verde .project-meta,
+ .mara h2, .mara .project-thesis, .mara .mosaic, .mara .project-meta { grid-column:1 / 7; }
+ .mara .project-thesis { padding:0; }
+ }
+
+ @media (max-width:560px) {
+ .branch-progress { display:none; }
+ .hero-title { font-size:clamp(54px,16.5vw,88px); max-width:9ch; }
+ .hero-title .language::after { right:.08em; height:3px; bottom:-.06em; }
+ .project h2 { font-size:clamp(54px,15vw,84px); }
+ .cafe h2, .mara h2 { max-width:none; }
+ .mara::before { width:78vw; height:26vh; top:22vh; right:-28vw; }
+ .mara::after { width:66vw; height:22vh; left:20vw; bottom:9vh; }
+ }
+
+
+ /* --- v3 refinement: balanced pillars, clean Mara layout, navigable fluid branch --- */
+ :root { --branch-rail: 58px; }
+
+ @media (min-width: 901px) {
+ .scene { padding-right: calc(var(--pad) + var(--branch-rail)); }
+ }
+
+ /* Question / four pillars: equal breathing room inside every cell. */
+ .pillars {
+ margin-left: clamp(10px, 1.1vw, 18px);
+ margin-right: clamp(10px, 1.1vw, 18px);
+ width: auto;
+ }
+ .pillar {
+ min-height: 236px;
+ padding: 26px clamp(24px, 2.1vw, 34px) 42px;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ }
+ .pillar strong {
+ margin-top: 34px;
+ }
+ .pillar p {
+ max-width: 22ch;
+ margin-top: 14px;
+ }
+
+ /* Branch navigation: smoother, quieter, aligned, and genuinely navigable. */
+ .branch-progress {
+ right: 8px;
+ top: 88px;
+ width: 56px;
+ height: calc(100vh - 112px);
+ opacity: 1;
+ mix-blend-mode: normal;
+ pointer-events: auto;
+ }
+ .branch-progress svg { overflow: visible; }
+ .branch-progress .trunk {
+ stroke: var(--nav-neutral);
+ stroke-width: 1.1;
+ opacity: .32;
+ fill: none;
+ vector-effect: non-scaling-stroke;
+ stroke-linecap: round;
+ }
+ .branch-progress .branch {
+ stroke: var(--nav-neutral);
+ stroke-width: .95;
+ opacity: .22;
+ fill: none;
+ vector-effect: non-scaling-stroke;
+ stroke-linecap: round;
+ }
+ .branch-progress .progress-line {
+ stroke: var(--active-accent);
+ stroke-width: 1.9;
+ opacity: .95;
+ fill: none;
+ vector-effect: non-scaling-stroke;
+ stroke-linecap: round;
+ stroke-dasharray: 1;
+ stroke-dashoffset: 1;
+ transition: stroke .35s ease, stroke-dashoffset .45s cubic-bezier(.2,.75,.2,1);
+ }
+ .branch-progress .branch-node { pointer-events: auto; cursor: pointer; }
+ .branch-progress .node-hit { fill: transparent; pointer-events: all; }
+ .branch-progress .node-dot {
+ fill: var(--nav-neutral);
+ opacity: .48;
+ vector-effect: non-scaling-stroke;
+ transition: fill .25s ease, opacity .25s ease, r .25s ease;
+ }
+ .branch-progress .branch-node:hover .node-dot {
+ fill: var(--active-accent);
+ opacity: .86;
+ r: 3.8;
+ }
+ .branch-progress .node-dot.active {
+ fill: var(--active-accent);
+ opacity: 1;
+ r: 4.2;
+ }
+
+ /* Header path: restrained and smooth. */
+ .header-branch path {
+ stroke-width: .9;
+ opacity: .34;
+ stroke-linecap: round;
+ }
+ .header-branch circle {
+ r: 1.8;
+ opacity: .58;
+ }
+
+ /* Mara: all color lives inside deliberate modules; nothing sits behind text. */
+ .mara {
+ min-height: 112svh;
+ align-content: start;
+ }
+ .mara::before,
+ .mara::after {
+ display: none !important;
+ }
+ .mara h2 {
+ grid-column: 1 / 6;
+ max-width: 5.4ch;
+ align-self: end;
+ position: relative;
+ z-index: 1;
+ }
+ .mara .project-thesis {
+ grid-column: 8 / 13;
+ align-self: end;
+ max-width: none;
+ min-height: 210px;
+ margin: 0;
+ padding: clamp(28px, 3vw, 46px);
+ display: flex;
+ align-items: flex-end;
+ background: var(--mara);
+ color: var(--white);
+ position: relative;
+ z-index: 1;
+ }
+ .mara .mosaic {
+ grid-column: 1 / 13;
+ margin-top: clamp(44px, 6vh, 70px);
+ display: grid;
+ grid-template-columns: 1.15fr .78fr .92fr;
+ grid-template-rows: minmax(220px, 29vh) minmax(220px, 29vh);
+ gap: 12px;
+ position: relative;
+ z-index: 1;
+ }
+ .mara .mosaic div {
+ border: 1px solid var(--ink);
+ padding: clamp(16px, 1.5vw, 22px);
+ background: var(--ivory);
+ backdrop-filter: none;
+ overflow: hidden;
+ }
+ .mara .mosaic div:nth-child(1) {
+ grid-row: 1 / 3;
+ background: var(--ink);
+ color: var(--ivory);
+ }
+ .mara .mosaic div:nth-child(2) { background: var(--ivory); }
+ .mara .mosaic div:nth-child(3) { background: #E8E3FF; }
+ .mara .mosaic div:nth-child(4) { background: var(--mara); color: var(--white); }
+ .mara .mosaic div:nth-child(5) { background: var(--aqua); color: var(--ink); }
+ .mara .project-meta {
+ grid-column: 8 / 13;
+ margin-top: 30px;
+ max-width: 40ch;
+ position: relative;
+ z-index: 1;
+ }
+
+ /* Return-to-studio supporting thought should sit deliberately under the statement. */
+ .return > div:nth-of-type(2) {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+ .return p {
+ margin: 34px auto 0;
+ max-width: 34ch;
+ text-align: center;
+ line-height: 1.38;
+ }
+
+ @media (max-width: 900px) {
+ .pillars { margin-left: 0; margin-right: 0; }
+ .pillar { padding: 24px 24px 38px; }
+ .branch-progress {
+ right: 3px;
+ top: 82px;
+ width: 42px;
+ height: calc(100vh - 100px);
+ }
+ .mara h2,
+ .mara .project-thesis,
+ .mara .mosaic,
+ .mara .project-meta { grid-column: 1 / 7; }
+ .mara .project-thesis {
+ margin-top: 30px;
+ min-height: 150px;
+ }
+ .mara .mosaic {
+ grid-template-columns: 1fr 1fr;
+ grid-template-rows: repeat(3, minmax(190px, 24vh));
+ }
+ .mara .mosaic div:nth-child(1) { grid-row: 1 / 3; }
+ }
+
+ @media (max-width: 560px) {
+ .pillar { min-height: auto; padding: 22px 18px 32px; }
+ .mara .mosaic {
+ grid-template-columns: 1fr;
+ grid-template-rows: repeat(5, 190px);
+ }
+ .mara .mosaic div:nth-child(1) { grid-row: auto; }
+ .return p { max-width: 28ch; }
+ }
+
+
+ /* --- v4: remove cheap decorative rule + standardize case-study information --- */
+
+ /* The old two-dot scene rule is retired completely. */
+ .scene-marker { display: none !important; }
+
+ /*
+ Every mock case study now ends with the same information band.
+ The project itself can change visual language; the reading pattern stays predictable.
+ */
+ .project .project-meta,
+ .nura .project-meta,
+ .cafe .project-meta,
+ .verde .project-meta,
+ .mara .project-meta {
+ grid-column: 1 / 13 !important;
+ width: 100%;
+ max-width: none !important;
+ margin: clamp(34px, 5vh, 58px) 0 0 !important;
+ padding: clamp(20px, 2.1vw, 30px) 0 0;
+ border-top: 1px solid currentColor;
+ display: grid;
+ grid-template-columns: minmax(210px, 3fr) minmax(340px, 6fr) minmax(90px, 2fr);
+ column-gap: clamp(24px, 3vw, 54px);
+ align-items: start;
+ position: relative;
+ z-index: 3;
+ font-size: 13px;
+ line-height: 1.48;
+ }
+
+ .project .project-meta > .mono {
+ grid-column: 1;
+ max-width: 30ch;
+ line-height: 1.55;
+ letter-spacing: .035em;
+ text-transform: uppercase;
+ opacity: .82;
+ }
+
+ .project .project-meta > p {
+ grid-column: 2;
+ max-width: 48ch;
+ margin: 0;
+ font-size: clamp(14px, .95vw, 16px);
+ line-height: 1.52;
+ }
+
+ /* Keep the final column intentionally empty: it creates a reliable visual pause
+ before the branch navigation on the right edge. */
+ .project .project-meta::after {
+ content: "PROJECT NOTE";
+ grid-column: 3;
+ justify-self: end;
+ font-family: "IBM Plex Mono", ui-monospace, monospace;
+ font-size: 10px;
+ letter-spacing: .06em;
+ opacity: .42;
+ }
+
+ /* Project-specific contrast only; geometry remains identical. */
+ .nura .project-meta {
+ border-top-color: rgba(255,255,255,.52);
+ }
+ .verde .project-meta {
+ border-top-color: rgba(185,255,36,.48);
+ }
+ .cafe .project-meta,
+ .mara .project-meta {
+ border-top-color: rgba(10,10,10,.45);
+ }
+
+ /* On Mara, the metadata is no longer treated as another colored module. */
+ .mara .project-meta {
+ background: transparent !important;
+ color: var(--ink) !important;
+ }
+
+ @media (max-width: 900px) {
+ .project .project-meta,
+ .nura .project-meta,
+ .cafe .project-meta,
+ .verde .project-meta,
+ .mara .project-meta {
+ grid-column: 1 / 7 !important;
+ grid-template-columns: minmax(150px, .75fr) minmax(0, 1.6fr);
+ gap: 18px 26px;
+ padding-top: 20px;
+ }
+ .project .project-meta > .mono { grid-column: 1; }
+ .project .project-meta > p { grid-column: 2; }
+ .project .project-meta::after { display: none; }
+ }
+
+ @media (max-width: 560px) {
+ .project .project-meta,
+ .nura .project-meta,
+ .cafe .project-meta,
+ .verde .project-meta,
+ .mara .project-meta {
+ grid-template-columns: 1fr;
+ row-gap: 14px;
+ margin-top: 30px !important;
+ }
+ .project .project-meta > .mono,
+ .project .project-meta > p {
+ grid-column: 1;
+ }
+ .project .project-meta > p {
+ max-width: 36ch;
+ }
+ }
+
+
+ /* --- v5: Mara thesis becomes type, not a color block --- */
+ .mara .project-thesis {
+ background: transparent !important;
+ color: var(--mara) !important;
+ min-height: 0 !important;
+ padding: 0 !important;
+ display: block !important;
+ align-self: end !important;
+ max-width: 9ch !important;
+ }
+
+ @media (max-width: 900px) {
+ .mara .project-thesis {
+ margin-top: 28px !important;
+ max-width: 11ch !important;
+ }
+ }
+
+
+ /* --- v6: hero breathing room + punctuation cleanup --- */
+ .hero h1 {
+ line-height: .92 !important;
+ }
+
+ @media (max-width: 900px) {
+ .hero h1 {
+ line-height: .94 !important;
+ }
+ }
+
+ @media (max-width: 560px) {
+ .hero h1 {
+ line-height: .96 !important;
+ }
+ }
+
+ </style>
 </head>
 <body>
+ <header class="site-header" aria-label="Primary navigation">
+ <a class="brand" href="#hero" aria-label="Autumn Branches Studio home"><span>Autumn Branches</span><span>Studio</span></a>
+ <nav class="header-links" aria-label="Desktop navigation">
+ <a href="#work">Work</a>
+ <a href="#method">Approach</a>
+ <a href="#origin">About</a>
+ <a href="#thinking">Thinking</a>
+ <a href="#contact">Contact</a>
+ <svg class="header-branch" viewBox="0 0 430 34" aria-hidden="true" preserveAspectRatio="none">
+ <path d="M8 22 C74 22 91 12 146 18 C202 24 231 8 286 17 C338 25 376 19 422 20"/>
+ <circle cx="9" cy="22" r="2.4"/><circle cx="108" cy="16" r="2.4"/><circle cx="213" cy="19" r="2.4"/><circle cx="319" cy="20" r="2.4"/><circle cx="421" cy="20" r="2.4"/>
+ </svg>
+ </nav>
+ <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-index">Index</button>
+ </header>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a class="brand" href="#">YOUR NAME.</a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#work">Work</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
-      <a class="nav-cta" href="mailto:hello@example.com">Let's talk</a>
-    </div>
-  </div>
-</nav>
+ <div id="mobile-index" class="mobile-index" aria-hidden="true">
+ <button class="close mono" type="button">Close</button>
+ <nav>
+ <a href="#work">Work</a>
+ <a href="#method">Approach</a>
+ <a href="#origin">About</a>
+ <a href="#thinking">Thinking</a>
+ <a href="#contact">Contact</a>
+ </nav>
+ <div class="mono">Autumn Branches Studio / Prototype</div>
+ </div>
 
-<main>
-  <div class="wrap hero">
-    <div>
-      <span class="eyebrow">Social Media + Content</span>
-      <h1>I turn ideas into content people notice.</h1>
-      <p class="hero-copy">
-        I help small businesses build a clearer, more consistent social presence through content strategy,
-        social media planning, copy, and creative concepts.
-      </p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#work">See concept projects</a>
-        <a class="btn secondary" href="#services">What I can help with</a>
-      </div>
-    </div>
+ <aside class="branch-progress" aria-label="Page navigation">
+ <svg viewBox="0 0 80 1000" preserveAspectRatio="none" role="img" aria-label="Autumn Branches page path">
+ <path id="branch-trunk" class="trunk" d="M52 0 C55 82 38 122 42 198 C46 278 60 320 51 398 C43 472 29 516 34 594 C39 676 54 714 47 790 C42 854 29 904 34 1000"/>
+ <g class="branch-offshoots"></g>
+ <path class="progress-line" pathLength="1" d="M52 0 C55 82 38 122 42 198 C46 278 60 320 51 398 C43 472 29 516 34 594 C39 676 54 714 47 790 C42 854 29 904 34 1000"/>
+ <g class="nodes">
+ <a class="branch-node" href="#hero" aria-label="Studio opening">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="0"></circle>
+ </a>
+ <a class="branch-node" href="#question" aria-label="Point of view">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="1"></circle>
+ </a>
+ <a class="branch-node" href="#nura" aria-label="Nura Wellness">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="2"></circle>
+ </a>
+ <a class="branch-node" href="#cafe" aria-label="Cafe Lumiere">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="3"></circle>
+ </a>
+ <a class="branch-node" href="#verde" aria-label="Verde Systems">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="4"></circle>
+ </a>
+ <a class="branch-node" href="#mara" aria-label="Mara Vale">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="5"></circle>
+ </a>
+ <a class="branch-node" href="#return" aria-label="Return to studio">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="6"></circle>
+ </a>
+ <a class="branch-node" href="#method" aria-label="Approach">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="7"></circle>
+ </a>
+ <a class="branch-node" href="#origin" aria-label="Origin">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="8"></circle>
+ </a>
+ <a class="branch-node" href="#philosophy" aria-label="Philosophy">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="9"></circle>
+ </a>
+ <a class="branch-node" href="#thinking" aria-label="Thinking">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="10"></circle>
+ </a>
+ <a class="branch-node" href="#contact" aria-label="Contact">
+ <circle class="node-hit" cx="0" cy="0" r="11"></circle>
+ <circle class="node-dot" cx="0" cy="0" r="2.8" data-index="11"></circle>
+ </a>
+ </g>
+ </svg>
+ </aside>
 
-    <div class="hero-card">
-      <div class="mini-label">Portfolio focus</div>
-      <div class="big">Plan. Create. Grow.</div>
-      <div class="small">Strategy-first social media for small brands that need structure, personality, and consistency.</div>
-    </div>
-  </div>
+ <main>
+ <section id="hero" class="scene hero" data-accent="#0A0A0A">
+ <div class="reveal-line"></div>
+ <h1 class="hero-title">Your brand,<br>in its own <span class="language">language.</span></h1>
+ <p class="hero-copy">Creative strategy, social media and content shaped around how your brand actually needs to show up.</p>
+ <div class="hero-code">
+ <div class="branch-code" aria-hidden="true"><i class="dot"></i><i class="dash-lg"></i><i class="dot"></i><i class="dash-sm"></i><i class="dot"></i></div>
+ <span class="mono">Scroll / 001</span>
+ </div>
+ <div class="scene-id mono">Autumn Branches / Studio proposition</div>
+ </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Services</span>
-          <h2>Where I can add value.</h2>
-        </div>
-        <p>
-          Early in your career, your portfolio can show how you think as much as what you have already done.
-          These are the capabilities your mock projects should prove.
-        </p>
-      </div>
+ <section id="question" class="scene question" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <h2>What are you<br>trying to say?</h2>
+ <p class="intro">Before the feed, before the campaign, before the content calendar: there is a business, an audience, and a point of view worth understanding.</p>
+ <div class="pillars">
+ <article class="pillar"><span class="mono">01</span><strong>Position</strong><p>What should only this brand be able to say?</p></article>
+ <article class="pillar"><span class="mono">02</span><strong>Story</strong><p>What makes the message worth following?</p></article>
+ <article class="pillar"><span class="mono">03</span><strong>Presence</strong><p>How should the brand feel when it shows up?</p></article>
+ <article class="pillar"><span class="mono">04</span><strong>Direction</strong><p>What should we make, where should it live, and why?</p></article>
+ </div>
+ <div class="scene-id mono">Point of view / 002</div>
+ </section>
 
-      <div class="services">
-        <article class="card">
-          <div class="number">01</div>
-          <h3>Social Strategy</h3>
-          <p>Audience definition, channel choice, competitor review, content pillars, campaign ideas, and monthly plans.</p>
-        </article>
-        <article class="card">
-          <div class="number">02</div>
-          <h3>Content Development</h3>
-          <p>Turning brand goals into themes, hooks, post ideas, scripts, captions, content calendars, and reusable series.</p>
-        </article>
-        <article class="card">
-          <div class="number">03</div>
-          <h3>Content Creation</h3>
-          <p>Concepting static posts, carousels, short-form video ideas, story sequences, simple creative direction, and copy.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+ <div id="work">
+ <section id="nura" class="scene project nura" data-accent="#285F73">
+ <div class="reveal-line"></div>
+ <div class="project-no">Project / 01 / Concept</div>
+ <h2>Nura<br>Wellness</h2>
+ <div class="project-thesis">Clear enough to trust.</div>
+ <div class="asset-frame"><span class="mono">Placeholder / original brand system + social assets</span></div>
+ <div class="project-meta"><span class="mono">Language / Precision / Calm / Mineral blue</span><p>A concept wellness brand built around clarity rather than beige reassurance. Strategy, educational content, campaign thinking and a restrained digital system.</p><a class="case-link" href="projects/nura-wellness/index.html" data-color="#285F73">EXPLORE CASE STUDY <span aria-hidden="true">→</span></a></div>
+ <div class="scene-id mono">Nura Wellness / 003</div>
+ </section>
 
-  <section id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Concept work</span>
-          <h2>Mock projects with real thinking.</h2>
-        </div>
-        <p>
-          These are deliberately labeled concept projects. Replace the examples with your own visuals and reasoning as you build them.
-        </p>
-      </div>
+ <section id="cafe" class="scene project cafe" data-accent="#F4C82E">
+ <div class="reveal-line"></div>
+ <div class="project-no">Project / 02 / Concept</div>
+ <h2>Cafe<br>Lumiere</h2>
+ <div class="project-thesis">A reason to stay.</div>
+ <div class="asset-strip">
+ <div class="asset-frame"><span class="mono">Placeholder / documentary cafe imagery</span></div>
+ <div class="asset-frame"><span class="mono">Menu / receipt / type</span></div>
+ <div class="asset-frame"><span class="mono">Social / community moment</span></div>
+ </div>
+ <div class="project-meta"><span class="mono">Language / Social / Warm / Lived-in</span><p>A neighbourhood cafe treated as a meeting point, not a polished lifestyle prop. Content built around rituals, people, movement and local culture.</p><a class="case-link" href="projects/cafe-lumiere/index.html" data-color="#F4C82E">EXPLORE CASE STUDY <span aria-hidden="true">→</span></a></div>
+ <div class="scene-id mono">Cafe Lumiere / 004</div>
+ </section>
 
-      <div class="projects">
-        <article class="project">
-          <div class="project-visual">
-            <div class="phone">
-              <div class="phone-top"></div>
-              <div class="social-post">
-                <div class="post-head">MORNING MUSE COFFEE</div>
-                <div class="post-image">Your coffee deserves a personality.</div>
-                <div class="post-copy">A sample launch post for a neighborhood café content refresh.</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <span class="eyebrow">Concept project 01</span>
-            <h3 style="margin-top:16px;">Morning Muse Coffee — Local Café Growth Plan</h3>
-            <div class="tag-row">
-              <span class="tag">Instagram</span>
-              <span class="tag">Content pillars</span>
-              <span class="tag">Community growth</span>
-            </div>
-            <p>
-              Goal: make the café feel like a local personality rather than another place posting product photos.
-              The strategy combines staff-led content, customer rituals, neighborhood stories, and weekly offers.
-            </p>
-            <ul class="project-list">
-              <li>3 content pillars: product, people, neighborhood</li>
-              <li>Sample 4-week content calendar</li>
-              <li>6 feed concepts + 4 Reel ideas</li>
-              <li>Engagement plan for local discovery</li>
-            </ul>
-            <div class="note">Concept project — created independently for portfolio demonstration.</div>
-          </div>
-        </article>
+ <section id="verde" class="scene project verde" data-accent="#B9FF24">
+ <div class="reveal-line"></div>
+ <div class="project-no">Project / 03 / Concept</div>
+ <h2>Verde Systems</h2>
+ <div class="project-thesis">Built for what is next.</div>
+ <div class="system-grid">
+ <div><span class="mono">01 / Positioning</span><strong>Adaptive systems</strong></div>
+ <div><span class="mono">02 / Digital</span><strong>Interface language</strong></div>
+ <div><span class="mono">03 / Launch</span><strong>Campaign system</strong></div>
+ <div><span class="mono">04 / Content</span><strong>Data as story</strong></div>
+ <div><span class="mono">05 / Social</span><strong>Momentum</strong></div>
+ <div><span class="mono">06 / Proof</span><strong>Infrastructure made visible</strong></div>
+ </div>
+ <div class="project-meta"><span class="mono">Language / Technical / Kinetic / Acid</span><p>A startup brand where the visual system moves like infrastructure: modular, sharp, measurable and forward-facing without defaulting to generic SaaS gradients.</p><a class="case-link" href="projects/verde-systems/index.html" data-color="#B9FF24">EXPLORE CASE STUDY <span aria-hidden="true">→</span></a></div>
+ <div class="scene-id mono">Verde Systems / 005</div>
+ </section>
 
-        <article class="project">
-          <div class="project-visual">
-            <div class="phone" style="transform:rotate(3deg)">
-              <div class="phone-top"></div>
-              <div class="social-post">
-                <div class="post-head">ROOT & RIND SKIN</div>
-                <div class="post-image">Simple skin. Clear routine.</div>
-                <div class="post-copy">Educational carousel direction for a fictional skincare brand.</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <span class="eyebrow">Concept project 02</span>
-            <h3 style="margin-top:16px;">Root & Rind — Skincare Education Strategy</h3>
-            <div class="tag-row">
-              <span class="tag">Content education</span>
-              <span class="tag">Carousel concepts</span>
-              <span class="tag">Brand voice</span>
-            </div>
-            <p>
-              Goal: build trust without sounding clinical or overcomplicated. The content system explains one skin problem
-              at a time and links every educational post to a simple product routine.
-            </p>
-            <ul class="project-list">
-              <li>Audience pain-point map</li>
-              <li>Brand voice: calm, clear, non-judgmental</li>
-              <li>Myth-vs-fact and routine-based content series</li>
-              <li>Sample captions and CTA library</li>
-            </ul>
-            <div class="note">Concept project — created independently for portfolio demonstration.</div>
-          </div>
-        </article>
+ <section id="mara" class="scene project mara" data-accent="#6A4CFF">
+ <div class="reveal-line"></div>
+ <div class="project-no">Project / 04 / Concept</div>
+ <h2>Mara Vale</h2>
+ <div class="project-thesis">A person with a point of view.</div>
+ <div class="mosaic">
+ <div><span class="mono">Work / opinion / culture / life</span></div>
+ <div><span class="mono">Flash photo / future owned visual</span></div>
+ <div><span class="mono">Reference / fragment / note</span></div>
+ <div><span class="mono">One-line opinion</span></div>
+ <div><span class="mono">Project breakdown</span></div>
+ </div>
+ <div class="project-meta"><span class="mono">Language / Expressive / Cultural / Maximal</span><p>A personal brand designed around perspective rather than productivity tropes. Consistency comes from voice, taste and editorial rhythm, not identical templates.</p><a class="case-link" href="projects/mara-vale/index.html" data-color="#6A4CFF">EXPLORE CASE STUDY <span aria-hidden="true">→</span></a></div>
+ <div class="scene-id mono">Mara Vale / 006</div>
+ </section>
+ </div>
 
-        <article class="project">
-          <div class="project-visual">
-            <div class="phone">
-              <div class="phone-top"></div>
-              <div class="social-post">
-                <div class="post-head">STUDIO NORTH YOGA</div>
-                <div class="post-image">Move because your day needs it.</div>
-                <div class="post-copy">A community-first content concept for a small yoga studio.</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-body">
-            <span class="eyebrow">Concept project 03</span>
-            <h3 style="margin-top:16px;">Studio North — Community & Conversion Campaign</h3>
-            <div class="tag-row">
-              <span class="tag">Reels</span>
-              <span class="tag">Local business</span>
-              <span class="tag">Lead generation</span>
-            </div>
-            <p>
-              Goal: turn passive followers into trial-class bookings. The idea balances approachable instructor content,
-              beginner FAQs, member stories, and a focused “first week” offer.
-            </p>
-            <ul class="project-list">
-              <li>7-day campaign outline</li>
-              <li>5 short-form video scripts</li>
-              <li>Stories sequence for FAQs and objections</li>
-              <li>Simple KPI framework: saves, DMs, clicks, trials</li>
-            </ul>
-            <div class="note">Concept project — created independently for portfolio demonstration.</div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+ <section id="return" class="scene return" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <div>
+ <h2>Same studio.<br><span>Different answers.</span></h2>
+ <p>We do not begin with an aesthetic. We begin with the brand.</p>
+ </div>
+ <div class="scene-id mono">Return to studio / 007</div>
+ </section>
 
-  <section id="process">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Process</span>
-          <h2>How I would approach a brand.</h2>
-        </div>
-        <p>This is useful portfolio content because it shows a prospective client that you have a repeatable method.</p>
-      </div>
+ <section id="method" class="scene method" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <div class="method-header">
+ <h2>How the thinking moves.</h2>
+ <p>A method, not a formula. Each step changes according to the problem in front of us.</p>
+ </div>
+ <div class="method-list">
+ <div class="method-item active"><span class="mono">01</span><div class="verb">Ask</div><p>What are you actually trying to change?</p></div>
+ <div class="method-item"><span class="mono">02</span><div class="verb">Understand</div><p>Who needs to care, and why?</p></div>
+ <div class="method-item"><span class="mono">03</span><div class="verb">Position</div><p>What should only you be able to say?</p></div>
+ <div class="method-item"><span class="mono">04</span><div class="verb">Make</div><p>What form should the idea take?</p></div>
+ <div class="method-item"><span class="mono">05</span><div class="verb">Publish</div><p>Where does it need to live?</p></div>
+ <div class="method-item"><span class="mono">06</span><div class="verb">Learn</div><p>What happened, and what do we do next?</p></div>
+ </div>
+ <div class="scene-id mono">Approach / 008</div>
+ </section>
 
-      <div class="process">
-        <div class="step">
-          <strong>01 — Diagnose</strong>
-          <p>Review the business, audience, offers, current content, competitors, and gaps.</p>
-        </div>
-        <div class="step">
-          <strong>02 — Position</strong>
-          <p>Choose the audience, brand voice, key messages, content pillars, and channel priorities.</p>
-        </div>
-        <div class="step">
-          <strong>03 — Create</strong>
-          <p>Build a practical calendar with hooks, formats, scripts, captions, visual direction, and CTAs.</p>
-        </div>
-        <div class="step">
-          <strong>04 — Improve</strong>
-          <p>Measure what earns attention and action, then iterate based on reach, saves, clicks, DMs, and leads.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+ <section id="origin" class="scene origin" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <h2>Autumn Branches<br>started somewhere else.</h2>
+ <div class="story"><p>It began as a place for literature, film, poetry, music and images, things worth noticing, collecting and sharing.</p><p>That same curiosity became an interest in how people, businesses and ideas communicate. Now Autumn Branches Studio applies that instinct to brands.</p></div>
+ <div class="archive" aria-label="Archive placeholders">
+ <div><span class="mono">Literature</span></div><div><span class="mono">Cinema</span></div><div><span class="mono">Image</span></div><div><span class="mono">Music</span></div><div><span class="mono">Culture</span></div><div><span class="mono">Observation</span></div>
+ </div>
+ <div class="scene-id mono">Origin / 009</div>
+ </section>
 
-  <section id="about">
-    <div class="wrap about">
-      <div class="about-photo" aria-label="Replace this decorative area with your portrait"></div>
-      <div class="about-copy">
-        <span class="eyebrow">About me</span>
-        <h2 style="margin-top:16px;">A strategist-in-progress who likes making ideas useful.</h2>
-        <p>
-          I am building my practice in social media marketing, content development, and content creation.
-          My focus is helping small businesses communicate more clearly and consistently online.
-        </p>
-        <p>
-          I use concept projects to demonstrate my approach to research, strategy, creative thinking, and execution
-          while I build real-world client experience.
-        </p>
-        <div class="about-points">
-          <div>Strategy before posting</div>
-          <div>Clear, human brand voice</div>
-          <div>Small-business practicality</div>
-          <div>Content with a purpose</div>
-        </div>
-      </div>
-    </div>
-  </section>
+ <section id="philosophy" class="scene philosophy" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <h2>We pay<br>attention first.</h2>
+ <p>Good content does not begin with a format. It begins with understanding what is worth saying, and finding the right way to say it.</p>
+ <div class="scene-id mono">Philosophy / 010</div>
+ </section>
 
-  <section>
-    <div class="wrap cta">
-      <div>
-        <span class="eyebrow">Work with me</span>
-        <h2 style="margin-top:18px;">Need a stronger social presence?</h2>
-        <p>
-          I can help turn your business goals into a clearer content plan, stronger messaging, and practical social media ideas.
-        </p>
-      </div>
-      <a class="btn" href="mailto:hello@example.com">hello@example.com</a>
-    </div>
-  </section>
-</main>
+ <section id="thinking" class="scene thinking" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <div class="thinking-head">
+ <h2>Thinking / Journal</h2>
+ <p>Short observations, working ideas and questions about brands, social media, culture and communication.</p>
+ </div>
+ <div class="journal">
+ <a href="#"><span class="mono">001</span><span class="title">Why consistency is not sameness</span><span class="mono">Read / later</span></a>
+ <a href="#"><span class="mono">002</span><span class="title">Your feed is not your brand</span><span class="mono">Read / later</span></a>
+ <a href="#"><span class="mono">003</span><span class="title">What makes a personal brand feel human?</span><span class="mono">Read / later</span></a>
+ <a href="#"><span class="mono">004</span><span class="title">Strategy before aesthetics</span><span class="mono">Read / later</span></a>
+ <a href="#"><span class="mono">005</span><span class="title">Not everything needs to become content</span><span class="mono">Read / later</span></a>
+ <a href="#"><span class="mono">006</span><span class="title">Why some brands should post less</span><span class="mono">Read / later</span></a>
+ </div>
+ <div class="scene-id mono">Thinking / 011</div>
+ </section>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div>© 2026 YOUR NAME</div>
-    <div>Instagram · LinkedIn · Email</div>
-  </div>
-</footer>
+ <section id="contact" class="scene contact" data-accent="#1739E6">
+ <div class="reveal-line"></div>
+ <h2>Have something<br>worth saying?</h2>
+ <a class="contact-link" href="mailto:hello@example.com">Let's find the right way to say it. &rarr;</a>
+ <div class="socials"><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="mailto:hello@example.com">Email</a></div>
+ <div class="scene-id mono">Autumn Branches Studio / 012</div>
+ </section>
+ </main>
 
+ <script>
+ const scenes = [...document.querySelectorAll('.scene')];
+ const nodes = [...document.querySelectorAll('.branch-progress .node-dot')];
+ const progress = document.querySelector('.progress-line');
+ const root = document.documentElement;
+
+ const branchTrunk = document.querySelector('#branch-trunk');
+ const branchOffshoots = document.querySelector('.branch-offshoots');
+
+ function layoutBranchNavigation() {
+ if (!branchTrunk || !nodes.length) return;
+ const total = branchTrunk.getTotalLength();
+
+ nodes.forEach((node, i) => {
+ const fraction = nodes.length <= 1 ? 0 : i / (nodes.length - 1);
+ const pt = branchTrunk.getPointAtLength(total * fraction);
+ const parent = node.closest('.branch-node');
+ const hit = parent?.querySelector('.node-hit');
+ node.setAttribute('cx', pt.x.toFixed(2));
+ node.setAttribute('cy', pt.y.toFixed(2));
+ if (hit) {
+ hit.setAttribute('cx', pt.x.toFixed(2));
+ hit.setAttribute('cy', pt.y.toFixed(2));
+ }
+ });
+
+ // Generate a few soft forks from exact points on the trunk so every junction is aligned.
+ if (branchOffshoots) {
+ branchOffshoots.innerHTML = '';
+ const forks = [
+ {f:.17, side:-1, len:24, dy:-28},
+ {f:.36, side: 1, len:22, dy:-24},
+ {f:.58, side:-1, len:26, dy: 30},
+ {f:.78, side: 1, len:24, dy: 28},
+ {f:.92, side:-1, len:20, dy:-22},
+ ];
+ forks.forEach(({f, side, len, dy}) => {
+ const p = branchTrunk.getPointAtLength(total * f);
+ const endX = p.x + side * len;
+ const endY = p.y + dy;
+ const c1x = p.x + side * 5;
+ const c1y = p.y + dy * .28;
+ const c2x = endX - side * 7;
+ const c2y = endY - dy * .22;
+ const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+ path.setAttribute('class', 'branch');
+ path.setAttribute('d', `M${p.x.toFixed(2)} ${p.y.toFixed(2)} C${c1x.toFixed(2)} ${c1y.toFixed(2)} ${c2x.toFixed(2)} ${c2y.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`);
+ branchOffshoots.appendChild(path);
+ });
+ }
+ }
+
+ layoutBranchNavigation();
+ window.addEventListener('resize', layoutBranchNavigation, { passive:true });
+
+ function activateScene(index) {
+ scenes.forEach((scene, i) => scene.classList.toggle('in-view', i === index));
+ nodes.forEach((node, i) => node.classList.toggle('active', i === index));
+ const scene = scenes[index];
+ const accent = scene?.dataset.accent || '#1739E6';
+ root.style.setProperty('--active-accent', accent);
+ const darkScene = scene && (scene.classList.contains('nura') || scene.classList.contains('verde') || scene.classList.contains('method') || scene.classList.contains('philosophy') || scene.classList.contains('contact'));
+ root.style.setProperty('--nav-neutral', darkScene ? '#F4F1E9' : '#0A0A0A');
+ const completion = scenes.length <= 1 ? 1 : index / (scenes.length - 1);
+ progress.style.strokeDashoffset = String(1 - completion);
+ }
+
+ const observer = new IntersectionObserver((entries) => {
+ const visible = entries
+ .filter(entry => entry.isIntersecting)
+ .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+ if (!visible) return;
+ const index = scenes.indexOf(visible.target);
+ if (index >= 0) activateScene(index);
+ }, { threshold: [0.35, 0.5, 0.65] });
+
+ scenes.forEach(scene => observer.observe(scene));
+ activateScene(0);
+
+ const menuToggle = document.querySelector('.menu-toggle');
+ const mobileIndex = document.querySelector('.mobile-index');
+ const closeMenu = document.querySelector('.mobile-index .close');
+
+ function setMenu(open) {
+ mobileIndex.classList.toggle('open', open);
+ mobileIndex.setAttribute('aria-hidden', String(!open));
+ menuToggle.setAttribute('aria-expanded', String(open));
+ document.body.style.overflow = open ? 'hidden' : '';
+ }
+
+ menuToggle.addEventListener('click', () => setMenu(true));
+ closeMenu.addEventListener('click', () => setMenu(false));
+ mobileIndex.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+ document.querySelectorAll('.method-item').forEach(item => {
+ item.addEventListener('mouseenter', () => {
+ document.querySelectorAll('.method-item').forEach(i => i.classList.remove('active'));
+ item.classList.add('active');
+ });
+ });
+ 
+    const pageWipe = document.querySelector('.page-wipe');
+    document.querySelectorAll('.case-link').forEach(link => {
+      link.addEventListener('click', event => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        event.preventDefault();
+        const destination = link.getAttribute('href');
+        pageWipe.style.background = link.dataset.color || '#0A0A0A';
+        pageWipe.classList.add('is-active');
+        window.setTimeout(() => { window.location.href = destination; }, 390);
+      });
+    });
+
+</script>
 </body>
 </html>

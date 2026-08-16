@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Verde Systems | Autumn Branches Studio</title>
+  <meta name="description" content="Independent concept project by Autumn Branches Studio: brand strategy, content system and creative direction for Verde Systems.">
+  <style>
+    :root{
+      --ink:#050505;
+      --charcoal:#111311;
+      --ivory:#f2efe7;
+      --paper:#f8f6ef;
+      --line:#c8c8bf;
+      --muted:#77786f;
+      --green:#b7f300;
+      --green-soft:#dff89a;
+      --green-deep:#617e00;
+      --white:#ffffff;
+      --pad:clamp(22px,4vw,64px);
+      --mono:"Courier New",ui-monospace,monospace;
+      --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:var(--sans);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:30;
+      height:66px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:0 var(--pad);
+      border-bottom:1px solid rgba(183,243,0,.3);
+      background:rgba(5,5,5,.94);
+      color:var(--white);
+      backdrop-filter:blur(12px);
+    }
+    .brand{
+      font-weight:900;
+      font-size:14px;
+      line-height:.9;
+      letter-spacing:-.04em;
+    }
+    .project-id{
+      justify-self:center;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      color:var(--green);
+    }
+    .top-links{
+      justify-self:end;
+      display:flex;
+      gap:22px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.04em;
+    }
+
+    .section{
+      min-height:100vh;
+      padding:110px calc(var(--pad) + 48px) 72px var(--pad);
+      position:relative;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:clamp(12px,1.4vw,22px);
+    }
+    .eyebrow{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(76px,10vw,168px);
+      line-height:.82;
+      letter-spacing:-.075em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h2{
+      font-size:clamp(48px,7vw,106px);
+      line-height:.88;
+      letter-spacing:-.065em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h3{
+      font-size:clamp(25px,2.4vw,40px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    p{
+      font-size:clamp(15px,1.05vw,18px);
+      line-height:1.5;
+    }
+
+    .hero{
+      background:var(--ink);
+      color:var(--white);
+      padding-top:120px;
+    }
+    .hero .eyebrow{grid-column:1/4;color:var(--green)}
+    .hero h1{
+      grid-column:1/8;
+      margin-top:38px;
+      color:var(--green);
+    }
+    .hero .intro{
+      grid-column:9/13;
+      align-self:end;
+      max-width:34ch;
+      margin-bottom:18px;
+    }
+    .hero .intro .eyebrow{
+      display:block;
+      margin-bottom:16px;
+      color:var(--green);
+    }
+    .hero-console{
+      grid-column:1/13;
+      margin-top:54px;
+      min-height:48vh;
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:12px;
+    }
+    .console-large,
+    .console-side > div{
+      border:1px solid rgba(183,243,0,.55);
+      background:var(--charcoal);
+      color:var(--green);
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.04em;
+      padding:18px;
+    }
+    .console-large{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .console-title{
+      font-size:clamp(32px,4vw,68px);
+      font-family:var(--sans);
+      font-weight:900;
+      line-height:.9;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+      color:var(--white);
+      max-width:8ch;
+    }
+    .console-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:40px;
+    }
+    .console-stat{
+      padding-top:12px;
+      border-top:1px solid rgba(183,243,0,.35);
+    }
+    .console-stat strong{
+      display:block;
+      margin-top:12px;
+      font-size:clamp(24px,3vw,48px);
+      font-family:var(--sans);
+      color:var(--green);
+    }
+    .console-side{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:12px;
+    }
+    .console-side > div{
+      display:flex;
+      align-items:flex-end;
+    }
+
+    .disclosure{
+      min-height:auto;
+      padding-top:52px;
+      padding-bottom:52px;
+      background:var(--paper);
+    }
+    .disclosure .eyebrow{grid-column:1/4}
+    .disclosure p{grid-column:5/11;max-width:60ch}
+
+    .problem h2{grid-column:1/8}
+    .problem .copy{grid-column:9/13;align-self:end;max-width:36ch}
+    .problem .visual-strip{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:.8fr 1.2fr .8fr;
+      gap:12px;
+    }
+
+    .placeholder{
+      min-height:320px;
+      border:1px solid var(--ink);
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      background:transparent;
+    }
+    .placeholder.dark{background:var(--ink);color:var(--green);border-color:var(--green)}
+    .placeholder.green{background:var(--green);color:var(--ink);border-color:var(--green)}
+    .placeholder.soft{background:var(--green-soft)}
+    .placeholder.charcoal{background:var(--charcoal);color:var(--white);border-color:#343434}
+
+    .audience{
+      background:var(--paper);
+    }
+    .audience h2{grid-column:1/8}
+    .audience .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .audience-cards{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .aud-card{
+      min-height:260px;
+      padding:26px 28px 34px;
+      border-right:1px solid var(--ink);
+    }
+    .aud-card:last-child{border-right:none}
+    .aud-card .eyebrow{display:block;margin-bottom:58px}
+    .aud-card p{max-width:27ch}
+
+    .positioning{
+      background:var(--charcoal);
+      color:var(--white);
+    }
+    .positioning .eyebrow{grid-column:1/4;color:var(--green)}
+    .positioning h2{
+      grid-column:1/10;
+      margin-top:46px;
+      color:var(--green);
+    }
+    .positioning .statement{
+      grid-column:8/13;
+      margin-top:58px;
+      padding-top:22px;
+      border-top:1px solid rgba(183,243,0,.45);
+      max-width:40ch;
+    }
+    .principles{
+      grid-column:1/13;
+      margin-top:72px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(183,243,0,.45);
+      border-bottom:1px solid rgba(183,243,0,.45);
+    }
+    .principle{
+      min-height:220px;
+      padding:28px 24px 38px;
+      border-right:1px solid rgba(183,243,0,.3);
+    }
+    .principle:last-child{border-right:none}
+    .principle strong{
+      display:block;
+      margin-top:38px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .principle p{
+      margin-top:10px;
+      font-size:14px;
+      max-width:24ch;
+      color:#d5d6d0;
+    }
+
+    .content h2{grid-column:1/8}
+    .content .lead{grid-column:9/13;align-self:end;max-width:36ch}
+    .territories{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .territory{
+      min-height:360px;
+      padding:24px;
+      border:1px solid var(--ink);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .territory:nth-child(1){background:var(--ink);color:var(--green)}
+    .territory:nth-child(2){background:var(--green)}
+    .territory:nth-child(3){background:var(--paper)}
+    .territory:nth-child(4){background:var(--charcoal);color:var(--white)}
+    .territory .num{font-family:var(--mono);font-size:11px}
+    .territory p{font-size:14px;max-width:25ch}
+
+    .social{
+      background:var(--paper);
+    }
+    .social h2{grid-column:1/7}
+    .social .lead{grid-column:8/13;align-self:end;max-width:38ch}
+    .social-grid{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:1.15fr .75fr .75fr;
+      grid-template-rows:minmax(220px,28vh) minmax(220px,28vh);
+      gap:12px;
+    }
+    .social-grid .placeholder:nth-child(1){grid-row:1/3}
+    .social-grid .placeholder{min-height:0}
+
+    .campaign{
+      background:var(--ink);
+      color:var(--white);
+    }
+    .campaign .eyebrow{grid-column:1/4;color:var(--green)}
+    .campaign h2{
+      grid-column:1/8;
+      margin-top:46px;
+      color:var(--green);
+    }
+    .campaign .campaign-data{
+      grid-column:9/13;
+      align-self:end;
+      font-family:var(--mono);
+      font-size:clamp(20px,2vw,30px);
+      line-height:1.3;
+      color:var(--green-soft);
+      padding:20px;
+      border:1px solid rgba(183,243,0,.45);
+    }
+    .campaign-line{
+      grid-column:1/13;
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      border-top:1px solid rgba(183,243,0,.3);
+      border-bottom:1px solid rgba(183,243,0,.3);
+      padding:36px 0;
+    }
+    .campaign-step span{font-family:var(--mono);font-size:10px;color:var(--green)}
+    .campaign-step strong{
+      display:block;
+      margin-top:14px;
+      font-size:clamp(21px,2vw,32px);
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .campaign-step p{
+      margin-top:12px;
+      font-size:14px;
+      max-width:23ch;
+      color:#d0d1cb;
+    }
+
+    .calendar h2{grid-column:1/7}
+    .calendar .lead{grid-column:8/13;align-self:end;max-width:36ch}
+    .week{
+      grid-column:1/13;
+      margin-top:58px;
+      border-top:1px solid var(--ink);
+    }
+    .day{
+      display:grid;
+      grid-template-columns:100px 1fr 1fr;
+      gap:24px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .day .day-name{font-family:var(--mono);font-size:11px}
+    .day strong{text-transform:uppercase}
+    .day p{font-size:14px;color:var(--muted);max-width:40ch}
+
+    .measure{
+      background:var(--green-soft);
+    }
+    .measure h2{grid-column:1/8}
+    .measure .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .metrics{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .metric{
+      min-height:240px;
+      padding:24px;
+      border-right:1px solid var(--ink);
+    }
+    .metric:last-child{border-right:none}
+    .metric span{font-family:var(--mono);font-size:10px}
+    .metric strong{display:block;margin-top:52px;font-size:20px;text-transform:uppercase}
+    .metric p{margin-top:10px;font-size:13px}
+
+    .closing{
+      min-height:82vh;
+      display:flex;
+      align-items:center;
+      background:var(--ivory);
+    }
+    .closing .grid{width:100%}
+    .closing .eyebrow{grid-column:1/4}
+    .closing h2{grid-column:1/9;margin-top:42px}
+    .closing .next{
+      grid-column:9/13;
+      align-self:end;
+      border-top:1px solid var(--ink);
+      padding-top:20px;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .branch-nav{
+      position:fixed;
+      right:8px;
+      top:82px;
+      bottom:20px;
+      width:42px;
+      z-index:25;
+      pointer-events:none;
+    }
+    .branch-nav svg{width:100%;height:100%;overflow:visible}
+    .branch-nav .trunk{
+      fill:none;
+      stroke:rgba(255,255,255,.22);
+      stroke-width:1.1;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+    }
+    .branch-nav .active{
+      fill:none;
+      stroke:var(--green);
+      stroke-width:1.8;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+      stroke-dasharray:1;
+      stroke-dashoffset:1;
+    }
+    .branch-nav .dot{fill:rgba(255,255,255,.4);transition:.25s ease}
+    .branch-nav .dot.current{fill:var(--green)}
+    body.light-zone .branch-nav .trunk{stroke:rgba(5,5,5,.24)}
+    body.light-zone .branch-nav .dot{fill:rgba(5,5,5,.38)}
+    body.light-zone .branch-nav .dot.current{fill:var(--green-deep)}
+
+    footer{
+      padding:22px var(--pad);
+      background:var(--ink);
+      color:var(--ivory);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-family:var(--mono);
+      font-size:10px;
+    }
+
+    @media(max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .project-id{display:none}
+      .top-links{gap:12px}
+      .section{padding-right:calc(var(--pad) + 30px)}
+      .hero .eyebrow,.hero h1,.hero .intro,
+      .disclosure .eyebrow,.disclosure p,
+      .problem h2,.problem .copy,
+      .audience h2,.audience .lead,
+      .positioning .eyebrow,.positioning h2,.positioning .statement,
+      .content h2,.content .lead,
+      .social h2,.social .lead,
+      .campaign .eyebrow,.campaign h2,.campaign .campaign-data,
+      .calendar h2,.calendar .lead,
+      .measure h2,.measure .lead,
+      .closing .eyebrow,.closing h2,.closing .next{
+        grid-column:1/13;
+      }
+      .hero .intro,.problem .copy,.audience .lead,.content .lead,.social .lead,
+      .campaign .campaign-data,.calendar .lead,.measure .lead,.closing .next{margin-top:28px}
+      .hero-console{grid-template-columns:1fr}
+      .console-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+      .problem .visual-strip{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{
+        grid-template-columns:1fr 1fr;
+      }
+      .aud-card,.principle,.metric{border-bottom:1px solid currentColor}
+      .social-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3,220px);
+      }
+      .social-grid .placeholder:nth-child(1){grid-row:1/3}
+      .day{grid-template-columns:80px 1fr}
+      .day p{grid-column:2}
+    }
+
+    @media(max-width:560px){
+      .topbar{height:58px;padding:0 18px}
+      .top-links a:nth-child(2){display:none}
+      .section{padding:92px 28px 58px 18px}
+      h1{font-size:clamp(58px,18vw,94px)}
+      h2{font-size:clamp(42px,13vw,72px)}
+      .console-grid{grid-template-columns:1fr}
+      .console-side{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{grid-template-columns:1fr}
+      .aud-card,.principle,.metric{border-right:none}
+      .social-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,190px)}
+      .social-grid .placeholder:nth-child(1){grid-row:auto}
+      .day{grid-template-columns:1fr;gap:8px}
+      .day p{grid-column:auto}
+      .branch-nav{right:0;width:28px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+
+    /* --- Verde closing section fix: no headline/link collisions --- */
+    .closing .grid{
+      width:100%;
+      align-items:end;
+    }
+
+    .closing .eyebrow{
+      grid-column:1 / 13;
+      margin-bottom:28px;
+    }
+
+    .closing h2{
+      grid-column:1 / 8;
+      margin-top:0;
+      max-width:8.4ch;
+      font-size:clamp(46px,5.4vw,86px);
+      line-height:.9;
+      letter-spacing:-.06em;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+
+    .closing .next{
+      grid-column:9 / 13;
+      align-self:end;
+      margin:0;
+      min-width:0;
+      border-top:1px solid var(--ink);
+      padding-top:22px;
+      padding-left:0;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .closing .next > div{
+      max-width:100%;
+    }
+
+    @media(max-width:1100px){
+      .closing h2{
+        grid-column:1 / 9;
+        font-size:clamp(44px,5vw,72px);
+        max-width:9ch;
+      }
+
+      .closing .next{
+        grid-column:9 / 13;
+      }
+    }
+
+    @media(max-width:900px){
+      .closing .eyebrow,
+      .closing h2,
+      .closing .next{
+        grid-column:1 / 13 !important;
+      }
+
+      .closing h2{
+        max-width:10ch;
+        font-size:clamp(46px,9vw,76px);
+      }
+
+      .closing .next{
+        margin-top:42px;
+        max-width:430px;
+      }
+    }
+
+    @media(max-width:560px){
+      .closing h2{
+        max-width:none;
+        font-size:clamp(40px,13vw,64px);
+        line-height:.92;
+      }
+    }
+
+
+    .case-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      transform: scaleX(0);
+      transform-origin: right center;
+      background: #090909;
+    }
+    .case-wipe.is-active {
+      animation: caseWipe .4s cubic-bezier(.72,0,.2,1) forwards;
+    }
+    @keyframes caseWipe {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .case-wipe{display:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../index.html">AUTUMN BRANCHES<br>STUDIO</a>
+  <div class="project-id">PROJECT / 03 / VERDE SYSTEMS</div>
+  <nav class="top-links">
+    <a href="#strategy">STRATEGY</a>
+    <a href="#social">DIGITAL</a>
+    <a href="../../index.html#work">BACK TO WORK</a>
+  </nav>
+</header>
+
+<aside class="branch-nav" aria-hidden="true">
+  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
+    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <g id="branch-dots"></g>
+  </svg>
+</aside>
+
+<main>
+  <section id="opening" class="section hero dark-section">
+    <div class="grid">
+      <div class="eyebrow">03 / INFRASTRUCTURE TECH STARTUP</div>
+      <h1>VERDE<br>SYSTEMS</h1>
+      <div class="intro">
+        <span class="eyebrow">BUILT FOR WHAT IS NEXT.</span>
+        <p>A concept brand for a technology company turning complex infrastructure into systems that feel intelligent, scalable and understandable.</p>
+      </div>
+
+      <div class="hero-console">
+        <div class="console-large">
+          <div>
+            <div class="eyebrow">SYSTEM OVERVIEW / LIVE</div>
+            <div class="console-title">INFRASTRUCTURE THAT ADAPTS.</div>
+          </div>
+          <div class="console-grid">
+            <div class="console-stat">
+              <span>UPTIME</span>
+              <strong>98.7%</strong>
+            </div>
+            <div class="console-stat">
+              <span>LATENCY</span>
+              <strong>23ms</strong>
+            </div>
+            <div class="console-stat">
+              <span>ACTIVE NODES</span>
+              <strong>1,204</strong>
+            </div>
+          </div>
+        </div>
+        <div class="console-side">
+          <div>OWNED VISUAL PLACEHOLDER / INTERFACE + SYSTEM MAP</div>
+          <div>OWNED VISUAL PLACEHOLDER / ARCHITECTURE + MOTION</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section disclosure light-section">
+    <div class="grid">
+      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+      <p>Developed to demonstrate B2B positioning, brand strategy, digital content systems, campaign thinking and creative direction for a fictional infrastructure technology company. No client results are implied.</p>
+    </div>
+  </section>
+
+  <section id="problem" class="section problem light-section">
+    <div class="grid">
+      <h2>COMPLEX<br>DOES NOT HAVE<br>TO FEEL<br>COMPLICATED.</h2>
+      <div class="copy">
+        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
+        <p>Infrastructure companies often communicate through dense technical language or generic futurism. Verde needs to signal technical depth while still making its value clear to decision-makers who care about performance, reliability and scale.</p>
+      </div>
+
+      <div class="visual-strip">
+        <div class="placeholder dark">PLACEHOLDER / CATEGORY LANGUAGE AUDIT</div>
+        <div class="placeholder green">PLACEHOLDER / POSITIONING MAP</div>
+        <div class="placeholder soft">PLACEHOLDER / BUYER PRIORITIES</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience" class="section audience light-section">
+    <div class="grid">
+      <h2>WHO NEEDS<br>TO UNDERSTAND<br>THE SYSTEM?</h2>
+      <p class="lead">Not everyone needs the same level of technical detail. The brand has to support both operational credibility and executive clarity.</p>
+
+      <div class="audience-cards">
+        <article class="aud-card">
+          <span class="eyebrow">WHO</span>
+          <h3>DECISION<br>MAKERS.</h3>
+          <p>Founders, operations leaders, technical teams and enterprise buyers evaluating risk, reliability and long-term scalability.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY WANT</span>
+          <h3>PROOF<br>WITHOUT NOISE.</h3>
+          <p>Clear evidence of capability, technical confidence and a reason to trust the system under real-world pressure.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY AVOID</span>
+          <h3>VAGUE<br>FUTURE TALK.</h3>
+          <p>Buzzwords, overclaiming and design that looks advanced but fails to explain what the product actually enables.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="section positioning dark-section">
+    <div class="grid">
+      <div class="eyebrow">POSITIONING</div>
+      <h2>INTELLIGENCE<br>YOU CAN<br>BUILD ON.</h2>
+      <div class="statement">
+        <p>Verde should feel like infrastructure with a clear mind. Technical, adaptive and precise, but always focused on the business impact the system makes possible.</p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <span class="eyebrow">01</span>
+          <strong>Precise</strong>
+          <p>Say what the system does, where it works and why it matters.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">02</span>
+          <strong>Adaptive</strong>
+          <p>Show a brand built for changing environments and requirements.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">03</span>
+          <strong>Credible</strong>
+          <p>Use data, architecture and operational context as proof.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">04</span>
+          <strong>Clear</strong>
+          <p>Translate complexity without flattening technical depth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" class="section content light-section">
+    <div class="grid">
+      <h2>CONTENT<br>SHOULD REDUCE<br>FRICTION.</h2>
+      <p class="lead">The content system helps the audience move from understanding the problem to trusting the technology and seeing where it fits.</p>
+
+      <div class="territories">
+        <article class="territory">
+          <div class="num">01 / SYSTEM</div>
+          <div>
+            <h3>HOW IT<br>WORKS.</h3>
+            <p>Explain architecture, modularity and performance through diagrams, interface views and short technical breakdowns.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">02 / PROOF</div>
+          <div>
+            <h3>WHAT THE<br>DATA SAYS.</h3>
+            <p>Use measurable indicators, benchmarks and operating context to build trust without turning the feed into a dashboard.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">03 / IMPACT</div>
+          <div>
+            <h3>WHAT CHANGES<br>FOR THE BUSINESS.</h3>
+            <p>Connect technical capability to uptime, speed, scale, cost, risk and operational decisions.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">04 / FUTURE</div>
+          <div>
+            <h3>WHAT ARE WE<br>BUILDING TOWARD?</h3>
+            <p>Thought leadership around resilient systems, infrastructure intelligence and the future of adaptive operations.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="section social light-section">
+    <div class="grid">
+      <h2>TECHNICAL<br>WITHOUT BECOMING<br>UNREADABLE.</h2>
+      <p class="lead">The digital system combines interface fragments, system diagrams, architectural photography and concise messaging to create a recognizable technical language.</p>
+
+      <div class="social-grid">
+        <div class="placeholder dark">PLACEHOLDER / DIGITAL PLATFORM + INTERFACE SYSTEM</div>
+        <div class="placeholder green">PLACEHOLDER / DATA VISUAL</div>
+        <div class="placeholder soft">PLACEHOLDER / LINKEDIN EXPLAINER</div>
+        <div class="placeholder charcoal">PLACEHOLDER / PRODUCT MOTION FRAME</div>
+        <div class="placeholder">PLACEHOLDER / EXECUTIVE POV POST</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="section campaign dark-section">
+    <div class="grid">
+      <div class="eyebrow">SAMPLE CAMPAIGN</div>
+      <h2>BUILT FOR<br>WHAT IS NEXT.</h2>
+      <div class="campaign-data">
+        STATUS / ACTIVE<br>
+        SCALE / MODULAR<br>
+        UPTIME / 98.7%<br>
+        REGION / GLOBAL
+      </div>
+
+      <div class="campaign-line">
+        <div class="campaign-step">
+          <span>01 / FRAME</span>
+          <strong>The world keeps moving.</strong>
+          <p>Open with the operational reality: systems have to change without losing reliability.</p>
+        </div>
+        <div class="campaign-step">
+          <span>02 / EXPLAIN</span>
+          <strong>Show adaptability.</strong>
+          <p>Use modular diagrams, deployment scenarios and product visuals to explain how Verde responds.</p>
+        </div>
+        <div class="campaign-step">
+          <span>03 / PROVE</span>
+          <strong>Put data to work.</strong>
+          <p>Bring real metrics and system behaviour into the campaign to strengthen technical credibility.</p>
+        </div>
+        <div class="campaign-step">
+          <span>04 / CONVERT</span>
+          <strong>Make the next step clear.</strong>
+          <p>Drive technical buyers toward a demo, solution brief or architecture discussion with useful context already established.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="section calendar light-section">
+    <div class="grid">
+      <h2>ONE WEEK<br>OF USEFUL<br>TECHNICAL CONTENT.</h2>
+      <p class="lead">The calendar balances product understanding, operational proof and company perspective without repeating the same format.</p>
+
+      <div class="week">
+        <div class="day">
+          <div class="day-name">MON</div>
+          <strong>System explainer</strong>
+          <p>A visual breakdown of one infrastructure concept translated into clear business language.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">TUE</div>
+          <strong>Metric story</strong>
+          <p>Use one data point to explain a broader operational problem and why it matters.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">WED</div>
+          <strong>Product interface</strong>
+          <p>Show the platform in context with a short explanation of the decision it helps someone make.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">THU</div>
+          <strong>Executive perspective</strong>
+          <p>A concise opinion on infrastructure resilience, scale or system design.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">FRI</div>
+          <strong>Use case</strong>
+          <p>Walk through a deployment scenario, challenge and solution without pretending to show real client results.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SAT</div>
+          <strong>Build log</strong>
+          <p>A lighter behind-the-system look at process, prototypes or engineering thinking.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SUN</div>
+          <strong>Signal post</strong>
+          <p>A compact visual statement that reinforces the brand language and key proposition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="measurement" class="section measure light-section">
+    <div class="grid">
+      <h2>WHAT WOULD<br>WE WATCH?</h2>
+      <p class="lead">The useful signals are not vanity engagement. We would track whether the right buyers understand the proposition, explore the product and move closer to a commercial conversation.</p>
+
+      <div class="metrics">
+        <div class="metric">
+          <span>01</span>
+          <strong>Reach</strong>
+          <p>Visibility among target industries, roles and relevant technical audiences.</p>
+        </div>
+        <div class="metric">
+          <span>02</span>
+          <strong>Depth</strong>
+          <p>Video completion, carousel completion, dwell time and saves on technical content.</p>
+        </div>
+        <div class="metric">
+          <span>03</span>
+          <strong>Intent</strong>
+          <p>Website visits, solution-page clicks, downloads and demo-page activity.</p>
+        </div>
+        <div class="metric">
+          <span>04</span>
+          <strong>Leads</strong>
+          <p>Demo requests, technical enquiries and high-fit conversations influenced by content.</p>
+        </div>
+        <div class="metric">
+          <span>05</span>
+          <strong>Trust</strong>
+          <p>Repeat engagement from technical buyers and continued interaction with deeper content.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="closing" class="section closing light-section">
+    <div class="grid">
+      <div class="eyebrow">PROJECT / 03 COMPLETE</div>
+      <h2>MAKE THE<br>COMPLEX FEEL<br>UNDERSTANDABLE,<br>NOT SMALLER.</h2>
+      <div class="next">
+        <div>BACK TO SELECTED WORK</div>
+        <div><a href="../../index.html#work">AUTUMN BRANCHES STUDIO →</a></div>
+        <br>
+        <div>PREVIOUS CASE STUDY</div>
+        <div><a href="../cafe-lumiere/index.html">CAFÉ LUMIÈRE ←</a></div>
+        <br>
+        <div>NEXT CASE STUDY</div>
+        <div><a href="../mara-vale/index.html">MARA VALE →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>AUTUMN BRANCHES STUDIO</span>
+  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+</footer>
+
+<script>
+  const sections = [...document.querySelectorAll('main .section')];
+  const activePath = document.querySelector('.branch-nav .active');
+  const dotsGroup = document.querySelector('#branch-dots');
+  const trunk = document.querySelector('#branch-trunk');
+  const total = trunk.getTotalLength();
+
+  sections.forEach((section, i) => {
+    const f = sections.length <= 1 ? 0 : i / (sections.length - 1);
+    const p = trunk.getPointAtLength(total * f);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('class', 'dot');
+    c.setAttribute('cx', p.x);
+    c.setAttribute('cy', p.y);
+    c.setAttribute('r', '2.6');
+    dotsGroup.appendChild(c);
+  });
+
+  const dots = [...dotsGroup.querySelectorAll('.dot')];
+
+  function updateProgress(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const fraction = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    activePath.style.strokeDashoffset = String(1 - fraction);
+
+    let current = 0;
+    sections.forEach((section, i) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= innerHeight * .46) current = i;
+    });
+    dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
+
+    const activeSection = sections[current];
+    const light = activeSection && activeSection.classList.contains('light-section');
+    document.body.classList.toggle('light-zone', !!light);
+  }
+
+  updateProgress();
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress, {passive:true});
+
+  const caseWipe = document.querySelector('.case-wipe');
+  document.querySelectorAll('a[data-transition-color]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      event.preventDefault();
+      const destination = link.getAttribute('href');
+      caseWipe.style.background = link.dataset.transitionColor || '#090909';
+      caseWipe.classList.add('is-active');
+      window.setTimeout(() => { window.location.href = destination; }, 370);
+    });
+  });
+
+</script>
+</body>
+</html>

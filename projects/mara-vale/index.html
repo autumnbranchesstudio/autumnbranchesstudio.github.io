@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mara Vale | Autumn Branches Studio</title>
+  <meta name="description" content="Independent concept project by Autumn Branches Studio: personal brand strategy, content system and creative direction for Mara Vale.">
+  <style>
+    :root{
+      --ink:#090909;
+      --ivory:#f3f0e8;
+      --paper:#faf8f2;
+      --violet:#6c46ff;
+      --violet-deep:#4624c9;
+      --aqua:#c7f8ef;
+      --aqua-deep:#76d9c9;
+      --line:#c7c2b7;
+      --muted:#6d6960;
+      --white:#ffffff;
+      --pad:clamp(22px,4vw,64px);
+      --mono:"Courier New",ui-monospace,monospace;
+      --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:var(--sans);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:30;
+      height:66px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:0 var(--pad);
+      border-bottom:1px solid rgba(9,9,9,.14);
+      background:rgba(243,240,232,.92);
+      backdrop-filter:blur(12px);
+    }
+    .brand{
+      font-weight:900;
+      font-size:14px;
+      line-height:.9;
+      letter-spacing:-.04em;
+    }
+    .project-id{
+      justify-self:center;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      color:var(--violet-deep);
+    }
+    .top-links{
+      justify-self:end;
+      display:flex;
+      gap:22px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.04em;
+    }
+
+    .section{
+      min-height:100vh;
+      padding:110px calc(var(--pad) + 48px) 72px var(--pad);
+      position:relative;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:clamp(12px,1.4vw,22px);
+    }
+    .eyebrow{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(72px,9.4vw,154px);
+      line-height:.84;
+      letter-spacing:-.072em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h2{
+      font-size:clamp(46px,6.6vw,98px);
+      line-height:.9;
+      letter-spacing:-.06em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h3{
+      font-size:clamp(24px,2.3vw,38px);
+      line-height:.96;
+      letter-spacing:-.04em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    p{
+      font-size:clamp(15px,1.05vw,18px);
+      line-height:1.5;
+    }
+
+    .hero{
+      background:var(--ivory);
+      color:var(--ink);
+      padding-top:120px;
+    }
+    .hero .eyebrow{grid-column:1/4}
+    .hero h1{grid-column:1/6;margin-top:38px}
+    .hero .hero-thesis{
+      grid-column:8/13;
+      align-self:end;
+      color:var(--violet);
+      font-size:clamp(30px,3.6vw,60px);
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+      max-width:9ch;
+      margin-bottom:12px;
+    }
+    .hero .intro{
+      grid-column:8/13;
+      margin-top:28px;
+      max-width:38ch;
+    }
+    .hero-mosaic{
+      grid-column:1/13;
+      margin-top:56px;
+      display:grid;
+      grid-template-columns:1.15fr .72fr .78fr;
+      grid-template-rows:minmax(220px,29vh) minmax(220px,29vh);
+      gap:12px;
+    }
+    .tile{
+      border:1px solid var(--ink);
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      overflow:hidden;
+    }
+    .hero-mosaic .tile:nth-child(1){
+      grid-row:1/3;
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .hero-mosaic .tile:nth-child(2){background:var(--paper)}
+    .hero-mosaic .tile:nth-child(3){background:var(--aqua)}
+    .hero-mosaic .tile:nth-child(4){background:var(--violet);color:var(--white)}
+    .hero-mosaic .tile:nth-child(5){background:#e8e3ff}
+
+    .disclosure{
+      min-height:auto;
+      padding-top:52px;
+      padding-bottom:52px;
+      background:var(--paper);
+    }
+    .disclosure .eyebrow{grid-column:1/4}
+    .disclosure p{grid-column:5/11;max-width:60ch}
+
+    .problem h2{grid-column:1/8}
+    .problem .copy{grid-column:9/13;align-self:end;max-width:36ch}
+    .problem .visual-strip{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:.85fr 1.15fr .8fr;
+      gap:12px;
+    }
+
+    .placeholder{
+      min-height:320px;
+      border:1px solid var(--ink);
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      background:transparent;
+      overflow:hidden;
+    }
+    .placeholder.dark{background:var(--ink);color:var(--ivory)}
+    .placeholder.violet{background:var(--violet);color:var(--white);border-color:var(--violet)}
+    .placeholder.aqua{background:var(--aqua)}
+    .placeholder.soft{background:#e8e3ff}
+
+    .audience{
+      background:var(--paper);
+    }
+    .audience h2{grid-column:1/8}
+    .audience .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .audience-cards{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .aud-card{
+      min-height:260px;
+      padding:26px 28px 34px;
+      border-right:1px solid var(--ink);
+    }
+    .aud-card:last-child{border-right:none}
+    .aud-card .eyebrow{display:block;margin-bottom:58px}
+    .aud-card p{max-width:27ch}
+
+    .positioning{
+      background:var(--violet);
+      color:var(--white);
+    }
+    .positioning .eyebrow{grid-column:1/4}
+    .positioning h2{grid-column:1/10;margin-top:46px}
+    .positioning .statement{
+      grid-column:8/13;
+      margin-top:58px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.5);
+      max-width:40ch;
+    }
+    .principles{
+      grid-column:1/13;
+      margin-top:72px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(255,255,255,.5);
+      border-bottom:1px solid rgba(255,255,255,.5);
+    }
+    .principle{
+      min-height:220px;
+      padding:28px 24px 38px;
+      border-right:1px solid rgba(255,255,255,.32);
+    }
+    .principle:last-child{border-right:none}
+    .principle strong{
+      display:block;
+      margin-top:38px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .principle p{
+      margin-top:10px;
+      font-size:14px;
+      max-width:24ch;
+      color:#f2efff;
+    }
+
+    .content h2{grid-column:1/8}
+    .content .lead{grid-column:9/13;align-self:end;max-width:36ch}
+    .territories{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .territory{
+      min-height:360px;
+      padding:24px;
+      border:1px solid var(--ink);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .territory:nth-child(1){background:var(--ink);color:var(--ivory)}
+    .territory:nth-child(2){background:var(--aqua)}
+    .territory:nth-child(3){background:var(--violet);color:var(--white)}
+    .territory:nth-child(4){background:var(--paper)}
+    .territory .num{font-family:var(--mono);font-size:11px}
+    .territory p{font-size:14px;max-width:25ch}
+
+    .social{
+      background:var(--paper);
+    }
+    .social h2{grid-column:1/7}
+    .social .lead{grid-column:8/13;align-self:end;max-width:38ch}
+    .social-grid{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:1.2fr .72fr .9fr;
+      grid-template-rows:minmax(220px,28vh) minmax(220px,28vh);
+      gap:12px;
+    }
+    .social-grid .placeholder:nth-child(1){grid-row:1/3}
+    .social-grid .placeholder{min-height:0}
+
+    .campaign{
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .campaign .eyebrow{grid-column:1/4;color:var(--aqua)}
+    .campaign h2{
+      grid-column:1/8;
+      margin-top:46px;
+      color:var(--violet);
+    }
+    .campaign .campaign-note{
+      grid-column:9/13;
+      align-self:end;
+      color:var(--aqua);
+      font-size:clamp(28px,3vw,48px);
+      line-height:.98;
+      font-weight:900;
+      letter-spacing:-.05em;
+      text-transform:uppercase;
+      max-width:10ch;
+    }
+    .campaign-line{
+      grid-column:1/13;
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      border-top:1px solid rgba(255,255,255,.25);
+      border-bottom:1px solid rgba(255,255,255,.25);
+      padding:36px 0;
+    }
+    .campaign-step span{font-family:var(--mono);font-size:10px;color:var(--aqua)}
+    .campaign-step strong{
+      display:block;
+      margin-top:14px;
+      font-size:clamp(21px,2vw,32px);
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .campaign-step p{
+      margin-top:12px;
+      font-size:14px;
+      max-width:23ch;
+      color:#d8d5d0;
+    }
+
+    .calendar h2{grid-column:1/7}
+    .calendar .lead{grid-column:8/13;align-self:end;max-width:36ch}
+    .week{
+      grid-column:1/13;
+      margin-top:58px;
+      border-top:1px solid var(--ink);
+    }
+    .day{
+      display:grid;
+      grid-template-columns:100px 1fr 1fr;
+      gap:24px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .day .day-name{font-family:var(--mono);font-size:11px}
+    .day strong{text-transform:uppercase}
+    .day p{font-size:14px;color:var(--muted);max-width:40ch}
+
+    .measure{
+      background:var(--aqua);
+    }
+    .measure h2{grid-column:1/8}
+    .measure .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .metrics{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .metric{
+      min-height:240px;
+      padding:24px;
+      border-right:1px solid var(--ink);
+    }
+    .metric:last-child{border-right:none}
+    .metric span{font-family:var(--mono);font-size:10px}
+    .metric strong{
+      display:block;
+      margin-top:52px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .metric p{margin-top:10px;font-size:13px}
+
+    .closing{
+      min-height:82vh;
+      display:flex;
+      align-items:center;
+      background:var(--ivory);
+    }
+    .closing .grid{
+      width:100%;
+      align-items:end;
+    }
+    .closing .eyebrow{
+      grid-column:1/13;
+      margin-bottom:28px;
+    }
+    .closing h2{
+      grid-column:1/8;
+      margin-top:0;
+      max-width:8.3ch;
+      font-size:clamp(46px,5.3vw,84px);
+      line-height:.9;
+      letter-spacing:-.06em;
+    }
+    .closing .next{
+      grid-column:9/13;
+      align-self:end;
+      min-width:0;
+      margin:0;
+      border-top:1px solid var(--ink);
+      padding-top:22px;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .branch-nav{
+      position:fixed;
+      right:8px;
+      top:82px;
+      bottom:20px;
+      width:42px;
+      z-index:25;
+      pointer-events:none;
+    }
+    .branch-nav svg{width:100%;height:100%;overflow:visible}
+    .branch-nav .trunk{
+      fill:none;
+      stroke:rgba(9,9,9,.24);
+      stroke-width:1.1;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+    }
+    .branch-nav .active{
+      fill:none;
+      stroke:var(--violet);
+      stroke-width:1.8;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+      stroke-dasharray:1;
+      stroke-dashoffset:1;
+    }
+    .branch-nav .dot{fill:rgba(9,9,9,.38);transition:.25s ease}
+    .branch-nav .dot.current{fill:var(--violet)}
+    body.dark-zone .branch-nav .trunk{stroke:rgba(255,255,255,.22)}
+    body.dark-zone .branch-nav .dot{fill:rgba(255,255,255,.38)}
+    body.dark-zone .branch-nav .dot.current{fill:var(--aqua)}
+
+    footer{
+      padding:22px var(--pad);
+      background:var(--ink);
+      color:var(--ivory);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-family:var(--mono);
+      font-size:10px;
+    }
+
+    @media(max-width:1100px){
+      .closing h2{
+        grid-column:1/9;
+        font-size:clamp(44px,5vw,72px);
+        max-width:9ch;
+      }
+      .closing .next{grid-column:9/13}
+    }
+
+    @media(max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .project-id{display:none}
+      .top-links{gap:12px}
+      .section{padding-right:calc(var(--pad) + 30px)}
+
+      .hero .eyebrow,.hero h1,.hero .hero-thesis,.hero .intro,
+      .disclosure .eyebrow,.disclosure p,
+      .problem h2,.problem .copy,
+      .audience h2,.audience .lead,
+      .positioning .eyebrow,.positioning h2,.positioning .statement,
+      .content h2,.content .lead,
+      .social h2,.social .lead,
+      .campaign .eyebrow,.campaign h2,.campaign .campaign-note,
+      .calendar h2,.calendar .lead,
+      .measure h2,.measure .lead,
+      .closing .eyebrow,.closing h2,.closing .next{
+        grid-column:1/13;
+      }
+
+      .hero .hero-thesis,.hero .intro,.problem .copy,.audience .lead,.content .lead,
+      .social .lead,.campaign .campaign-note,.calendar .lead,.measure .lead,.closing .next{
+        margin-top:28px;
+      }
+
+      .hero-mosaic{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3,190px);
+      }
+      .hero-mosaic .tile:nth-child(1){grid-row:1/3}
+
+      .problem .visual-strip{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{
+        grid-template-columns:1fr 1fr;
+      }
+      .aud-card,.principle,.metric{border-bottom:1px solid currentColor}
+      .social-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3,220px);
+      }
+      .social-grid .placeholder:nth-child(1){grid-row:1/3}
+      .day{grid-template-columns:80px 1fr}
+      .day p{grid-column:2}
+
+      .closing h2{
+        max-width:10ch;
+        font-size:clamp(46px,9vw,76px);
+      }
+      .closing .next{
+        margin-top:42px;
+        max-width:430px;
+      }
+    }
+
+    @media(max-width:560px){
+      .topbar{height:58px;padding:0 18px}
+      .top-links a:nth-child(2){display:none}
+      .section{padding:92px 28px 58px 18px}
+      h1{font-size:clamp(58px,18vw,94px)}
+      h2{font-size:clamp(42px,13vw,72px)}
+      .hero-mosaic{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(5,180px);
+      }
+      .hero-mosaic .tile:nth-child(1){grid-row:auto}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{
+        grid-template-columns:1fr;
+      }
+      .aud-card,.principle,.metric{border-right:none}
+      .social-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(5,190px);
+      }
+      .social-grid .placeholder:nth-child(1){grid-row:auto}
+      .day{grid-template-columns:1fr;gap:8px}
+      .day p{grid-column:auto}
+      .closing h2{
+        max-width:none;
+        font-size:clamp(40px,13vw,64px);
+        line-height:.92;
+      }
+      .branch-nav{right:0;width:28px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+
+    .case-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      transform: scaleX(0);
+      transform-origin: right center;
+      background: #090909;
+    }
+    .case-wipe.is-active {
+      animation: caseWipe .4s cubic-bezier(.72,0,.2,1) forwards;
+    }
+    @keyframes caseWipe {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .case-wipe{display:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../index.html">AUTUMN BRANCHES<br>STUDIO</a>
+  <div class="project-id">PROJECT / 04 / MARA VALE</div>
+  <nav class="top-links">
+    <a href="#strategy">STRATEGY</a>
+    <a href="#social">CONTENT</a>
+    <a href="../../index.html#work">BACK TO WORK</a>
+  </nav>
+</header>
+
+<aside class="branch-nav" aria-hidden="true">
+  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
+    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <g id="branch-dots"></g>
+  </svg>
+</aside>
+
+<main>
+  <section id="opening" class="section hero light-section">
+    <div class="grid">
+      <div class="eyebrow">04 / PERSONAL BRAND</div>
+      <h1>MARA<br>VALE</h1>
+
+      <div class="hero-thesis">A PERSON WITH A POINT OF VIEW.</div>
+      <p class="intro">A concept personal brand built around perspective, cultural curiosity and useful expertise. The goal is to feel like a person worth following, not a content machine.</p>
+
+      <div class="hero-mosaic">
+        <div class="tile">OWNED VISUAL PLACEHOLDER / FLASH PORTRAIT + PERSONAL ARCHIVE</div>
+        <div class="tile">PLACEHOLDER / CULTURAL REFERENCES</div>
+        <div class="tile">PLACEHOLDER / WORK IN PROGRESS</div>
+        <div class="tile">PLACEHOLDER / ONE-LINE OPINION</div>
+        <div class="tile">PLACEHOLDER / CITY + OBJECTS + LIFE</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section disclosure light-section">
+    <div class="grid">
+      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+      <p>Developed to demonstrate personal-brand positioning, editorial content strategy, social systems, creative direction and campaign thinking for a fictional founder and creative consultant. No client results are implied.</p>
+    </div>
+  </section>
+
+  <section id="problem" class="section problem light-section">
+    <div class="grid">
+      <h2>PERSONAL BRANDING<br>SHOULD NOT REMOVE<br>THE PERSON.</h2>
+
+      <div class="copy">
+        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
+        <p>Many personal brands become visually polished but emotionally interchangeable. Mara needs a system that builds authority without reducing her into productivity carousels, recycled advice and a perfectly consistent feed.</p>
+      </div>
+
+      <div class="visual-strip">
+        <div class="placeholder dark">PLACEHOLDER / CATEGORY AUDIT / PERSONAL BRAND TROPES</div>
+        <div class="placeholder violet">PLACEHOLDER / VOICE + DIFFERENTIATION MAP</div>
+        <div class="placeholder aqua">PLACEHOLDER / CULTURAL INPUTS + REFERENCES</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience" class="section audience light-section">
+    <div class="grid">
+      <h2>WHO WOULD<br>CHOOSE TO<br>FOLLOW?</h2>
+      <p class="lead">People do not need more generic expertise. They follow when the thinking, taste and perspective make the information feel attached to an actual person.</p>
+
+      <div class="audience-cards">
+        <article class="aud-card">
+          <span class="eyebrow">WHO</span>
+          <h3>CURIOUS<br>PEOPLE.</h3>
+          <p>Founders, creatives and ambitious professionals interested in work, culture, ideas and how people build things.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY WANT</span>
+          <h3>USEFUL<br>THINKING.</h3>
+          <p>Perspective they can apply, references they would not have found themselves, and expertise without constant instruction.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY IGNORE</span>
+          <h3>CONTENT<br>FOR CONTENT'S<br>SAKE.</h3>
+          <p>Empty consistency, obvious engagement bait, recycled founder advice and posting that exists only because the calendar says so.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="section positioning dark-section">
+    <div class="grid">
+      <div class="eyebrow">POSITIONING</div>
+      <h2>BE INTERESTING<br>BEFORE TRYING<br>TO BE CONSISTENT.</h2>
+
+      <div class="statement">
+        <p>Mara should build recognition through recurring perspective, not identical formats. The audience should know what kind of mind they are following before they know what the next post will look like.</p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <span class="eyebrow">01</span>
+          <strong>Specific</strong>
+          <p>Have opinions strong enough to sound like one person.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">02</span>
+          <strong>Cultural</strong>
+          <p>Let books, spaces, film, objects and observation shape the point of view.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">03</span>
+          <strong>Useful</strong>
+          <p>Expertise still has to help someone think or act differently.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">04</span>
+          <strong>Human</strong>
+          <p>Show enough life that the authority belongs to a real person.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" class="section content light-section">
+    <div class="grid">
+      <h2>FOUR TERRITORIES.<br>ONE POINT<br>OF VIEW.</h2>
+      <p class="lead">The content can change shape constantly as long as the perspective remains recognizable.</p>
+
+      <div class="territories">
+        <article class="territory">
+          <div class="num">01 / WORK</div>
+          <div>
+            <h3>WHAT SHE<br>KNOWS.</h3>
+            <p>Projects, decisions, lessons, frameworks and strong perspectives drawn from real expertise.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">02 / CULTURE</div>
+          <div>
+            <h3>WHAT SHAPES<br>THE THINKING.</h3>
+            <p>Books, film, design, places, objects and references that add texture to the professional point of view.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">03 / OPINION</div>
+          <div>
+            <h3>WHAT SHE<br>BELIEVES.</h3>
+            <p>Direct observations and arguments that create distinction instead of safe agreement.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">04 / LIFE</div>
+          <div>
+            <h3>THE PERSON<br>AROUND THE WORK.</h3>
+            <p>Enough context, routines and real moments to make the expertise feel inhabited rather than performed.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="section social light-section">
+    <div class="grid">
+      <h2>CONSISTENT<br>DOES NOT MEAN<br>IDENTICAL.</h2>
+      <p class="lead">The social system deliberately changes format: long thought, short observation, photo dump, direct-to-camera video, cultural reference, project breakdown and one-line opinion.</p>
+
+      <div class="social-grid">
+        <div class="placeholder dark">PLACEHOLDER / PHOTO DUMP + PERSONAL ARCHIVE</div>
+        <div class="placeholder violet">PLACEHOLDER / DIRECT-TO-CAMERA HOOK</div>
+        <div class="placeholder aqua">PLACEHOLDER / CULTURAL NOTE</div>
+        <div class="placeholder soft">PLACEHOLDER / PROJECT BREAKDOWN</div>
+        <div class="placeholder">PLACEHOLDER / ONE-LINE OPINION</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="section campaign dark-section">
+    <div class="grid">
+      <div class="eyebrow">RECURRING SERIES</div>
+      <h2>THINGS I AM<br>NOT SURE I<br>BELIEVE ANYMORE.</h2>
+
+      <div class="campaign-note">AN OPINION SHOULD OPEN A CONVERSATION.</div>
+
+      <div class="campaign-line">
+        <div class="campaign-step">
+          <span>01 / CLAIM</span>
+          <strong>Say the thing.</strong>
+          <p>Open with one assumption from the industry that Mara genuinely questions.</p>
+        </div>
+        <div class="campaign-step">
+          <span>02 / ARGUE</span>
+          <strong>Explain why.</strong>
+          <p>Use a short video, written post or carousel to develop the idea without turning it into generic education.</p>
+        </div>
+        <div class="campaign-step">
+          <span>03 / INVITE</span>
+          <strong>Make room for response.</strong>
+          <p>Ask the audience what they believe, disagree with or have experienced differently.</p>
+        </div>
+        <div class="campaign-step">
+          <span>04 / EXTEND</span>
+          <strong>Let it become a series.</strong>
+          <p>Build recognition around the thinking rather than locking the series into one visual template.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="section calendar light-section">
+    <div class="grid">
+      <h2>ONE WEEK.<br>SEVEN DIFFERENT<br>WAYS TO SHOW UP.</h2>
+      <p class="lead">The calendar avoids forcing every day into the same content logic. The goal is a recognizable person, not a production schedule people can see from the outside.</p>
+
+      <div class="week">
+        <div class="day">
+          <div class="day-name">MON</div>
+          <strong>Long thought</strong>
+          <p>A deeper written post on a work or industry idea that deserves more than a quick tip.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">TUE</div>
+          <strong>Photo dump</strong>
+          <p>Work, objects, places and fragments that reveal taste and context without overexplaining them.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">WED</div>
+          <strong>Direct-to-camera</strong>
+          <p>A concise observation delivered in Mara's actual voice with minimal production.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">THU</div>
+          <strong>Cultural note</strong>
+          <p>A book, scene, exhibition, place or object connected back to how Mara thinks about work.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">FRI</div>
+          <strong>Project breakdown</strong>
+          <p>Show one decision, problem or behind-the-work detail that demonstrates expertise through practice.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SAT</div>
+          <strong>One-line opinion</strong>
+          <p>A short, memorable point of view that can stand on its own and invite conversation.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SUN</div>
+          <strong>Life without lesson</strong>
+          <p>Something human that does not need to become advice, a framework or a professional takeaway.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="measurement" class="section measure light-section">
+    <div class="grid">
+      <h2>WHAT WOULD<br>WE WATCH?</h2>
+      <p class="lead">A personal brand should create recognition, trust and opportunity. The important signals show whether the audience knows what Mara stands for and wants more of her thinking.</p>
+
+      <div class="metrics">
+        <div class="metric">
+          <span>01</span>
+          <strong>Recognition</strong>
+          <p>Repeat viewers, profile visits and whether recurring ideas become identifiable.</p>
+        </div>
+        <div class="metric">
+          <span>02</span>
+          <strong>Depth</strong>
+          <p>Saves, shares, dwell time and meaningful comments on perspective-led content.</p>
+        </div>
+        <div class="metric">
+          <span>03</span>
+          <strong>Conversation</strong>
+          <p>Replies, DMs and audience responses that create actual exchange.</p>
+        </div>
+        <div class="metric">
+          <span>04</span>
+          <strong>Authority</strong>
+          <p>Invitations, mentions, collaborations and opportunities tied to Mara's expertise.</p>
+        </div>
+        <div class="metric">
+          <span>05</span>
+          <strong>Opportunity</strong>
+          <p>Qualified enquiries, speaking requests, project conversations and long-term relationship building.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="closing" class="section closing light-section">
+    <div class="grid">
+      <div class="eyebrow">PROJECT / 04 COMPLETE</div>
+
+      <h2>MAKE THE<br>PERSON<br>MEMORABLE,<br>NOT THE<br>TEMPLATE.</h2>
+
+      <div class="next">
+        <div>BACK TO SELECTED WORK</div>
+        <div><a href="../../index.html#work">AUTUMN BRANCHES STUDIO →</a></div>
+        <br>
+        <div>PREVIOUS CASE STUDY</div>
+        <div><a href="../verde-systems/index.html">VERDE SYSTEMS ←</a></div>
+        <br>
+        <div>RETURN TO STUDIO</div>
+        <div><a href="../../index.html#return">SAME STUDIO. DIFFERENT ANSWERS. →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>AUTUMN BRANCHES STUDIO</span>
+  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+</footer>
+
+<script>
+  const sections = [...document.querySelectorAll('main .section')];
+  const activePath = document.querySelector('.branch-nav .active');
+  const dotsGroup = document.querySelector('#branch-dots');
+  const trunk = document.querySelector('#branch-trunk');
+  const total = trunk.getTotalLength();
+
+  sections.forEach((section, i) => {
+    const f = sections.length <= 1 ? 0 : i / (sections.length - 1);
+    const p = trunk.getPointAtLength(total * f);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('class', 'dot');
+    c.setAttribute('cx', p.x);
+    c.setAttribute('cy', p.y);
+    c.setAttribute('r', '2.6');
+    dotsGroup.appendChild(c);
+  });
+
+  const dots = [...dotsGroup.querySelectorAll('.dot')];
+
+  function updateProgress(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const fraction = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    activePath.style.strokeDashoffset = String(1 - fraction);
+
+    let current = 0;
+    sections.forEach((section, i) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= innerHeight * .46) current = i;
+    });
+
+    dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
+
+    const activeSection = sections[current];
+    const dark = activeSection && activeSection.classList.contains('dark-section');
+    document.body.classList.toggle('dark-zone', !!dark);
+  }
+
+  updateProgress();
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress, {passive:true});
+
+  const caseWipe = document.querySelector('.case-wipe');
+  document.querySelectorAll('a[data-transition-color]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      event.preventDefault();
+      const destination = link.getAttribute('href');
+      caseWipe.style.background = link.dataset.transitionColor || '#090909';
+      caseWipe.classList.add('is-active');
+      window.setTimeout(() => { window.location.href = destination; }, 370);
+    });
+  });
+
+</script>
+</body>
+</html>

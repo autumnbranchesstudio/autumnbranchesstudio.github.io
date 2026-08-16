@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Nura Wellness | Autumn Branches Studio</title>
+  <meta name="description" content="Independent concept project by Autumn Branches Studio: strategy, social content and creative direction for Nura Wellness.">
+  <style>
+    :root{
+      --ink:#090909;
+      --ivory:#f3f0e8;
+      --paper:#faf8f2;
+      --line:#c9c5bb;
+      --muted:#6f6b63;
+      --studio-blue:#2343ef;
+      --nura:#315f78;
+      --nura-deep:#173846;
+      --nura-soft:#dbe5e8;
+      --white:#ffffff;
+      --pad:clamp(22px,4vw,64px);
+      --mono:"Courier New",ui-monospace,monospace;
+      --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:var(--sans);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea{font:inherit}
+
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:30;
+      height:66px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:0 var(--pad);
+      border-bottom:1px solid rgba(9,9,9,.12);
+      background:rgba(243,240,232,.92);
+      backdrop-filter:blur(12px);
+    }
+    .brand{
+      font-weight:900;
+      font-size:14px;
+      line-height:.9;
+      letter-spacing:-.04em;
+    }
+    .project-id{
+      justify-self:center;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+    }
+    .top-links{
+      justify-self:end;
+      display:flex;
+      gap:22px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.04em;
+    }
+
+    .section{
+      min-height:100vh;
+      padding:110px calc(var(--pad) + 48px) 72px var(--pad);
+      position:relative;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:clamp(12px,1.4vw,22px);
+    }
+
+    .eyebrow{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(74px,10vw,168px);
+      line-height:.82;
+      letter-spacing:-.075em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h2{
+      font-size:clamp(48px,7vw,108px);
+      line-height:.88;
+      letter-spacing:-.065em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h3{
+      font-size:clamp(25px,2.4vw,40px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    p{
+      font-size:clamp(15px,1.05vw,18px);
+      line-height:1.5;
+    }
+
+    .hero{
+      background:var(--nura-deep);
+      color:var(--white);
+      padding-top:120px;
+    }
+    .hero .eyebrow{grid-column:1/5;align-self:start}
+    .hero h1{grid-column:1/9;margin-top:42px}
+    .hero .intro{
+      grid-column:9/13;
+      align-self:end;
+      max-width:34ch;
+      margin-bottom:18px;
+    }
+    .hero .intro .eyebrow{
+      display:block;
+      margin-bottom:18px;
+      color:var(--nura-soft);
+    }
+    .hero .hero-visual{
+      grid-column:1/13;
+      margin-top:60px;
+      min-height:44vh;
+      background:var(--nura);
+      border-top:1px solid rgba(255,255,255,.3);
+      border-bottom:1px solid rgba(255,255,255,.3);
+      display:grid;
+      place-items:center;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.08em;
+      color:rgba(255,255,255,.72);
+      text-align:center;
+      padding:30px;
+    }
+
+    .disclosure{
+      background:var(--paper);
+      min-height:auto;
+      padding-top:52px;
+      padding-bottom:52px;
+    }
+    .disclosure .eyebrow{grid-column:1/4}
+    .disclosure p{
+      grid-column:5/11;
+      max-width:60ch;
+    }
+
+    .problem h2{grid-column:1/8}
+    .problem .copy{
+      grid-column:9/13;
+      align-self:end;
+      max-width:36ch;
+    }
+    .problem .visual-pair{
+      grid-column:1/13;
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:16px;
+    }
+
+    .placeholder{
+      min-height:360px;
+      border:1px solid var(--ink);
+      background:transparent;
+      display:flex;
+      align-items:flex-end;
+      padding:18px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .placeholder.dark{
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .placeholder.blue{
+      background:var(--nura);
+      color:var(--white);
+      border-color:var(--nura);
+    }
+    .placeholder.soft{
+      background:var(--nura-soft);
+    }
+
+    .audience{
+      background:var(--paper);
+    }
+    .audience h2{grid-column:1/8}
+    .audience .lead{
+      grid-column:9/13;
+      align-self:end;
+      max-width:34ch;
+    }
+    .audience-cards{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .aud-card{
+      min-height:260px;
+      padding:26px 28px 34px;
+      border-right:1px solid var(--ink);
+    }
+    .aud-card:last-child{border-right:none}
+    .aud-card .eyebrow{display:block;margin-bottom:58px}
+    .aud-card p{max-width:27ch}
+
+    .positioning{
+      background:var(--nura);
+      color:var(--white);
+    }
+    .positioning .eyebrow{grid-column:1/4}
+    .positioning h2{grid-column:1/10;margin-top:46px}
+    .positioning .statement{
+      grid-column:8/13;
+      margin-top:60px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.5);
+      max-width:40ch;
+    }
+    .principles{
+      grid-column:1/13;
+      margin-top:76px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      border-top:1px solid rgba(255,255,255,.5);
+      border-bottom:1px solid rgba(255,255,255,.5);
+    }
+    .principle{
+      padding:28px 24px 38px;
+      min-height:220px;
+      border-right:1px solid rgba(255,255,255,.35);
+    }
+    .principle:last-child{border-right:none}
+    .principle strong{
+      display:block;
+      margin-top:38px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .principle p{
+      margin-top:10px;
+      max-width:24ch;
+      font-size:14px;
+    }
+
+    .content h2{grid-column:1/8}
+    .content .lead{
+      grid-column:9/13;
+      align-self:end;
+      max-width:36ch;
+    }
+    .territories{
+      grid-column:1/13;
+      margin-top:60px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .territory{
+      min-height:360px;
+      padding:24px;
+      border:1px solid var(--ink);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .territory:nth-child(1){background:var(--nura-deep);color:var(--white)}
+    .territory:nth-child(2){background:var(--nura-soft)}
+    .territory:nth-child(3){background:var(--paper)}
+    .territory:nth-child(4){background:var(--nura);color:var(--white)}
+    .territory .num{
+      font-family:var(--mono);
+      font-size:11px;
+    }
+    .territory p{font-size:14px;max-width:25ch}
+
+    .social{
+      background:var(--paper);
+    }
+    .social h2{grid-column:1/7}
+    .social .lead{grid-column:8/13;align-self:end;max-width:38ch}
+    .social-grid{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr;
+      grid-template-rows:repeat(2,minmax(250px,32vh));
+      gap:12px;
+    }
+    .social-grid .placeholder:first-child{grid-row:1/3}
+    .social-grid .placeholder{min-height:0}
+
+    .campaign{
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .campaign .eyebrow{grid-column:1/4}
+    .campaign h2{
+      grid-column:1/10;
+      margin-top:46px;
+      color:var(--nura-soft);
+    }
+    .campaign .campaign-line{
+      grid-column:1/13;
+      margin-top:70px;
+      padding:36px 0;
+      border-top:1px solid rgba(255,255,255,.25);
+      border-bottom:1px solid rgba(255,255,255,.25);
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+    .campaign-step span{
+      font-family:var(--mono);
+      font-size:10px;
+      color:var(--nura-soft);
+    }
+    .campaign-step strong{
+      display:block;
+      margin-top:14px;
+      font-size:clamp(21px,2vw,32px);
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .campaign-step p{
+      margin-top:12px;
+      font-size:14px;
+      max-width:23ch;
+      color:#d8d6d0;
+    }
+
+    .calendar h2{grid-column:1/7}
+    .calendar .lead{grid-column:8/13;align-self:end;max-width:36ch}
+    .week{
+      grid-column:1/13;
+      margin-top:58px;
+      border-top:1px solid var(--ink);
+    }
+    .day{
+      display:grid;
+      grid-template-columns:100px 1fr 1fr;
+      gap:24px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .day .day-name{font-family:var(--mono);font-size:11px}
+    .day strong{text-transform:uppercase}
+    .day p{font-size:14px;color:var(--muted);max-width:40ch}
+
+    .measure{
+      background:var(--nura-soft);
+    }
+    .measure h2{grid-column:1/8}
+    .measure .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .metrics{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .metric{
+      min-height:240px;
+      padding:24px;
+      border-right:1px solid var(--ink);
+    }
+    .metric:last-child{border-right:none}
+    .metric span{font-family:var(--mono);font-size:10px}
+    .metric strong{
+      display:block;
+      margin-top:52px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .metric p{
+      margin-top:10px;
+      font-size:13px;
+    }
+
+    .closing{
+      min-height:82vh;
+      background:var(--ivory);
+      display:flex;
+      align-items:center;
+    }
+    .closing .grid{width:100%}
+    .closing .eyebrow{grid-column:1/4}
+    .closing h2{grid-column:1/9;margin-top:42px}
+    .closing .next{
+      grid-column:9/13;
+      align-self:end;
+      border-top:1px solid var(--ink);
+      padding-top:20px;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .branch-nav{
+      position:fixed;
+      right:8px;
+      top:82px;
+      bottom:20px;
+      width:42px;
+      z-index:25;
+      pointer-events:none;
+    }
+    .branch-nav svg{width:100%;height:100%;overflow:visible}
+    .branch-nav .trunk{
+      fill:none;
+      stroke:rgba(9,9,9,.25);
+      stroke-width:1.1;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+    }
+    .branch-nav .active{
+      fill:none;
+      stroke:var(--nura);
+      stroke-width:1.8;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+      stroke-dasharray:1;
+      stroke-dashoffset:1;
+    }
+    .branch-nav .dot{
+      fill:rgba(9,9,9,.45);
+      transition:.25s ease;
+    }
+    .branch-nav .dot.current{
+      fill:var(--nura);
+    }
+
+    footer{
+      padding:22px var(--pad);
+      background:var(--ink);
+      color:var(--ivory);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-family:var(--mono);
+      font-size:10px;
+    }
+
+    @media(max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .project-id{display:none}
+      .top-links{gap:12px}
+      .section{padding-right:calc(var(--pad) + 30px)}
+      .hero .eyebrow,.hero h1,.hero .intro,
+      .disclosure .eyebrow,.disclosure p,
+      .problem h2,.problem .copy,
+      .audience h2,.audience .lead,
+      .positioning .eyebrow,.positioning h2,.positioning .statement,
+      .content h2,.content .lead,
+      .social h2,.social .lead,
+      .campaign .eyebrow,.campaign h2,
+      .calendar h2,.calendar .lead,
+      .measure h2,.measure .lead,
+      .closing .eyebrow,.closing h2,.closing .next{
+        grid-column:1/13;
+      }
+      .hero .intro,.problem .copy,.audience .lead,.content .lead,.social .lead,
+      .calendar .lead,.measure .lead,.closing .next{margin-top:28px}
+      .problem .visual-pair{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign .campaign-line,.metrics{
+        grid-template-columns:1fr 1fr;
+      }
+      .aud-card,.principle,.metric{border-bottom:1px solid currentColor}
+      .social-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3,220px);
+      }
+      .social-grid .placeholder:first-child{grid-row:1/3}
+      .day{grid-template-columns:80px 1fr}
+      .day p{grid-column:2}
+    }
+
+    @media(max-width:560px){
+      .topbar{height:58px;padding:0 18px}
+      .top-links a:nth-child(2){display:none}
+      .section{padding:92px 28px 58px 18px}
+      h1{font-size:clamp(58px,18vw,94px)}
+      h2{font-size:clamp(42px,13vw,72px)}
+      .audience-cards,.territories,.principles,.campaign .campaign-line,.metrics{
+        grid-template-columns:1fr;
+      }
+      .aud-card,.principle,.metric{border-right:none}
+      .social-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(5,190px);
+      }
+      .social-grid .placeholder:first-child{grid-row:auto}
+      .day{grid-template-columns:1fr;gap:8px}
+      .day p{grid-column:auto}
+      .branch-nav{right:0;width:28px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+
+    .case-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      transform: scaleX(0);
+      transform-origin: right center;
+      background: #090909;
+    }
+    .case-wipe.is-active {
+      animation: caseWipe .4s cubic-bezier(.72,0,.2,1) forwards;
+    }
+    @keyframes caseWipe {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .case-wipe{display:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../index.html">AUTUMN BRANCHES<br>STUDIO</a>
+  <div class="project-id">PROJECT / 01 / NURA WELLNESS</div>
+  <nav class="top-links">
+    <a href="#strategy">STRATEGY</a>
+    <a href="#social">SOCIAL</a>
+    <a href="../../index.html#work">BACK TO WORK</a>
+  </nav>
+</header>
+
+<aside class="branch-nav" aria-hidden="true">
+  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
+    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <g id="branch-dots"></g>
+  </svg>
+</aside>
+
+<main>
+  <section id="opening" class="section hero">
+    <div class="grid">
+      <div class="eyebrow">01 / PERSONAL WELLNESS BRAND</div>
+      <h1>NURA<br>WELLNESS</h1>
+      <div class="intro">
+        <span class="eyebrow">WELLNESS WITHOUT THE PERFORMANCE</span>
+        <p>A concept brand built around useful guidance, realistic rituals and a calmer kind of clarity.</p>
+      </div>
+      <div class="hero-visual">OWNED VISUAL PLACEHOLDER / HERO BRAND WORLD</div>
+    </div>
+  </section>
+
+  <section class="section disclosure">
+    <div class="grid">
+      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+      <p>Developed to demonstrate strategy, positioning, social content systems, campaign thinking and creative direction for a fictional wellness brand. No client results are implied.</p>
+    </div>
+  </section>
+
+  <section id="problem" class="section problem">
+    <div class="grid">
+      <h2>THE CATEGORY<br>IS FULL OF<br>PERFECTION.</h2>
+      <div class="copy">
+        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
+        <p>Wellness brands often rely on polished aspiration, vague self-care language and highly similar visual cues. Nura needs to feel credible and contemporary without asking people to perform an ideal version of wellness.</p>
+      </div>
+      <div class="visual-pair">
+        <div class="placeholder dark">PLACEHOLDER / CATEGORY AUDIT / COMPETITOR PATTERNS</div>
+        <div class="placeholder soft">PLACEHOLDER / OPPORTUNITY MAP / DIFFERENTIATION</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience" class="section audience">
+    <div class="grid">
+      <h2>WHO ARE<br>WE TALKING TO?</h2>
+      <p class="lead">People interested in feeling better, but tired of being told that wellbeing requires perfection, optimization or a completely new life.</p>
+      <div class="audience-cards">
+        <article class="aud-card">
+          <span class="eyebrow">WHO</span>
+          <h3>REAL PEOPLE<br>WITH FULL DAYS.</h3>
+          <p>Young professionals and independent adults who care about their wellbeing but need it to fit real routines.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY WANT</span>
+          <h3>USEFUL.<br>DOABLE.<br>CLEAR.</h3>
+          <p>Simple information, small habits and products that solve something without becoming another project.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY ARE TIRED OF</span>
+          <h3>PERFORMANCE<br>DISGUISED AS<br>WELLNESS.</h3>
+          <p>Overpromising, aesthetics without substance, impossible routines and language that makes wellbeing feel exclusive.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="section positioning">
+    <div class="grid">
+      <div class="eyebrow">POSITIONING</div>
+      <h2>WELLNESS<br>WITHOUT THE<br>PERFORMANCE.</h2>
+      <div class="statement">
+        <p>Nura should feel like the person who explains something clearly, gives you one useful next step and does not make you feel behind.</p>
+      </div>
+      <div class="principles">
+        <div class="principle">
+          <span class="eyebrow">01</span>
+          <strong>Clear</strong>
+          <p>Say the useful thing before the impressive thing.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">02</span>
+          <strong>Grounded</strong>
+          <p>Use real routines and realistic expectations.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">03</span>
+          <strong>Human</strong>
+          <p>Talk to people, not an abstract wellness consumer.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">04</span>
+          <strong>Specific</strong>
+          <p>Make every piece of content answer an actual need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" class="section content">
+    <div class="grid">
+      <h2>THE CONTENT<br>HAS A JOB.</h2>
+      <p class="lead">Consistency comes from a recognizable point of view and system, not from making every post look identical.</p>
+      <div class="territories">
+        <article class="territory">
+          <div class="num">01 / CLARITY</div>
+          <div>
+            <h3>MAKE IT<br>MAKE SENSE.</h3>
+            <p>Simple explanations, useful guidance and clearer language around wellness topics.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">02 / RITUAL</div>
+          <div>
+            <h3>SMALL THINGS<br>YOU CAN REPEAT.</h3>
+            <p>Realistic habits that fit into existing lives instead of demanding a reinvention.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">03 / PERSPECTIVE</div>
+          <div>
+            <h3>QUESTION THE<br>DEFAULT.</h3>
+            <p>Reframe wellness assumptions, myths and the pressure to optimize everything.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">04 / PRODUCT</div>
+          <div>
+            <h3>SHOW WHY<br>IT MATTERS.</h3>
+            <p>Connect products to a clear problem, context and routine rather than isolated features.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="section social">
+    <div class="grid">
+      <h2>STRATEGY<br>IN MOTION.</h2>
+      <p class="lead">The social system shows how the positioning becomes actual content, from education and short video to community prompts and product storytelling.</p>
+      <div class="social-grid">
+        <div class="placeholder dark">PLACEHOLDER / 6 POST FEED SYSTEM</div>
+        <div class="placeholder blue">PLACEHOLDER / REEL COVER + HOOK</div>
+        <div class="placeholder">PLACEHOLDER / EDUCATIONAL CAROUSEL</div>
+        <div class="placeholder soft">PLACEHOLDER / STORIES SEQUENCE</div>
+        <div class="placeholder">PLACEHOLDER / CAPTION + CTA SAMPLE</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="section campaign">
+    <div class="grid">
+      <div class="eyebrow">SAMPLE CAMPAIGN</div>
+      <h2>SMALL HABITS.<br>BIG SHIFTS.</h2>
+      <div class="campaign-line">
+        <div class="campaign-step">
+          <span>01 / OPEN</span>
+          <strong>Start small.</strong>
+          <p>Introduce the campaign through one low-friction habit and a clear reason it matters.</p>
+        </div>
+        <div class="campaign-step">
+          <span>02 / EXPLAIN</span>
+          <strong>Make it useful.</strong>
+          <p>Educational carousel and short video connect the habit to a realistic outcome.</p>
+        </div>
+        <div class="campaign-step">
+          <span>03 / INVITE</span>
+          <strong>Let people in.</strong>
+          <p>Stories prompt followers to share the tiny habits they already rely on.</p>
+        </div>
+        <div class="campaign-step">
+          <span>04 / CONNECT</span>
+          <strong>Product with purpose.</strong>
+          <p>Show where Nura fits naturally into the ritual without turning the campaign into an ad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="section calendar">
+    <div class="grid">
+      <h2>ONE WEEK.<br>ONE SYSTEM.</h2>
+      <p class="lead">A content calendar should create rhythm without making the brand feel repetitive.</p>
+      <div class="week">
+        <div class="day">
+          <div class="day-name">MON</div>
+          <strong>Clarity carousel</strong>
+          <p>Explain one wellness idea people regularly overcomplicate.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">TUE</div>
+          <strong>Stories prompt</strong>
+          <p>Audience question plus poll to surface language and real-life friction.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">WED</div>
+          <strong>Short-form video</strong>
+          <p>One realistic ritual shown in context, not staged as a perfect routine.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">THU</div>
+          <strong>Perspective post</strong>
+          <p>Challenge one popular assumption about what wellness should look like.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">FRI</div>
+          <strong>Product in routine</strong>
+          <p>Connect a product benefit to the week's theme and an actual use case.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SAT</div>
+          <strong>Community</strong>
+          <p>Share responses, routines or audience language gathered during the week.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SUN</div>
+          <strong>Light touch</strong>
+          <p>A simple visual, cultural reference or quiet reset before the next theme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="measurement" class="section measure">
+    <div class="grid">
+      <h2>WHAT WOULD<br>WE WATCH?</h2>
+      <p class="lead">The goal is not engagement for its own sake. Each metric should tell us something about attention, trust, intent or action.</p>
+      <div class="metrics">
+        <div class="metric">
+          <span>01</span>
+          <strong>Awareness</strong>
+          <p>Reach, video completion and new audience discovery.</p>
+        </div>
+        <div class="metric">
+          <span>02</span>
+          <strong>Interest</strong>
+          <p>Saves, shares, profile visits and repeat viewers.</p>
+        </div>
+        <div class="metric">
+          <span>03</span>
+          <strong>Intent</strong>
+          <p>Link clicks, replies, DMs and product-page visits.</p>
+        </div>
+        <div class="metric">
+          <span>04</span>
+          <strong>Conversion</strong>
+          <p>Sign-ups, purchases, trials or enquiries tied to campaign activity.</p>
+        </div>
+        <div class="metric">
+          <span>05</span>
+          <strong>Retention</strong>
+          <p>Repeat engagement and whether the audience continues to come back.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="closing" class="section closing">
+    <div class="grid">
+      <div class="eyebrow">PROJECT / 01 COMPLETE</div>
+      <h2>STRATEGY FIRST.<br>THEN THE CONTENT<br>HAS SOMEWHERE<br>TO GO.</h2>
+      <div class="next">
+        <div>BACK TO SELECTED WORK</div>
+        <div><a href="../../index.html#work">AUTUMN BRANCHES STUDIO →</a></div>
+        <br>
+        <div>NEXT CASE STUDY</div>
+        <div><a href="../cafe-lumiere/index.html">CAFÉ LUMIÈRE →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>AUTUMN BRANCHES STUDIO</span>
+  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+</footer>
+
+<script>
+  const sections = [...document.querySelectorAll('main .section')];
+  const activePath = document.querySelector('.branch-nav .active');
+  const dotsGroup = document.querySelector('#branch-dots');
+  const trunk = document.querySelector('#branch-trunk');
+  const total = trunk.getTotalLength();
+
+  sections.forEach((section, i) => {
+    const f = sections.length <= 1 ? 0 : i / (sections.length - 1);
+    const p = trunk.getPointAtLength(total * f);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('class', 'dot');
+    c.setAttribute('cx', p.x);
+    c.setAttribute('cy', p.y);
+    c.setAttribute('r', '2.6');
+    dotsGroup.appendChild(c);
+  });
+
+  const dots = [...dotsGroup.querySelectorAll('.dot')];
+
+  function updateProgress(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const fraction = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    activePath.style.strokeDashoffset = String(1 - fraction);
+
+    let current = 0;
+    sections.forEach((section, i) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= innerHeight * .46) current = i;
+    });
+    dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
+  }
+
+  updateProgress();
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress, {passive:true});
+
+  const caseWipe = document.querySelector('.case-wipe');
+  document.querySelectorAll('a[data-transition-color]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      event.preventDefault();
+      const destination = link.getAttribute('href');
+      caseWipe.style.background = link.dataset.transitionColor || '#090909';
+      caseWipe.classList.add('is-active');
+      window.setTimeout(() => { window.location.href = destination; }, 370);
+    });
+  });
+
+</script>
+</body>
+</html>

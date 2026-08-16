@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Café Lumière | Autumn Branches Studio</title>
+  <meta name="description" content="Independent concept project by Autumn Branches Studio: strategy, content system and creative direction for Café Lumière.">
+  <style>
+    :root{
+      --ink:#0a0a0a;
+      --ivory:#f5f0e5;
+      --paper:#fffaf0;
+      --line:#cbbf9f;
+      --muted:#6f6656;
+      --yellow:#f2c62f;
+      --yellow-soft:#f8eaa7;
+      --brown:#5a3a18;
+      --white:#fff;
+      --pad:clamp(22px,4vw,64px);
+      --mono:"Courier New",ui-monospace,monospace;
+      --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--ivory);
+      color:var(--ink);
+      font-family:var(--sans);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:30;
+      height:66px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:0 var(--pad);
+      border-bottom:1px solid rgba(10,10,10,.14);
+      background:rgba(245,240,229,.92);
+      backdrop-filter:blur(12px);
+    }
+    .brand{
+      font-weight:900;
+      font-size:14px;
+      line-height:.9;
+      letter-spacing:-.04em;
+    }
+    .project-id{
+      justify-self:center;
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+    }
+    .top-links{
+      justify-self:end;
+      display:flex;
+      gap:22px;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.04em;
+    }
+
+    .section{
+      min-height:100vh;
+      padding:110px calc(var(--pad) + 48px) 72px var(--pad);
+      position:relative;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:clamp(12px,1.4vw,22px);
+    }
+    .eyebrow{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3,p{margin:0}
+    h1{
+      font-size:clamp(76px,10vw,170px);
+      line-height:.82;
+      letter-spacing:-.075em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h2{
+      font-size:clamp(48px,7vw,108px);
+      line-height:.88;
+      letter-spacing:-.065em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    h3{
+      font-size:clamp(25px,2.4vw,40px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+    p{
+      font-size:clamp(15px,1.05vw,18px);
+      line-height:1.5;
+    }
+
+    .hero{
+      background:var(--yellow);
+      color:var(--ink);
+      padding-top:120px;
+    }
+    .hero .eyebrow{grid-column:1/4}
+    .hero h1{grid-column:1/8;margin-top:38px}
+    .hero .intro{
+      grid-column:9/13;
+      align-self:end;
+      max-width:34ch;
+      margin-bottom:18px;
+    }
+    .hero .intro .eyebrow{display:block;margin-bottom:16px}
+    .hero .hero-mosaic{
+      grid-column:1/13;
+      margin-top:54px;
+      display:grid;
+      grid-template-columns:1.45fr .7fr .85fr;
+      grid-template-rows:minmax(190px,24vh) minmax(220px,28vh);
+      gap:12px;
+    }
+    .hero-mosaic .tile{
+      border:1px solid var(--ink);
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .hero-mosaic .tile:nth-child(1){grid-row:1/3;background:var(--ink);color:var(--ivory)}
+    .hero-mosaic .tile:nth-child(2){background:var(--paper)}
+    .hero-mosaic .tile:nth-child(3){background:var(--brown);color:var(--ivory)}
+    .hero-mosaic .tile:nth-child(4){background:var(--yellow-soft)}
+    .hero-mosaic .tile:nth-child(5){background:var(--paper)}
+
+    .disclosure{
+      min-height:auto;
+      padding-top:52px;
+      padding-bottom:52px;
+      background:var(--paper);
+    }
+    .disclosure .eyebrow{grid-column:1/4}
+    .disclosure p{grid-column:5/11;max-width:60ch}
+
+    .problem h2{grid-column:1/8}
+    .problem .copy{grid-column:9/13;align-self:end;max-width:36ch}
+    .problem .visual-strip{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:.8fr 1.2fr .8fr;
+      gap:12px;
+    }
+
+    .placeholder{
+      min-height:320px;
+      border:1px solid var(--ink);
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      font-family:var(--mono);
+      font-size:10px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+      background:transparent;
+    }
+    .placeholder.dark{background:var(--ink);color:var(--ivory)}
+    .placeholder.yellow{background:var(--yellow);color:var(--ink)}
+    .placeholder.soft{background:var(--yellow-soft)}
+    .placeholder.brown{background:var(--brown);color:var(--ivory)}
+
+    .audience{
+      background:var(--paper);
+    }
+    .audience h2{grid-column:1/8}
+    .audience .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .audience-cards{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .aud-card{
+      min-height:260px;
+      padding:26px 28px 34px;
+      border-right:1px solid var(--ink);
+    }
+    .aud-card:last-child{border-right:none}
+    .aud-card .eyebrow{display:block;margin-bottom:58px}
+    .aud-card p{max-width:27ch}
+
+    .positioning{
+      background:var(--brown);
+      color:var(--ivory);
+    }
+    .positioning .eyebrow{grid-column:1/4}
+    .positioning h2{grid-column:1/10;margin-top:46px}
+    .positioning .statement{
+      grid-column:8/13;
+      margin-top:58px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.45);
+      max-width:40ch;
+    }
+    .principles{
+      grid-column:1/13;
+      margin-top:72px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      border-top:1px solid rgba(255,255,255,.45);
+      border-bottom:1px solid rgba(255,255,255,.45);
+    }
+    .principle{
+      min-height:220px;
+      padding:28px 24px 38px;
+      border-right:1px solid rgba(255,255,255,.3);
+    }
+    .principle:last-child{border-right:none}
+    .principle strong{
+      display:block;
+      margin-top:38px;
+      font-size:20px;
+      text-transform:uppercase;
+    }
+    .principle p{margin-top:10px;font-size:14px;max-width:24ch}
+
+    .content h2{grid-column:1/8}
+    .content .lead{grid-column:9/13;align-self:end;max-width:36ch}
+    .territories{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+    }
+    .territory{
+      min-height:360px;
+      padding:24px;
+      border:1px solid var(--ink);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .territory:nth-child(1){background:var(--yellow)}
+    .territory:nth-child(2){background:var(--ink);color:var(--ivory)}
+    .territory:nth-child(3){background:var(--paper)}
+    .territory:nth-child(4){background:var(--yellow-soft)}
+    .territory .num{font-family:var(--mono);font-size:11px}
+    .territory p{font-size:14px;max-width:25ch}
+
+    .social{
+      background:var(--paper);
+    }
+    .social h2{grid-column:1/7}
+    .social .lead{grid-column:8/13;align-self:end;max-width:38ch}
+    .social-grid{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:1.05fr .65fr .8fr;
+      grid-template-rows:minmax(220px,28vh) minmax(220px,28vh);
+      gap:12px;
+    }
+    .social-grid .placeholder:nth-child(1){grid-row:1/3}
+    .social-grid .placeholder{min-height:0}
+
+    .campaign{
+      background:var(--ink);
+      color:var(--ivory);
+    }
+    .campaign .eyebrow{grid-column:1/4}
+    .campaign h2{
+      grid-column:1/8;
+      margin-top:46px;
+      color:var(--yellow);
+    }
+    .campaign .campaign-clock{
+      grid-column:9/13;
+      align-self:end;
+      font-size:clamp(64px,8vw,120px);
+      line-height:.8;
+      letter-spacing:-.06em;
+      font-weight:900;
+      color:var(--yellow-soft);
+    }
+    .campaign-line{
+      grid-column:1/13;
+      margin-top:70px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+      border-top:1px solid rgba(255,255,255,.24);
+      border-bottom:1px solid rgba(255,255,255,.24);
+      padding:36px 0;
+    }
+    .campaign-step span{font-family:var(--mono);font-size:10px;color:var(--yellow)}
+    .campaign-step strong{
+      display:block;
+      margin-top:14px;
+      font-size:clamp(21px,2vw,32px);
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .campaign-step p{margin-top:12px;font-size:14px;max-width:23ch;color:#d9d5cc}
+
+    .calendar h2{grid-column:1/7}
+    .calendar .lead{grid-column:8/13;align-self:end;max-width:36ch}
+    .week{
+      grid-column:1/13;
+      margin-top:58px;
+      border-top:1px solid var(--ink);
+    }
+    .day{
+      display:grid;
+      grid-template-columns:100px 1fr 1fr;
+      gap:24px;
+      padding:22px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .day .day-name{font-family:var(--mono);font-size:11px}
+    .day strong{text-transform:uppercase}
+    .day p{font-size:14px;color:var(--muted);max-width:40ch}
+
+    .measure{
+      background:var(--yellow-soft);
+    }
+    .measure h2{grid-column:1/8}
+    .measure .lead{grid-column:9/13;align-self:end;max-width:34ch}
+    .metrics{
+      grid-column:1/13;
+      margin-top:58px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border-top:1px solid var(--ink);
+      border-bottom:1px solid var(--ink);
+    }
+    .metric{
+      min-height:240px;
+      padding:24px;
+      border-right:1px solid var(--ink);
+    }
+    .metric:last-child{border-right:none}
+    .metric span{font-family:var(--mono);font-size:10px}
+    .metric strong{display:block;margin-top:52px;font-size:20px;text-transform:uppercase}
+    .metric p{margin-top:10px;font-size:13px}
+
+    .closing{
+      min-height:82vh;
+      display:flex;
+      align-items:center;
+      background:var(--ivory);
+    }
+    .closing .grid{width:100%}
+    .closing .eyebrow{grid-column:1/4}
+    .closing h2{grid-column:1/9;margin-top:42px}
+    .closing .next{
+      grid-column:9/13;
+      align-self:end;
+      border-top:1px solid var(--ink);
+      padding-top:20px;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .branch-nav{
+      position:fixed;
+      right:8px;
+      top:82px;
+      bottom:20px;
+      width:42px;
+      z-index:25;
+      pointer-events:none;
+    }
+    .branch-nav svg{width:100%;height:100%;overflow:visible}
+    .branch-nav .trunk{
+      fill:none;
+      stroke:rgba(10,10,10,.25);
+      stroke-width:1.1;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+    }
+    .branch-nav .active{
+      fill:none;
+      stroke:var(--yellow);
+      stroke-width:1.8;
+      vector-effect:non-scaling-stroke;
+      stroke-linecap:round;
+      stroke-dasharray:1;
+      stroke-dashoffset:1;
+    }
+    .branch-nav .dot{fill:rgba(10,10,10,.45);transition:.25s ease}
+    .branch-nav .dot.current{fill:var(--yellow)}
+
+    footer{
+      padding:22px var(--pad);
+      background:var(--ink);
+      color:var(--ivory);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      font-family:var(--mono);
+      font-size:10px;
+    }
+
+    @media(max-width:900px){
+      .topbar{grid-template-columns:1fr auto}
+      .project-id{display:none}
+      .top-links{gap:12px}
+      .section{padding-right:calc(var(--pad) + 30px)}
+      .hero .eyebrow,.hero h1,.hero .intro,
+      .disclosure .eyebrow,.disclosure p,
+      .problem h2,.problem .copy,
+      .audience h2,.audience .lead,
+      .positioning .eyebrow,.positioning h2,.positioning .statement,
+      .content h2,.content .lead,
+      .social h2,.social .lead,
+      .campaign .eyebrow,.campaign h2,.campaign .campaign-clock,
+      .calendar h2,.calendar .lead,
+      .measure h2,.measure .lead,
+      .closing .eyebrow,.closing h2,.closing .next{
+        grid-column:1/13;
+      }
+      .hero .intro,.problem .copy,.audience .lead,.content .lead,.social .lead,
+      .campaign .campaign-clock,.calendar .lead,.measure .lead,.closing .next{margin-top:28px}
+      .hero .hero-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,190px)}
+      .hero-mosaic .tile:nth-child(1){grid-row:1/3}
+      .problem .visual-strip{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{
+        grid-template-columns:1fr 1fr;
+      }
+      .aud-card,.principle,.metric{border-bottom:1px solid currentColor}
+      .social-grid{
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:repeat(3,220px);
+      }
+      .social-grid .placeholder:nth-child(1){grid-row:1/3}
+      .day{grid-template-columns:80px 1fr}
+      .day p{grid-column:2}
+    }
+
+    @media(max-width:560px){
+      .topbar{height:58px;padding:0 18px}
+      .top-links a:nth-child(2){display:none}
+      .section{padding:92px 28px 58px 18px}
+      h1{font-size:clamp(58px,18vw,94px)}
+      h2{font-size:clamp(42px,13vw,72px)}
+      .hero .hero-mosaic{grid-template-columns:1fr;grid-template-rows:repeat(5,180px)}
+      .hero-mosaic .tile:nth-child(1){grid-row:auto}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{grid-template-columns:1fr}
+      .aud-card,.principle,.metric{border-right:none}
+      .social-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,190px)}
+      .social-grid .placeholder:nth-child(1){grid-row:auto}
+      .day{grid-template-columns:1fr;gap:8px}
+      .day p{grid-column:auto}
+      .branch-nav{right:0;width:28px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+    }
+
+    .case-wipe {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      transform: scaleX(0);
+      transform-origin: right center;
+      background: #090909;
+    }
+    .case-wipe.is-active {
+      animation: caseWipe .4s cubic-bezier(.72,0,.2,1) forwards;
+    }
+    @keyframes caseWipe {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .case-wipe{display:none}
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="../../index.html">AUTUMN BRANCHES<br>STUDIO</a>
+  <div class="project-id">PROJECT / 02 / CAFÉ LUMIÈRE</div>
+  <nav class="top-links">
+    <a href="#strategy">STRATEGY</a>
+    <a href="#social">SOCIAL</a>
+    <a href="../../index.html#work">BACK TO WORK</a>
+  </nav>
+</header>
+
+<aside class="branch-nav" aria-hidden="true">
+  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
+    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
+    <g id="branch-dots"></g>
+  </svg>
+</aside>
+
+<main>
+  <section id="opening" class="section hero">
+    <div class="grid">
+      <div class="eyebrow">02 / LOCAL CAFÉ</div>
+      <h1>CAFÉ<br>LUMIÈRE</h1>
+      <div class="intro">
+        <span class="eyebrow">COFFEE. PEOPLE. A REASON TO STAY.</span>
+        <p>A neighbourhood café concept built around everyday ritual, real people and the energy of being somewhere worth returning to.</p>
+      </div>
+
+      <div class="hero-mosaic">
+        <div class="tile">OWNED VISUAL PLACEHOLDER / DOCUMENTARY CAFÉ MOMENT</div>
+        <div class="tile">PLACEHOLDER / MENU DETAIL</div>
+        <div class="tile">PLACEHOLDER / STREET WINDOW</div>
+        <div class="tile">PLACEHOLDER / CUP + TABLE</div>
+        <div class="tile">PLACEHOLDER / MORNING CROWD</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section disclosure">
+    <div class="grid">
+      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+      <p>Developed to demonstrate local-business positioning, social content strategy, creative direction, campaign thinking and community-led content for a fictional neighbourhood café. No client results are implied.</p>
+    </div>
+  </section>
+
+  <section id="problem" class="section problem">
+    <div class="grid">
+      <h2>GOOD COFFEE<br>IS NOT ENOUGH.</h2>
+      <div class="copy">
+        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
+        <p>Local cafés often post products without building a recognizable personality. Café Lumière needs to become more than a place that sells coffee. It needs to feel like part of the neighbourhood's rhythm.</p>
+      </div>
+
+      <div class="visual-strip">
+        <div class="placeholder dark">PLACEHOLDER / COMPETITOR FEEDS / PRODUCT-FIRST PATTERNS</div>
+        <div class="placeholder yellow">PLACEHOLDER / LOCAL CULTURE + COMMUNITY OPPORTUNITY</div>
+        <div class="placeholder soft">PLACEHOLDER / CUSTOMER RITUALS</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience" class="section audience">
+    <div class="grid">
+      <h2>WHO COMES<br>THROUGH THE DOOR?</h2>
+      <p class="lead">People are not only buying coffee. They are choosing where to begin the day, meet someone, work for an hour, or become a regular.</p>
+
+      <div class="audience-cards">
+        <article class="aud-card">
+          <span class="eyebrow">WHO</span>
+          <h3>PEOPLE<br>NEARBY.</h3>
+          <p>Local residents, workers, students and repeat visitors who value familiarity and atmosphere as much as the menu.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY WANT</span>
+          <h3>A PLACE<br>WITH A PULSE.</h3>
+          <p>Good coffee, quick recognition, small rituals and enough personality to make choosing the café feel intentional.</p>
+        </article>
+        <article class="aud-card">
+          <span class="eyebrow">WHAT THEY REMEMBER</span>
+          <h3>HOW THE PLACE<br>FELT.</h3>
+          <p>The staff, the light, the music, the corner table, the joke on the board and the feeling that the café belongs to its street.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="strategy" class="section positioning">
+    <div class="grid">
+      <div class="eyebrow">POSITIONING</div>
+      <h2>THE CAFÉ<br>AS A LOCAL<br>CHARACTER.</h2>
+      <div class="statement">
+        <p>Café Lumière should sound and behave like a familiar place with a point of view. Warm, observant, social and rooted in the everyday life around it.</p>
+      </div>
+
+      <div class="principles">
+        <div class="principle">
+          <span class="eyebrow">01</span>
+          <strong>Local</strong>
+          <p>Talk about the neighbourhood, not just the product.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">02</span>
+          <strong>Alive</strong>
+          <p>People, movement and real moments over perfect still life.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">03</span>
+          <strong>Familiar</strong>
+          <p>Build recurring rituals people recognize and return to.</p>
+        </div>
+        <div class="principle">
+          <span class="eyebrow">04</span>
+          <strong>Specific</strong>
+          <p>Give the café its own language instead of generic coffee captions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="content" class="section content">
+    <div class="grid">
+      <h2>THE FEED<br>SHOULD FEEL<br>INHABITED.</h2>
+      <p class="lead">Consistency comes from recurring characters, places and rituals, not from forcing every post into the same template.</p>
+
+      <div class="territories">
+        <article class="territory">
+          <div class="num">01 / PEOPLE</div>
+          <div>
+            <h3>THE FACES<br>OF THE PLACE.</h3>
+            <p>Staff, regulars, quick conversations, local collaborations and the people who make the café feel lived in.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">02 / RITUAL</div>
+          <div>
+            <h3>THE THINGS<br>THAT REPEAT.</h3>
+            <p>Morning coffee, favourite tables, lunchtime rushes, rainy days and the routines people build around the space.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">03 / PRODUCT</div>
+          <div>
+            <h3>COFFEE WITH<br>CONTEXT.</h3>
+            <p>Menu stories, seasonal items, ingredient details and product content that still feels like part of the café's world.</p>
+          </div>
+        </article>
+        <article class="territory">
+          <div class="num">04 / NEIGHBOURHOOD</div>
+          <div>
+            <h3>WHAT IS<br>HAPPENING HERE?</h3>
+            <p>Local events, nearby businesses, street details and reasons to follow even when someone is not buying coffee today.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="social" class="section social">
+    <div class="grid">
+      <h2>CONTENT<br>WITH PEOPLE<br>IN IT.</h2>
+      <p class="lead">The social system favours documentary moments, recurring series and recognisable details over polished café photography for its own sake.</p>
+
+      <div class="social-grid">
+        <div class="placeholder dark">PLACEHOLDER / DOCUMENTARY PHOTO-DUMP SERIES</div>
+        <div class="placeholder yellow">PLACEHOLDER / 8:17 AM REEL COVER</div>
+        <div class="placeholder soft">PLACEHOLDER / WEEKLY MENU POST</div>
+        <div class="placeholder brown">PLACEHOLDER / STAFF STORY</div>
+        <div class="placeholder">PLACEHOLDER / LOCAL COLLABORATION</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="section campaign">
+    <div class="grid">
+      <div class="eyebrow">SAMPLE CAMPAIGN</div>
+      <h2>8:17 AM</h2>
+      <div class="campaign-clock">08:17</div>
+
+      <div class="campaign-line">
+        <div class="campaign-step">
+          <span>01 / OBSERVE</span>
+          <strong>Same time. Different mornings.</strong>
+          <p>Capture the café at 8:17 across a week, with different people, weather and rhythms.</p>
+        </div>
+        <div class="campaign-step">
+          <span>02 / RECOGNISE</span>
+          <strong>Build a ritual.</strong>
+          <p>The repeated timestamp becomes a recognizable content device without becoming a rigid visual template.</p>
+        </div>
+        <div class="campaign-step">
+          <span>03 / INVITE</span>
+          <strong>Bring the neighbourhood in.</strong>
+          <p>Ask followers what their 8:17 looks like and feature selected responses through stories and short video.</p>
+        </div>
+        <div class="campaign-step">
+          <span>04 / CONVERT</span>
+          <strong>Give the ritual a reason to visit.</strong>
+          <p>Connect selected campaign moments to morning offers, seasonal items or community events without losing the story.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="section calendar">
+    <div class="grid">
+      <h2>ONE WEEK<br>AT LUMIÈRE.</h2>
+      <p class="lead">The calendar moves between people, product, atmosphere and community so the café never becomes a feed of identical cups.</p>
+
+      <div class="week">
+        <div class="day">
+          <div class="day-name">MON</div>
+          <strong>8:17 AM Reel</strong>
+          <p>A short documentary moment that opens the week and reinforces the recurring campaign device.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">TUE</div>
+          <strong>Staff story</strong>
+          <p>Introduce one person behind the counter through a simple portrait and a real detail about them.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">WED</div>
+          <strong>Menu context</strong>
+          <p>Show one drink or dish through ingredient, process or pairing rather than a generic product shot.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">THU</div>
+          <strong>Neighbourhood note</strong>
+          <p>Feature a nearby place, event or street detail that strengthens local relevance.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">FRI</div>
+          <strong>Friday crowd</strong>
+          <p>A photo dump or quick-cut Reel focused on movement, tables, people and atmosphere.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SAT</div>
+          <strong>Community prompt</strong>
+          <p>Stories or comments prompt around weekend routines, favourite orders or local recommendations.</p>
+        </div>
+        <div class="day">
+          <div class="day-name">SUN</div>
+          <strong>Slow post</strong>
+          <p>A quieter visual moment or note that gives the feed breathing room before the next week begins.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="measurement" class="section measure">
+    <div class="grid">
+      <h2>WHAT WOULD<br>WE WATCH?</h2>
+      <p class="lead">For a local café, the useful question is whether social content increases familiarity, local discovery and actual reasons to visit.</p>
+
+      <div class="metrics">
+        <div class="metric">
+          <span>01</span>
+          <strong>Local reach</strong>
+          <p>How much of the audience is actually near enough to become a customer.</p>
+        </div>
+        <div class="metric">
+          <span>02</span>
+          <strong>Recognition</strong>
+          <p>Saves, shares, repeat viewers and recurring-series engagement.</p>
+        </div>
+        <div class="metric">
+          <span>03</span>
+          <strong>Intent</strong>
+          <p>Profile visits, map taps, website clicks and DMs about menu or events.</p>
+        </div>
+        <div class="metric">
+          <span>04</span>
+          <strong>Visits</strong>
+          <p>Offer redemptions, event attendance and campaign-linked store traffic.</p>
+        </div>
+        <div class="metric">
+          <span>05</span>
+          <strong>Community</strong>
+          <p>User mentions, tagged visits, repeat interaction and local collaborations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="closing" class="section closing">
+    <div class="grid">
+      <div class="eyebrow">PROJECT / 02 COMPLETE</div>
+      <h2>MAKE THE PLACE<br>WORTH FOLLOWING<br>BEFORE ASKING<br>PEOPLE TO VISIT.</h2>
+      <div class="next">
+        <div>BACK TO SELECTED WORK</div>
+        <div><a href="../../index.html#work">AUTUMN BRANCHES STUDIO →</a></div>
+        <br>
+        <div>PREVIOUS CASE STUDY</div>
+        <div><a href="../nura-wellness/index.html">NURA WELLNESS ←</a></div>
+        <br>
+        <div>NEXT CASE STUDY</div>
+        <div><a href="../verde-systems/index.html">VERDE SYSTEMS →</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>AUTUMN BRANCHES STUDIO</span>
+  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+</footer>
+
+<script>
+  const sections = [...document.querySelectorAll('main .section')];
+  const activePath = document.querySelector('.branch-nav .active');
+  const dotsGroup = document.querySelector('#branch-dots');
+  const trunk = document.querySelector('#branch-trunk');
+  const total = trunk.getTotalLength();
+
+  sections.forEach((section, i) => {
+    const f = sections.length <= 1 ? 0 : i / (sections.length - 1);
+    const p = trunk.getPointAtLength(total * f);
+    const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    c.setAttribute('class', 'dot');
+    c.setAttribute('cx', p.x);
+    c.setAttribute('cy', p.y);
+    c.setAttribute('r', '2.6');
+    dotsGroup.appendChild(c);
+  });
+
+  const dots = [...dotsGroup.querySelectorAll('.dot')];
+
+  function updateProgress(){
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const fraction = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    activePath.style.strokeDashoffset = String(1 - fraction);
+
+    let current = 0;
+    sections.forEach((section, i) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= innerHeight * .46) current = i;
+    });
+    dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
+  }
+
+  updateProgress();
+  addEventListener('scroll', updateProgress, {passive:true});
+  addEventListener('resize', updateProgress, {passive:true});
+
+  const caseWipe = document.querySelector('.case-wipe');
+  document.querySelectorAll('a[data-transition-color]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      event.preventDefault();
+      const destination = link.getAttribute('href');
+      caseWipe.style.background = link.dataset.transitionColor || '#090909';
+      caseWipe.classList.add('is-active');
+      window.setTimeout(() => { window.location.href = destination; }, 370);
+    });
+  });
+
+</script>
+</body>
+</html>
