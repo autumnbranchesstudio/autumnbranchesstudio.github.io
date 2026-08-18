@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mara Vale | Autumn Branches Studio</title>
-  <meta name="description" content="Independent concept project by Autumn Branches Studio: personal brand strategy, content system and creative direction for Mara Vale.">
+  <title>Mara Vale | autumnbranches studio</title>
+  <meta name="description" content="Independent concept project by autumnbranches studio: personal brand strategy, content system and creative direction for Mara Vale.">
   <style>
     :root{
       --ink:#090909;
@@ -20,6 +20,9 @@
       --pad:clamp(22px,4vw,64px);
       --mono:"Courier New",ui-monospace,monospace;
       --sans:Arial,"Helvetica Neue",Helvetica,sans-serif;
+      --header-h:66px;
+      --header-pad:clamp(22px,3vw,54px);
+      --rail-safe:72px;
     }
 
     *{box-sizing:border-box}
@@ -591,17 +594,211 @@
       .case-wipe{display:none}
     }
 
+  
+    /* autumnbranches case-study strip, matched to homepage */
+    .topbar{
+      position:fixed;
+      z-index:100;
+      inset:0 0 auto 0;
+      height:var(--header-h);
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:0 calc(var(--header-pad) + var(--rail-safe)) 0 var(--header-pad);
+      background:var(--case-bar-bg,var(--ivory));
+      color:var(--case-bar-fg,var(--ink));
+      border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent);
+      backdrop-filter:none;
+      transition:background 180ms ease,color 180ms ease,border-color 180ms ease;
+    }
+    .brand{
+      justify-self:start;
+      font-family:Arial,Helvetica,sans-serif;
+      font-weight:700;
+      font-size:13px;
+      line-height:.95;
+      letter-spacing:-.02em;
+      text-transform:none;
+      font-variant:normal;
+    }
+    .brand span{display:block;text-transform:none}
+    .project-id{
+      justify-self:center;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:10.5px;
+      font-weight:700;
+      letter-spacing:.015em;
+      text-transform:none;
+      color:inherit;
+      opacity:.72;
+      white-space:nowrap;
+    }
+    .top-links{
+      justify-self:end;
+      display:flex;
+      gap:28px;
+      font-family:Arial,Helvetica,sans-serif;
+      font-size:10px;
+      font-weight:700;
+      letter-spacing:.015em;
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .top-links a{padding-bottom:3px;border-bottom:1px solid transparent}
+    .top-links a:hover,.top-links a:focus-visible{border-color:currentColor}
+    @media(max-width:980px){
+      .topbar{grid-template-columns:1fr auto;padding-right:20px}
+      .project-id{display:none}
+      .top-links{gap:16px}
+      .top-links a:not(.back-link){display:none}
+    }
+    @media(max-width:680px){
+      .topbar{height:58px;padding:0 18px}
+      .brand{font-size:12px}
+      .top-links{font-size:9px}
+    }
+
+
+/* MOBILE RESPONSIVE LAYER. Desktop composition above is unchanged. */
+.case-menu-toggle{display:none;appearance:none;border:0;background:transparent;color:inherit;padding:8px 0;font:inherit;font-size:10px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;cursor:pointer}
+
+@media(max-width:820px){
+  :root{--header-h:60px;--rail-safe:26px}
+  .topbar{
+    height:var(--header-h);
+    grid-template-columns:1fr auto;
+    padding:0 18px;
+  }
+  .brand{font-size:12.5px}
+  .project-id{display:none}
+  .case-menu-toggle{display:block;grid-column:2;grid-row:1;justify-self:end;z-index:3}
+  .top-links{
+    position:fixed;
+    z-index:99;
+    top:var(--header-h);
+    left:0;
+    right:0;
+    width:100%;
+    justify-self:stretch;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    padding:8px 18px 18px;
+    background:var(--case-bar-bg,var(--ivory));
+    color:var(--case-bar-fg,var(--ink));
+    border-bottom:1px solid color-mix(in srgb,currentColor 20%,transparent);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transform:translateY(-10px);
+    transition:opacity 180ms ease,transform 220ms ease,visibility 180ms ease,background 180ms ease,color 180ms ease;
+  }
+  .topbar.menu-open .top-links{opacity:1;visibility:visible;pointer-events:auto;transform:none}
+  .top-links a,
+  .top-links a:not(.back-link){
+    display:block!important;
+    width:100%;
+    padding:14px 0;
+    border-bottom:1px solid color-mix(in srgb,currentColor 18%,transparent);
+    font-size:14px;
+  }
+  .top-links a:last-child{border-bottom:0}
+
+  .section{
+    min-height:auto;
+    padding:84px 34px 60px 18px;
+  }
+  .grid{grid-template-columns:minmax(0,1fr);gap:18px}
+  .grid > *{grid-column:1 / -1!important;min-width:0}
+
+  h1{font-size:clamp(50px,15vw,78px);line-height:.86;letter-spacing:-.065em;overflow-wrap:normal;word-break:normal}
+  h2{font-size:clamp(38px,11vw,58px);line-height:.92;letter-spacing:-.055em;overflow-wrap:normal;word-break:normal}
+  h3{font-size:clamp(24px,7vw,34px);line-height:.98}
+  p{font-size:15px;line-height:1.5}
+  .eyebrow{font-size:9px;line-height:1.4}
+
+  .hero{padding-top:88px;min-height:auto}
+  .hero h1{margin-top:24px!important;max-width:none}
+  .hero .intro,.hero .hero-thesis{margin-top:22px!important;margin-bottom:0;max-width:34ch}
+  .hero .hero-visual,
+  .hero .hero-mosaic,
+  .hero-console{margin-top:30px!important;grid-column:1/-1!important}
+  .hero .hero-visual{min-height:330px!important}
+  .hero .hero-mosaic{grid-template-columns:1fr!important;grid-template-rows:none!important;gap:10px}
+  .hero-mosaic .tile{min-height:145px!important;grid-row:auto!important}
+  .hero-console{grid-template-columns:1fr!important;min-height:auto!important}
+  .console-side{grid-template-columns:1fr!important;grid-template-rows:auto!important}
+  .console-grid{grid-template-columns:1fr!important}
+
+  .disclosure{padding-top:44px;padding-bottom:44px}
+  .disclosure p{margin-top:14px;max-width:38ch}
+
+  .problem .copy,.audience .lead,.content .lead,.social .lead,.calendar .lead,.measure .lead{margin-top:20px!important;max-width:36ch}
+  .problem .visual-strip{grid-template-columns:1fr!important;gap:10px;margin-top:32px}
+  .placeholder{min-height:180px!important}
+
+  .audience-cards,.territories,.principles,.campaign-line,.metrics{
+    grid-template-columns:1fr!important;
+    margin-top:34px!important;
+  }
+  .aud-card,.territory,.principle,.metric{min-height:auto!important;padding:22px!important;border-right:0!important}
+  .aud-card strong,.metric strong{margin-top:28px!important}
+
+  .social-grid{
+    grid-template-columns:1fr!important;
+    grid-template-rows:none!important;
+    gap:10px!important;
+    margin-top:34px!important;
+  }
+  .social-grid .placeholder{grid-row:auto!important;min-height:185px!important}
+
+  .campaign h2{margin-top:20px!important}
+  .campaign .campaign-clock,.campaign .campaign-note,.campaign .campaign-data{margin-top:20px!important;max-width:34ch}
+  .campaign-line{gap:0}
+  .campaign-step{min-height:auto!important;padding:22px!important;border-right:0!important}
+
+  .week{margin-top:34px!important}
+  .day{grid-template-columns:1fr!important;gap:8px!important;padding:18px 0!important}
+  .day p{grid-column:auto!important}
+
+  .closing{min-height:auto;align-items:start;padding-top:78px;padding-bottom:72px}
+  .closing h2{margin-top:24px!important;max-width:none!important;font-size:clamp(40px,11.5vw,60px)!important;line-height:.93!important}
+  .closing .next{margin-top:34px!important;max-width:100%!important;font-size:10px!important;line-height:1.75!important}
+
+  footer{padding:18px 32px 18px 18px;display:block;font-size:8px;line-height:1.5}
+  footer span{display:block;margin-top:5px}
+
+  .branch-nav{
+    right:1px;
+    top:calc(var(--header-h) + 8px);
+    bottom:10px;
+    width:18px;
+    opacity:.62;
+  }
+}
+
+@media(max-width:430px){
+  .section{padding-left:16px;padding-right:30px}
+  h1{font-size:clamp(47px,14.6vw,64px)}
+  h2{font-size:clamp(36px,10.5vw,50px)}
+  .hero .hero-visual{min-height:300px!important}
+  .hero-mosaic .tile{min-height:135px!important}
+  .placeholder{min-height:165px!important}
+}
+
   </style>
 </head>
 <body>
 
 <header class="topbar">
-  <a class="brand" href="../../index.html">AUTUMN BRANCHES<br>STUDIO</a>
-  <div class="project-id">PROJECT / 04 / MARA VALE</div>
-  <nav class="top-links">
-    <a href="#strategy">STRATEGY</a>
-    <a href="#social">CONTENT</a>
-    <a href="../../index.html#work">BACK TO WORK</a>
+  <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
+  <div class="project-id">project / 04 / mara vale</div>
+  <button class="case-menu-toggle" type="button" aria-expanded="false">Menu</button>
+  <nav class="top-links" aria-label="Case study navigation">
+    <a href="#opening">Overview</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#content">Content</a>
+    <a class="back-link" href="../../index.html#work">Back to work</a>
   </nav>
 </header>
 
@@ -887,21 +1084,21 @@
       <h2>MAKE THE<br>PERSON<br>MEMORABLE,<br>NOT THE<br>TEMPLATE.</h2>
 
       <div class="next">
-        <div>BACK TO SELECTED WORK</div>
-        <div><a href="../../index.html#work">AUTUMN BRANCHES STUDIO →</a></div>
+        <div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
+        <div><a href="../../index.html#top">autumnbranches studio →</a></div>
         <br>
         <div>PREVIOUS CASE STUDY</div>
         <div><a href="../verde-systems/index.html">VERDE SYSTEMS ←</a></div>
         <br>
         <div>RETURN TO STUDIO</div>
-        <div><a href="../../index.html#return">SAME STUDIO. DIFFERENT ANSWERS. →</a></div>
+        <div><a href="../../index.html#work">SAME STUDIO. DIFFERENT ANSWERS. →</a></div>
       </div>
     </div>
   </section>
 </main>
 
 <footer>
-  <span>AUTUMN BRANCHES STUDIO</span>
+  <span>autumnbranches studio</span>
   <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
 </footer>
 
@@ -924,6 +1121,20 @@
   });
 
   const dots = [...dotsGroup.querySelectorAll('.dot')];
+  const caseTopbar = document.querySelector('.topbar');
+
+  function syncCaseTopbar(section){
+    if(!caseTopbar || !section) return;
+    const bg = getComputedStyle(section).backgroundColor;
+    const match = bg.match(/rgba?\(([^)]+)\)/);
+    if(!match) return;
+    const parts = match[1].split(',').map(v=>parseFloat(v.trim()));
+    const [r,g,b,a=1] = parts;
+    if(a === 0) return;
+    const lum = (0.2126*r + 0.7152*g + 0.0722*b) / 255;
+    caseTopbar.style.setProperty('--case-bar-bg', bg);
+    caseTopbar.style.setProperty('--case-bar-fg', lum < .48 ? '#ffffff' : '#090909');
+  }
 
   function updateProgress(){
     const max = document.documentElement.scrollHeight - innerHeight;
@@ -939,6 +1150,7 @@
     dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
 
     const activeSection = sections[current];
+    syncCaseTopbar(activeSection);
     const dark = activeSection && activeSection.classList.contains('dark-section');
     document.body.classList.toggle('dark-zone', !!dark);
   }
@@ -958,6 +1170,25 @@
       window.setTimeout(() => { window.location.href = destination; }, 370);
     });
   });
+
+
+/* mobile case-study navigation */
+const caseMenuToggle=document.querySelector('.case-menu-toggle');
+if(caseMenuToggle && caseTopbar){
+  const closeCaseMenu=()=>{
+    caseTopbar.classList.remove('menu-open');
+    caseMenuToggle.setAttribute('aria-expanded','false');
+    caseMenuToggle.textContent='Menu';
+  };
+  caseMenuToggle.addEventListener('click',()=>{
+    const open=!caseTopbar.classList.contains('menu-open');
+    caseTopbar.classList.toggle('menu-open',open);
+    caseMenuToggle.setAttribute('aria-expanded',open?'true':'false');
+    caseMenuToggle.textContent=open?'Close':'Menu';
+  });
+  document.querySelectorAll('.top-links a').forEach(link=>link.addEventListener('click',()=>window.setTimeout(closeCaseMenu,40)));
+  window.addEventListener('resize',()=>{if(innerWidth>820)closeCaseMenu()},{passive:true});
+}
 
 </script>
 </body>
