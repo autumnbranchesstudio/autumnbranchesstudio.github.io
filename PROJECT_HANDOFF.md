@@ -2,17 +2,17 @@
 
 ## Version state
 
-- Current user-approved baseline: **v19 — Verde fixed-header anchor landing correction**
-- Current delivered candidate: **v20 — Verde short-form social card cleanup**
+- Current user-approved baseline: **v20 — deployed and user-approved**
+- Current delivered candidate: **v21 — unified sans-serif typography + Instagram contact control**
 - Previous locked original baseline: **v14**
-- v20 starts from v19 and preserves all v15–v19 responsive, browser, Story-card, footer-navigation, Nura feed, and case-study anchor repairs.
-- Candidate archive: `autumnbranches-site-v20-verde-short-form-card.zip`
+- v21 starts from deployed v20 and preserves all prior responsive, browser, feed, anchor, and Verde social-card repairs.
+- Candidate archive: `autumnbranches-site-v21-unified-typography-instagram.zip`
 
 ## Purpose and creative direction
 
 Autumn Branches is a strategy-led portfolio for social media, content development, personal branding, and creative direction. The work is presented through independent concept projects and must not imply unverified client results.
 
-The approved visual direction is editorial and modernist: oversized uppercase typography, monospaced labels, exposed grids, hard rules, strong black/ivory fields, project-specific accent colours, modular strategy cards, social-content mockups, fixed headers, and branch-like progress rails.
+The approved visual direction is editorial and modernist: oversized uppercase typography, a unified Arial/Helvetica sans-serif system for both display and metadata, exposed grids, hard rules, strong black/ivory fields, project-specific accent colours, modular strategy cards, social-content mockups, fixed headers, and branch-like progress rails.
 
 ## Pages
 
@@ -46,7 +46,7 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 ## Important design rules
 
 - Preserve the approved desktop compositions and project-specific visual systems.
-- Do not rewrite copy or replace media, fonts, colours, effects, or interactions without approval.
+- Do not rewrite copy or replace media, colours, effects, interactions, or the approved unified sans-serif typography without approval.
 - Use responsive reflow rather than scaling the complete desktop canvas.
 - Keep all packaged paths relative and self-contained.
 - Treat repeated case-study code as shared behaviour even though it is currently duplicated inline.
@@ -62,6 +62,9 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 - v18 standardized fixed-header in-page anchor landing across Café Lumière, Nura Wellness, and Verde Systems using `scroll-margin-top: var(--header-h)`.
 - v19 adds a Verde-specific explicit navigation calculation because live Chrome review showed native anchor positioning still landing too high there. Verde Overview / Strategy / Social links now scroll the destination section boundary below the measured fixed-header height, preserving the section top padding.
 - v20 removes the decorative equalizer bars from Verde's `03 / SHORT FORM` social execution and replaces that internal treatment with a cleaner metadata / headline / footer composition. The card is also protected against 768–821px internal clipping without changing the other social executions.
+
+- v21 removes the Courier/monospace secondary face from every webpage. All labels, metadata, controls, case-study chrome, mockups, and closing navigation now use the primary Arial/Helvetica sans-serif family. Site-level microcopy is normalized upward for legibility; dense social mockup metadata retains a smaller but raised proportional scale.
+- v21 adds a visible Instagram control to the homepage contact section. It is intentionally non-clickable until the user supplies the final Instagram URL; do not invent or guess that URL.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -113,9 +116,10 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User review/acceptance of the delivered v20 Verde short-form card cleanup.
-- After acceptance, deploy the updated Verde HTML and continuity records to GitHub Pages and verify the short-form execution at desktop and mobile widths.
+- User review/acceptance of the v21 unified typography pass.
+- User to provide the final Instagram profile URL so the pending contact control can become an active external link.
+- After approval, deploy v21 to GitHub Pages and verify typography wrapping in the live browser.
 
 ## Recommended next step
 
-Deploy v20, hard-refresh Verde Systems, and verify the revised `03 / SHORT FORM` execution in the live site. If accepted, use v20 as the baseline for the next portfolio additions.
+Review v21 at desktop, tablet, and phone widths. If accepted, deploy it and then supply the Instagram URL for the next small revision.

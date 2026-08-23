@@ -20,7 +20,7 @@ html{scroll-behavior:smooth;background:var(--ivory)}
 body{margin:0;padding-top:var(--header-h);background:var(--ivory);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
-.mono{font-family:"Courier New",monospace;text-transform:uppercase;letter-spacing:.065em;font-size:10px}
+.mono{font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.065em;font-size:10px}
 
 /* fixed strip */
 .header{
@@ -159,7 +159,7 @@ button{font:inherit;color:inherit}
 .lens-tab .mini{
   display:block;
   margin-top:8px;
-  font-family:"Courier New",monospace;
+  font-family:Arial,Helvetica,sans-serif;
   text-transform:uppercase;
   font-size:8.5px;
   line-height:1.35;
@@ -200,7 +200,7 @@ button{font:inherit;color:inherit}
 .cinema[data-crop="wide"] .cinema-video{transform:scale(1);object-position:50% 62%;transform-origin:50% 60%}
 .cinema[data-crop="medium"] .cinema-video{transform:scale(1.68);object-position:52% 63%;transform-origin:52% 60%}
 .cinema[data-crop="detail"] .cinema-video{transform:scale(2.82);object-position:58% 61%;transform-origin:58% 59%}
-.crop-controls{display:flex;gap:8px;flex-wrap:wrap}.crop-btn{appearance:none;border:1px solid rgba(244,241,233,.45);background:transparent;color:var(--ivory);padding:8px 10px;font-family:"Courier New",monospace;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.crop-btn.active,.crop-btn:hover,.crop-btn:focus-visible{background:var(--ivory);color:var(--ink);outline:none}
+.crop-controls{display:flex;gap:8px;flex-wrap:wrap}.crop-btn{appearance:none;border:1px solid rgba(244,241,233,.45);background:transparent;color:var(--ivory);padding:8px 10px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.crop-btn.active,.crop-btn:hover,.crop-btn:focus-visible{background:var(--ivory);color:var(--ink);outline:none}
 .crop-meaning{justify-self:end;text-align:right;font-size:clamp(14px,.95vw,17px);line-height:1.34;color:rgba(244,241,233,.75);max-width:34ch}
 
 /* literature */
@@ -215,7 +215,7 @@ button{font:inherit;color:inherit}
 .literature[data-focus="voice"] .word.voice,.literature[data-focus="character"] .word.character,.literature[data-focus="pov"] .word.pov{color:var(--cobalt);transform:translateX(4px)}
 .lit-tool{border-left:1px solid rgba(10,10,10,.28);padding-left:24px;display:flex;flex-direction:column;justify-content:center;min-height:0}
 .lit-question{margin:16px 0 18px;font-size:clamp(19px,1.55vw,27px);line-height:1.12;letter-spacing:-.025em}
-.lit-controls{display:flex;gap:7px;flex-wrap:wrap}.lit-btn{appearance:none;border:1px solid rgba(10,10,10,.35);background:transparent;color:var(--ink);padding:8px 10px;font-family:"Courier New",monospace;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.lit-btn.active,.lit-btn:hover,.lit-btn:focus-visible{background:var(--cobalt);color:white;border-color:var(--cobalt);outline:none}
+.lit-controls{display:flex;gap:7px;flex-wrap:wrap}.lit-btn{appearance:none;border:1px solid rgba(10,10,10,.35);background:transparent;color:var(--ink);padding:8px 10px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.lit-btn.active,.lit-btn:hover,.lit-btn:focus-visible{background:var(--cobalt);color:white;border-color:var(--cobalt);outline:none}
 .lit-final{margin-top:18px;padding-top:16px;border-top:1px solid rgba(10,10,10,.25);font-size:clamp(26px,2.35vw,40px);font-weight:800;line-height:.95;letter-spacing:-.04em;text-transform:uppercase;max-width:18ch}
 
 /* architecture */
@@ -224,10 +224,10 @@ button{font:inherit;color:inherit}
 .architecture .panel-head p{color:rgba(10,10,10,.68)}
 .arch-canvas{position:relative;min-height:0;border:1px solid rgba(10,10,10,.35);overflow:hidden;background:#e8e5de}
 .arch-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(10,10,10,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.1) 1px,transparent 1px);background-size:8.333% 12.5%;opacity:.22;transition:opacity 280ms ease}.arch-canvas.aligned .arch-grid{opacity:.72}
-.arch-block{position:absolute;border:2px solid var(--ink);background:var(--ivory);display:flex;align-items:flex-end;padding:12px;font-family:"Courier New",monospace;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;transition:transform 520ms cubic-bezier(.22,.8,.22,1),left 520ms cubic-bezier(.22,.8,.22,1),top 520ms cubic-bezier(.22,.8,.22,1),width 520ms cubic-bezier(.22,.8,.22,1),height 520ms cubic-bezier(.22,.8,.22,1)}
+.arch-block{position:absolute;border:2px solid var(--ink);background:var(--ivory);display:flex;align-items:flex-end;padding:12px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;transition:transform 520ms cubic-bezier(.22,.8,.22,1),left 520ms cubic-bezier(.22,.8,.22,1),top 520ms cubic-bezier(.22,.8,.22,1),width 520ms cubic-bezier(.22,.8,.22,1),height 520ms cubic-bezier(.22,.8,.22,1)}
 .arch-block.a{left:9%;top:24%;width:26%;height:34%;transform:rotate(-4deg)}.arch-block.b{left:43%;top:14%;width:18%;height:28%;background:var(--cobalt);color:white;transform:rotate(4deg)}.arch-block.c{right:8%;top:29%;width:24%;height:38%;transform:rotate(-2deg)}
 .arch-canvas.aligned .arch-block.a{left:8.333%;top:12.5%;width:25%;height:37.5%;transform:none}.arch-canvas.aligned .arch-block.b{left:41.666%;top:25%;width:16.666%;height:25%;transform:none}.arch-canvas.aligned .arch-block.c{left:66.666%;top:12.5%;width:25%;height:37.5%;transform:none}
-.arch-foot{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}.arch-title{max-width:8ch;font-size:clamp(28px,2.65vw,45px);font-weight:800;line-height:.92;letter-spacing:-.045em;text-transform:uppercase}.arch-replay{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 10px;font-family:"Courier New",monospace;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.arch-replay:hover,.arch-replay:focus-visible{background:var(--ink);color:var(--ivory);outline:none}
+.arch-foot{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end}.arch-title{max-width:8ch;font-size:clamp(28px,2.65vw,45px);font-weight:800;line-height:.92;letter-spacing:-.045em;text-transform:uppercase}.arch-replay{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:8px 10px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;font-size:8.5px;letter-spacing:.05em;cursor:pointer}.arch-replay:hover,.arch-replay:focus-visible{background:var(--ink);color:var(--ivory);outline:none}
 .brand-inline{text-transform:none;font-weight:700}
 
 
@@ -332,7 +332,7 @@ button{font:inherit;color:inherit}
   justify-content:space-between;
   gap:12px;
   align-items:flex-start;
-  font-family:"Courier New",monospace;
+  font-family:Arial,Helvetica,sans-serif;
   text-transform:uppercase;
   letter-spacing:.055em;
   font-size:8.5px;
@@ -341,7 +341,7 @@ button{font:inherit;color:inherit}
 .case-visual{position:relative;min-height:250px;overflow:hidden;align-self:stretch}
 .case-name{margin:0;font-size:clamp(34px,3vw,50px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase}
 .case-line{margin:13px 0 0;max-width:24ch;font-size:14px;line-height:1.35}
-.case-action{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-family:"Courier New",monospace;text-transform:uppercase;letter-spacing:.055em;font-size:8.5px}
+.case-action{margin-top:18px;display:inline-flex;align-items:center;gap:8px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.055em;font-size:8.5px}
 .case-action span{transition:transform 180ms ease}.case-link:hover .case-action span,.case-link:focus-visible .case-action span{transform:translateX(4px)}
 
 .case-card.nura{background:#315f78;color:#f4f1e9}
@@ -352,17 +352,17 @@ button{font:inherit;color:inherit}
 .case-card.cafe{background:#f2c94c;color:#0a0a0a}
 .cafe .case-visual{border:1px solid var(--ink);background:#f7e8a5}
 .cafe .case-visual:before{content:"08:17";position:absolute;left:16px;top:10px;font-size:clamp(72px,6vw,102px);font-weight:850;line-height:.9;letter-spacing:-.065em}
-.cafe .case-visual:after{content:"LOCAL CHARACTER\A BEFORE THE DAY GETS LOUD.";white-space:pre;position:absolute;left:18px;bottom:18px;font-family:"Courier New",monospace;text-transform:uppercase;font-size:8.5px;line-height:1.55;letter-spacing:.055em}
+.cafe .case-visual:after{content:"LOCAL CHARACTER\A BEFORE THE DAY GETS LOUD.";white-space:pre;position:absolute;left:18px;bottom:18px;font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;font-size:8.5px;line-height:1.55;letter-spacing:.055em}
 
 .case-card.verde{background:#0a0a0a;color:#c8ff3d}
 .verde .case-visual{border:1px solid #c8ff3d;background:linear-gradient(rgba(200,255,61,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,61,.12) 1px,transparent 1px);background-size:28px 28px}
 .verde .case-visual:before{content:"BUILT FOR\A WHAT IS NEXT.";white-space:pre;position:absolute;left:18px;bottom:18px;color:#c8ff3d;font-size:clamp(30px,2.45vw,41px);font-weight:820;line-height:.87;letter-spacing:-.05em}
-.verde .case-visual:after{content:"SYSTEM / 03\A STATUS: READY";white-space:pre;position:absolute;top:18px;right:18px;text-align:right;font-family:"Courier New",monospace;font-size:8px;line-height:1.55;letter-spacing:.055em}
+.verde .case-visual:after{content:"SYSTEM / 03\A STATUS: READY";white-space:pre;position:absolute;top:18px;right:18px;text-align:right;font-family:Arial,Helvetica,sans-serif;font-size:8px;line-height:1.55;letter-spacing:.055em}
 
 .case-card.mara{background:#eee9ff;color:#0a0a0a}
 .mara .case-visual{border:1px solid var(--ink);background:linear-gradient(90deg,#6c52ed 0 48%,#c8f2e8 48% 100%)}
 .mara .case-visual:before{content:"A PERSON\A WITH A POINT\A OF VIEW.";white-space:pre;position:absolute;left:18px;bottom:18px;width:58%;color:white;font-size:clamp(28px,2.35vw,40px);font-weight:820;line-height:.86;letter-spacing:-.05em}
-.mara .case-visual:after{content:"WORK\A CULTURE\A OPINION\A LIFE";white-space:pre;position:absolute;right:18px;top:18px;color:var(--ink);font-family:"Courier New",monospace;text-transform:uppercase;text-align:right;font-size:8px;line-height:1.8;letter-spacing:.055em}
+.mara .case-visual:after{content:"WORK\A CULTURE\A OPINION\A LIFE";white-space:pre;position:absolute;right:18px;top:18px;color:var(--ink);font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;text-align:right;font-size:8px;line-height:1.8;letter-spacing:.055em}
 
 .work-close{margin-top:82px;padding-top:58px;border-top:1px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);gap:70px;align-items:end}
 .work-close h3{margin:0;max-width:10ch;font-size:clamp(50px,6vw,98px);line-height:.84;letter-spacing:-.065em;text-transform:uppercase}
@@ -377,7 +377,7 @@ button{font:inherit;color:inherit}
 .process-step{position:relative;padding:20px 16px 8px 0;min-height:96px}
 .process-step:before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;background:var(--cobalt);border-radius:50%}
 .process-step:not(:last-child):after{content:"";position:absolute;top:-1px;left:7px;right:10px;height:1px;background:rgba(244,241,233,.22)}
-.process-num{display:block;margin-bottom:10px;font-family:"Courier New",monospace;font-size:8px;letter-spacing:.055em;opacity:.55}
+.process-num{display:block;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:8px;letter-spacing:.055em;opacity:.55}
 .process-word{display:block;max-width:12ch;font-size:clamp(16px,1.18vw,20px);font-weight:700;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase}
 
 /* thinking */
@@ -388,7 +388,7 @@ button{font:inherit;color:inherit}
 .article-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--ink)}
 .article-card{min-height:390px;padding:24px;border-right:1px solid var(--ink);display:grid;grid-template-rows:auto 1fr auto;gap:26px;transition:background 180ms ease,color 180ms ease}
 .article-card:last-child{border-right:0}.article-card:hover{background:var(--ink);color:var(--ivory)}
-.article-index{font-family:"Courier New",monospace;text-transform:uppercase;letter-spacing:.055em;font-size:8.5px}
+.article-index{font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.055em;font-size:8.5px}
 .article-card h3{margin:0;align-self:center;font-size:clamp(30px,3vw,50px);line-height:.92;letter-spacing:-.05em;text-transform:uppercase}
 .article-card p{margin:0;max-width:30ch;font-size:14px;line-height:1.42;opacity:.72}
 
@@ -1358,7 +1358,7 @@ button{font:inherit;color:inherit}
   will-change:left,top,width,height,transform;
 }
 .arch-block span{
-  font-family:"Courier New",monospace;
+  font-family:Arial,Helvetica,sans-serif;
   font-size:8px;
   line-height:1;
   letter-spacing:.05em;
@@ -1427,7 +1427,7 @@ button{font:inherit;color:inherit}
   background:transparent;
   color:var(--ivory);
   padding:8px 10px;
-  font-family:"Courier New",monospace;
+  font-family:Arial,Helvetica,sans-serif;
   text-transform:uppercase;
   font-size:8.5px;
   line-height:1;
@@ -1493,6 +1493,61 @@ button{font:inherit;color:inherit}
   .call-submit{min-height:44px}
 }
 </style>
+
+<style id="v21-unified-typography">
+/* v21: single-typeface system. All interface and metadata now use the primary sans-serif. */
+.mono{font-size:11px;letter-spacing:.045em}
+.header-center,.nav{font-size:11px}
+.menu-toggle{font-size:11px}
+.lens-tab .mini{font-size:10px;letter-spacing:.04em}
+.crop-btn,.lit-btn,.arch-replay,.arch-mode{font-size:10px;letter-spacing:.035em}
+.arch-block,.arch-block span{font-size:9px;letter-spacing:.035em}
+.case-meta,.case-action{font-size:10px;letter-spacing:.04em}
+.cafe .case-visual:after,.verde .case-visual:after,.mara .case-visual:after{font-size:9px;letter-spacing:.04em}
+.process-num,.article-index{font-size:10px;letter-spacing:.04em}
+.contact-kicker{font-size:12px}
+.contact-option-label,.contact-or,.call-form label>span{font-size:11px}
+.contact-foot{font-size:12px}
+
+/* Instagram is deliberately non-clickable until the final URL is supplied. */
+.contact-direct-actions{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:34px;
+  flex-wrap:wrap;
+}
+.contact-instagram{
+  min-height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:0 20px;
+  border:1px solid rgba(244,241,233,.58);
+  color:var(--ivory);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.035em;
+  text-transform:uppercase;
+  opacity:.72;
+  cursor:default;
+}
+.contact-instagram span{font-size:15px;line-height:1}
+
+@media(max-width:820px){
+  .hero-bottom .origin,.service-detail .index{font-size:10px!important}
+  .crop-btn,.lit-btn,.arch-replay,.arch-mode{font-size:9.5px!important}
+  .arch-block,.arch-block span{font-size:8.5px!important}
+  .case-meta,.case-action{font-size:10px!important}
+  .contact-foot{font-size:11px}
+}
+@media(max-width:680px){
+  .contact-direct-actions{flex-direction:column;align-items:center;gap:22px}
+  .contact-instagram{min-width:190px}
+}
+</style>
+
 </head>
 <body>
 <header class="header" id="siteHeader">
@@ -1653,10 +1708,14 @@ button{font:inherit;color:inherit}
     <p class="contact-lead">Let's find the right way to say it.</p>
 
     <div class="contact-options">
-      <a class="contact-email" href="mailto:reachautumnbranches@gmail.com">
-        <span class="contact-option-label">EMAIL US</span>
-        <span class="contact-email-address">reachautumnbranches@gmail.com</span>
-      </a>
+      <div class="contact-direct-actions">
+        <a class="contact-email" href="mailto:reachautumnbranches@gmail.com">
+          <span class="contact-option-label">EMAIL US</span>
+          <span class="contact-email-address">reachautumnbranches@gmail.com</span>
+        </a>
+
+        <span class="contact-instagram" aria-disabled="true" title="Instagram link will be added when supplied">INSTAGRAM <span aria-hidden="true">↗</span></span>
+      </div>
 
       <div class="contact-or">OR</div>
 

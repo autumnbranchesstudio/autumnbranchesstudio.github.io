@@ -1,5 +1,47 @@
 # Autumn Branches Portfolio — Changelog
 
+## v21 — Unified sans-serif typography + Instagram contact control
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on deployed/user-approved v20
+
+### Request summary
+
+Remove the secondary Courier/monospace typeface throughout the entire portfolio and use the primary sans-serif family everywhere. Increase undersized metadata/interface text where needed so the new system stays legible. Add an Instagram button to the homepage contact section, with the final URL to be supplied later.
+
+### Files changed
+
+- `index.html`
+- `projects/cafe-lumiere/index.html`
+- `projects/mara-vale/index.html`
+- `projects/nura-wellness/index.html`
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Removed all Courier New / generic monospace font declarations from the five webpages.
+- Converted case-study metadata variables/usages to the existing Arial/Helvetica primary sans-serif family.
+- Increased site-level labels, case metadata, lens controls, project metadata, article indices, calendar metadata, social-execution labels, and footer/navigation microcopy where the previous scale became too small.
+- Kept dense miniature social-post metadata proportional while raising its smallest values for better legibility.
+- Added a centered Instagram control beside the direct email option in the homepage contact section.
+- The Instagram control is deliberately rendered as a non-interactive pending control until the user supplies the actual profile URL, avoiding a dead or guessed link.
+- No portfolio copy, project content, media, colours, or section order was changed.
+
+### Testing performed
+
+- Responsive layout and overflow checks across all five pages at 375, 390, 430, 768, 820, 821, 1024, 1280, and 1440px.
+- Verified no Courier/monospace declaration remains in any webpage.
+- Checked header/navigation wrapping, selected-work metadata, case-study labels, calendars, social mockups, closing navigation, and homepage contact layout.
+- Verified the pending Instagram control is not focusable/clickable before a real URL is supplied.
+- Verified packaged local references and JavaScript remain valid.
+
+### Known limitations
+
+- The Instagram profile URL is still required before the control can be made active.
+- Physical-device Safari/Android testing remains recommended after deployment.
+
 ## v20 — Verde short-form social card cleanup
 
 **Revision date:** 2026-08-23  
