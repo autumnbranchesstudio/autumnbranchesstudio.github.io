@@ -1,5 +1,56 @@
 # Autumn Branches Portfolio — Changelog
 
+## v17 — Nura six-post feed structural repair
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on v16
+
+### Request summary
+
+Structurally repair the Nura Wellness six-post feed after live Chrome review showed the two feed rows reading like three continuous columns and the feed/footer content becoming crowded or clipped. Keep the rest of the portfolio and the v16 Café/footer fixes unchanged.
+
+### Files changed
+
+- `projects/nura-wellness/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Removed fixed-height compression from the Nura feed by putting the feed header, six-card grid, and feed footer into natural vertical flow.
+- Changed the desktop parent social-grid rows to intrinsic sizing where the wide-desktop composition is used, preventing viewport-height differences from clipping the feed footer.
+- Increased the visual gutters between all six feed cards so the two rows read as six independent posts instead of three combined vertical cards.
+- Increased separation between the six-card grid and the content-mix / point-of-view footer.
+- Extended the spacious tablet-style social structure through constrained desktop widths: from 821px through 1279px the feed spans the full social width and the supporting modules use a two-column grid.
+- At 1050–1279px, the six feed cards use a single six-column row to keep the section compact while preserving clear separation.
+- At 1280px and above, retained the approved wide-desktop three-column social composition, with only the feed's natural-height and gutter repairs applied.
+- Preserved all Nura copy, images, colours, card artwork, interactions, and all non-Nura pages.
+
+### Bugs fixed
+
+- Six feed tiles visually merging into three stacked columns because the row gap was too small.
+- Feed/footer content being vulnerable to clipping when Chromium calculated the fixed parent rows shorter than the feed's intrinsic content.
+- Community-card content crowding in constrained desktop layouts by giving the feed substantially more width in that range.
+
+### Testing performed
+
+Geometry and visual checks were run in Chromium at 375, 390, 430, 599, 600, 768, 820, 821, 900, 1024, 1180, 1181, 1279, 1280, 1366, and 1440px.
+
+Results:
+
+- No document-level horizontal overflow at any tested width.
+- Feed rows maintain explicit gutters: 11px on narrow phones, 18px at 600–820px, 14px at 821–1279px, and 16px on wide desktop.
+- Feed footer remains below the six-card grid with a positive separation at every tested width; no feed child extends beyond the feed container.
+- 821–1049px renders as a full-width three-column/two-row feed with the four supporting modules below in a two-column grid.
+- 1050–1279px renders as a full-width six-column feed row with the supporting modules below in a two-column grid.
+- 1280px and above retains the approved wide-desktop social composition.
+- Visual spot checks were completed for the full social section at 768, 820, 821, 1024, 1180, and 1440px.
+
+### Known limitations
+
+- Final verification should still be performed on the live GitHub Pages URL in the exact Chrome setup that exposed the v16 issue.
+- No unrelated browser, copy, asset, or performance changes are included in v17.
+
 ## v16 — Browser layout repairs and navigation legibility
 
 **Revision date:** 2026-08-23  
