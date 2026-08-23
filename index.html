@@ -3,7 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>autumnbranches studio / homepage direction</title>
+<title>autumnbranches studio | Social, content & personal branding</title>
+<meta name="description" content="autumnbranches studio shapes social media strategy, content development and personal branding around how a brand needs to show up.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#f4f1e9">
+  <link rel="canonical" href="https://autumnbranchesstudio.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="autumnbranches studio">
+  <meta property="og:title" content="autumnbranches studio | Social, content & personal branding">
+  <meta property="og:description" content="autumnbranches studio shapes social media strategy, content development and personal branding around how a brand needs to show up.">
+  <meta property="og:url" content="https://autumnbranchesstudio.github.io/">
+  <meta property="og:image" content="https://autumnbranchesstudio.github.io/assets/autumnbranches-social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="autumnbranches studio — social strategy, content and personal branding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="autumnbranches studio | Social, content & personal branding">
+  <meta name="twitter:description" content="autumnbranches studio shapes social media strategy, content development and personal branding around how a brand needs to show up.">
+  <meta name="twitter:image" content="https://autumnbranchesstudio.github.io/assets/autumnbranches-social-preview.png">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://autumnbranchesstudio.github.io/#organization","name":"autumnbranches studio","url":"https://autumnbranchesstudio.github.io/","sameAs":["https://www.instagram.com/autumnbranchesstudio/"],"description":"autumnbranches studio shapes social media strategy, content development and personal branding around how a brand needs to show up."},{"@type":"WebSite","@id":"https://autumnbranchesstudio.github.io/#website","url":"https://autumnbranchesstudio.github.io/","name":"autumnbranches studio","publisher":{"@id":"https://autumnbranchesstudio.github.io/#organization"},"inLanguage":"en"}]}</script>
 <style>
 :root{
   --ink:#0a0a0a;
@@ -364,7 +385,7 @@ button{font:inherit;color:inherit}
 .mara .case-visual:before{content:"A PERSON\A WITH A POINT\A OF VIEW.";white-space:pre;position:absolute;left:18px;bottom:18px;width:58%;color:white;font-size:clamp(28px,2.35vw,40px);font-weight:820;line-height:.86;letter-spacing:-.05em}
 .mara .case-visual:after{content:"WORK\A CULTURE\A OPINION\A LIFE";white-space:pre;position:absolute;right:18px;top:18px;color:var(--ink);font-family:Arial,Helvetica,sans-serif;text-transform:uppercase;text-align:right;font-size:8px;line-height:1.8;letter-spacing:.055em}
 
-.work-close{margin-top:82px;padding-top:58px;border-top:1px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);gap:70px;align-items:end}
+.work-close{margin-top:82px;padding-top:58px;border-top:1px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.55fr);gap:70px;align-items:end;scroll-margin-top:calc(var(--header-h) + 18px)}
 .work-close h3{margin:0;max-width:10ch;font-size:clamp(50px,6vw,98px);line-height:.84;letter-spacing:-.065em;text-transform:uppercase}
 .work-close p{margin:0;max-width:31ch;font-size:clamp(17px,1.25vw,21px);line-height:1.38;letter-spacing:-.018em}
 
@@ -1465,6 +1486,11 @@ button{font:inherit;color:inherit}
   .transition-stage{position:relative;top:auto;height:72vh;background:var(--ink)}
   .transition-title,.transition-kicker{opacity:1;transform:none}
 }
+
+/* v23 launch polish: keyboard navigation without visual layout changes */
+.skip-link{position:fixed;left:16px;top:10px;z-index:1000;padding:10px 14px;border:1px solid currentColor;background:var(--ivory,#f4f1e9);color:var(--ink,#0a0a0a);font:700 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.02em;transform:translateY(-160%);transition:transform 160ms ease}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid currentColor!important;outline-offset:3px}
 </style>
 <style id="v15-mobile-responsive">
 /* V15: touch-target repairs only. Approved desktop composition remains unchanged. */
@@ -1553,11 +1579,12 @@ button{font:inherit;color:inherit}
 
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="header" id="siteHeader">
   <a class="logo" href="#top"><span>autumnbranches</span><span>studio</span></a>
   <div class="header-center">social / content / personal branding</div>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">Menu</button>
-  <nav class="nav" id="siteNav"><a href="#services">Services</a><a href="#transition">Our lens</a><a href="#work">Work</a><a href="#thinking">Thinking</a><a href="#contact">Contact</a></nav>
+  <nav class="nav" id="siteNav" aria-label="Primary navigation"><a href="#services">Services</a><a href="#transition">Our lens</a><a href="#work">Work</a><a href="#thinking">Thinking</a><a href="#contact">Contact</a></nav>
 </header>
 <div class="branch" aria-hidden="true"><svg viewBox="0 0 48 500">
   <path class="trunk" d="M24 6 C17 60,31 106,21 158 C13 211,31 260,23 314 C17 363,29 414,23 494"/>
@@ -1568,7 +1595,7 @@ button{font:inherit;color:inherit}
   <circle class="junction" cx="21" cy="137" r="2.3"/><circle class="junction" cx="23" cy="210" r="2.3"/><circle class="junction" cx="22" cy="283" r="2.3"/><circle class="junction" cx="22" cy="424" r="2.3"/>
   <circle class="tip" cx="40" cy="36" r="1.8"/><circle class="tip" cx="6" cy="107" r="1.8"/><circle class="tip" cx="40" cy="181" r="1.8"/><circle class="tip" cx="6" cy="254" r="1.8"/><circle class="tip" cx="40" cy="322" r="1.8"/><circle class="tip" cx="7" cy="397" r="1.8"/>
 </svg></div>
-<main>
+<main id="main-content">
 <section class="hero" id="top">
   <div class="hero-copy"><span class="line">YOUR</span><span class="line brand-line">BRAND,</span><span class="line">IN ITS OWN</span><span class="line last">LANGUAGE.</span></div>
   <div class="hero-side"><p>Creative strategy, social media and content shaped around how your brand needs to show up.</p></div>
@@ -1688,7 +1715,7 @@ button{font:inherit;color:inherit}
     <article class="case-card verde"><a class="case-link" href="projects/verde-systems/index.html"><div class="case-meta"><span>03 / technology</span><span>concept</span></div><div class="case-visual" aria-hidden="true"></div><div><h3 class="case-name">Verde Systems</h3><p class="case-line">A sharper way to make technical complexity understandable without flattening it.</p><div class="case-action">Explore case study <span>→</span></div></div></a></article>
     <article class="case-card mara"><a class="case-link" href="projects/mara-vale/index.html"><div class="case-meta"><span>04 / personal brand</span><span>concept</span></div><div class="case-visual" aria-hidden="true"></div><div><h3 class="case-name">Mara Vale</h3><p class="case-line">A personal brand built around point of view, cultural curiosity and recognisable voice.</p><div class="case-action">Explore case study <span>→</span></div></div></a></article>
   </div>
-  <div class="work-close"><h3>SAME STUDIO.<br>DIFFERENT ANSWERS.</h3><p>We do not begin with an aesthetic. We begin with the brand.</p></div>
+  <div class="work-close" id="same-studio"><h3>SAME STUDIO.<br>DIFFERENT ANSWERS.</h3><p>We do not begin with an aesthetic. We begin with the brand.</p></div>
 </section>
 
 

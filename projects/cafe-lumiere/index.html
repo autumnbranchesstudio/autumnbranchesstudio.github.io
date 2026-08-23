@@ -3,8 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Café Lumière | autumnbranches studio</title>
-  <meta name="description" content="Independent concept project by autumnbranches studio: strategy, content system and creative direction for Café Lumière.">
+  <title>Café Lumière | Social Strategy | autumnbranches studio</title>
+  <meta name="description" content="Independent concept project by autumnbranches studio: social strategy, content system and creative direction for Café Lumière.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#5a3a18">
+  <link rel="canonical" href="https://autumnbranchesstudio.github.io/projects/cafe-lumiere/">
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="autumnbranches studio">
+  <meta property="og:title" content="Café Lumière | Social Strategy | autumnbranches studio">
+  <meta property="og:description" content="Independent concept project by autumnbranches studio: social strategy, content system and creative direction for Café Lumière.">
+  <meta property="og:url" content="https://autumnbranchesstudio.github.io/projects/cafe-lumiere/">
+  <meta property="og:image" content="https://autumnbranchesstudio.github.io/assets/autumnbranches-social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="autumnbranches studio — social strategy, content and personal branding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Café Lumière | Social Strategy | autumnbranches studio">
+  <meta name="twitter:description" content="Independent concept project by autumnbranches studio: social strategy, content system and creative direction for Café Lumière.">
+  <meta name="twitter:image" content="https://autumnbranchesstudio.github.io/assets/autumnbranches-social-preview.png">
   <style>
     :root{
       --ink:#0a0a0a;
@@ -868,7 +886,12 @@
   .calendar-date b{font-size:18px}
 }
 
-  </style>
+  
+/* v23 launch polish: keyboard navigation without visual layout changes */
+.skip-link{position:fixed;left:16px;top:10px;z-index:1000;padding:10px 14px;border:1px solid currentColor;background:var(--ivory,#f4f1e9);color:var(--ink,#0a0a0a);font:700 12px/1 Arial,Helvetica,sans-serif;letter-spacing:.02em;transform:translateY(-160%);transition:transform 160ms ease}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid currentColor!important;outline-offset:3px}
+</style>
 <style>
 /* V11.2 CAFE LUMIERE: tighter opening + deliberate mobile brand-world mosaic. */
 .hero-mosaic figure{margin:0!important;}
@@ -1230,6 +1253,7 @@ footer{font-size:14px;letter-spacing:.01em}
 
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <header class="topbar">
   <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
@@ -1251,7 +1275,7 @@ footer{font-size:14px;letter-spacing:.01em}
   </svg>
 </aside>
 
-<main>
+<main id="main-content">
   <section id="opening" class="section hero">
     <div class="grid">
       <div class="eyebrow">02 / LOCAL CAFÉ</div>

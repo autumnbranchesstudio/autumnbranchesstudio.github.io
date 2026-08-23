@@ -2,11 +2,13 @@
 
 ## Version state
 
-- Current user-approved baseline: **v20 — deployed and user-approved**
-- Current delivered candidate: **v22 — unified typography + active Instagram contact link**
+- Current user-approved baseline: **v22 — unified typography + active Instagram contact link**
+- Last explicitly confirmed live deployment: **v20**
+- Current delivered candidate: **v24 — Mara return-to-studio anchor fix**
 - Previous locked original baseline: **v14**
-- v22 starts from v21, activates the supplied Instagram profile URL, and preserves all prior responsive, browser, feed, anchor, typography, and Verde social-card repairs.
-- Candidate archive: `autumnbranches-site-v22-instagram-link.zip`
+- v23 starts from v22 and adds non-redesign launch readiness: search/social metadata, favicon/browser identity, crawl files, a branded 404 page, keyboard skip/focus support, and continuity updates.
+- v24 starts from v23 and fixes Mara Vale’s closing “SAME STUDIO. DIFFERENT ANSWERS.” destination so it lands on the matching homepage closing beat rather than the top of Selected Work.
+- Candidate archive: `autumnbranches-site-v24-mara-return-anchor.zip`
 
 ## Purpose and creative direction
 
@@ -27,9 +29,16 @@ The approved visual direction is editorial and modernist: oversized uppercase ty
 ```text
 /
 ├── index.html
+├── 404.html
+├── robots.txt
+├── sitemap.xml
+├── .nojekyll
 ├── PROJECT_HANDOFF.md
 ├── CHANGELOG.md
 ├── assets/
+│   ├── favicon.svg
+│   ├── apple-touch-icon.png
+│   ├── autumnbranches-social-preview.png
 │   ├── cinema-poster.jpg
 │   ├── cinema-three-frames.mp4
 │   ├── cafe/
@@ -65,6 +74,10 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 
 - v21 removes the Courier/monospace secondary face from every webpage. All labels, metadata, controls, case-study chrome, mockups, and closing navigation now use the primary Arial/Helvetica sans-serif family. Site-level microcopy is normalized upward for legibility; dense social mockup metadata retains a smaller but raised proportional scale.
 - v21 adds a visible Instagram control to the homepage contact section. It is intentionally non-clickable until the user supplies the final Instagram URL; do not invent or guess that URL.
+
+- v22 activates the supplied Autumn Branches Studio Instagram URL in the homepage contact section.
+- v23 adds launch-facing metadata and accessibility polish without altering normal page compositions: canonical URLs, page descriptions/titles, Open Graph/Twitter metadata, a shared social preview image, favicon/touch icon, `robots.txt`, `sitemap.xml`, `.nojekyll`, a branded `404.html`, keyboard skip links, and consistent focus-visible outlines.
+- v24 adds a dedicated homepage `#same-studio` target and points Mara Vale’s “SAME STUDIO. DIFFERENT ANSWERS.” closing link to it, with fixed-header-safe anchor spacing.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -107,18 +120,20 @@ Page-specific interactions:
 
 ## Current open issues and known limitations
 
-- v15 has been tested in headless Chromium, not on physical iOS Safari or Android hardware.
-- The homepage video remains the original 2560×1350, approximately 2.94 MB file; a smaller mobile encode was outside the approved v15 scope.
+- Physical iOS Safari and Android hardware testing remains outside the local tool environment.
+- The homepage video remains the original 2560×1350, approximately 2.94 MB file; a smaller mobile encode has not been approved or created.
 - Shared case-study CSS and JavaScript remain duplicated inline.
-- `assets/nura/social/nura-reel-feed.webp` appears unreferenced but was retained to avoid unrelated asset cleanup.
-- The homepage selected-work rail intentionally extends horizontally inside its own scrollable container; it does not widen the document.
-- Some fixed-height Verde social mockups intentionally crop internal overflow as part of their approved card treatment.
+- `assets/nura/social/nura-reel-feed.webp` appears unreferenced but is intentionally retained.
+- The homepage selected-work rail intentionally scrolls horizontally inside its own container.
+- Some Verde social mockups intentionally crop internal overflow as part of the approved card treatment.
+- v23 canonical URLs, sitemap entries, and Open Graph URLs target the current GitHub Pages domain `https://autumnbranchesstudio.github.io/`. If a custom domain is connected later, these URLs must be updated in one coordinated revision.
+- In the v23 creation session, the local Chromium executable did not complete headless screenshot runs because of an environment/runtime failure. Static DOM, path, CSS, JavaScript, metadata, and visible-body preservation checks passed; live browser verification should be done after deployment.
 
 ## Outstanding requests
 
-- User review/acceptance of the v22 typography + Instagram-link build.
-- After approval, deploy v22 to GitHub Pages and verify the Instagram link and typography wrapping in the live browser.
+- User review/acceptance of v24, which includes the v23 launch-polish work plus the Mara return-to-studio anchor correction.
+- If accepted, deploy v24 to GitHub Pages and verify the favicon, social preview metadata, 404 page, keyboard skip/focus behavior, and Mara closing destination on the live site.
 
 ## Recommended next step
 
-Review v22 at desktop, tablet, and phone widths. If accepted, deploy it to GitHub Pages and verify the Instagram button opens the supplied profile correctly.
+Deploy v24 after review. Confirm that Mara Vale’s “SAME STUDIO. DIFFERENT ANSWERS.” link lands on the matching homepage closing beat. If a custom domain is planned, connect it only after v24 is stable, then update canonical/sitemap/Open Graph URLs to the custom domain in the next version.

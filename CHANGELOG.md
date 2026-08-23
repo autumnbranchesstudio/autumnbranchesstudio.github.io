@@ -1,5 +1,102 @@
 # Autumn Branches Portfolio — Changelog
 
+## v24 — Mara return-to-studio anchor fix
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on v23
+
+### Request summary
+
+Correct the Mara Vale closing “SAME STUDIO. DIFFERENT ANSWERS.” link so it returns to the matching closing beat on the homepage instead of the beginning of Selected Work. Preserve all v23 launch-polish work and all approved layouts.
+
+### Files changed
+
+- `index.html`
+- `projects/mara-vale/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Added the dedicated homepage anchor `#same-studio` to the “SAME STUDIO. DIFFERENT ANSWERS.” closing beat.
+- Updated Mara Vale’s “RETURN TO STUDIO” link to target `../../index.html#same-studio` instead of `../../index.html#work`.
+- Added fixed-header-safe scroll margin to the new homepage target so the closing beat lands cleanly below the site header.
+- Left the separate “BACK TO SELECTED WORK” link pointing to `#work` as intended.
+- Preserved all v23 launch metadata, accessibility polish, page layouts, copy, media, and interactions.
+
+### Testing performed
+
+- Verified the Mara closing link resolves to the new `#same-studio` target.
+- Verified `#same-studio` exists exactly once on the homepage.
+- Verified the existing “BACK TO SELECTED WORK” link still resolves to `#work`.
+- Verified no packaged local references were broken by the change.
+- Verified inline JavaScript syntax remains valid.
+
+### Known limitations
+
+- Same as v23; this revision changes only the Mara closing destination and its homepage anchor target.
+
+## v23 — Launch polish
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on user-approved v22
+
+### Request summary
+
+Complete the remaining portfolio polish without redesigning or changing approved page layouts. Improve launch readiness, browser identity, search/social metadata, error handling, and keyboard accessibility while preserving the v22 visual system and content.
+
+### Files changed
+
+- `index.html`
+- `projects/cafe-lumiere/index.html`
+- `projects/mara-vale/index.html`
+- `projects/nura-wellness/index.html`
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+- Added `404.html`
+- Added `robots.txt`
+- Added `sitemap.xml`
+- Added `.nojekyll`
+- Added `assets/favicon.svg`
+- Added `assets/apple-touch-icon.png`
+- Added `assets/autumnbranches-social-preview.png`
+
+### Changes completed
+
+- Replaced the placeholder homepage browser title with a concise studio/service title and refined case-study browser titles for search results.
+- Added a homepage meta description and normalized descriptive metadata across all case studies.
+- Added canonical URLs for the GitHub Pages deployment.
+- Added Open Graph and Twitter Card metadata to all five public pages.
+- Added a 1200×630 social-sharing image built from the approved homepage proposition and visual system.
+- Added a cobalt/ivory `ab` favicon plus an Apple touch icon.
+- Added homepage Organization/WebSite structured data with the approved Instagram profile as a `sameAs` reference.
+- Added `robots.txt`, `sitemap.xml`, and `.nojekyll` for GitHub Pages/search-engine readiness.
+- Added a responsive branded `404.html` with a clear route back to selected work.
+- Added a keyboard-only “Skip to main content” link to all five public pages.
+- Added consistent `:focus-visible` outlines so keyboard users do not lose focus indication where earlier component rules removed native outlines.
+- Added an accessible label to the homepage primary navigation.
+- Preserved all visible page copy, section order, project media, responsive structures, and normal unfocused layouts from v22.
+
+### Testing performed
+
+- Static local-reference validation across all public HTML pages: no broken packaged image, video, favicon, or internal-file paths.
+- Confirmed all five public pages contain a unique `main-content` target and working skip-link reference.
+- Confirmed image alternative-text attributes remain present.
+- Confirmed unique element IDs on every public page.
+- Verified canonical, Open Graph, Twitter Card, favicon, touch-icon, title, and description metadata on all five public pages.
+- Verified sitemap entries for the homepage and all four case studies.
+- Compared visible body text against v22 after excluding the new keyboard-only skip link: no existing visible copy changed.
+- Parsed all inline CSS blocks successfully.
+- Ran `node --check` on every inline JavaScript block: no syntax errors.
+- Verified all new launch files and social/favicon assets are packaged.
+
+### Known limitations
+
+- The local Chromium executable failed to complete headless screenshot rendering in this session because of an environment/runtime issue, so v23 does not claim a new browser screenshot regression pass. The normal page DOM/content is preserved from v22 and the new page-level CSS is limited to hidden-until-focused accessibility controls.
+- Canonical, sitemap, and Open Graph URLs currently use `https://autumnbranchesstudio.github.io/`. They should be changed if a custom domain is connected later.
+- Physical-device Safari/Android testing remains recommended after deployment.
+
 ## v22 — Activate Instagram contact link
 
 **Revision date:** 2026-08-23  
