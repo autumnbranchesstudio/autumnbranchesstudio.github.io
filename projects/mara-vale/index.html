@@ -1,21 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mara Vale | autumnbranches studio</title>
-  <meta name="description" content="Independent concept project by autumnbranches studio: personal brand strategy, content system and creative direction for Mara Vale.">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Mara Vale | autumnbranches studio</title>
+<meta content="Independent concept project by autumnbranches studio: personal-brand positioning, social content strategy and thought-leadership system for Mara Vale." name="description"/>
+<style>
     :root{
-      --ink:#090909;
-      --ivory:#f3f0e8;
-      --paper:#faf8f2;
+      --ink:#050505;
+      --charcoal:#111014;
+      --ivory:#f2efe7;
+      --paper:#f8f6ef;
+      --line:#c8c8bf;
+      --muted:#77786f;
       --violet:#6c46ff;
-      --violet-deep:#4624c9;
       --aqua:#c7f8ef;
-      --aqua-deep:#76d9c9;
-      --line:#c7c2b7;
-      --muted:#6d6960;
+      --violet-deep:#4624c9;
       --white:#ffffff;
       --pad:clamp(22px,4vw,64px);
       --mono:"Courier New",ui-monospace,monospace;
@@ -45,8 +46,9 @@
       grid-template-columns:1fr auto 1fr;
       align-items:center;
       padding:0 var(--pad);
-      border-bottom:1px solid rgba(9,9,9,.14);
-      background:rgba(243,240,232,.92);
+      border-bottom:1px solid rgba(108,70,255,.3);
+      background:rgba(5,5,5,.94);
+      color:var(--white);
       backdrop-filter:blur(12px);
     }
     .brand{
@@ -60,7 +62,7 @@
       font-family:var(--mono);
       font-size:11px;
       letter-spacing:.06em;
-      color:var(--violet-deep);
+      color:var(--violet);
     }
     .top-links{
       justify-self:end;
@@ -90,22 +92,22 @@
 
     h1,h2,h3,p{margin:0}
     h1{
-      font-size:clamp(72px,9.4vw,154px);
-      line-height:.84;
-      letter-spacing:-.072em;
+      font-size:clamp(76px,10vw,168px);
+      line-height:.82;
+      letter-spacing:-.075em;
       font-weight:900;
       text-transform:uppercase;
     }
     h2{
-      font-size:clamp(46px,6.6vw,98px);
-      line-height:.9;
-      letter-spacing:-.06em;
+      font-size:clamp(48px,7vw,106px);
+      line-height:.88;
+      letter-spacing:-.065em;
       font-weight:900;
       text-transform:uppercase;
     }
     h3{
-      font-size:clamp(24px,2.3vw,38px);
-      line-height:.96;
+      font-size:clamp(25px,2.4vw,40px);
+      line-height:.95;
       letter-spacing:-.04em;
       font-weight:900;
       text-transform:uppercase;
@@ -116,57 +118,86 @@
     }
 
     .hero{
-      background:var(--ivory);
-      color:var(--ink);
+      background:var(--ink);
+      color:var(--white);
       padding-top:120px;
     }
-    .hero .eyebrow{grid-column:1/4}
-    .hero h1{grid-column:1/6;margin-top:38px}
-    .hero .hero-thesis{
-      grid-column:8/13;
-      align-self:end;
+    .hero .eyebrow{grid-column:1/4;color:var(--violet)}
+    .hero h1{
+      grid-column:1/8;
+      margin-top:38px;
       color:var(--violet);
-      font-size:clamp(30px,3.6vw,60px);
-      line-height:.95;
-      font-weight:900;
-      letter-spacing:-.05em;
-      text-transform:uppercase;
-      max-width:9ch;
-      margin-bottom:12px;
     }
     .hero .intro{
-      grid-column:8/13;
-      margin-top:28px;
-      max-width:38ch;
+      grid-column:9/13;
+      align-self:end;
+      max-width:34ch;
+      margin-bottom:18px;
     }
-    .hero-mosaic{
+    .hero .intro .eyebrow{
+      display:block;
+      margin-bottom:16px;
+      color:var(--violet);
+    }
+    .hero-console{
       grid-column:1/13;
-      margin-top:56px;
+      margin-top:54px;
+      min-height:48vh;
       display:grid;
-      grid-template-columns:1.15fr .72fr .78fr;
-      grid-template-rows:minmax(220px,29vh) minmax(220px,29vh);
+      grid-template-columns:1.25fr .75fr;
       gap:12px;
     }
-    .tile{
-      border:1px solid var(--ink);
-      padding:18px;
-      display:flex;
-      align-items:flex-end;
+    .console-large,
+    .console-side > div{
+      border:1px solid rgba(108,70,255,.55);
+      background:var(--charcoal);
+      color:var(--violet);
       font-family:var(--mono);
       font-size:10px;
-      letter-spacing:.05em;
+      letter-spacing:.04em;
+      padding:18px;
+    }
+    .console-large{
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .console-title{
+      font-size:clamp(32px,4vw,68px);
+      font-family:var(--sans);
+      font-weight:900;
+      line-height:.9;
+      letter-spacing:-.05em;
       text-transform:uppercase;
-      overflow:hidden;
+      color:var(--white);
+      max-width:8ch;
     }
-    .hero-mosaic .tile:nth-child(1){
-      grid-row:1/3;
-      background:var(--ink);
-      color:var(--ivory);
+    .console-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:40px;
     }
-    .hero-mosaic .tile:nth-child(2){background:var(--paper)}
-    .hero-mosaic .tile:nth-child(3){background:var(--aqua)}
-    .hero-mosaic .tile:nth-child(4){background:var(--violet);color:var(--white)}
-    .hero-mosaic .tile:nth-child(5){background:#e8e3ff}
+    .console-stat{
+      padding-top:12px;
+      border-top:1px solid rgba(108,70,255,.35);
+    }
+    .console-stat strong{
+      display:block;
+      margin-top:12px;
+      font-size:clamp(24px,3vw,48px);
+      font-family:var(--sans);
+      color:var(--violet);
+    }
+    .console-side{
+      display:grid;
+      grid-template-rows:1fr 1fr;
+      gap:12px;
+    }
+    .console-side > div{
+      display:flex;
+      align-items:flex-end;
+    }
 
     .disclosure{
       min-height:auto;
@@ -183,7 +214,7 @@
       grid-column:1/13;
       margin-top:58px;
       display:grid;
-      grid-template-columns:.85fr 1.15fr .8fr;
+      grid-template-columns:.8fr 1.2fr .8fr;
       gap:12px;
     }
 
@@ -198,12 +229,11 @@
       letter-spacing:.05em;
       text-transform:uppercase;
       background:transparent;
-      overflow:hidden;
     }
-    .placeholder.dark{background:var(--ink);color:var(--ivory)}
-    .placeholder.violet{background:var(--violet);color:var(--white);border-color:var(--violet)}
-    .placeholder.aqua{background:var(--aqua)}
-    .placeholder.soft{background:#e8e3ff}
+    .placeholder.dark{background:var(--ink);color:var(--violet);border-color:var(--violet)}
+    .placeholder.violet{background:var(--violet);color:var(--ink);border-color:var(--violet)}
+    .placeholder.soft{background:var(--aqua)}
+    .placeholder.charcoal{background:var(--charcoal);color:var(--white);border-color:#343434}
 
     .audience{
       background:var(--paper);
@@ -228,16 +258,20 @@
     .aud-card p{max-width:27ch}
 
     .positioning{
-      background:var(--violet);
+      background:var(--charcoal);
       color:var(--white);
     }
-    .positioning .eyebrow{grid-column:1/4}
-    .positioning h2{grid-column:1/10;margin-top:46px}
+    .positioning .eyebrow{grid-column:1/4;color:var(--violet)}
+    .positioning h2{
+      grid-column:1/10;
+      margin-top:46px;
+      color:var(--violet);
+    }
     .positioning .statement{
       grid-column:8/13;
       margin-top:58px;
       padding-top:22px;
-      border-top:1px solid rgba(255,255,255,.5);
+      border-top:1px solid rgba(108,70,255,.45);
       max-width:40ch;
     }
     .principles{
@@ -245,13 +279,13 @@
       margin-top:72px;
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      border-top:1px solid rgba(255,255,255,.5);
-      border-bottom:1px solid rgba(255,255,255,.5);
+      border-top:1px solid rgba(108,70,255,.45);
+      border-bottom:1px solid rgba(108,70,255,.45);
     }
     .principle{
       min-height:220px;
       padding:28px 24px 38px;
-      border-right:1px solid rgba(255,255,255,.32);
+      border-right:1px solid rgba(108,70,255,.3);
     }
     .principle:last-child{border-right:none}
     .principle strong{
@@ -264,7 +298,7 @@
       margin-top:10px;
       font-size:14px;
       max-width:24ch;
-      color:#f2efff;
+      color:#d5d6d0;
     }
 
     .content h2{grid-column:1/8}
@@ -284,10 +318,10 @@
       flex-direction:column;
       justify-content:space-between;
     }
-    .territory:nth-child(1){background:var(--ink);color:var(--ivory)}
-    .territory:nth-child(2){background:var(--aqua)}
-    .territory:nth-child(3){background:var(--violet);color:var(--white)}
-    .territory:nth-child(4){background:var(--paper)}
+    .territory:nth-child(1){background:var(--ink);color:var(--violet)}
+    .territory:nth-child(2){background:var(--violet)}
+    .territory:nth-child(3){background:var(--paper)}
+    .territory:nth-child(4){background:var(--charcoal);color:var(--white)}
     .territory .num{font-family:var(--mono);font-size:11px}
     .territory p{font-size:14px;max-width:25ch}
 
@@ -300,7 +334,7 @@
       grid-column:1/13;
       margin-top:58px;
       display:grid;
-      grid-template-columns:1.2fr .72fr .9fr;
+      grid-template-columns:1.15fr .75fr .75fr;
       grid-template-rows:minmax(220px,28vh) minmax(220px,28vh);
       gap:12px;
     }
@@ -309,24 +343,23 @@
 
     .campaign{
       background:var(--ink);
-      color:var(--ivory);
+      color:var(--white);
     }
-    .campaign .eyebrow{grid-column:1/4;color:var(--aqua)}
+    .campaign .eyebrow{grid-column:1/4;color:var(--violet)}
     .campaign h2{
       grid-column:1/8;
       margin-top:46px;
       color:var(--violet);
     }
-    .campaign .campaign-note{
+    .campaign .campaign-data{
       grid-column:9/13;
       align-self:end;
+      font-family:var(--mono);
+      font-size:clamp(20px,2vw,30px);
+      line-height:1.3;
       color:var(--aqua);
-      font-size:clamp(28px,3vw,48px);
-      line-height:.98;
-      font-weight:900;
-      letter-spacing:-.05em;
-      text-transform:uppercase;
-      max-width:10ch;
+      padding:20px;
+      border:1px solid rgba(108,70,255,.45);
     }
     .campaign-line{
       grid-column:1/13;
@@ -334,11 +367,11 @@
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:20px;
-      border-top:1px solid rgba(255,255,255,.25);
-      border-bottom:1px solid rgba(255,255,255,.25);
+      border-top:1px solid rgba(108,70,255,.3);
+      border-bottom:1px solid rgba(108,70,255,.3);
       padding:36px 0;
     }
-    .campaign-step span{font-family:var(--mono);font-size:10px;color:var(--aqua)}
+    .campaign-step span{font-family:var(--mono);font-size:10px;color:var(--violet)}
     .campaign-step strong{
       display:block;
       margin-top:14px;
@@ -350,7 +383,7 @@
       margin-top:12px;
       font-size:14px;
       max-width:23ch;
-      color:#d8d5d0;
+      color:#d0d1cb;
     }
 
     .calendar h2{grid-column:1/7}
@@ -392,12 +425,7 @@
     }
     .metric:last-child{border-right:none}
     .metric span{font-family:var(--mono);font-size:10px}
-    .metric strong{
-      display:block;
-      margin-top:52px;
-      font-size:20px;
-      text-transform:uppercase;
-    }
+    .metric strong{display:block;margin-top:52px;font-size:20px;text-transform:uppercase}
     .metric p{margin-top:10px;font-size:13px}
 
     .closing{
@@ -406,29 +434,14 @@
       align-items:center;
       background:var(--ivory);
     }
-    .closing .grid{
-      width:100%;
-      align-items:end;
-    }
-    .closing .eyebrow{
-      grid-column:1/13;
-      margin-bottom:28px;
-    }
-    .closing h2{
-      grid-column:1/8;
-      margin-top:0;
-      max-width:8.3ch;
-      font-size:clamp(46px,5.3vw,84px);
-      line-height:.9;
-      letter-spacing:-.06em;
-    }
+    .closing .grid{width:100%}
+    .closing .eyebrow{grid-column:1/4}
+    .closing h2{grid-column:1/9;margin-top:42px}
     .closing .next{
       grid-column:9/13;
       align-self:end;
-      min-width:0;
-      margin:0;
       border-top:1px solid var(--ink);
-      padding-top:22px;
+      padding-top:20px;
       font-family:var(--mono);
       font-size:12px;
       line-height:1.8;
@@ -446,7 +459,7 @@
     .branch-nav svg{width:100%;height:100%;overflow:visible}
     .branch-nav .trunk{
       fill:none;
-      stroke:rgba(9,9,9,.24);
+      stroke:rgba(255,255,255,.22);
       stroke-width:1.1;
       vector-effect:non-scaling-stroke;
       stroke-linecap:round;
@@ -460,11 +473,11 @@
       stroke-dasharray:1;
       stroke-dashoffset:1;
     }
-    .branch-nav .dot{fill:rgba(9,9,9,.38);transition:.25s ease}
+    .branch-nav .dot{fill:rgba(255,255,255,.4);transition:.25s ease}
     .branch-nav .dot.current{fill:var(--violet)}
-    body.dark-zone .branch-nav .trunk{stroke:rgba(255,255,255,.22)}
-    body.dark-zone .branch-nav .dot{fill:rgba(255,255,255,.38)}
-    body.dark-zone .branch-nav .dot.current{fill:var(--aqua)}
+    body.light-zone .branch-nav .trunk{stroke:rgba(5,5,5,.24)}
+    body.light-zone .branch-nav .dot{fill:rgba(5,5,5,.38)}
+    body.light-zone .branch-nav .dot.current{fill:var(--violet-deep)}
 
     footer{
       padding:22px var(--pad);
@@ -477,46 +490,28 @@
       font-size:10px;
     }
 
-    @media(max-width:1100px){
-      .closing h2{
-        grid-column:1/9;
-        font-size:clamp(44px,5vw,72px);
-        max-width:9ch;
-      }
-      .closing .next{grid-column:9/13}
-    }
-
     @media(max-width:900px){
       .topbar{grid-template-columns:1fr auto}
       .project-id{display:none}
       .top-links{gap:12px}
       .section{padding-right:calc(var(--pad) + 30px)}
-
-      .hero .eyebrow,.hero h1,.hero .hero-thesis,.hero .intro,
+      .hero .eyebrow,.hero h1,.hero .intro,
       .disclosure .eyebrow,.disclosure p,
       .problem h2,.problem .copy,
       .audience h2,.audience .lead,
       .positioning .eyebrow,.positioning h2,.positioning .statement,
       .content h2,.content .lead,
       .social h2,.social .lead,
-      .campaign .eyebrow,.campaign h2,.campaign .campaign-note,
+      .campaign .eyebrow,.campaign h2,.campaign .campaign-data,
       .calendar h2,.calendar .lead,
       .measure h2,.measure .lead,
       .closing .eyebrow,.closing h2,.closing .next{
         grid-column:1/13;
       }
-
-      .hero .hero-thesis,.hero .intro,.problem .copy,.audience .lead,.content .lead,
-      .social .lead,.campaign .campaign-note,.calendar .lead,.measure .lead,.closing .next{
-        margin-top:28px;
-      }
-
-      .hero-mosaic{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:repeat(3,190px);
-      }
-      .hero-mosaic .tile:nth-child(1){grid-row:1/3}
-
+      .hero .intro,.problem .copy,.audience .lead,.content .lead,.social .lead,
+      .campaign .campaign-data,.calendar .lead,.measure .lead,.closing .next{margin-top:28px}
+      .hero-console{grid-template-columns:1fr}
+      .console-side{grid-template-columns:1fr 1fr;grid-template-rows:auto}
       .problem .visual-strip{grid-template-columns:1fr}
       .audience-cards,.territories,.principles,.campaign-line,.metrics{
         grid-template-columns:1fr 1fr;
@@ -529,15 +524,6 @@
       .social-grid .placeholder:nth-child(1){grid-row:1/3}
       .day{grid-template-columns:80px 1fr}
       .day p{grid-column:2}
-
-      .closing h2{
-        max-width:10ch;
-        font-size:clamp(46px,9vw,76px);
-      }
-      .closing .next{
-        margin-top:42px;
-        max-width:430px;
-      }
     }
 
     @media(max-width:560px){
@@ -546,33 +532,98 @@
       .section{padding:92px 28px 58px 18px}
       h1{font-size:clamp(58px,18vw,94px)}
       h2{font-size:clamp(42px,13vw,72px)}
-      .hero-mosaic{
-        grid-template-columns:1fr;
-        grid-template-rows:repeat(5,180px);
-      }
-      .hero-mosaic .tile:nth-child(1){grid-row:auto}
-      .audience-cards,.territories,.principles,.campaign-line,.metrics{
-        grid-template-columns:1fr;
-      }
+      .console-grid{grid-template-columns:1fr}
+      .console-side{grid-template-columns:1fr}
+      .audience-cards,.territories,.principles,.campaign-line,.metrics{grid-template-columns:1fr}
       .aud-card,.principle,.metric{border-right:none}
-      .social-grid{
-        grid-template-columns:1fr;
-        grid-template-rows:repeat(5,190px);
-      }
+      .social-grid{grid-template-columns:1fr;grid-template-rows:repeat(5,190px)}
       .social-grid .placeholder:nth-child(1){grid-row:auto}
       .day{grid-template-columns:1fr;gap:8px}
       .day p{grid-column:auto}
-      .closing h2{
-        max-width:none;
-        font-size:clamp(40px,13vw,64px);
-        line-height:.92;
-      }
       .branch-nav{right:0;width:28px}
     }
 
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
     }
+
+    /* --- Mara closing section fix: no headline/link collisions --- */
+    .closing .grid{
+      width:100%;
+      align-items:end;
+    }
+
+    .closing .eyebrow{
+      grid-column:1 / 13;
+      margin-bottom:28px;
+    }
+
+    .closing h2{
+      grid-column:1 / 8;
+      margin-top:0;
+      max-width:8.4ch;
+      font-size:clamp(46px,5.4vw,86px);
+      line-height:.9;
+      letter-spacing:-.06em;
+      overflow-wrap:normal;
+      word-break:normal;
+    }
+
+    .closing .next{
+      grid-column:9 / 13;
+      align-self:end;
+      margin:0;
+      min-width:0;
+      border-top:1px solid var(--ink);
+      padding-top:22px;
+      padding-left:0;
+      font-family:var(--mono);
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    .closing .next > div{
+      max-width:100%;
+    }
+
+    @media(max-width:1100px){
+      .closing h2{
+        grid-column:1 / 9;
+        font-size:clamp(44px,5vw,72px);
+        max-width:9ch;
+      }
+
+      .closing .next{
+        grid-column:9 / 13;
+      }
+    }
+
+    @media(max-width:900px){
+      .closing .eyebrow,
+      .closing h2,
+      .closing .next{
+        grid-column:1 / 13 !important;
+      }
+
+      .closing h2{
+        max-width:10ch;
+        font-size:clamp(46px,9vw,76px);
+      }
+
+      .closing .next{
+        margin-top:42px;
+        max-width:430px;
+      }
+    }
+
+    @media(max-width:560px){
+      .closing h2{
+        max-width:none;
+        font-size:clamp(40px,13vw,64px);
+        line-height:.92;
+      }
+    }
+
 
     .case-wipe {
       position: fixed;
@@ -787,321 +838,669 @@
 }
 
   </style>
+<style id="mara-mobile-overflow-fix">
+@media(max-width:820px){
+  .console-title{max-width:100%;font-size:clamp(28px,8vw,46px)}
+  .closing h2{font-size:clamp(34px,8.8vw,48px)!important;letter-spacing:-.045em!important;max-width:100%!important}
+}
+@media(max-width:430px){
+  .closing h2{font-size:34px!important;line-height:.96!important}
+}
+</style>
+<style id="mara-v12-social-only">
+/* V12 VERDE: social communication + content only. No UI/UX/product-design claims. */
+@media(min-width:821px){
+  .section{min-height:auto;padding-top:76px;padding-bottom:60px}
+  .hero{padding-top:102px;padding-bottom:58px}
+  .hero h1{margin-top:28px!important;font-size:clamp(78px,8.2vw,142px)!important;line-height:.84!important;max-width:7ch}
+  .hero .intro{margin-bottom:4px!important}
+  .disclosure{padding-top:40px;padding-bottom:40px}
+  .problem h2,.audience h2,.content h2,.social h2,.calendar h2,.measure h2{font-size:clamp(50px,5.2vw,80px);line-height:.9}
+  .problem .copy,.audience .lead,.content .lead,.social .lead,.measure .lead{max-width:35ch}
+
+  .mara-brand-world{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1.28fr .72fr .72fr;grid-template-rows:1fr 1fr;gap:10px;min-height:390px}
+  .signal-main,.signal-card{margin:0;border:1px solid rgba(108,70,255,.45);padding:22px;min-width:0}
+  .signal-main{grid-row:1/3;background:var(--charcoal);display:flex;flex-direction:column;justify-content:space-between}
+  .signal-main strong{font-size:clamp(44px,4.6vw,78px);line-height:.88;letter-spacing:-.06em;color:var(--white);max-width:9ch}
+  .signal-main small{font-family:var(--mono);font-size:9px;color:var(--violet);letter-spacing:.05em}
+  .signal-card{display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+  .signal-card span{font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .signal-card strong{font-size:clamp(20px,1.7vw,29px);line-height:.95;letter-spacing:-.045em;max-width:15ch}
+  .signal-violet{background:var(--violet);color:var(--ink)}
+  .signal-paper{background:var(--paper);color:var(--ink)}
+  .signal-soft{background:var(--aqua);color:var(--ink)}
+
+  .problem{padding-top:66px!important;padding-bottom:56px!important}
+  .mara-strategy-boards{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mara-board{min-height:330px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--ink)}
+  .mara-board h3{font-size:clamp(30px,2.6vw,46px);max-width:12ch}
+  .mara-board p{max-width:42ch;font-size:14px;line-height:1.45}
+  .board-dark{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+  .board-dark .eyebrow{color:var(--violet)}
+  .board-violet{background:var(--violet);color:var(--ink);border-color:var(--violet)}
+  .pattern-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:currentColor;border:1px solid currentColor;margin:24px 0}
+  .pattern-list span{background:inherit;color:inherit;padding:16px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;border:1px solid currentColor}
+  .board-dark .pattern-list{background:var(--violet);border-color:rgba(108,70,255,.45)}
+  .board-dark .pattern-list span{background:var(--charcoal);color:var(--violet);border-color:rgba(108,70,255,.34)}
+  .board-violet .pattern-list{background:var(--ink);border-color:var(--ink)}
+  .board-violet .pattern-list span{background:var(--violet);color:var(--ink);border-color:rgba(5,5,5,.32)}
+
+  .audience{padding-top:66px!important;padding-bottom:54px!important}
+  .audience-cards{margin-top:36px!important}
+  .aud-card{min-height:214px!important;padding:22px 24px 26px!important}
+  .aud-card .eyebrow{margin-bottom:32px!important}
+  .aud-card h3{font-size:clamp(27px,2.1vw,36px)}
+  .aud-card p{font-size:13.5px;line-height:1.42}
+
+  .positioning{padding-top:68px!important;padding-bottom:56px!important}
+  .positioning .grid{align-items:start}
+  .positioning>.grid>.eyebrow{grid-column:1/7;grid-row:1;margin:0}
+  .positioning h2{grid-column:1/8;grid-row:2;margin-top:28px!important;font-size:clamp(56px,5.3vw,82px)!important;line-height:.89!important;max-width:7.5ch}
+  .positioning-side{grid-column:8/13;grid-row:2;margin-top:8px;display:flex;flex-direction:column;gap:28px;min-width:0}
+  .positioning .statement{grid-column:auto;grid-row:auto;margin:0!important;max-width:39ch;padding-top:18px;border-top:1px solid rgba(108,70,255,.48)}
+  .positioning .statement p{font-size:16px;line-height:1.48}
+  .positioning .principles{grid-column:auto;grid-row:auto;margin:0!important;width:100%;display:grid;grid-template-columns:1fr;border-top:1px solid rgba(108,70,255,.48);border-bottom:1px solid rgba(108,70,255,.48)}
+  .positioning .principle{min-height:0!important;padding:13px 0!important;border-right:0!important;border-bottom:1px solid rgba(108,70,255,.25);display:grid;grid-template-columns:34px 92px minmax(0,1fr);gap:10px;align-items:start}
+  .positioning .principle:last-child{border-bottom:0!important}
+  .positioning .principle .eyebrow{grid-column:auto!important;font-size:8px;padding-top:3px;color:var(--violet)}
+  .positioning .principle strong{margin-top:0!important;font-size:15px;line-height:1.2}
+  .positioning .principle p{margin-top:0!important;max-width:none;font-size:12.5px;line-height:1.38}
+
+  .content{padding-top:68px!important;padding-bottom:56px!important}
+  .territories{margin-top:36px!important;gap:14px!important}
+  .territory{min-height:292px!important;padding:24px 25px 25px!important}
+  .territory>div:last-child{display:flex;flex-direction:column;gap:18px}
+  .territory h3{font-size:clamp(27px,2.15vw,36px);line-height:.94}
+  .territory p{margin:0!important;font-size:13.5px!important;line-height:1.44}
+
+  .social{padding-top:68px!important;padding-bottom:56px!important}
+  .mara-social-grid{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-template-rows:220px 220px;gap:12px}
+  .social-piece{border:1px solid var(--ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
+  .social-piece strong{font-size:clamp(22px,1.9vw,32px);line-height:.94;letter-spacing:-.045em;max-width:15ch}
+  .social-piece small{font-family:var(--mono);font-size:8px;letter-spacing:.04em}
+  .social-feature{grid-row:1/3;background:var(--ink);color:var(--violet)}
+  .social-feature strong{font-size:clamp(34px,3.2vw,54px);max-width:10ch;color:var(--white)}
+  .violet-piece{background:var(--violet)}
+  .paper-piece{background:var(--paper)}
+  .soft-piece{background:var(--aqua)}
+  .dark-piece{background:var(--charcoal);color:var(--white)}
+
+  .campaign{padding-top:68px!important;padding-bottom:56px!important}
+  .campaign h2{margin-top:28px!important;font-size:clamp(56px,5.2vw,82px)!important}
+  .campaign-note{grid-column:9/13;align-self:end;border-top:1px solid rgba(108,70,255,.45);padding-top:18px;max-width:34ch}
+  .campaign-note .eyebrow{display:block;margin-bottom:12px;color:var(--violet)}
+  .campaign-note p{font-size:14px;line-height:1.48;color:#d6d7d0}
+  .campaign-line{margin-top:40px!important;padding:28px 0!important;gap:18px!important}
+  .campaign-step strong{font-size:clamp(19px,1.65vw,27px)!important}
+  .campaign-step p{font-size:13.5px!important;line-height:1.42}
+
+  .calendar{padding-top:60px!important;padding-bottom:48px!important}
+  .calendar .grid{align-items:start!important}
+  .calendar-intro{grid-column:1/5!important;display:flex;flex-direction:column;align-items:flex-start}
+  .calendar-intro .eyebrow{margin:0 0 24px!important}
+  .calendar-intro h2{grid-column:auto!important;margin:0!important;font-size:clamp(48px,4.7vw,70px)!important;line-height:.9!important;max-width:8ch!important}
+  .calendar-intro .lead{grid-column:auto!important;margin:24px 0 0!important;max-width:31ch!important;font-size:14px!important;line-height:1.5!important}
+  .calendar-board{grid-column:6/13!important;border:1px solid var(--ink);background:var(--paper);min-width:0}
+  .calendar-bar{height:44px;padding:0 14px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}.calendar-bar span:last-child{text-align:right}
+  .calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+  .calendar-day{min-width:0;min-height:178px;padding:12px 10px 13px;border-right:1px solid rgba(5,5,5,.34);display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+  .calendar-day:last-child{border-right:0}.calendar-date{display:flex;justify-content:space-between;align-items:start;font-family:var(--mono);font-size:7px}.calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85}
+  .calendar-day>strong{font-size:clamp(10px,.83vw,13px);line-height:.94;letter-spacing:-.03em}.calendar-day>small{font-family:var(--mono);font-size:5.7px;line-height:1.35}
+  .tone-violet{background:var(--violet);color:var(--ink)}.tone-soft{background:var(--aqua);color:var(--ink)}.tone-paper{background:var(--paper);color:var(--ink)}.tone-black{background:var(--ink);color:var(--ivory)}
+  .calendar-footer{min-height:34px;padding:0 12px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:7px;letter-spacing:.05em}.calendar-footer span+span:before{content:"/";margin-right:18px;color:var(--muted)}
+
+  .measure{padding-top:64px!important;padding-bottom:50px!important}
+  .metrics{margin-top:32px!important}.metric{min-height:178px!important;padding:20px!important}.metric strong{margin-top:28px!important;font-size:17px!important}.metric p{font-size:12.8px;line-height:1.4}
+
+  .closing{min-height:auto!important;padding-top:62px!important;padding-bottom:56px!important;align-items:start!important}
+  .closing .grid{align-items:end!important}.closing .eyebrow{grid-column:1/6!important;grid-row:1!important}.closing h2{grid-column:1/8!important;grid-row:2!important;margin-top:26px!important;font-size:clamp(52px,5.2vw,78px)!important;line-height:.9!important;max-width:9.5ch!important}.closing .next{grid-column:9/13!important;grid-row:2!important;align-self:end!important;margin-top:0!important;padding-top:18px!important}
+}
+
+@media(max-width:820px){
+  .mara-brand-world{grid-column:1/-1!important;grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important;gap:10px!important;margin-top:28px!important;min-height:0!important}.signal-main{grid-column:1/-1;grid-row:auto!important;min-height:260px}.signal-card{min-height:170px}.signal-main strong{font-size:clamp(38px,11vw,56px)}.signal-card strong{font-size:18px}
+  .mara-strategy-boards{grid-template-columns:1fr!important;gap:12px!important;margin-top:30px!important}.mara-board{min-height:270px}
+  .positioning{padding-top:70px!important;padding-bottom:52px!important}.positioning h2{font-size:clamp(40px,10.6vw,56px)!important;max-width:8ch!important;margin-top:24px!important}.positioning-side{grid-column:1/-1!important;display:flex!important;flex-direction:column!important;gap:24px!important;margin-top:26px!important}.positioning .statement,.positioning .principles{margin:0!important}.positioning .principles{grid-template-columns:1fr!important}.positioning .principle{padding:15px 0!important;border-right:0!important;display:grid;grid-template-columns:30px 78px minmax(0,1fr);gap:8px}.positioning .principle strong,.positioning .principle p{margin-top:0!important}.positioning .principle p{font-size:12px!important}
+  .territories{gap:10px!important}.territory{padding:22px!important}.territory>div:last-child{gap:16px}
+  .mara-social-grid{grid-template-columns:1fr!important;grid-template-rows:none!important;gap:10px!important;margin-top:30px!important}.social-feature{grid-row:auto!important;min-height:250px}.social-piece{min-height:170px}
+  .campaign-note{grid-column:1/-1!important;margin-top:20px!important;max-width:34ch}.campaign-line{grid-template-columns:1fr!important}
+  .calendar{padding-top:58px!important;padding-bottom:46px!important}.calendar-intro,.calendar-board{grid-column:1/-1!important}.calendar-intro h2{font-size:clamp(42px,11.8vw,56px)!important;max-width:8ch!important}.calendar-intro .lead{margin-top:18px!important}.calendar-board{margin-top:28px!important}.calendar-days{grid-template-columns:repeat(2,minmax(0,1fr))}.calendar-day{min-height:146px;border-bottom:1px solid rgba(5,5,5,.34)}.calendar-day:nth-child(even){border-right:0}.calendar-day:last-child{grid-column:1/-1;border-bottom:0}.calendar-bar{grid-template-columns:1fr auto;font-size:7px}.calendar-bar span:last-child{display:none}.calendar-footer{gap:10px;flex-wrap:wrap;padding:10px 12px}.calendar-footer span+span:before{margin-right:10px}
+  .closing{padding-top:60px!important;padding-bottom:54px!important}.closing h2{font-size:clamp(38px,10vw,52px)!important;max-width:10ch!important}
+}
+@media(max-width:430px){.mara-brand-world{grid-template-columns:1fr!important}.signal-card{min-height:150px}.calendar-day{min-height:134px;padding:11px 9px}.calendar-date b{font-size:18px}}
+</style>
+<style id="mara-v12-1-spacing-audit">
+/* V12.1 Mara spacing audit: tighter composition, clearer alignment, no content changes. */
+@media(min-width:821px){
+  /* Keep every chapter content-driven rather than slide-height. */
+  .section{min-height:auto!important;padding-top:64px!important;padding-bottom:50px!important}
+  .hero{padding-top:100px!important;padding-bottom:54px!important}
+  .disclosure{padding-top:36px!important;padding-bottom:36px!important}
+
+  /* Strategy boards: wider text measure, fewer awkward line breaks, tighter vertical rhythm. */
+  .problem{padding-top:58px!important;padding-bottom:48px!important}
+  .mara-strategy-boards{margin-top:30px!important;gap:14px!important}
+  .mara-board{min-height:292px!important;padding:30px!important}
+  .mara-board h3{font-size:clamp(30px,2.35vw,42px)!important;line-height:.94!important;max-width:15ch!important}
+  .mara-board .pattern-list{margin:18px 0!important}
+  .mara-board p{font-size:13.5px!important;line-height:1.42!important;max-width:44ch!important}
+
+  .audience{padding-top:58px!important;padding-bottom:48px!important}
+  .audience-cards{margin-top:30px!important}
+  .aud-card{min-height:196px!important;padding:20px 23px 24px!important}
+  .aud-card .eyebrow{margin-bottom:26px!important}
+
+  .positioning{padding-top:60px!important;padding-bottom:50px!important}
+  .positioning h2{margin-top:24px!important;font-size:clamp(52px,4.9vw,76px)!important;max-width:8.2ch!important}
+  .positioning-side{margin-top:4px!important;gap:22px!important}
+
+  .content{padding-top:60px!important;padding-bottom:50px!important}
+  .territories{margin-top:30px!important}
+  .territory{min-height:270px!important;padding:22px 24px 24px!important}
+
+  .social{padding-top:60px!important;padding-bottom:50px!important}
+  .mara-social-grid{margin-top:30px!important;grid-template-rows:205px 205px!important}
+
+  .campaign{padding-top:60px!important;padding-bottom:50px!important}
+  .campaign h2{margin-top:24px!important;font-size:clamp(52px,4.9vw,76px)!important}
+  .campaign-line{margin-top:32px!important;padding:24px 0!important}
+
+  /* Calendar: stop the left headline from becoming five lines and align it with the board. */
+  .calendar{padding-top:52px!important;padding-bottom:42px!important}
+  .calendar .grid{align-items:center!important}
+  .calendar-intro{grid-column:1/5!important;align-self:center!important}
+  .calendar-intro .eyebrow{margin:0 0 18px!important}
+  .calendar-intro h2{
+    font-size:clamp(46px,4.15vw,62px)!important;
+    line-height:.89!important;
+    max-width:12ch!important;
+    letter-spacing:-.055em!important;
+  }
+  .calendar-intro .lead{margin-top:18px!important;max-width:32ch!important;font-size:13.5px!important;line-height:1.46!important}
+  .calendar-board{grid-column:5/13!important;align-self:center!important}
+  .calendar-day{min-height:164px!important;padding:12px 10px!important;gap:13px!important}
+  .calendar-day>strong{font-size:clamp(10.5px,.78vw,12.5px)!important}
+  .calendar-footer{min-height:32px!important}
+
+  .measure{padding-top:58px!important;padding-bottom:46px!important}
+  .metrics{margin-top:28px!important}
+  .metric{min-height:166px!important}
+
+  .closing{padding-top:56px!important;padding-bottom:50px!important}
+  .closing h2{margin-top:22px!important;font-size:clamp(48px,4.8vw,72px)!important;max-width:10ch!important}
+}
+
+@media(max-width:820px){
+  /* Keep the same hierarchy on phones without reintroducing long sections. */
+  .mara-board{padding:24px!important;min-height:0!important}
+  .mara-board h3{max-width:100%!important;font-size:clamp(30px,8.8vw,42px)!important}
+  .calendar-intro h2{max-width:12ch!important;line-height:.9!important}
+  .calendar-intro .eyebrow{margin-bottom:16px!important}
+  .calendar-board{margin-top:24px!important}
+}
+</style>
+<style id="mara-v12-2-balance-fix">
+/* V12.2: finish the opening 2x2 content grid and align the calendar blurb to its heading. */
+.signal-context{background:var(--ink);color:var(--violet);border-color:rgba(108,70,255,.55)}
+.signal-context strong{color:var(--white)}
+@media(min-width:821px){
+  .calendar .grid{align-items:center!important}
+  .calendar-intro{align-self:center!important}
+  .calendar-intro .lead{
+    align-self:flex-start!important;
+    margin:20px 0 0!important;
+    max-width:30ch!important;
+  }
+}
+@media(max-width:820px){
+  .calendar-intro .lead{align-self:flex-start!important}
+}
+</style>
+<style id="mara-v13-3-theme">
+/* V13.3 Mara rebuild: stable Verde-derived structure, Mara identity. */
+:root{--violet:#6c46ff;--violet-deep:#4624c9;--aqua:#c7f8ef}
+.hero h1{color:var(--violet)}
+.hero .intro .eyebrow{color:var(--aqua)}
+.mara-brand-world .signal-main small{color:var(--aqua)}
+.signal-violet{background:var(--violet);color:#fff}
+.signal-context{background:var(--ink);color:var(--aqua);border-color:rgba(199,248,239,.5)}
+.signal-context strong{color:#fff}
+.board-dark .eyebrow{color:var(--aqua)}
+.board-violet{background:var(--violet);color:#fff;border-color:var(--violet)}
+.board-dark .pattern-list{background:var(--aqua);border-color:rgba(199,248,239,.55)}
+.board-dark .pattern-list span{background:var(--charcoal);color:var(--aqua);border-color:rgba(199,248,239,.32)}
+.board-violet .pattern-list{background:var(--ink);border-color:var(--ink)}
+.board-violet .pattern-list span{background:var(--violet);color:#fff;border-color:rgba(255,255,255,.3)}
+.positioning .eyebrow{color:var(--aqua)}
+.positioning h2{color:var(--violet)}
+.positioning .statement,.positioning .principles{border-color:rgba(108,70,255,.52)!important}
+.positioning .principle{border-color:rgba(108,70,255,.28)!important}
+.positioning .principle .eyebrow{color:var(--aqua)!important}
+.violet-piece{background:var(--violet);color:#fff}
+.soft-piece{background:var(--aqua);color:var(--ink)}
+.social-feature{color:var(--aqua)}
+.social-feature strong{color:#fff}
+.campaign .eyebrow{color:var(--aqua)}
+.campaign h2{color:var(--violet);max-width:12ch}
+.campaign-note{border-color:rgba(108,70,255,.5)!important}
+.campaign-note .eyebrow{color:var(--aqua)!important}
+.campaign-line{border-color:rgba(108,70,255,.32)}
+.campaign-step span{color:var(--aqua)}
+.measure{background:var(--aqua)}
+.tone-violet{background:var(--violet);color:#fff}
+.tone-soft{background:var(--aqua);color:var(--ink)}
+.calendar-footer span+span:before{color:var(--violet)}
+.branch-nav .active{stroke:var(--violet)}
+.branch-nav .dot.current{fill:var(--violet)}
+body.light-zone .branch-nav .dot.current{fill:var(--violet-deep)}
+.closing-thesis{font-family:var(--sans);font-size:20px;font-weight:900;letter-spacing:-.03em;margin-bottom:18px}
+@media(max-width:820px){.closing-thesis{font-size:18px}}
+
+.section{scroll-margin-top:var(--header-h)}
+@media(max-width:820px){
+  /* Fully define Mara's custom modules on mobile rather than relying on desktop-only rules. */
+  .mara-brand-world{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-top:28px!important}
+  .signal-main,.signal-card{margin:0!important;border:1px solid rgba(108,70,255,.48)!important;padding:18px!important;min-width:0!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;gap:18px!important}
+  .signal-main{grid-column:1/-1!important;min-height:260px!important;background:var(--charcoal)!important}
+  .signal-main strong{font-size:clamp(38px,11vw,54px)!important;line-height:.9!important;letter-spacing:-.055em!important;color:#fff!important;max-width:9ch!important}
+  .signal-main small{font-family:var(--mono)!important;font-size:8px!important;color:var(--aqua)!important}
+  .signal-card{min-height:160px!important}.signal-card span{font-family:var(--mono)!important;font-size:8px!important}.signal-card strong{font-size:18px!important;line-height:.95!important;letter-spacing:-.04em!important}
+
+  .mara-strategy-boards{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:30px!important}
+  .mara-board{min-height:0!important;padding:24px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;border:1px solid var(--ink)!important;gap:20px!important}
+  .mara-board h3{font-size:clamp(30px,8.6vw,42px)!important;line-height:.94!important;max-width:100%!important}
+  .mara-board p{font-size:13px!important;line-height:1.44!important}.pattern-list{display:grid!important;grid-template-columns:1fr 1fr!important;gap:1px!important;margin:4px 0!important}
+  .pattern-list span{padding:13px 11px!important;font-family:var(--mono)!important;font-size:8px!important}
+
+  .positioning .principle{display:grid!important;grid-template-columns:28px minmax(0,1fr)!important;column-gap:10px!important;row-gap:5px!important;padding:16px 0!important;align-items:start!important}
+  .positioning .principle .eyebrow{grid-column:1!important;grid-row:1!important;padding-top:3px!important}
+  .positioning .principle strong{grid-column:2!important;grid-row:1!important;margin:0!important;font-size:17px!important;white-space:normal!important}
+  .positioning .principle p{grid-column:2!important;grid-row:2!important;margin:0!important;font-size:12.5px!important;line-height:1.42!important;max-width:28ch!important}
+
+  .mara-social-grid{display:grid!important;grid-template-columns:1fr!important;gap:10px!important;margin-top:30px!important}
+  .social-piece{min-height:165px!important;border:1px solid var(--ink)!important;padding:20px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;gap:18px!important}
+  .social-feature{min-height:235px!important}.social-piece strong{font-size:24px!important;line-height:.95!important;letter-spacing:-.04em!important}.social-feature strong{font-size:clamp(36px,10vw,48px)!important;max-width:9ch!important}
+
+  .calendar-board{display:block!important;margin-top:24px!important;border:1px solid var(--ink)!important;background:var(--paper)!important}
+  .calendar-bar{height:42px!important;padding:0 10px!important;display:grid!important;grid-template-columns:1fr auto!important;align-items:center!important;border-bottom:1px solid var(--ink)!important;font-family:var(--mono)!important;font-size:7px!important}.calendar-bar span:last-child{display:none!important}.calendar-bar strong{font-family:var(--sans)!important;font-size:10px!important}
+  .calendar-days{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .calendar-day{min-height:145px!important;padding:12px 10px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;gap:12px!important;border-right:1px solid rgba(5,5,5,.34)!important;border-bottom:1px solid rgba(5,5,5,.34)!important}
+  .calendar-day:nth-child(even){border-right:0!important}.calendar-day:last-child{grid-column:1/-1!important;border-right:0!important;border-bottom:0!important}
+  .calendar-date{display:flex!important;justify-content:space-between!important;font-family:var(--mono)!important;font-size:7px!important}.calendar-date b{font-family:var(--sans)!important;font-size:19px!important}
+  .calendar-day>strong{font-size:16px!important;line-height:.95!important;letter-spacing:-.035em!important}.calendar-day>small{font-family:var(--mono)!important;font-size:7px!important;line-height:1.3!important}
+  .calendar-footer{min-height:38px!important;padding:10px!important;display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important;border-top:1px solid var(--ink)!important;font-family:var(--mono)!important;font-size:7px!important}.calendar-footer span+span:before{margin-right:8px!important}
+}
+@media(max-width:430px){.mara-brand-world{grid-template-columns:1fr!important}.signal-card{min-height:145px!important}}
+
+.signal-paper{background:var(--paper);color:var(--ink)}
+.signal-soft{background:var(--aqua);color:var(--ink)}
+.social-feature{background:var(--ink)}
+.paper-piece{background:var(--paper);color:var(--ink)}
+.dark-piece{background:var(--charcoal);color:#fff}
+</style>
+<style id="mara-v13-5-thesis-elements-spacing">
+.signal-main{justify-content:flex-start!important}
+.signal-main > .eyebrow{margin:0 0 28px!important}
+.signal-main .core-thesis-lines{display:flex!important;flex-direction:column!important;gap:0!important;line-height:.88!important;margin:0 0 30px!important}
+.signal-main .core-thesis-lines span{display:block}
+.signal-main > small{display:block;margin:0!important}
+@media(max-width:820px){
+  .signal-main > .eyebrow{margin-bottom:22px!important}
+  .signal-main .core-thesis-lines{gap:0!important;margin-bottom:24px!important}
+}
+</style>
+
+<style id="mara-v13-6-series-carousel">
+/* V13.6 Mara: remove redundant format gallery and make the recurring series the tangible social execution. */
+.mara-series{padding-top:64px!important;padding-bottom:58px!important}
+.mara-series>.grid{align-items:start!important}
+.series-copy{grid-column:1/6;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.series-copy>.eyebrow{margin:0 0 24px!important;color:var(--aqua)!important}
+.series-copy h2{margin:0!important;color:var(--violet)!important;font-size:clamp(50px,4.6vw,72px)!important;line-height:.9!important;letter-spacing:-.055em!important;max-width:11ch!important}
+.series-intro{margin:28px 0 0;max-width:34ch;font-size:14px;line-height:1.5;color:#d6d7d0}
+.series-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 16px;font-family:var(--mono);font-size:8px;letter-spacing:.05em;color:var(--aqua)}
+.series-meta span+span:before{content:"/";margin-right:16px;color:rgba(199,248,239,.5)}
+.series-carousel{grid-column:7/13;min-width:0}
+.series-stage{position:relative;width:min(100%,500px);margin-left:auto;aspect-ratio:4/5;border:1px solid rgba(199,248,239,.48);overflow:hidden;background:var(--charcoal)}
+.series-slide{position:absolute;inset:0;padding:30px;display:flex;flex-direction:column;min-width:0}
+.series-slide[hidden]{display:none!important}
+.series-slide-top{display:flex;justify-content:space-between;gap:18px;font-family:var(--mono);font-size:8px;line-height:1.35;letter-spacing:.04em;text-transform:uppercase}
+.series-slide-top span{max-width:28ch}.series-slide-top b{font-weight:400;white-space:nowrap}
+.series-slide-violet{background:var(--violet);color:#fff}
+.series-slide-violet .series-slide-top{color:var(--aqua)}
+.series-statement{margin:auto 0;font-size:clamp(38px,3.4vw,56px);line-height:.9;letter-spacing:-.055em;max-width:10ch}
+.series-slide-footer{display:flex;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:8px;letter-spacing:.04em}
+.series-slide-paper{background:var(--paper);color:var(--ink)}
+.series-slide-paper .series-slide-top{color:var(--violet-deep)}
+.series-thought{margin:auto 0;max-width:30ch}
+.series-thought p{margin:0 0 22px;font-size:clamp(23px,2.15vw,34px);line-height:1.04;letter-spacing:-.035em;font-weight:800}
+.series-thought p:last-child{margin-bottom:0}
+.series-small{margin:0;max-width:34ch;font-size:13px;line-height:1.45}
+.series-slide-dark{background:var(--charcoal);color:#fff}
+.series-slide-dark .series-slide-top{color:var(--aqua)}
+.series-statement-alt{color:var(--violet);max-width:9ch;margin:80px 0 0}
+.series-sub{margin:24px 0 0;max-width:30ch;font-size:15px;line-height:1.45;color:#d6d7d0}
+.series-prompt{margin-top:auto;padding-top:18px;border-top:1px solid rgba(199,248,239,.4);max-width:34ch;font-family:var(--mono);font-size:9px;line-height:1.45;letter-spacing:.04em;color:var(--aqua)}
+.series-controls{width:min(100%,500px);margin:14px 0 0 auto;display:grid;grid-template-columns:42px auto 1fr 42px;gap:12px;align-items:center}
+.series-arrow{width:42px;height:42px;border:1px solid rgba(199,248,239,.5);background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.series-arrow:hover,.series-arrow:focus-visible{background:var(--aqua);color:var(--ink);outline:0}
+.series-progress{display:flex;gap:5px;font-family:var(--mono);font-size:8px;color:var(--aqua)}
+.series-dots{display:flex;justify-content:center;gap:7px}
+.series-dots button{width:7px;height:7px;padding:0;border:1px solid var(--aqua);border-radius:50%;background:transparent;cursor:pointer}
+.series-dots button.is-active{background:var(--aqua)}
+@media(max-width:820px){
+  .mara-series{padding-top:54px!important;padding-bottom:48px!important}
+  .series-copy,.series-carousel{grid-column:1/-1!important}
+  .series-copy h2{font-size:clamp(42px,11vw,56px)!important;max-width:11ch!important}
+  .series-intro{margin-top:20px;font-size:13px;max-width:32ch}
+  .series-meta{margin-top:20px}
+  .series-carousel{margin-top:30px}
+  .series-stage{width:100%;margin:0;max-width:500px}
+  .series-slide{padding:22px}
+  .series-statement{font-size:clamp(36px,10vw,50px)}
+  .series-thought p{font-size:clamp(22px,6.3vw,31px)}
+  .series-controls{width:100%;max-width:500px;margin:12px 0 0}
+}
+@media(max-width:430px){
+  .series-slide{padding:18px}.series-slide-top{font-size:7px}.series-slide-footer{font-size:7px}.series-small{font-size:12px}.series-prompt{font-size:8px}
+}
+</style>
+<style id="v15-mobile-responsive">
+/* V15: approved mobile and tablet responsiveness repairs. */
+@media(max-width:820px){
+  .brand{
+    min-width:44px;
+    min-height:44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .case-menu-toggle{
+    min-width:44px;
+    min-height:44px;
+    padding:0 6px;
+    touch-action:manipulation;
+  }
+  .closing .next a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:8px 0;
+  }
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .audience-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audience-cards .aud-card{
+    min-height:220px!important;
+    padding:22px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .audience-cards .aud-card:nth-child(even){border-right:0!important}
+  .audience-cards .aud-card:last-child{
+    grid-column:1/-1;
+    border-right:0!important;
+    border-bottom:0!important;
+  }
+
+  .territories{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .territory{min-height:260px!important}
+
+  .campaign-line{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+  .campaign-step{padding:20px 0!important}
+
+  .metrics{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+  .metrics .metric{
+    grid-column:span 2;
+    min-height:180px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .metrics .metric:nth-child(3){border-right:0!important}
+  .metrics .metric:nth-child(4),
+  .metrics .metric:nth-child(5){grid-column:span 3;border-bottom:0!important}
+  .metrics .metric:nth-child(5){border-right:0!important}
+}
+
+@media(max-width:820px){
+  .series-arrow{width:44px!important;height:44px!important}
+  .series-dots{gap:0}
+  .series-dots button{
+    position:relative;
+    width:44px!important;
+    height:44px!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    touch-action:manipulation;
+  }
+  .series-dots button::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:7px;
+    height:7px;
+    transform:translate(-50%,-50%);
+    border:1px solid var(--aqua);
+    border-radius:50%;
+    background:transparent;
+  }
+  .series-dots button.is-active::after{background:var(--aqua)}
+}
+
+</style>
 </head>
 <body>
-
 <header class="topbar">
-  <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
-  <div class="project-id">project / 04 / mara vale</div>
-  <button class="case-menu-toggle" type="button" aria-expanded="false">Menu</button>
-  <nav class="top-links" aria-label="Case study navigation">
-    <a href="#opening">Overview</a>
-    <a href="#strategy">Strategy</a>
-    <a href="#content">Content</a>
-    <a class="back-link" href="../../index.html#work">Back to work</a>
-  </nav>
+<a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
+<div class="project-id">project / 04 / mara vale</div>
+<button aria-expanded="false" class="case-menu-toggle" type="button" aria-controls="case-study-nav">Menu</button>
+<nav aria-label="Case study navigation" class="top-links" id="case-study-nav"><a href="#opening">Overview</a><a href="#strategy">Strategy</a><a href="#content">Content</a><a class="back-link" href="../../index.html#work">Back to work</a></nav>
 </header>
-
-<aside class="branch-nav" aria-hidden="true">
-  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
-    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
-    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
-    <g id="branch-dots"></g>
-  </svg>
+<aside aria-hidden="true" class="branch-nav">
+<svg preserveaspectratio="none" viewbox="0 0 40 1000">
+<path class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000" id="branch-trunk"></path>
+<path class="active" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000" pathlength="1"></path>
+<g id="branch-dots"></g>
+</svg>
 </aside>
-
 <main>
-  <section id="opening" class="section hero light-section">
-    <div class="grid">
-      <div class="eyebrow">04 / PERSONAL BRAND</div>
-      <h1>MARA<br>VALE</h1>
-
-      <div class="hero-thesis">A PERSON WITH A POINT OF VIEW.</div>
-      <p class="intro">A concept personal brand built around perspective, cultural curiosity and useful expertise. The goal is to feel like a person worth following, not a content machine.</p>
-
-      <div class="hero-mosaic">
-        <div class="tile">OWNED VISUAL PLACEHOLDER / FLASH PORTRAIT + PERSONAL ARCHIVE</div>
-        <div class="tile">PLACEHOLDER / CULTURAL REFERENCES</div>
-        <div class="tile">PLACEHOLDER / WORK IN PROGRESS</div>
-        <div class="tile">PLACEHOLDER / ONE-LINE OPINION</div>
-        <div class="tile">PLACEHOLDER / CITY + OBJECTS + LIFE</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section disclosure light-section">
-    <div class="grid">
-      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
-      <p>Developed to demonstrate personal-brand positioning, editorial content strategy, social systems, creative direction and campaign thinking for a fictional founder and creative consultant. No client results are implied.</p>
-    </div>
-  </section>
-
-  <section id="problem" class="section problem light-section">
-    <div class="grid">
-      <h2>PERSONAL BRANDING<br>SHOULD NOT REMOVE<br>THE PERSON.</h2>
-
-      <div class="copy">
-        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
-        <p>Many personal brands become visually polished but emotionally interchangeable. Mara needs a system that builds authority without reducing her into productivity carousels, recycled advice and a perfectly consistent feed.</p>
-      </div>
-
-      <div class="visual-strip">
-        <div class="placeholder dark">PLACEHOLDER / CATEGORY AUDIT / PERSONAL BRAND TROPES</div>
-        <div class="placeholder violet">PLACEHOLDER / VOICE + DIFFERENTIATION MAP</div>
-        <div class="placeholder aqua">PLACEHOLDER / CULTURAL INPUTS + REFERENCES</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="audience" class="section audience light-section">
-    <div class="grid">
-      <h2>WHO WOULD<br>CHOOSE TO<br>FOLLOW?</h2>
-      <p class="lead">People do not need more generic expertise. They follow when the thinking, taste and perspective make the information feel attached to an actual person.</p>
-
-      <div class="audience-cards">
-        <article class="aud-card">
-          <span class="eyebrow">WHO</span>
-          <h3>CURIOUS<br>PEOPLE.</h3>
-          <p>Founders, creatives and ambitious professionals interested in work, culture, ideas and how people build things.</p>
-        </article>
-        <article class="aud-card">
-          <span class="eyebrow">WHAT THEY WANT</span>
-          <h3>USEFUL<br>THINKING.</h3>
-          <p>Perspective they can apply, references they would not have found themselves, and expertise without constant instruction.</p>
-        </article>
-        <article class="aud-card">
-          <span class="eyebrow">WHAT THEY IGNORE</span>
-          <h3>CONTENT<br>FOR CONTENT'S<br>SAKE.</h3>
-          <p>Empty consistency, obvious engagement bait, recycled founder advice and posting that exists only because the calendar says so.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="strategy" class="section positioning dark-section">
-    <div class="grid">
-      <div class="eyebrow">POSITIONING</div>
-      <h2>BE INTERESTING<br>BEFORE TRYING<br>TO BE CONSISTENT.</h2>
-
-      <div class="statement">
-        <p>Mara should build recognition through recurring perspective, not identical formats. The audience should know what kind of mind they are following before they know what the next post will look like.</p>
-      </div>
-
-      <div class="principles">
-        <div class="principle">
-          <span class="eyebrow">01</span>
-          <strong>Specific</strong>
-          <p>Have opinions strong enough to sound like one person.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">02</span>
-          <strong>Cultural</strong>
-          <p>Let books, spaces, film, objects and observation shape the point of view.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">03</span>
-          <strong>Useful</strong>
-          <p>Expertise still has to help someone think or act differently.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">04</span>
-          <strong>Human</strong>
-          <p>Show enough life that the authority belongs to a real person.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="content" class="section content light-section">
-    <div class="grid">
-      <h2>FOUR TERRITORIES.<br>ONE POINT<br>OF VIEW.</h2>
-      <p class="lead">The content can change shape constantly as long as the perspective remains recognizable.</p>
-
-      <div class="territories">
-        <article class="territory">
-          <div class="num">01 / WORK</div>
-          <div>
-            <h3>WHAT SHE<br>KNOWS.</h3>
-            <p>Projects, decisions, lessons, frameworks and strong perspectives drawn from real expertise.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">02 / CULTURE</div>
-          <div>
-            <h3>WHAT SHAPES<br>THE THINKING.</h3>
-            <p>Books, film, design, places, objects and references that add texture to the professional point of view.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">03 / OPINION</div>
-          <div>
-            <h3>WHAT SHE<br>BELIEVES.</h3>
-            <p>Direct observations and arguments that create distinction instead of safe agreement.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">04 / LIFE</div>
-          <div>
-            <h3>THE PERSON<br>AROUND THE WORK.</h3>
-            <p>Enough context, routines and real moments to make the expertise feel inhabited rather than performed.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="social" class="section social light-section">
-    <div class="grid">
-      <h2>CONSISTENT<br>DOES NOT MEAN<br>IDENTICAL.</h2>
-      <p class="lead">The social system deliberately changes format: long thought, short observation, photo dump, direct-to-camera video, cultural reference, project breakdown and one-line opinion.</p>
-
-      <div class="social-grid">
-        <div class="placeholder dark">PLACEHOLDER / PHOTO DUMP + PERSONAL ARCHIVE</div>
-        <div class="placeholder violet">PLACEHOLDER / DIRECT-TO-CAMERA HOOK</div>
-        <div class="placeholder aqua">PLACEHOLDER / CULTURAL NOTE</div>
-        <div class="placeholder soft">PLACEHOLDER / PROJECT BREAKDOWN</div>
-        <div class="placeholder">PLACEHOLDER / ONE-LINE OPINION</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="campaign" class="section campaign dark-section">
-    <div class="grid">
-      <div class="eyebrow">RECURRING SERIES</div>
-      <h2>THINGS I AM<br>NOT SURE I<br>BELIEVE ANYMORE.</h2>
-
-      <div class="campaign-note">AN OPINION SHOULD OPEN A CONVERSATION.</div>
-
-      <div class="campaign-line">
-        <div class="campaign-step">
-          <span>01 / CLAIM</span>
-          <strong>Say the thing.</strong>
-          <p>Open with one assumption from the industry that Mara genuinely questions.</p>
-        </div>
-        <div class="campaign-step">
-          <span>02 / ARGUE</span>
-          <strong>Explain why.</strong>
-          <p>Use a short video, written post or carousel to develop the idea without turning it into generic education.</p>
-        </div>
-        <div class="campaign-step">
-          <span>03 / INVITE</span>
-          <strong>Make room for response.</strong>
-          <p>Ask the audience what they believe, disagree with or have experienced differently.</p>
-        </div>
-        <div class="campaign-step">
-          <span>04 / EXTEND</span>
-          <strong>Let it become a series.</strong>
-          <p>Build recognition around the thinking rather than locking the series into one visual template.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="calendar" class="section calendar light-section">
-    <div class="grid">
-      <h2>ONE WEEK.<br>SEVEN DIFFERENT<br>WAYS TO SHOW UP.</h2>
-      <p class="lead">The calendar avoids forcing every day into the same content logic. The goal is a recognizable person, not a production schedule people can see from the outside.</p>
-
-      <div class="week">
-        <div class="day">
-          <div class="day-name">MON</div>
-          <strong>Long thought</strong>
-          <p>A deeper written post on a work or industry idea that deserves more than a quick tip.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">TUE</div>
-          <strong>Photo dump</strong>
-          <p>Work, objects, places and fragments that reveal taste and context without overexplaining them.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">WED</div>
-          <strong>Direct-to-camera</strong>
-          <p>A concise observation delivered in Mara's actual voice with minimal production.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">THU</div>
-          <strong>Cultural note</strong>
-          <p>A book, scene, exhibition, place or object connected back to how Mara thinks about work.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">FRI</div>
-          <strong>Project breakdown</strong>
-          <p>Show one decision, problem or behind-the-work detail that demonstrates expertise through practice.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SAT</div>
-          <strong>One-line opinion</strong>
-          <p>A short, memorable point of view that can stand on its own and invite conversation.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SUN</div>
-          <strong>Life without lesson</strong>
-          <p>Something human that does not need to become advice, a framework or a professional takeaway.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="measurement" class="section measure light-section">
-    <div class="grid">
-      <h2>WHAT WOULD<br>WE WATCH?</h2>
-      <p class="lead">A personal brand should create recognition, trust and opportunity. The important signals show whether the audience knows what Mara stands for and wants more of her thinking.</p>
-
-      <div class="metrics">
-        <div class="metric">
-          <span>01</span>
-          <strong>Recognition</strong>
-          <p>Repeat viewers, profile visits and whether recurring ideas become identifiable.</p>
-        </div>
-        <div class="metric">
-          <span>02</span>
-          <strong>Depth</strong>
-          <p>Saves, shares, dwell time and meaningful comments on perspective-led content.</p>
-        </div>
-        <div class="metric">
-          <span>03</span>
-          <strong>Conversation</strong>
-          <p>Replies, DMs and audience responses that create actual exchange.</p>
-        </div>
-        <div class="metric">
-          <span>04</span>
-          <strong>Authority</strong>
-          <p>Invitations, mentions, collaborations and opportunities tied to Mara's expertise.</p>
-        </div>
-        <div class="metric">
-          <span>05</span>
-          <strong>Opportunity</strong>
-          <p>Qualified enquiries, speaking requests, project conversations and long-term relationship building.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="closing" class="section closing light-section">
-    <div class="grid">
-      <div class="eyebrow">PROJECT / 04 COMPLETE</div>
-
-      <h2>MAKE THE<br>PERSON<br>MEMORABLE,<br>NOT THE<br>TEMPLATE.</h2>
-
-      <div class="next">
-        <div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
-        <div><a href="../../index.html#top">autumnbranches studio →</a></div>
-        <br>
-        <div>PREVIOUS CASE STUDY</div>
-        <div><a href="../verde-systems/index.html">VERDE SYSTEMS ←</a></div>
-        <br>
-        <div>RETURN TO STUDIO</div>
-        <div><a href="../../index.html#work">SAME STUDIO. DIFFERENT ANSWERS. →</a></div>
-      </div>
-    </div>
-  </section>
+<section class="section hero dark-section" id="opening">
+<div class="grid">
+<div class="eyebrow">04 / PERSONAL BRAND</div>
+<h1>MARA<br/>VALE</h1>
+<div class="intro">
+<span class="eyebrow">A PERSON WITH A POINT OF VIEW.</span>
+<p>A concept personal brand built around perspective, cultural curiosity and useful expertise. The goal is to feel like a person worth following, not a content machine.</p>
+</div>
+<div aria-label="Mara Vale personal brand content world" class="mara-brand-world">
+<article class="signal-main">
+<span class="eyebrow">PERSONAL BRAND / CORE THESIS</span>
+<strong class="core-thesis-lines"><span>BE INTERESTING</span><span>BEFORE TRYING</span><span>TO BE CONSISTENT.</span></strong>
+<small>WORK / CULTURE / OPINION / LIFE</small>
+</article>
+<article class="signal-card signal-violet"><span>01 / WORK</span><strong>WHAT I KNOW NOW.</strong></article>
+<article class="signal-card signal-paper"><span>02 / CULTURE</span><strong>WHAT I AM NOTICING.</strong></article>
+<article class="signal-card signal-soft"><span>03 / OPINION</span><strong>THINGS I AM NOT SURE I BELIEVE ANYMORE.</strong></article>
+<article class="signal-card signal-context"><span>04 / LIFE</span><strong>NO LESSON REQUIRED.</strong></article>
+</div>
+</div>
+</section>
+<section class="section disclosure light-section">
+<div class="grid">
+<div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+<p>Developed to demonstrate personal-brand positioning, editorial social strategy, thought leadership and creative direction for a fictional creative consultant. No client results are implied.</p>
+</div>
+</section>
+<section class="section problem light-section" id="problem">
+<div class="grid">
+<h2>PERSONAL BRANDING<br/>SHOULD NOT REMOVE<br/>THE PERSON.</h2>
+<div class="copy">
+<div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
+<p>Many personal brands become polished but interchangeable. Mara needs authority without collapsing into productivity carousels, recycled founder advice and a feed that looks consistent because every post is the same.</p>
+</div>
+<div class="mara-strategy-boards">
+<article class="mara-board board-dark">
+<span class="eyebrow">THE TEMPLATE</span>
+<h3>WHEN PERSONAL<br/>BRANDING BECOMES<br/>A FORMULA.</h3>
+<div class="pattern-list"><span>POLISHED</span><span>GENERIC</span><span>CONSTANT</span><span>SAFE</span></div>
+<p>A personal brand can be consistent and still sound like everyone else.</p>
+</article>
+<article class="mara-board board-violet">
+<span class="eyebrow">THE OPPORTUNITY</span>
+<h3>BUILD RECOGNITION<br/>AROUND A POINT<br/>OF VIEW.</h3>
+<div class="pattern-list"><span>SPECIFIC</span><span>CULTURAL</span><span>USEFUL</span><span>HUMAN</span></div>
+<p>Make the person recognizable before making the format recognizable.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section audience light-section" id="audience">
+<div class="grid">
+<h2>WHO WOULD<br/>CHOOSE TO<br/>FOLLOW?</h2>
+<p class="lead">People do not need more generic expertise. They follow when the thinking, taste and perspective feel attached to an actual person.</p>
+<div class="audience-cards">
+<article class="aud-card"><span class="eyebrow">WHO</span><h3>CURIOUS<br/>PEOPLE.</h3><p>Founders, creatives and ambitious professionals interested in work, culture, ideas and how people build things.</p></article>
+<article class="aud-card"><span class="eyebrow">WHAT THEY WANT</span><h3>USEFUL<br/>THINKING.</h3><p>Perspective they can apply, references they would not have found themselves, and expertise without constant instruction.</p></article>
+<article class="aud-card"><span class="eyebrow">WHAT THEY IGNORE</span><h3>CONTENT FOR<br/>CONTENT'S SAKE.</h3><p>Empty consistency, obvious engagement bait, recycled founder advice and posting that exists only because the calendar says so.</p></article>
+</div>
+</div>
+</section>
+<section class="section positioning dark-section" id="strategy">
+<div class="grid">
+<div class="eyebrow">POSITIONING</div>
+<h2>BE INTERESTING<br/>BEFORE TRYING<br/>TO BE CONSISTENT.</h2>
+<div class="positioning-side">
+<div class="statement"><p>Mara should build recognition through recurring perspective, not identical formats. The audience should know what kind of mind they are following before they know what the next post will look like.</p></div>
+<div class="principles">
+<div class="principle"><span class="eyebrow">01</span><strong>Specific</strong><p>Have opinions strong enough to sound like one person.</p></div>
+<div class="principle"><span class="eyebrow">02</span><strong>Cultural</strong><p>Let books, spaces, film, objects and observation shape the point of view.</p></div>
+<div class="principle"><span class="eyebrow">03</span><strong>Useful</strong><p>Expertise still has to help someone think or act differently.</p></div>
+<div class="principle"><span class="eyebrow">04</span><strong>Human</strong><p>Show enough life that the authority belongs to a real person.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section content light-section" id="content">
+<div class="grid">
+<h2>FOUR TERRITORIES.<br/>ONE POINT<br/>OF VIEW.</h2>
+<p class="lead">The content can change shape constantly as long as the perspective remains recognizable.</p>
+<div class="territories">
+<article class="territory"><div class="num">01 / WORK</div><div><h3>WHAT SHE<br/>KNOWS.</h3><p>Projects, decisions, lessons, frameworks and strong perspectives drawn from real expertise.</p></div></article>
+<article class="territory"><div class="num">02 / CULTURE</div><div><h3>WHAT SHAPES<br/>THE THINKING.</h3><p>Books, film, design, places, objects and references that add texture to the professional point of view.</p></div></article>
+<article class="territory"><div class="num">03 / OPINION</div><div><h3>WHAT SHE<br/>BELIEVES.</h3><p>Direct observations and arguments that create distinction instead of safe agreement.</p></div></article>
+<article class="territory"><div class="num">04 / LIFE</div><div><h3>THE PERSON<br/>AROUND THE WORK.</h3><p>Enough context, routines and real moments to make the expertise feel inhabited rather than performed.</p></div></article>
+</div>
+</div>
+</section>
+<section class="section campaign dark-section mara-series" id="campaign">
+<div class="grid">
+<div class="series-copy">
+<div class="eyebrow">RECURRING SERIES</div>
+<h2>THINGS I AM<br/>NOT SURE I<br/>BELIEVE ANYMORE.</h2>
+<p class="series-intro">A recurring opinion series for ideas that have become less certain with experience. The visual system stays recognizable without making every post identical.</p>
+<div class="series-meta"><span>OPINION</span><span>REFLECTION</span><span>RESPONSE</span></div>
+</div>
+<div class="series-carousel" data-series-carousel>
+<div class="series-stage">
+<article class="series-slide series-slide-violet is-active" data-series-slide>
+<div class="series-slide-top"><span>THINGS I AM NOT SURE I BELIEVE ANYMORE</span><b>01 / 03</b></div>
+<strong class="series-statement">BEING CONSISTENT IS MORE IMPORTANT THAN BEING INTERESTING.</strong>
+<div class="series-slide-footer"><span>MARA VALE</span><span>01 / CONSISTENCY</span></div>
+</article>
+<article class="series-slide series-slide-paper" data-series-slide hidden>
+<div class="series-slide-top"><span>WHY I AM LESS SURE</span><b>02 / 03</b></div>
+<div class="series-thought">
+<p>Consistency helps when it makes a point of view recognizable.</p>
+<p>It stops helping when the format becomes the thing people recognize.</p>
+</div>
+<p class="series-small">I would rather return to the same questions from different angles than make the same post every Tuesday.</p>
+</article>
+<article class="series-slide series-slide-dark" data-series-slide hidden>
+<div class="series-slide-top"><span>WHAT I BELIEVE INSTEAD</span><b>03 / 03</b></div>
+<strong class="series-statement series-statement-alt">RECOGNITION DOES NOT REQUIRE SAMENESS.</strong>
+<p class="series-sub">A point of view can repeat without the format repeating.</p>
+<div class="series-prompt">WHAT ARE YOU LESS SURE ABOUT THAN YOU USED TO BE?</div>
+</article>
+</div>
+<div class="series-controls">
+<button class="series-arrow" type="button" data-series-prev aria-label="Previous carousel slide">←</button>
+<div class="series-progress" aria-live="polite"><span data-series-current>01</span><span>/ 03</span></div>
+<div class="series-dots" aria-label="Carousel slides">
+<button class="is-active" type="button" data-series-dot="0" aria-label="Show slide 1"></button>
+<button type="button" data-series-dot="1" aria-label="Show slide 2"></button>
+<button type="button" data-series-dot="2" aria-label="Show slide 3"></button>
+</div>
+<button class="series-arrow" type="button" data-series-next aria-label="Next carousel slide">→</button>
+</div>
+</div>
+</div>
+</section>
+<section class="section calendar light-section" id="calendar">
+<div class="grid">
+<div class="calendar-intro">
+<div class="eyebrow">CONTENT RHYTHM</div>
+<h2>ONE WEEK.<br/>SEVEN WAYS<br/>TO SHOW UP.</h2>
+<p class="lead">A recognizable person does not need a visibly repetitive production schedule. The format changes while the point of view stays coherent.</p>
+</div>
+<div aria-label="One week Mara Vale social content calendar" class="calendar-board">
+<div class="calendar-bar"><span>WEEK / 01</span><strong>MARA VALE</strong><span>7 TOUCHPOINTS</span></div>
+<div class="calendar-days">
+<article class="calendar-day tone-violet"><div class="calendar-date"><span>MON</span><b>01</b></div><strong>LONG<br/>THOUGHT</strong><small>WORK / OPINION</small></article>
+<article class="calendar-day tone-paper"><div class="calendar-date"><span>TUE</span><b>02</b></div><strong>PHOTO<br/>DUMP</strong><small>LIFE / CULTURE</small></article>
+<article class="calendar-day tone-black"><div class="calendar-date"><span>WED</span><b>03</b></div><strong>DIRECT TO<br/>CAMERA</strong><small>OPINION / WORK</small></article>
+<article class="calendar-day tone-soft"><div class="calendar-date"><span>THU</span><b>04</b></div><strong>CULTURAL<br/>NOTE</strong><small>CULTURE / POV</small></article>
+<article class="calendar-day tone-paper"><div class="calendar-date"><span>FRI</span><b>05</b></div><strong>PROJECT<br/>BREAKDOWN</strong><small>WORK / PROOF</small></article>
+<article class="calendar-day tone-black"><div class="calendar-date"><span>SAT</span><b>06</b></div><strong>ONE-LINE<br/>OPINION</strong><small>POV / RESPONSE</small></article>
+<article class="calendar-day tone-paper"><div class="calendar-date"><span>SUN</span><b>07</b></div><strong>LIFE<br/>WITHOUT LESSON</strong><small>LIFE / HUMAN</small></article>
+</div>
+<div class="calendar-footer"><span>WORK</span><span>CULTURE</span><span>OPINION</span><span>LIFE</span></div>
+</div>
+</div>
+</section>
+<section class="section measure light-section" id="measurement">
+<div class="grid">
+<h2>WHAT WOULD<br/>WE WATCH?</h2>
+<p class="lead">The useful question is whether Mara becomes more recognizable for her thinking, and whether that recognition creates qualified attention over time.</p>
+<div class="metrics">
+<div class="metric"><span>01</span><strong>Qualified reach</strong><p>Visibility among the founders, creatives and professionals the positioning is built for.</p></div>
+<div class="metric"><span>02</span><strong>Saves</strong><p>Signals that the thinking or references are useful enough to return to later.</p></div>
+<div class="metric"><span>03</span><strong>Shares</strong><p>Whether an idea feels specific enough to pass to another person.</p></div>
+<div class="metric"><span>04</span><strong>Conversation</strong><p>Comments, replies and DMs that show the point of view is opening real discussion.</p></div>
+<div class="metric"><span>05</span><strong>Intent</strong><p>Profile visits, site visits and inbound interest after repeated exposure to the content.</p></div>
+</div>
+</div>
+</section>
+<section class="section closing light-section" id="closing">
+<div class="grid">
+<div class="eyebrow">PROJECT / 04 COMPLETE</div>
+<h2>MAKE THE PERSON<br/>MEMORABLE.</h2>
+<div class="next">
+<div class="closing-thesis">NOT THE TEMPLATE.</div>
+<div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
+<div><a href="../../index.html#top">autumnbranches studio →</a></div>
+<br/>
+<div>PREVIOUS CASE STUDY</div>
+<div><a href="../verde-systems/index.html">VERDE SYSTEMS ←</a></div>
+<br/>
+<div>RETURN TO STUDIO</div>
+<div><a href="../../index.html#work">SAME STUDIO. DIFFERENT ANSWERS. →</a></div>
+</div>
+</div>
+</section>
 </main>
-
 <footer>
-  <span>autumnbranches studio</span>
-  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+<span>autumnbranches studio</span>
+<span>INDEPENDENT CONCEPT PROJECT / 2026</span>
 </footer>
-
 <script>
   const sections = [...document.querySelectorAll('main .section')];
   const activePath = document.querySelector('.branch-nav .active');
@@ -1146,13 +1545,12 @@
       const rect = section.getBoundingClientRect();
       if (rect.top <= innerHeight * .46) current = i;
     });
-
     dots.forEach((dot, i) => dot.classList.toggle('current', i === current));
 
     const activeSection = sections[current];
     syncCaseTopbar(activeSection);
-    const dark = activeSection && activeSection.classList.contains('dark-section');
-    document.body.classList.toggle('dark-zone', !!dark);
+    const light = activeSection && activeSection.classList.contains('light-section');
+    document.body.classList.toggle('light-zone', !!light);
   }
 
   updateProgress();
@@ -1190,6 +1588,50 @@ if(caseMenuToggle && caseTopbar){
   window.addEventListener('resize',()=>{if(innerWidth>820)closeCaseMenu()},{passive:true});
 }
 
+</script>
+
+<script id="mara-v13-6-series-carousel-js">
+(() => {
+  const root = document.querySelector('[data-series-carousel]');
+  if (!root) return;
+  const slides = [...root.querySelectorAll('[data-series-slide]')];
+  const dots = [...root.querySelectorAll('[data-series-dot]')];
+  const current = root.querySelector('[data-series-current]');
+  let index = 0;
+  const show = (next) => {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const active = i === index;
+      slide.hidden = !active;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+    dots.forEach((dot, i) => {
+      const active = i === index;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    if (current) current.textContent = String(index + 1).padStart(2, '0');
+  };
+  root.querySelector('[data-series-prev]')?.addEventListener('click', () => show(index - 1));
+  root.querySelector('[data-series-next]')?.addEventListener('click', () => show(index + 1));
+  dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+  show(0);
+})();
+</script>
+<script id="v15-navigation-enhancements">
+(() => {
+  const topbar = document.querySelector('.topbar');
+  const toggle = document.querySelector('.case-menu-toggle');
+  if (!topbar || !toggle) return;
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !topbar.classList.contains('menu-open')) return;
+    topbar.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
+    toggle.focus();
+  });
+})();
 </script>
 </body>
 </html>

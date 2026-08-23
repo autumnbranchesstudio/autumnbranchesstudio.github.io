@@ -734,20 +734,754 @@
   .section{padding-left:16px;padding-right:30px}
   h1{font-size:clamp(47px,14.6vw,64px)}
   h2{font-size:clamp(36px,10.5vw,50px)}
-  .hero .hero-visual{min-height:300px!important}
+  .hero .hero-visual{min-height:0!important}
   .hero-mosaic .tile{min-height:135px!important}
   .placeholder{min-height:165px!important}
 }
 
-  </style>
+/* Nura final asset integration and compact case-study pacing */
+.hero-asset,
+.case-asset{margin:0;overflow:hidden}
+.hero .hero-visual.hero-asset{
+  display:block;
+  padding:0;
+  min-height:0;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
+}
+.hero-asset img,.case-asset img{display:block;width:100%;height:auto}
+.final-strategy-assets .case-asset{border:1px solid rgba(9,9,9,.18);background:var(--paper)}
+.territory h3{margin-bottom:20px}
+.territory p{margin-top:0}
+
+.feed-system-placeholder{display:flex!important;flex-direction:column;align-items:flex-start!important;justify-content:flex-end;gap:12px}
+.feed-system-placeholder strong{font-family:var(--sans);font-size:clamp(25px,2.5vw,44px);line-height:.92;letter-spacing:-.04em;max-width:9ch}
+.feed-system-placeholder small{font-family:var(--sans);font-size:12px;line-height:1.45;max-width:30ch;color:#aaa7a0;text-transform:none;letter-spacing:0}
+
+.social-module{border:1px solid var(--ink);min-width:0;overflow:hidden;position:relative}
+.module-label{font-family:var(--mono);font-size:9px;letter-spacing:.04em;text-transform:uppercase;padding:9px 11px;border-top:1px solid rgba(9,9,9,.22)}
+.module-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.05em}
+
+.reel-module{display:grid;grid-template-columns:.43fr .57fr;background:var(--nura);color:#fff}
+.reel-cover{background:var(--nura-deep);position:relative;padding:16px 14px;overflow:hidden;min-width:0}
+.reel-cover>strong{display:block;position:relative;z-index:2;margin-top:18px;font-size:clamp(18px,1.65vw,28px);line-height:.9;letter-spacing:-.045em}
+.reel-campaign,.reel-lockup{position:absolute;z-index:2;left:14px;font-family:var(--mono);font-size:7px;letter-spacing:.035em}
+.reel-campaign{bottom:34px}.reel-lockup{bottom:15px;font-family:var(--sans);font-weight:800}
+.reel-still-life{position:absolute;inset:0;pointer-events:none}
+.reel-light{position:absolute;width:78%;height:20%;right:-18%;top:52%;background:rgba(241,238,231,.10);transform:rotate(-17deg)}
+.reel-glass{position:absolute;width:42px;height:62px;border:1.5px solid rgba(255,255,255,.7);border-radius:4px;right:20%;bottom:27%;box-shadow:inset 0 -19px 0 rgba(199,216,223,.18)}
+.reel-book{position:absolute;width:92px;height:42px;background:#1a1b1b;right:4%;bottom:13%;transform:rotate(-8deg);border:1px solid rgba(255,255,255,.12)}
+.module-note{padding:15px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px}
+.module-note>span{font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+.module-note p{font-size:11px;line-height:1.35}.module-note p strong{font-weight:800}
+
+.carousel-module{background:var(--paper);display:flex;flex-direction:column}
+.carousel-viewer{position:relative;min-height:0;flex:1;display:grid;place-items:center;padding:12px;background:#dedbd3}
+.carousel-viewer img{height:100%;max-height:245px;width:auto;max-width:74%;object-fit:contain;display:block;box-shadow:0 10px 24px rgba(9,9,9,.12)}
+.carousel-controls{position:absolute;left:10px;right:10px;bottom:9px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:8px}
+.carousel-controls button{width:25px;height:25px;border:1px solid var(--ink);border-radius:50%;background:var(--paper);cursor:pointer;padding:0}
+
+.stories-module{background:var(--nura-soft);display:flex;flex-direction:column}
+.stories-row{display:flex;gap:7px;align-items:center;justify-content:center;padding:12px 9px;min-height:0;flex:1}
+.story-card{width:30%;aspect-ratio:9/16;border:1px solid rgba(9,9,9,.28);padding:9px 7px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.story-card>span{font-family:var(--mono);font-size:5.5px}
+.story-card>strong{font-size:clamp(8px,.72vw,12px);line-height:.95;letter-spacing:-.025em;margin-top:auto;margin-bottom:auto}
+.story-one{background:var(--nura-deep);color:#fff}.story-two{background:var(--ivory)}.story-three{background:var(--nura);color:#fff}
+.story-poll{display:grid;gap:3px}.story-poll b{font-size:5px;border:1px solid currentColor;border-radius:20px;padding:3px;text-align:center}
+.story-answer{border:1px solid currentColor;border-radius:20px;padding:5px;font-size:5px;margin-bottom:6px}
+.story-card small{font-size:6px;line-height:1.1;margin-bottom:4px}
+
+.caption-module{background:var(--paper);padding:12px;display:flex;flex-direction:column}
+.ig-topline{display:flex;align-items:center;gap:8px;font-size:10px}.ig-avatar{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--nura-deep);color:#fff;font-size:9px;font-weight:800}.ig-more{margin-left:auto;letter-spacing:.08em}
+.ig-post-mini{margin-top:10px;background:var(--nura-deep);color:#fff;padding:12px;min-height:78px;display:flex;flex-direction:column;justify-content:space-between}.ig-post-mini span{font-family:var(--mono);font-size:6px}.ig-post-mini strong{font-size:14px;line-height:.9;letter-spacing:-.035em}
+.ig-actions{display:flex;gap:10px;font-size:17px;line-height:1;padding:8px 0 5px}.ig-actions .save{margin-left:auto}.ig-caption{overflow:auto;scrollbar-width:none}.ig-caption::-webkit-scrollbar{display:none}.ig-caption p{font-size:9px;line-height:1.35;margin:0 0 6px}.ig-caption .ig-cta{font-weight:800;color:var(--nura-deep)}
+
+@media(min-width:821px){
+  .section{min-height:auto;padding-top:82px;padding-bottom:68px}
+  .hero{min-height:auto;padding-top:104px;padding-bottom:62px}
+  .hero h1{margin-top:28px}
+  .hero .hero-visual{margin-top:38px}
+  .problem .visual-pair{margin-top:38px}
+  .problem .visual-pair.final-strategy-assets{grid-template-columns:1fr 1fr}
+  .audience-cards{margin-top:38px}
+  .aud-card{min-height:215px;padding:23px 26px 28px}.aud-card .eyebrow{margin-bottom:34px}
+  .positioning h2{margin-top:28px}.positioning .statement{margin-top:30px}.principles{margin-top:40px}
+  .principle{min-height:180px;padding:22px 20px 28px}.principle strong{margin-top:24px}
+  .territories{margin-top:40px}.territory{min-height:315px}
+  .social-grid{margin-top:40px;grid-template-rows:repeat(2,minmax(270px,29vh))}
+  .campaign h2{margin-top:28px}.campaign .campaign-line{margin-top:40px;padding:28px 0}
+  .week{margin-top:40px}.metrics{margin-top:40px}
+  .closing{min-height:auto;padding-top:84px;padding-bottom:84px}
+}
+
+@media(max-width:820px){
+  .hero .hero-visual.hero-asset{min-height:0!important;margin-top:26px!important}
+  .final-strategy-assets{margin-top:28px!important}
+  .territory h3{margin-bottom:16px}
+  .social-module{min-height:260px}
+  .reel-module{grid-template-columns:.46fr .54fr}
+  .carousel-viewer img{max-height:240px}
+  .story-card{max-width:115px}
+  .caption-module{min-height:320px}
+}
+
+@media(max-width:430px){
+  .reel-module{grid-template-columns:1fr 1fr}
+  .social-module{min-height:250px}
+  .stories-row{gap:5px;padding:10px 6px}
+  .story-card{width:31.5%;padding:7px 5px}
+}
+
+
+/* V10.1 targeted Nura layout corrections */
+.feed-system-placeholder{display:none!important}
+
+.feed-system{
+  background:var(--ink);
+  color:var(--ivory);
+  padding:14px;
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr);
+  gap:10px;
+}
+.feed-head{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:8px;letter-spacing:.045em;text-transform:uppercase}
+.feed-head strong{font-family:var(--sans);font-size:9px;letter-spacing:0;text-transform:none}
+.feed-grid-six{min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:5px}
+.feed-tile{position:relative;min-height:0;overflow:hidden;border:1px solid rgba(255,255,255,.18);padding:12px;display:flex;flex-direction:column;justify-content:space-between}
+.feed-tile>span{font-family:var(--mono);font-size:6px;letter-spacing:.04em;position:relative;z-index:2}
+.feed-tile>strong{font-size:clamp(12px,1.05vw,18px);line-height:.9;letter-spacing:-.04em;position:relative;z-index:2}
+.feed-tile>small{font-family:var(--mono);font-size:5.5px;line-height:1.25;position:relative;z-index:2}
+.feed-photo{padding:0;background:var(--paper)}
+.feed-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.feed-ritual{background:var(--nura-deep);color:#fff}
+.feed-perspective{background:var(--ivory);color:var(--ink)}
+.feed-product{color:#fff;padding:10px}
+.feed-product:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,58,73,.88),rgba(14,58,73,.08) 68%);z-index:1}
+.feed-product img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.feed-campaign{background:var(--nura);color:#fff}
+
+.reel-image-module{display:block!important;background:#f1eee7!important;padding:0!important}
+.reel-image-module img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;background:#f1eee7}
+
+.carousel-module{display:grid!important;grid-template-rows:minmax(0,1fr) 30px!important;overflow:hidden}
+.carousel-viewer{min-height:0!important;overflow:hidden!important;display:grid!important;place-items:center!important;padding:10px 42px 38px!important;box-sizing:border-box!important}
+.carousel-viewer img{display:block!important;width:auto!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;box-shadow:0 8px 20px rgba(9,9,9,.12)}
+.carousel-module .module-label{height:30px;box-sizing:border-box;padding:8px 11px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:var(--paper);position:relative;z-index:3}
+.carousel-controls{left:10px!important;right:10px!important;bottom:8px!important;z-index:4}
+
+@media(min-width:821px){
+  .social-grid .feed-system{grid-row:1/3;min-height:0}
+  .positioning .grid{align-items:start}
+  .positioning .eyebrow{grid-column:1/7;grid-row:1;margin:0}
+  .positioning h2{grid-column:1/8;grid-row:2 / span 2;margin-top:28px!important;align-self:start}
+  .positioning .statement{grid-column:8/13;grid-row:1;margin-top:0!important;max-width:none;padding-top:18px}
+  .positioning .principles{
+    grid-column:8/13;
+    grid-row:2;
+    margin-top:24px!important;
+    display:grid;
+    grid-template-columns:1fr;
+    border-top:1px solid rgba(255,255,255,.5);
+    border-bottom:1px solid rgba(255,255,255,.5);
+  }
+  .positioning .principle{
+    min-height:0!important;
+    padding:13px 0!important;
+    border-right:0!important;
+    border-bottom:1px solid rgba(255,255,255,.28);
+    display:grid;
+    grid-template-columns:34px 96px minmax(0,1fr);
+    gap:10px;
+    align-items:start;
+  }
+  .positioning .principle:last-child{border-bottom:0!important}
+  .positioning .principle .eyebrow{grid-column:auto;grid-row:auto;font-size:8px;padding-top:2px}
+  .positioning .principle strong{margin-top:0!important;font-size:15px;line-height:1.2}
+  .positioning .principle p{margin-top:0!important;max-width:none;font-size:12px;line-height:1.35}
+  .social-grid{grid-template-rows:repeat(2,minmax(300px,31vh))!important}
+}
+
+@media(max-width:820px){
+  .social-grid .feed-system{grid-row:auto!important}
+  .feed-system{min-height:520px!important}
+  .feed-grid-six{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+  .feed-tile{padding:8px}
+  .feed-tile>strong{font-size:clamp(10px,3vw,14px)}
+  .reel-image-module{min-height:300px!important}
+  .reel-image-module img{object-fit:contain;background:#f1eee7}
+  .carousel-module{min-height:360px!important}
+  .carousel-viewer{padding:12px 46px 42px!important}
+}
+
+@media(max-width:430px){
+  .feed-system{min-height:440px!important;padding:10px}
+  .feed-head{font-size:7px}
+  .feed-grid-six{gap:3px}
+  .feed-tile>span,.feed-tile>small{font-size:4.8px}
+  .carousel-module{min-height:330px!important}
+}
+
+  
+/* V10.2 feed-only correction: preserve complete post artwork */
+.feed-system{
+  padding:14px!important;
+  grid-template-rows:auto auto!important;
+  align-content:start!important;
+}
+.feed-grid-six{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-template-rows:none!important;
+  gap:6px!important;
+  align-content:start!important;
+}
+.feed-tile{
+  width:100%!important;
+  min-height:0!important;
+  aspect-ratio:4/5!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  padding:14px!important;
+}
+.feed-photo{padding:0!important;background:var(--paper)!important}
+.feed-photo img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+.feed-product{padding:14px!important}
+.feed-product img{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+}
+.feed-tile>strong{font-size:clamp(13px,1.15vw,20px)!important;line-height:.92!important}
+.feed-tile>span{font-size:6px!important}
+.feed-tile>small{font-size:5.5px!important}
+@media(max-width:820px){
+  .feed-system{min-height:0!important}
+  .feed-grid-six{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .feed-tile{aspect-ratio:4/5!important;padding:10px!important}
+  .feed-photo{padding:0!important}
+  .feed-tile>strong{font-size:clamp(11px,3.3vw,16px)!important}
+}
+@media(max-width:430px){
+  .feed-system{min-height:0!important}
+  .feed-grid-six{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:4px!important}
+  .feed-tile{padding:8px!important}
+  .feed-photo{padding:0!important}
+}
+
+/* V10.3 feed refinement: real reel visual, unique sixth post, purposeful footer */
+.feed-system{
+  grid-template-rows:auto auto minmax(92px,1fr)!important;
+}
+.feed-reel{padding:0!important;background:var(--nura-deep)!important}
+.feed-reel img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;display:block!important}
+.feed-reel-badge{position:absolute!important;top:10px!important;right:10px!important;left:auto!important;z-index:3!important;background:rgba(17,17,17,.72);color:#fff;padding:5px 7px;border:1px solid rgba(255,255,255,.45);font-family:var(--mono)!important;font-size:6px!important;letter-spacing:.06em!important}
+.feed-play{position:absolute!important;right:12px!important;bottom:12px!important;z-index:3!important;width:30px;height:30px;border:1px solid rgba(255,255,255,.8);border-radius:50%;display:grid;place-items:center;background:rgba(17,17,17,.38);color:#fff;font-size:10px!important;padding-left:2px}
+.feed-community{background:var(--nura-soft)!important;color:var(--ink)!important}
+.feed-community>strong{max-width:11ch}
+.feed-community>i{position:absolute;right:13px;bottom:12px;width:32px;height:32px;border:1px solid rgba(17,17,17,.55);border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--sans);font-size:15px}
+.feed-system-footer{border-top:1px solid rgba(255,255,255,.34);margin-top:4px;padding-top:16px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;align-self:stretch}
+.feed-system-footer div{display:flex;flex-direction:column;gap:7px}
+.feed-system-footer span{font-family:var(--mono);font-size:7px;letter-spacing:.07em;color:#aaa7a0}
+.feed-system-footer strong{font-family:var(--mono);font-size:8px;line-height:1.55;font-weight:400;max-width:52ch}
+.feed-system-footer p{margin:0;font-family:var(--sans);font-weight:800;font-size:clamp(14px,1.2vw,19px);line-height:.95;letter-spacing:-.03em;max-width:18ch;text-align:right}
+@media(max-width:820px){
+  .feed-system{grid-template-rows:auto auto auto!important}
+  .feed-system-footer{grid-template-columns:1fr;gap:10px;padding-top:12px}
+  .feed-system-footer p{text-align:left;max-width:none;font-size:15px}
+  .feed-system-footer strong{font-size:7px}
+}
+@media(max-width:430px){
+  .feed-reel-badge{top:7px!important;right:7px!important;padding:4px 5px}
+  .feed-play{right:8px!important;bottom:8px!important;width:24px;height:24px;font-size:8px!important}
+  .feed-community>i{right:8px;bottom:8px;width:26px;height:26px;font-size:12px}
+}
+
+/* V10.4 feed refinement: restore strong type hierarchy and simplify Ritual */
+.feed-perspective>strong,.feed-campaign>strong,.feed-community>strong{
+  font-size:clamp(18px,1.65vw,28px)!important;
+  line-height:.88!important;
+}
+.feed-community>strong{max-width:12ch!important}
+.feed-reel:after{
+  content:"";position:absolute;inset:auto 0 0 0;height:34%;z-index:1;
+  background:linear-gradient(to top,rgba(14,58,73,.96),rgba(14,58,73,0));
+  pointer-events:none;
+}
+.feed-reel-meta{
+  position:absolute;left:12px;bottom:12px;z-index:3;display:flex;flex-direction:column;gap:4px;
+  max-width:70%;color:#fff;
+}
+.feed-reel-meta small{font-family:var(--mono);font-size:5.5px;letter-spacing:.04em;line-height:1.2}
+.feed-reel-meta strong{font-family:var(--sans);font-size:8px;line-height:1;font-weight:800;letter-spacing:-.02em}
+.feed-reel-badge{display:none!important}
+.feed-play{
+  right:12px!important;bottom:12px!important;width:28px!important;height:28px!important;
+  background:transparent!important;border-color:rgba(255,255,255,.8)!important;font-size:8px!important;
+}
+@media(max-width:820px){
+  .feed-perspective>strong,.feed-campaign>strong,.feed-community>strong{font-size:clamp(15px,4vw,20px)!important}
+  .feed-reel-meta{left:9px;bottom:9px;gap:3px}
+  .feed-reel-meta strong{font-size:7px}
+  .feed-play{right:9px!important;bottom:9px!important;width:24px!important;height:24px!important}
+}
+
+/* V10.5 Ritual tile rebuild: no fake device chrome, cleaner brand-led composition */
+.feed-ritual-clean{
+  position:relative!important;
+  overflow:hidden!important;
+  background:var(--nura-deep)!important;
+  color:#fff!important;
+  padding:14px!important;
+  display:block!important;
+}
+.feed-ritual-clean .ritual-kicker{
+  position:relative!important;z-index:4!important;
+  display:block!important;
+  font-family:var(--mono)!important;font-size:6px!important;letter-spacing:.055em!important;
+}
+.feed-ritual-clean .ritual-title{
+  position:relative!important;z-index:4!important;display:block!important;
+  margin-top:26%!important;max-width:10ch!important;
+  font-family:var(--sans)!important;font-size:clamp(18px,1.6vw,27px)!important;
+  line-height:.9!important;letter-spacing:-.045em!important;font-weight:900!important;
+}
+.feed-ritual-clean .ritual-photo{
+  position:absolute!important;left:0!important;right:0!important;bottom:0!important;height:38%!important;z-index:1!important;
+  overflow:hidden!important;border-top:1px solid rgba(255,255,255,.16)!important;
+}
+.feed-ritual-clean .ritual-photo:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(14,58,73,.12),rgba(14,58,73,.18) 45%,rgba(14,58,73,.72));
+}
+.feed-ritual-clean .ritual-photo img{
+  width:100%!important;height:100%!important;display:block!important;object-fit:cover!important;object-position:center 58%!important;
+}
+.feed-ritual-clean .ritual-footer{
+  position:absolute!important;left:14px!important;bottom:12px!important;z-index:4!important;
+  display:flex!important;flex-direction:column!important;gap:3px!important;max-width:70%!important;
+}
+.feed-ritual-clean .ritual-footer small{font-family:var(--mono)!important;font-size:5.5px!important;letter-spacing:.045em!important;line-height:1.2!important}
+.feed-ritual-clean .ritual-footer b{font-family:var(--sans)!important;font-size:8px!important;line-height:1!important;letter-spacing:-.02em!important}
+.feed-ritual-clean .ritual-play{
+  position:absolute!important;right:12px!important;bottom:12px!important;z-index:4!important;
+  width:27px!important;height:27px!important;border:1px solid rgba(255,255,255,.8)!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;color:#fff!important;background:rgba(14,58,73,.32)!important;
+  font-size:8px!important;padding-left:2px!important;
+}
+@media(max-width:820px){
+  .feed-ritual-clean .ritual-title{margin-top:23%!important;font-size:clamp(16px,4.1vw,21px)!important}
+  .feed-ritual-clean .ritual-photo{height:37%!important}
+  .feed-ritual-clean .ritual-footer{left:9px!important;bottom:9px!important}
+  .feed-ritual-clean .ritual-play{right:9px!important;bottom:9px!important;width:23px!important;height:23px!important}
+}
+
+
+/* V10.6 carousel-only correction: show every 4:5 slide in full */
+.carousel-module{
+  display:grid!important;
+  grid-template-rows:minmax(0,1fr) 30px!important;
+  overflow:hidden!important;
+}
+.carousel-viewer{
+  position:relative!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-columns:minmax(32px,42px) minmax(0,1fr) minmax(32px,42px)!important;
+  grid-template-rows:minmax(0,1fr) 22px!important;
+  gap:4px 10px!important;
+  align-items:center!important;
+  justify-items:center!important;
+  padding:12px 10px 8px!important;
+  box-sizing:border-box!important;
+  background:#dedbd3!important;
+}
+.carousel-viewer img{
+  grid-column:2!important;
+  grid-row:1!important;
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  place-self:center!important;
+  min-width:0!important;
+  min-height:0!important;
+  box-shadow:0 8px 20px rgba(9,9,9,.12)!important;
+}
+.carousel-controls{
+  grid-column:1 / 4!important;
+  grid-row:2!important;
+  position:static!important;
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:42px 1fr 42px!important;
+  align-items:center!important;
+  justify-items:center!important;
+  font-family:var(--mono)!important;
+  font-size:8px!important;
+  z-index:4!important;
+}
+.carousel-controls button{
+  width:25px!important;
+  height:25px!important;
+  display:grid!important;
+  place-items:center!important;
+  padding:0!important;
+  line-height:1!important;
+}
+.carousel-controls button:first-child{justify-self:start!important}
+.carousel-controls button:last-child{justify-self:end!important}
+.carousel-module .module-label{
+  height:30px!important;
+  box-sizing:border-box!important;
+  padding:8px 11px!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+@media(max-width:820px){
+  .carousel-module{min-height:360px!important}
+  .carousel-viewer{grid-template-columns:34px minmax(0,1fr) 34px!important;padding:10px 8px 8px!important}
+  .carousel-controls{grid-template-columns:34px 1fr 34px!important}
+}
+@media(max-width:430px){
+  .carousel-module{min-height:340px!important}
+}
+
+
+/* V10.7 full Nura case-study audit: tighter pacing, cleaner alignment */
+@media(min-width:821px){
+  /* Page rhythm */
+  .section{
+    min-height:auto!important;
+    padding-top:70px!important;
+    padding-bottom:54px!important;
+  }
+  .hero{padding-top:98px!important;padding-bottom:54px!important}
+  .disclosure{padding-top:38px!important;padding-bottom:38px!important}
+
+  /* Keep case-study headings large, but stop them behaving like full-screen posters */
+  .problem h2,.audience h2,.content h2,.social h2,.campaign h2,.calendar h2,.measure h2{
+    font-size:clamp(46px,5.6vw,86px)!important;
+    line-height:.9!important;
+  }
+
+  /* Opening strategy / research sections */
+  .problem .visual-pair{margin-top:30px!important}
+  .audience-cards{margin-top:30px!important}
+  .aud-card{min-height:188px!important;padding:21px 24px 24px!important}
+  .aud-card .eyebrow{margin-bottom:27px!important}
+
+  /* Positioning: restrained headline left, complete logic right */
+  .positioning{padding-top:72px!important;padding-bottom:60px!important}
+  .positioning .grid{align-items:start!important}
+  .positioning .eyebrow{
+    grid-column:1/7!important;
+    grid-row:1!important;
+    margin:0!important;
+  }
+  .positioning h2{
+    grid-column:1/7!important;
+    grid-row:2!important;
+    margin-top:34px!important;
+    max-width:7.8ch!important;
+    font-size:clamp(54px,5.25vw,80px)!important;
+    line-height:.9!important;
+    letter-spacing:-.06em!important;
+    align-self:start!important;
+  }
+  .positioning .statement{
+    grid-column:8/13!important;
+    grid-row:2!important;
+    margin-top:18px!important;
+    max-width:38ch!important;
+    padding-top:20px!important;
+    border-top:1px solid rgba(255,255,255,.5)!important;
+  }
+  .positioning .statement p{font-size:16px!important;line-height:1.5!important}
+  .positioning .principles{
+    grid-column:8/13!important;
+    grid-row:3!important;
+    margin-top:34px!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    border-top:1px solid rgba(255,255,255,.5)!important;
+    border-bottom:1px solid rgba(255,255,255,.5)!important;
+  }
+  .positioning .principle{
+    min-height:0!important;
+    padding:15px 0!important;
+    border-right:0!important;
+    border-bottom:1px solid rgba(255,255,255,.28)!important;
+    display:grid!important;
+    grid-template-columns:30px 100px minmax(0,1fr)!important;
+    gap:12px!important;
+    align-items:start!important;
+  }
+  .positioning .principle:last-child{border-bottom:0!important}
+  .positioning .principle .eyebrow{grid-column:auto!important;grid-row:auto!important;font-size:8px!important;padding-top:3px!important}
+  .positioning .principle strong{margin-top:0!important;font-size:15px!important;line-height:1.2!important}
+  .positioning .principle p{margin-top:0!important;max-width:none!important;font-size:12.5px!important;line-height:1.4!important}
+
+  /* Content pillars */
+  .territories{margin-top:30px!important}
+  .territory{min-height:278px!important;padding:22px!important}
+  .territory h3{margin-bottom:22px!important}
+
+  /* Social system is content-heavy, so reduce dead space rather than the content */
+  .social-grid{margin-top:32px!important;grid-template-rows:repeat(2,minmax(278px,28vh))!important}
+
+  /* Campaign */
+  .campaign{padding-top:68px!important;padding-bottom:54px!important}
+  .campaign h2{margin-top:24px!important}
+  .campaign .campaign-line{margin-top:30px!important;padding:24px 0!important}
+  .campaign-step strong{margin-top:11px!important}
+  .campaign-step p{margin-top:9px!important}
+
+  /* Calendar */
+  .calendar{padding-top:68px!important;padding-bottom:50px!important}
+  .week{margin-top:30px!important}
+  .day{grid-template-columns:76px .8fr 1.2fr!important;gap:20px!important;padding:14px 0!important}
+  .day p{font-size:13px!important;line-height:1.4!important}
+
+  /* Measurement */
+  .measure{padding-top:68px!important;padding-bottom:52px!important}
+  .metrics{margin-top:30px!important}
+  .metric{min-height:188px!important;padding:20px!important}
+  .metric strong{margin-top:32px!important;font-size:18px!important}
+  .metric p{margin-top:8px!important;line-height:1.4!important}
+
+  /* Closing: concise, directional, no oversized empty final screen */
+  .closing{
+    min-height:auto!important;
+    padding-top:66px!important;
+    padding-bottom:62px!important;
+    align-items:start!important;
+  }
+  .closing .grid{align-items:end!important}
+  .closing .eyebrow{grid-column:1/6!important;grid-row:1!important}
+  .closing h2{
+    grid-column:1/8!important;
+    grid-row:2!important;
+    margin-top:30px!important;
+    font-size:clamp(54px,5.6vw,84px)!important;
+    line-height:.9!important;
+    max-width:9ch!important;
+  }
+  .closing .next{
+    grid-column:9/13!important;
+    grid-row:2!important;
+    align-self:end!important;
+    margin-top:0!important;
+    padding-top:18px!important;
+  }
+}
+
+@media(max-width:820px){
+  /* Keep the tightened hierarchy on mobile without forcing desktop geometry */
+  .positioning{padding-top:76px!important;padding-bottom:56px!important}
+  .positioning h2{font-size:clamp(38px,10.2vw,56px)!important;max-width:9ch!important;margin-top:26px!important}
+  .positioning .statement{margin-top:28px!important}
+  .positioning .principles{margin-top:28px!important}
+  .positioning .principle{padding:15px 0!important}
+  .closing{padding-top:64px!important;padding-bottom:58px!important}
+  .closing h2{font-size:clamp(38px,10vw,54px)!important;max-width:10ch!important}
+}
+
+
+/* V10.7 positioning wrapper refinement */
+@media(min-width:821px){
+  .positioning .positioning-side{
+    grid-column:8/13!important;
+    grid-row:2!important;
+    margin-top:18px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:32px!important;
+    min-width:0!important;
+  }
+  .positioning .positioning-side .statement{
+    grid-column:auto!important;grid-row:auto!important;margin:0!important;max-width:38ch!important;
+  }
+  .positioning .positioning-side .principles{
+    grid-column:auto!important;grid-row:auto!important;margin:0!important;width:100%!important;
+  }
+}
+@media(max-width:820px){
+  .positioning .positioning-side{grid-column:1/-1!important;display:flex!important;flex-direction:column!important;gap:26px!important;margin-top:26px!important}
+  .positioning .positioning-side .statement,.positioning .positioning-side .principles{margin:0!important}
+}
+
+/* V10.8 feed spacing + compact calendar composition */
+.feed-grid-six{gap:12px!important}
+
+.calendar .grid{align-items:start!important}
+.calendar .calendar-intro{grid-column:1/5!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important}
+.calendar .calendar-intro .eyebrow{margin:0 0 26px!important}
+.calendar .calendar-intro h2{grid-column:auto!important;margin:0!important;font-size:clamp(48px,4.8vw,72px)!important;line-height:.9!important;max-width:7ch!important}
+.calendar .calendar-intro .lead{grid-column:auto!important;margin:26px 0 0!important;max-width:31ch!important;align-self:auto!important;font-size:14px!important;line-height:1.5!important}
+.calendar .calendar-board{grid-column:6/13!important;border:1px solid var(--ink);background:var(--paper);min-width:0!important}
+.calendar-bar{height:44px;padding:0 14px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+.calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}
+.calendar-bar span:last-child{text-align:right}
+.calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.calendar-day{position:relative;min-width:0;min-height:190px;padding:12px 10px 13px;border-right:1px solid rgba(17,17,17,.34);display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.calendar-day:last-child{border-right:0}
+.calendar-date{display:flex;justify-content:space-between;align-items:start;font-family:var(--mono);font-size:7px;letter-spacing:.04em}
+.calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85;letter-spacing:-.04em}
+.calendar-day>strong{font-family:var(--sans);font-size:clamp(12px,1.05vw,16px);line-height:.94;letter-spacing:-.035em}
+.calendar-day>small{font-family:var(--mono);font-size:6px;line-height:1.35;letter-spacing:.04em}
+.calendar-day.calendar-perspective>strong{font-size:clamp(10px,.82vw,13px)!important;letter-spacing:-.04em}
+.calendar-day.tone-deep{background:var(--nura-deep);color:var(--ivory)}
+.calendar-day.tone-blue{background:var(--nura);color:#fff}
+.calendar-day.tone-soft{background:var(--nura-soft);color:var(--ink)}
+.calendar-day.tone-paper{background:var(--paper);color:var(--ink)}
+.calendar-footer{min-height:34px;padding:0 12px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:7px;letter-spacing:.05em}
+.calendar-footer span+span:before{content:"/";margin-right:18px;color:var(--muted)}
+@media(min-width:821px){
+  .calendar{padding-top:62px!important;padding-bottom:48px!important}
+}
+@media(max-width:820px){
+  .feed-grid-six{gap:9px!important}
+  .calendar .calendar-intro,.calendar .calendar-board{grid-column:1/-1!important}
+  .calendar .calendar-intro h2{font-size:clamp(42px,12vw,58px)!important;max-width:8ch!important}
+  .calendar .calendar-intro .lead{margin-top:18px!important}
+  .calendar .calendar-board{margin-top:30px!important}
+  .calendar-days{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calendar-day{min-height:150px;border-bottom:1px solid rgba(17,17,17,.34)}
+  .calendar-day:nth-child(even){border-right:0}
+  .calendar-day:last-child{grid-column:1/-1;border-bottom:0}
+  .calendar-bar{grid-template-columns:1fr auto;font-size:7px}
+  .calendar-bar span:last-child{display:none}
+}
+@media(max-width:430px){
+  .feed-grid-six{gap:7px!important}
+  .calendar-day{min-height:138px;padding:11px 9px}
+  .calendar-date b{font-size:18px}
+  .calendar-footer{gap:10px;flex-wrap:wrap;padding:10px 12px}
+  .calendar-footer span+span:before{margin-right:10px}
+}
+
+</style>
+<style id="v15-mobile-responsive">
+/* V15: approved mobile and tablet responsiveness repairs. */
+@media(max-width:820px){
+  .brand{
+    min-width:44px;
+    min-height:44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .case-menu-toggle{
+    min-width:44px;
+    min-height:44px;
+    padding:0 6px;
+    touch-action:manipulation;
+  }
+  .closing .next a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:8px 0;
+  }
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .audience-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audience-cards .aud-card{
+    min-height:220px!important;
+    padding:22px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .audience-cards .aud-card:nth-child(even){border-right:0!important}
+  .audience-cards .aud-card:last-child{
+    grid-column:1/-1;
+    border-right:0!important;
+    border-bottom:0!important;
+  }
+
+  .territories{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .territory{min-height:260px!important}
+
+  .campaign-line{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+  .campaign-step{padding:20px 0!important}
+
+  .metrics{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+  .metrics .metric{
+    grid-column:span 2;
+    min-height:180px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .metrics .metric:nth-child(3){border-right:0!important}
+  .metrics .metric:nth-child(4),
+  .metrics .metric:nth-child(5){grid-column:span 3;border-bottom:0!important}
+  .metrics .metric:nth-child(5){border-right:0!important}
+}
+
+@media(max-width:820px){
+  .carousel-viewer{grid-template-rows:minmax(0,1fr) 44px!important}
+  .carousel-controls{grid-template-columns:44px 1fr 44px!important}
+  .carousel-controls button{
+    width:44px!important;
+    height:44px!important;
+    touch-action:manipulation;
+  }
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .social-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:auto!important;
+    gap:12px!important;
+  }
+  .social-grid .social-module{grid-column:auto!important;grid-row:auto!important;min-width:0}
+  .social-grid .feed-system{grid-column:1/-1!important;grid-row:auto!important}
+  .feed-grid-six{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:none!important;
+    gap:9px!important;
+  }
+  .feed-system-footer{
+    grid-template-columns:minmax(0,1fr) auto!important;
+    gap:24px!important;
+  }
+  .feed-system-footer p{text-align:right!important;max-width:18ch!important}
+  .reel-image-module,
+  .carousel-module,
+  .stories-module,
+  .caption-module{min-height:420px!important}
+}
+
+</style>
 </head>
 <body>
 
 <header class="topbar">
   <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
   <div class="project-id">project / 01 / nura wellness</div>
-  <button class="case-menu-toggle" type="button" aria-expanded="false">Menu</button>
-  <nav class="top-links" aria-label="Case study navigation">
+  <button class="case-menu-toggle" type="button" aria-expanded="false" aria-controls="case-study-nav">Menu</button>
+  <nav class="top-links" aria-label="Case study navigation" id="case-study-nav">
     <a href="#opening">Overview</a>
     <a href="#strategy">Strategy</a>
     <a href="#social">Social</a>
@@ -772,7 +1506,9 @@
         <span class="eyebrow">WELLNESS WITHOUT THE PERFORMANCE</span>
         <p>A concept brand built around useful guidance, realistic rituals and a calmer kind of clarity.</p>
       </div>
-      <div class="hero-visual">OWNED VISUAL PLACEHOLDER / HERO BRAND WORLD</div>
+      <figure class="hero-visual hero-asset">
+        <img src="../../assets/nura/nura-hero-brand-world.webp" alt="Nura Wellness hero brand world with brand positioning, lifestyle imagery, content territories and color palette">
+      </figure>
     </div>
   </section>
 
@@ -790,9 +1526,13 @@
         <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
         <p>Wellness brands often rely on polished aspiration, vague self-care language and highly similar visual cues. Nura needs to feel credible and contemporary without asking people to perform an ideal version of wellness.</p>
       </div>
-      <div class="visual-pair">
-        <div class="placeholder dark">PLACEHOLDER / CATEGORY AUDIT / COMPETITOR PATTERNS</div>
-        <div class="placeholder soft">PLACEHOLDER / OPPORTUNITY MAP / DIFFERENTIATION</div>
+      <div class="visual-pair final-strategy-assets">
+        <figure class="case-asset">
+          <img src="../../assets/nura/nura-category-audit.webp" alt="Nura Wellness category audit showing perfection culture, vague self-care, clinical complexity and aesthetic sameness" loading="lazy" decoding="async">
+        </figure>
+        <figure class="case-asset">
+          <img src="../../assets/nura/nura-opportunity-map.webp" alt="Nura Wellness opportunity map positioning the brand as realistic and distinctive" loading="lazy" decoding="async">
+        </figure>
       </div>
     </div>
   </section>
@@ -825,29 +1565,31 @@
     <div class="grid">
       <div class="eyebrow">POSITIONING</div>
       <h2>WELLNESS<br>WITHOUT THE<br>PERFORMANCE.</h2>
-      <div class="statement">
-        <p>Nura should feel like the person who explains something clearly, gives you one useful next step and does not make you feel behind.</p>
-      </div>
-      <div class="principles">
-        <div class="principle">
-          <span class="eyebrow">01</span>
-          <strong>Clear</strong>
-          <p>Say the useful thing before the impressive thing.</p>
+      <div class="positioning-side">
+        <div class="statement">
+          <p>Nura should feel like the person who explains something clearly, gives you one useful next step and does not make you feel behind.</p>
         </div>
-        <div class="principle">
-          <span class="eyebrow">02</span>
-          <strong>Grounded</strong>
-          <p>Use real routines and realistic expectations.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">03</span>
-          <strong>Human</strong>
-          <p>Talk to people, not an abstract wellness consumer.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">04</span>
-          <strong>Specific</strong>
-          <p>Make every piece of content answer an actual need.</p>
+        <div class="principles">
+          <div class="principle">
+            <span class="eyebrow">01</span>
+            <strong>Clear</strong>
+            <p>Say the useful thing before the impressive thing.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">02</span>
+            <strong>Grounded</strong>
+            <p>Use real routines and realistic expectations.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">03</span>
+            <strong>Human</strong>
+            <p>Talk to people, not an abstract wellness consumer.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">04</span>
+            <strong>Specific</strong>
+            <p>Make every piece of content answer an actual need.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -895,11 +1637,86 @@
       <h2>STRATEGY<br>IN MOTION.</h2>
       <p class="lead">The social system shows how the positioning becomes actual content, from education and short video to community prompts and product storytelling.</p>
       <div class="social-grid">
-        <div class="placeholder dark">PLACEHOLDER / 6 POST FEED SYSTEM</div>
-        <div class="placeholder blue">PLACEHOLDER / REEL COVER + HOOK</div>
-        <div class="placeholder">PLACEHOLDER / EDUCATIONAL CAROUSEL</div>
-        <div class="placeholder soft">PLACEHOLDER / STORIES SEQUENCE</div>
-        <div class="placeholder">PLACEHOLDER / CAPTION + CTA SAMPLE</div>
+        <article class="social-module feed-system" aria-label="Six post Nura Wellness feed system">
+          <div class="feed-head">
+            <span>6 POST FEED SYSTEM</span>
+            <strong>@nura.wellness</strong>
+          </div>
+          <div class="feed-grid-six">
+            <div class="feed-tile feed-photo"><img src="../../assets/nura/carousel/nura-clarity-1.webp" alt="The five-minute version still counts carousel cover" loading="lazy" decoding="async"></div>
+            <div class="feed-tile feed-ritual-clean">
+              <span class="ritual-kicker">02 / RITUAL</span>
+              <strong class="ritual-title">WELLNESS ON A<br>NORMAL TUESDAY.</strong>
+              <div class="ritual-photo" aria-hidden="true"><img src="../../assets/nura/social/nura-ritual-photo.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="ritual-footer"><small>SMALL HABITS. BIG SHIFTS.</small><b>NURA WELLNESS</b></div>
+              <span class="ritual-play" aria-hidden="true">▶</span>
+            </div>
+            <div class="feed-tile feed-perspective"><span>03 / PERSPECTIVE</span><strong>QUESTION<br>THE DEFAULT.</strong><small>WELLNESS WITHOUT THE PERFORMANCE.</small></div>
+            <div class="feed-tile feed-product"><img src="../../assets/nura/social/nura-mat.webp" alt="Nura branded mat in natural light" loading="lazy" decoding="async"><span>04 / PRODUCT</span><strong>SHOW WHY<br>IT MATTERS.</strong></div>
+            <div class="feed-tile feed-campaign"><span>CAMPAIGN / 01</span><strong>SMALL HABITS.<br>BIG SHIFTS.</strong><small>CONSISTENCY OVER PERFORMANCE.</small></div>
+            <div class="feed-tile feed-community"><span>COMMUNITY / 01</span><strong>WHAT ARE YOU<br>MAKING EASIER<br>THIS WEEK?</strong><small>REAL LIFE / REAL ROUTINES</small><i aria-hidden="true">↗</i></div>
+          </div>
+          <div class="feed-system-footer">
+            <div><span>CONTENT MIX</span><strong>CAROUSEL / REEL / STATIC / PRODUCT / CAMPAIGN / COMMUNITY</strong></div>
+            <p>SIX POSTS. FOUR PILLARS. ONE POINT OF VIEW.</p>
+          </div>
+        </article>
+
+        <article class="social-module reel-module reel-image-module" aria-label="Reel cover and hook concept">
+          <img src="../../assets/nura/social/nura-reel-cover-hook.webp" alt="Nura Reel cover and hook concept: Wellness on a normal Tuesday" loading="lazy" decoding="async">
+        </article>
+
+        <article class="social-module carousel-module" aria-label="Five-slide educational carousel">
+          <div class="carousel-viewer" data-nura-carousel>
+            <img src="../../assets/nura/carousel/nura-clarity-1.webp" alt="Nura Clarity carousel slide 1 of 5" data-carousel-image loading="lazy" decoding="async">
+            <div class="carousel-controls">
+              <button type="button" aria-label="Previous carousel slide" data-carousel-prev>←</button>
+              <span data-carousel-count>01 / 05</span>
+              <button type="button" aria-label="Next carousel slide" data-carousel-next>→</button>
+            </div>
+          </div>
+          <div class="module-label">EDUCATIONAL CAROUSEL / 01 CLARITY</div>
+        </article>
+
+        <article class="social-module stories-module" aria-label="Instagram Stories sequence concept">
+          <div class="stories-row">
+            <div class="story-card story-one">
+              <span>STORY / 01</span>
+              <strong>HOW ARE YOU<br>ACTUALLY FEELING<br>TODAY?</strong>
+              <div class="story-poll"><b>ENERGISED</b><b>FINE</b><b>RUNNING ON FUMES</b></div>
+            </div>
+            <div class="story-card story-two">
+              <span>STORY / 02</span>
+              <strong>WHAT WOULD MAKE<br>TODAY 5% EASIER?</strong>
+              <div class="story-answer">TYPE YOUR ANSWER...</div>
+            </div>
+            <div class="story-card story-three">
+              <span>STORY / 03</span>
+              <strong>THE FIVE-MINUTE<br>VERSION STILL<br>COUNTS.</strong>
+              <small>SMALL HABITS.<br>BIG SHIFTS.</small>
+            </div>
+          </div>
+          <div class="module-label">STORIES SEQUENCE / COMMUNITY PROMPT</div>
+        </article>
+
+        <article class="social-module caption-module" aria-label="Instagram caption and call to action sample">
+          <div class="ig-topline">
+            <span class="ig-avatar">N</span>
+            <strong>nura.wellness</strong>
+            <span class="ig-more">•••</span>
+          </div>
+          <div class="ig-post-mini">
+            <span>01 / CLARITY</span>
+            <strong>THE FIVE-MINUTE<br>VERSION STILL COUNTS.</strong>
+          </div>
+          <div class="ig-actions" aria-hidden="true"><span>♡</span><span>○</span><span>↗</span><span class="save">▢</span></div>
+          <div class="ig-caption">
+            <p><strong>nura.wellness</strong> Wellness gets harder to sustain when every habit has an ideal version.</p>
+            <p>A 45-minute workout becomes five minutes of movement. The perfect meal becomes the meal you can actually make. The full reset becomes going to bed ten minutes earlier.</p>
+            <p>The smaller version still counts. Sometimes it is the version that keeps the habit alive.</p>
+            <p class="ig-cta">Save this for the days when doing it properly feels like too much.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -935,43 +1752,57 @@
 
   <section id="calendar" class="section calendar">
     <div class="grid">
-      <h2>ONE WEEK.<br>ONE SYSTEM.</h2>
-      <p class="lead">A content calendar should create rhythm without making the brand feel repetitive.</p>
-      <div class="week">
-        <div class="day">
-          <div class="day-name">MON</div>
-          <strong>Clarity carousel</strong>
-          <p>Explain one wellness idea people regularly overcomplicate.</p>
+      <div class="calendar-intro">
+        <div class="eyebrow">CONTENT RHYTHM</div>
+        <h2>ONE WEEK.<br>ONE SYSTEM.</h2>
+        <p class="lead">A weekly rhythm gives each content pillar a job without making the feed feel repetitive.</p>
+      </div>
+
+      <div class="calendar-board" aria-label="One week Nura Wellness content calendar">
+        <div class="calendar-bar">
+          <span>WEEK / 01</span>
+          <strong>NURA WELLNESS</strong>
+          <span>6 ACTIVE POSTS + 1 LIGHT TOUCH</span>
         </div>
-        <div class="day">
-          <div class="day-name">TUE</div>
-          <strong>Stories prompt</strong>
-          <p>Audience question plus poll to surface language and real-life friction.</p>
+        <div class="calendar-days">
+          <article class="calendar-day tone-deep">
+            <div class="calendar-date"><span>MON</span><b>01</b></div>
+            <strong>CLARITY<br>CAROUSEL</strong>
+            <small>EXPLAIN ONE THING</small>
+          </article>
+          <article class="calendar-day tone-soft">
+            <div class="calendar-date"><span>TUE</span><b>02</b></div>
+            <strong>STORIES<br>PROMPT</strong>
+            <small>ASK + LISTEN</small>
+          </article>
+          <article class="calendar-day tone-blue">
+            <div class="calendar-date"><span>WED</span><b>03</b></div>
+            <strong>SHORT-FORM<br>VIDEO</strong>
+            <small>SHOW ONE RITUAL</small>
+          </article>
+          <article class="calendar-day tone-paper calendar-perspective">
+            <div class="calendar-date"><span>THU</span><b>04</b></div>
+            <strong>PERSPECTIVE<br>POST</strong>
+            <small>QUESTION THE DEFAULT</small>
+          </article>
+          <article class="calendar-day tone-deep">
+            <div class="calendar-date"><span>FRI</span><b>05</b></div>
+            <strong>PRODUCT IN<br>ROUTINE</strong>
+            <small>CONNECT USE TO NEED</small>
+          </article>
+          <article class="calendar-day tone-soft">
+            <div class="calendar-date"><span>SAT</span><b>06</b></div>
+            <strong>COMMUNITY</strong>
+            <small>SHARE REAL RESPONSES</small>
+          </article>
+          <article class="calendar-day tone-paper">
+            <div class="calendar-date"><span>SUN</span><b>07</b></div>
+            <strong>LIGHT<br>TOUCH</strong>
+            <small>RESET + REFERENCE</small>
+          </article>
         </div>
-        <div class="day">
-          <div class="day-name">WED</div>
-          <strong>Short-form video</strong>
-          <p>One realistic ritual shown in context, not staged as a perfect routine.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">THU</div>
-          <strong>Perspective post</strong>
-          <p>Challenge one popular assumption about what wellness should look like.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">FRI</div>
-          <strong>Product in routine</strong>
-          <p>Connect a product benefit to the week's theme and an actual use case.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SAT</div>
-          <strong>Community</strong>
-          <p>Share responses, routines or audience language gathered during the week.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SUN</div>
-          <strong>Light touch</strong>
-          <p>A simple visual, cultural reference or quiet reset before the next theme.</p>
+        <div class="calendar-footer">
+          <span>CLARITY</span><span>RITUAL</span><span>PERSPECTIVE</span><span>PRODUCT</span>
         </div>
       </div>
     </div>
@@ -1014,7 +1845,7 @@
   <section id="closing" class="section closing">
     <div class="grid">
       <div class="eyebrow">PROJECT / 01 COMPLETE</div>
-      <h2>STRATEGY FIRST.<br>THEN THE CONTENT<br>HAS SOMEWHERE<br>TO GO.</h2>
+      <h2>STRATEGY GIVES<br>CONTENT DIRECTION.</h2>
       <div class="next">
         <div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
         <div><a href="../../index.html#top">autumnbranches studio →</a></div>
@@ -1096,6 +1927,22 @@
   });
 
 
+/* Nura educational carousel */
+const nuraCarousel=document.querySelector('[data-nura-carousel]');
+if(nuraCarousel){
+  const image=nuraCarousel.querySelector('[data-carousel-image]');
+  const count=nuraCarousel.querySelector('[data-carousel-count]');
+  const slides=[1,2,3,4,5].map(n=>`../../assets/nura/carousel/nura-clarity-${n}.webp`);
+  let currentSlide=0;
+  const renderCarousel=()=>{
+    image.src=slides[currentSlide];
+    image.alt=`Nura Clarity carousel slide ${currentSlide+1} of ${slides.length}`;
+    count.textContent=String(currentSlide+1).padStart(2,'0')+' / 05';
+  };
+  nuraCarousel.querySelector('[data-carousel-prev]').addEventListener('click',()=>{currentSlide=(currentSlide-1+slides.length)%slides.length;renderCarousel();});
+  nuraCarousel.querySelector('[data-carousel-next]').addEventListener('click',()=>{currentSlide=(currentSlide+1)%slides.length;renderCarousel();});
+}
+
 /* mobile case-study navigation */
 const caseMenuToggle=document.querySelector('.case-menu-toggle');
 if(caseMenuToggle && caseTopbar){
@@ -1114,6 +1961,20 @@ if(caseMenuToggle && caseTopbar){
   window.addEventListener('resize',()=>{if(innerWidth>820)closeCaseMenu()},{passive:true});
 }
 
+</script>
+<script id="v15-navigation-enhancements">
+(() => {
+  const topbar = document.querySelector('.topbar');
+  const toggle = document.querySelector('.case-menu-toggle');
+  if (!topbar || !toggle) return;
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !topbar.classList.contains('menu-open')) return;
+    topbar.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
+    toggle.focus();
+  });
+})();
 </script>
 </body>
 </html>

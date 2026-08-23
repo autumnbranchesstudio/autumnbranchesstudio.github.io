@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Verde Systems | autumnbranches studio</title>
-  <meta name="description" content="Independent concept project by autumnbranches studio: brand strategy, content system and creative direction for Verde Systems.">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Verde Systems | autumnbranches studio</title>
+<meta content="Independent concept project by autumnbranches studio: B2B social media strategy, content development and communication system for Verde Systems." name="description"/>
+<style>
     :root{
       --ink:#050505;
       --charcoal:#111311;
@@ -837,7 +838,6 @@
 }
 
   </style>
-
 <style id="verde-mobile-overflow-fix">
 @media(max-width:820px){
   .console-title{max-width:100%;font-size:clamp(28px,8vw,46px)}
@@ -847,341 +847,735 @@
   .closing h2{font-size:34px!important;line-height:.96!important}
 }
 </style>
+<style id="verde-v12-social-only">
+/* V12 VERDE: social communication + content only. No UI/UX/product-design claims. */
+@media(min-width:821px){
+  .section{min-height:auto;padding-top:76px;padding-bottom:60px}
+  .hero{padding-top:102px;padding-bottom:58px}
+  .hero h1{margin-top:28px!important;font-size:clamp(78px,8.2vw,142px)!important;line-height:.84!important;max-width:7ch}
+  .hero .intro{margin-bottom:4px!important}
+  .disclosure{padding-top:40px;padding-bottom:40px}
+  .problem h2,.audience h2,.content h2,.social h2,.calendar h2,.measure h2{font-size:clamp(50px,5.2vw,80px);line-height:.9}
+  .problem .copy,.audience .lead,.content .lead,.social .lead,.measure .lead{max-width:35ch}
+
+  .verde-brand-world{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1.28fr .72fr .72fr;grid-template-rows:1fr 1fr;gap:10px;min-height:390px}
+  .signal-main,.signal-card{margin:0;border:1px solid rgba(183,243,0,.45);padding:22px;min-width:0}
+  .signal-main{grid-row:1/3;background:var(--charcoal);display:flex;flex-direction:column;justify-content:space-between}
+  .signal-main strong{font-size:clamp(44px,4.6vw,78px);line-height:.88;letter-spacing:-.06em;color:var(--white);max-width:9ch}
+  .signal-main small{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:.05em}
+  .signal-card{display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+  .signal-card span{font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .signal-card strong{font-size:clamp(20px,1.7vw,29px);line-height:.95;letter-spacing:-.045em;max-width:15ch}
+  .signal-green{background:var(--green);color:var(--ink)}
+  .signal-paper{background:var(--paper);color:var(--ink)}
+  .signal-soft{background:var(--green-soft);color:var(--ink)}
+
+  .problem{padding-top:66px!important;padding-bottom:56px!important}
+  .verde-strategy-boards{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .verde-board{min-height:330px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--ink)}
+  .verde-board h3{font-size:clamp(30px,2.6vw,46px);max-width:12ch}
+  .verde-board p{max-width:42ch;font-size:14px;line-height:1.45}
+  .board-dark{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+  .board-dark .eyebrow{color:var(--green)}
+  .board-green{background:var(--green);color:var(--ink);border-color:var(--green)}
+  .pattern-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:currentColor;border:1px solid currentColor;margin:24px 0}
+  .pattern-list span{background:inherit;color:inherit;padding:16px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;border:1px solid currentColor}
+  .board-dark .pattern-list{background:var(--green);border-color:rgba(183,243,0,.45)}
+  .board-dark .pattern-list span{background:var(--charcoal);color:var(--green);border-color:rgba(183,243,0,.34)}
+  .board-green .pattern-list{background:var(--ink);border-color:var(--ink)}
+  .board-green .pattern-list span{background:var(--green);color:var(--ink);border-color:rgba(5,5,5,.32)}
+
+  .audience{padding-top:66px!important;padding-bottom:54px!important}
+  .audience-cards{margin-top:36px!important}
+  .aud-card{min-height:214px!important;padding:22px 24px 26px!important}
+  .aud-card .eyebrow{margin-bottom:32px!important}
+  .aud-card h3{font-size:clamp(27px,2.1vw,36px)}
+  .aud-card p{font-size:13.5px;line-height:1.42}
+
+  .positioning{padding-top:68px!important;padding-bottom:56px!important}
+  .positioning .grid{align-items:start}
+  .positioning>.grid>.eyebrow{grid-column:1/7;grid-row:1;margin:0}
+  .positioning h2{grid-column:1/8;grid-row:2;margin-top:28px!important;font-size:clamp(56px,5.3vw,82px)!important;line-height:.89!important;max-width:7.5ch}
+  .positioning-side{grid-column:8/13;grid-row:2;margin-top:8px;display:flex;flex-direction:column;gap:28px;min-width:0}
+  .positioning .statement{grid-column:auto;grid-row:auto;margin:0!important;max-width:39ch;padding-top:18px;border-top:1px solid rgba(183,243,0,.48)}
+  .positioning .statement p{font-size:16px;line-height:1.48}
+  .positioning .principles{grid-column:auto;grid-row:auto;margin:0!important;width:100%;display:grid;grid-template-columns:1fr;border-top:1px solid rgba(183,243,0,.48);border-bottom:1px solid rgba(183,243,0,.48)}
+  .positioning .principle{min-height:0!important;padding:13px 0!important;border-right:0!important;border-bottom:1px solid rgba(183,243,0,.25);display:grid;grid-template-columns:34px 92px minmax(0,1fr);gap:10px;align-items:start}
+  .positioning .principle:last-child{border-bottom:0!important}
+  .positioning .principle .eyebrow{grid-column:auto!important;font-size:8px;padding-top:3px;color:var(--green)}
+  .positioning .principle strong{margin-top:0!important;font-size:15px;line-height:1.2}
+  .positioning .principle p{margin-top:0!important;max-width:none;font-size:12.5px;line-height:1.38}
+
+  .content{padding-top:68px!important;padding-bottom:56px!important}
+  .territories{margin-top:36px!important;gap:14px!important}
+  .territory{min-height:292px!important;padding:24px 25px 25px!important}
+  .territory>div:last-child{display:flex;flex-direction:column;gap:18px}
+  .territory h3{font-size:clamp(27px,2.15vw,36px);line-height:.94}
+  .territory p{margin:0!important;font-size:13.5px!important;line-height:1.44}
+
+  .social{padding-top:68px!important;padding-bottom:56px!important}
+  .verde-social-grid{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1.1fr .9fr .9fr;grid-template-rows:220px 220px;gap:12px}
+  .social-piece{border:1px solid var(--ink);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0}
+  .social-piece strong{font-size:clamp(22px,1.9vw,32px);line-height:.94;letter-spacing:-.045em;max-width:15ch}
+  .social-piece small{font-family:var(--mono);font-size:8px;letter-spacing:.04em}
+  .social-feature{grid-row:1/3;background:var(--ink);color:var(--green)}
+  .social-feature strong{font-size:clamp(34px,3.2vw,54px);max-width:10ch;color:var(--white)}
+  .green-piece{background:var(--green)}
+  .paper-piece{background:var(--paper)}
+  .soft-piece{background:var(--green-soft)}
+  .dark-piece{background:var(--charcoal);color:var(--white)}
+
+  .campaign{padding-top:68px!important;padding-bottom:56px!important}
+  .campaign h2{margin-top:28px!important;font-size:clamp(56px,5.2vw,82px)!important}
+  .campaign-note{grid-column:9/13;align-self:end;border-top:1px solid rgba(183,243,0,.45);padding-top:18px;max-width:34ch}
+  .campaign-note .eyebrow{display:block;margin-bottom:12px;color:var(--green)}
+  .campaign-note p{font-size:14px;line-height:1.48;color:#d6d7d0}
+  .campaign-line{margin-top:40px!important;padding:28px 0!important;gap:18px!important}
+  .campaign-step strong{font-size:clamp(19px,1.65vw,27px)!important}
+  .campaign-step p{font-size:13.5px!important;line-height:1.42}
+
+  .calendar{padding-top:60px!important;padding-bottom:48px!important}
+  .calendar .grid{align-items:start!important}
+  .calendar-intro{grid-column:1/5!important;display:flex;flex-direction:column;align-items:flex-start}
+  .calendar-intro .eyebrow{margin:0 0 24px!important}
+  .calendar-intro h2{grid-column:auto!important;margin:0!important;font-size:clamp(48px,4.7vw,70px)!important;line-height:.9!important;max-width:8ch!important}
+  .calendar-intro .lead{grid-column:auto!important;margin:24px 0 0!important;max-width:31ch!important;font-size:14px!important;line-height:1.5!important}
+  .calendar-board{grid-column:6/13!important;border:1px solid var(--ink);background:var(--paper);min-width:0}
+  .calendar-bar{height:44px;padding:0 14px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}.calendar-bar span:last-child{text-align:right}
+  .calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+  .calendar-day{min-width:0;min-height:178px;padding:12px 10px 13px;border-right:1px solid rgba(5,5,5,.34);display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+  .calendar-day:last-child{border-right:0}.calendar-date{display:flex;justify-content:space-between;align-items:start;font-family:var(--mono);font-size:7px}.calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85}
+  .calendar-day>strong{font-size:clamp(10px,.83vw,13px);line-height:.94;letter-spacing:-.03em}.calendar-day>small{font-family:var(--mono);font-size:5.7px;line-height:1.35}
+  .tone-green{background:var(--green);color:var(--ink)}.tone-soft{background:var(--green-soft);color:var(--ink)}.tone-paper{background:var(--paper);color:var(--ink)}.tone-black{background:var(--ink);color:var(--ivory)}
+  .calendar-footer{min-height:34px;padding:0 12px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:7px;letter-spacing:.05em}.calendar-footer span+span:before{content:"/";margin-right:18px;color:var(--muted)}
+
+  .measure{padding-top:64px!important;padding-bottom:50px!important}
+  .metrics{margin-top:32px!important}.metric{min-height:178px!important;padding:20px!important}.metric strong{margin-top:28px!important;font-size:17px!important}.metric p{font-size:12.8px;line-height:1.4}
+
+  .closing{min-height:auto!important;padding-top:62px!important;padding-bottom:56px!important;align-items:start!important}
+  .closing .grid{align-items:end!important}.closing .eyebrow{grid-column:1/6!important;grid-row:1!important}.closing h2{grid-column:1/8!important;grid-row:2!important;margin-top:26px!important;font-size:clamp(52px,5.2vw,78px)!important;line-height:.9!important;max-width:9.5ch!important}.closing .next{grid-column:9/13!important;grid-row:2!important;align-self:end!important;margin-top:0!important;padding-top:18px!important}
+}
+
+@media(max-width:820px){
+  .verde-brand-world{grid-column:1/-1!important;grid-template-columns:1fr 1fr!important;grid-template-rows:auto!important;gap:10px!important;margin-top:28px!important;min-height:0!important}.signal-main{grid-column:1/-1;grid-row:auto!important;min-height:260px}.signal-card{min-height:170px}.signal-main strong{font-size:clamp(38px,11vw,56px)}.signal-card strong{font-size:18px}
+  .verde-strategy-boards{grid-template-columns:1fr!important;gap:12px!important;margin-top:30px!important}.verde-board{min-height:270px}
+  .positioning{padding-top:70px!important;padding-bottom:52px!important}.positioning h2{font-size:clamp(40px,10.6vw,56px)!important;max-width:8ch!important;margin-top:24px!important}.positioning-side{grid-column:1/-1!important;display:flex!important;flex-direction:column!important;gap:24px!important;margin-top:26px!important}.positioning .statement,.positioning .principles{margin:0!important}.positioning .principles{grid-template-columns:1fr!important}.positioning .principle{padding:15px 0!important;border-right:0!important;display:grid;grid-template-columns:30px 78px minmax(0,1fr);gap:8px}.positioning .principle strong,.positioning .principle p{margin-top:0!important}.positioning .principle p{font-size:12px!important}
+  .territories{gap:10px!important}.territory{padding:22px!important}.territory>div:last-child{gap:16px}
+  .verde-social-grid{grid-template-columns:1fr!important;grid-template-rows:none!important;gap:10px!important;margin-top:30px!important}.social-feature{grid-row:auto!important;min-height:250px}.social-piece{min-height:170px}
+  .campaign-note{grid-column:1/-1!important;margin-top:20px!important;max-width:34ch}.campaign-line{grid-template-columns:1fr!important}
+  .calendar{padding-top:58px!important;padding-bottom:46px!important}.calendar-intro,.calendar-board{grid-column:1/-1!important}.calendar-intro h2{font-size:clamp(42px,11.8vw,56px)!important;max-width:8ch!important}.calendar-intro .lead{margin-top:18px!important}.calendar-board{margin-top:28px!important}.calendar-days{grid-template-columns:repeat(2,minmax(0,1fr))}.calendar-day{min-height:146px;border-bottom:1px solid rgba(5,5,5,.34)}.calendar-day:nth-child(even){border-right:0}.calendar-day:last-child{grid-column:1/-1;border-bottom:0}.calendar-bar{grid-template-columns:1fr auto;font-size:7px}.calendar-bar span:last-child{display:none}.calendar-footer{gap:10px;flex-wrap:wrap;padding:10px 12px}.calendar-footer span+span:before{margin-right:10px}
+  .closing{padding-top:60px!important;padding-bottom:54px!important}.closing h2{font-size:clamp(38px,10vw,52px)!important;max-width:10ch!important}
+}
+@media(max-width:430px){.verde-brand-world{grid-template-columns:1fr!important}.signal-card{min-height:150px}.calendar-day{min-height:134px;padding:11px 9px}.calendar-date b{font-size:18px}}
+</style>
+<style id="verde-v12-1-spacing-audit">
+/* V12.1 Verde spacing audit: tighter composition, clearer alignment, no content changes. */
+@media(min-width:821px){
+  /* Keep every chapter content-driven rather than slide-height. */
+  .section{min-height:auto!important;padding-top:64px!important;padding-bottom:50px!important}
+  .hero{padding-top:100px!important;padding-bottom:54px!important}
+  .disclosure{padding-top:36px!important;padding-bottom:36px!important}
+
+  /* Strategy boards: wider text measure, fewer awkward line breaks, tighter vertical rhythm. */
+  .problem{padding-top:58px!important;padding-bottom:48px!important}
+  .verde-strategy-boards{margin-top:30px!important;gap:14px!important}
+  .verde-board{min-height:292px!important;padding:30px!important}
+  .verde-board h3{font-size:clamp(30px,2.35vw,42px)!important;line-height:.94!important;max-width:15ch!important}
+  .verde-board .pattern-list{margin:18px 0!important}
+  .verde-board p{font-size:13.5px!important;line-height:1.42!important;max-width:44ch!important}
+
+  .audience{padding-top:58px!important;padding-bottom:48px!important}
+  .audience-cards{margin-top:30px!important}
+  .aud-card{min-height:196px!important;padding:20px 23px 24px!important}
+  .aud-card .eyebrow{margin-bottom:26px!important}
+
+  .positioning{padding-top:60px!important;padding-bottom:50px!important}
+  .positioning h2{margin-top:24px!important;font-size:clamp(52px,4.9vw,76px)!important;max-width:8.2ch!important}
+  .positioning-side{margin-top:4px!important;gap:22px!important}
+
+  .content{padding-top:60px!important;padding-bottom:50px!important}
+  .territories{margin-top:30px!important}
+  .territory{min-height:270px!important;padding:22px 24px 24px!important}
+
+  .social{padding-top:60px!important;padding-bottom:50px!important}
+  .verde-social-grid{margin-top:30px!important;grid-template-rows:205px 205px!important}
+
+  .campaign{padding-top:60px!important;padding-bottom:50px!important}
+  .campaign h2{margin-top:24px!important;font-size:clamp(52px,4.9vw,76px)!important}
+  .campaign-line{margin-top:32px!important;padding:24px 0!important}
+
+  /* Calendar: stop the left headline from becoming five lines and align it with the board. */
+  .calendar{padding-top:52px!important;padding-bottom:42px!important}
+  .calendar .grid{align-items:center!important}
+  .calendar-intro{grid-column:1/5!important;align-self:center!important}
+  .calendar-intro .eyebrow{margin:0 0 18px!important}
+  .calendar-intro h2{
+    font-size:clamp(46px,4.15vw,62px)!important;
+    line-height:.89!important;
+    max-width:12ch!important;
+    letter-spacing:-.055em!important;
+  }
+  .calendar-intro .lead{margin-top:18px!important;max-width:32ch!important;font-size:13.5px!important;line-height:1.46!important}
+  .calendar-board{grid-column:5/13!important;align-self:center!important}
+  .calendar-day{min-height:164px!important;padding:12px 10px!important;gap:13px!important}
+  .calendar-day>strong{font-size:clamp(10.5px,.78vw,12.5px)!important}
+  .calendar-footer{min-height:32px!important}
+
+  .measure{padding-top:58px!important;padding-bottom:46px!important}
+  .metrics{margin-top:28px!important}
+  .metric{min-height:166px!important}
+
+  .closing{padding-top:56px!important;padding-bottom:50px!important}
+  .closing h2{margin-top:22px!important;font-size:clamp(48px,4.8vw,72px)!important;max-width:10ch!important}
+}
+
+@media(max-width:820px){
+  /* Keep the same hierarchy on phones without reintroducing long sections. */
+  .verde-board{padding:24px!important;min-height:0!important}
+  .verde-board h3{max-width:100%!important;font-size:clamp(30px,8.8vw,42px)!important}
+  .calendar-intro h2{max-width:12ch!important;line-height:.9!important}
+  .calendar-intro .eyebrow{margin-bottom:16px!important}
+  .calendar-board{margin-top:24px!important}
+}
+</style>
+
+
+<style id="verde-v12-2-balance-fix">
+/* V12.2: finish the opening 2x2 content grid and align the calendar blurb to its heading. */
+.signal-context{background:var(--ink);color:var(--green);border-color:rgba(183,243,0,.55)}
+.signal-context strong{color:var(--white)}
+@media(min-width:821px){
+  .calendar .grid{align-items:center!important}
+  .calendar-intro{align-self:center!important}
+  .calendar-intro .lead{
+    align-self:flex-start!important;
+    margin:20px 0 0!important;
+    max-width:30ch!important;
+  }
+}
+@media(max-width:820px){
+  .calendar-intro .lead{align-self:flex-start!important}
+}
+</style>
+
+<style id="verde-v14-social-execution">
+/* V14: finished Verde social communication executions. */
+.verde-social-final{padding-top:62px!important;padding-bottom:54px!important}
+.verde-execution-grid{grid-column:1/13;margin-top:34px;display:grid;grid-template-columns:1.08fr .92fr .92fr;grid-template-rows:235px 235px;gap:10px;min-width:0}
+.verde-exec{border:1px solid var(--ink);padding:20px;min-width:0;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.verde-exec-kicker{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:7px;letter-spacing:.04em}
+.verde-exec h3{font-size:clamp(23px,2vw,33px);line-height:.91;letter-spacing:-.05em;margin:0;max-width:17ch}
+.verde-exec p{font-size:11.5px;line-height:1.42;max-width:42ch}
+.verde-carousel-exec{grid-row:1/3;background:var(--ink);color:var(--white);border-color:var(--green);justify-content:space-between}
+.verde-carousel-exec .verde-exec-kicker{color:var(--green)}.verde-carousel-exec h3{font-size:clamp(34px,3.15vw,50px);max-width:10.5ch;color:var(--white)}.verde-carousel-exec p{color:#d6d9cf}
+.verde-steps{display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:10px;margin:14px 0;color:var(--green);font-family:var(--mono);font-size:7px}.verde-steps span{border:1px solid rgba(183,243,0,.55);padding:10px 9px;min-width:62px}.verde-steps b{font-family:var(--sans);font-size:11px}.verde-steps i{height:1px;background:rgba(183,243,0,.55)}
+.verde-slide-nav{display:flex;justify-content:space-between;border-top:1px solid rgba(183,243,0,.4);padding-top:10px;font-family:var(--mono);font-size:8px;color:var(--green)}
+.verde-perspective-exec{background:var(--green);color:var(--ink);justify-content:space-between}.verde-perspective-exec h3{font-size:clamp(25px,2.15vw,35px);max-width:15ch}
+.verde-reel-exec{background:var(--charcoal);color:var(--white);border-color:#333;justify-content:space-between}.verde-reel-exec .verde-exec-kicker{color:var(--green)}.verde-reel-exec h3{color:var(--white);max-width:14ch}.verde-reel-line{height:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;align-items:end}.verde-reel-line b{display:block;background:var(--green);height:12px}.verde-reel-line b:nth-child(2){height:30px}.verde-reel-line b:nth-child(3){height:20px}.verde-reel-line b:nth-child(4){height:36px}.verde-reel-bottom{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:7px}.verde-play{width:30px;height:30px;border:1px solid var(--green);border-radius:50%;display:grid;place-items:center;color:var(--green);font-size:8px}
+.verde-linkedin-exec{background:var(--paper);color:var(--ink);gap:10px}.verde-linkedin-head{display:grid;grid-template-columns:32px 1fr auto;gap:9px;align-items:center}.verde-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--green);font-weight:900}.verde-linkedin-head strong{display:block;font-size:11px}.verde-linkedin-head small{font-size:7px;color:#666}.verde-linkedin-head b{align-self:start}.verde-linkedin-title{font-size:14px!important;font-weight:800;line-height:1.25!important}.verde-linkedin-meta{margin-top:auto;border-top:1px solid #c9c9c4;padding-top:8px;display:flex;gap:14px;font-size:7px;color:#555}
+.verde-feed-exec{background:var(--paper);color:var(--ink);padding:14px}.verde-mini-feed{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:5px;flex:1;margin-top:10px}.vf{padding:8px;display:flex;flex-direction:column;justify-content:space-between;min-width:0;border:1px solid rgba(0,0,0,.22)}.vf small{font-family:var(--mono);font-size:5.5px}.vf strong{font-size:10px!important;line-height:.9!important;letter-spacing:-.035em!important;max-width:9ch!important}.vf.green{background:var(--green)}.vf.white{background:var(--white)}.vf.soft{background:var(--green-soft)}.vf.black{background:var(--ink);color:var(--white)}
+@media(max-width:820px){
+  .verde-execution-grid{grid-template-columns:1fr 1fr;grid-template-rows:280px 190px 190px;margin-top:28px;gap:8px}.verde-carousel-exec{grid-column:1/-1;grid-row:1}.verde-perspective-exec{grid-column:1;grid-row:2}.verde-reel-exec{grid-column:2;grid-row:2}.verde-linkedin-exec{grid-column:1;grid-row:3}.verde-feed-exec{grid-column:2;grid-row:3}.verde-carousel-exec h3{font-size:clamp(30px,8.8vw,44px)}.verde-exec h3{font-size:clamp(20px,5.7vw,28px)}
+}
+@media(max-width:430px){
+  .verde-execution-grid{grid-template-columns:1fr;grid-template-rows:300px 210px 210px auto 230px}.verde-carousel-exec,.verde-perspective-exec,.verde-reel-exec,.verde-linkedin-exec,.verde-feed-exec{grid-column:1!important;grid-row:auto!important}.verde-linkedin-exec{min-height:225px}.verde-feed-exec{min-height:230px}
+}
+</style>
+
+<style id="v15-mobile-responsive">
+/* V15: approved mobile and tablet responsiveness repairs. */
+@media(max-width:820px){
+  .brand{
+    min-width:44px;
+    min-height:44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .case-menu-toggle{
+    min-width:44px;
+    min-height:44px;
+    padding:0 6px;
+    touch-action:manipulation;
+  }
+  .closing .next a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:8px 0;
+  }
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .audience-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audience-cards .aud-card{
+    min-height:220px!important;
+    padding:22px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .audience-cards .aud-card:nth-child(even){border-right:0!important}
+  .audience-cards .aud-card:last-child{
+    grid-column:1/-1;
+    border-right:0!important;
+    border-bottom:0!important;
+  }
+
+  .territories{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .territory{min-height:260px!important}
+
+  .campaign-line{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+  .campaign-step{padding:20px 0!important}
+
+  .metrics{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+  .metrics .metric{
+    grid-column:span 2;
+    min-height:180px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .metrics .metric:nth-child(3){border-right:0!important}
+  .metrics .metric:nth-child(4),
+  .metrics .metric:nth-child(5){grid-column:span 3;border-bottom:0!important}
+  .metrics .metric:nth-child(5){border-right:0!important}
+}
+
+@media(max-width:820px){
+  .verde-brand-world{display:grid!important}
+  .signal-main,.signal-card{
+    margin:0;
+    min-width:0;
+    padding:22px;
+    border:1px solid rgba(183,243,0,.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .signal-main{background:var(--charcoal);gap:28px}
+  .signal-main strong{
+    display:block;
+    max-width:9ch;
+    color:var(--white);
+    font-size:clamp(38px,11vw,56px);
+    line-height:.88;
+    letter-spacing:-.06em;
+  }
+  .signal-main small{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:.05em}
+  .signal-card{gap:22px}
+  .signal-card span{font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .signal-card strong{display:block;max-width:15ch;font-size:18px;line-height:.95;letter-spacing:-.045em}
+  .signal-green{background:var(--green);color:var(--ink)}
+  .signal-paper{background:var(--paper);color:var(--ink)}
+  .signal-soft{background:var(--green-soft);color:var(--ink)}
+  .signal-context{background:var(--ink);color:var(--green);border-color:rgba(183,243,0,.55)}
+  .signal-context strong{color:var(--white)}
+
+  .verde-strategy-boards{
+    grid-column:1/-1!important;
+    margin-top:32px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .verde-board{
+    min-height:0;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:18px;
+    border:1px solid var(--ink);
+  }
+  .verde-board h3{font-size:clamp(27px,7.5vw,38px);max-width:12ch}
+  .verde-board p{max-width:42ch;font-size:14px;line-height:1.45}
+  .board-dark{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+  .board-dark .eyebrow{color:var(--green)}
+  .board-green{background:var(--green);color:var(--ink);border-color:var(--green)}
+  .pattern-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1px;
+    margin:20px 0;
+    background:currentColor;
+    border:1px solid currentColor;
+  }
+  .pattern-list span{
+    min-width:0;
+    padding:14px 12px;
+    border:1px solid currentColor;
+    background:inherit;
+    color:inherit;
+    font-family:var(--mono);
+    font-size:9px;
+    line-height:1.3;
+    letter-spacing:.04em;
+    overflow-wrap:anywhere;
+  }
+  .board-dark .pattern-list{background:var(--green);border-color:rgba(183,243,0,.45)}
+  .board-dark .pattern-list span{background:var(--charcoal);color:var(--green);border-color:rgba(183,243,0,.34)}
+  .board-green .pattern-list{background:var(--ink);border-color:var(--ink)}
+  .board-green .pattern-list span{background:var(--green);color:var(--ink);border-color:rgba(5,5,5,.32)}
+
+  .positioning .principle .eyebrow{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    margin:0!important;
+    padding-top:3px;
+  }
+  .positioning .principle strong,
+  .positioning .principle p{min-width:0}
+
+  .calendar-board{
+    border:1px solid var(--ink);
+    background:var(--paper);
+    min-width:0;
+    overflow:hidden;
+  }
+  .calendar-bar{
+    min-height:44px;
+    padding:0 14px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    border-bottom:1px solid var(--ink);
+    font-family:var(--mono);
+    font-size:7px;
+    letter-spacing:.05em;
+  }
+  .calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}
+  .calendar-bar span:last-child{display:none;text-align:right}
+  .calendar-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calendar-day{
+    min-width:0;
+    min-height:146px;
+    padding:12px 10px 13px;
+    border-right:1px solid rgba(5,5,5,.34);
+    border-bottom:1px solid rgba(5,5,5,.34);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .calendar-day:nth-child(even){border-right:0}
+  .calendar-day:last-child{grid-column:1/-1;border-right:0;border-bottom:0}
+  .calendar-date{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;font-family:var(--mono);font-size:7px}
+  .calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85}
+  .calendar-day>strong{font-size:clamp(11px,3.2vw,14px);line-height:.94;letter-spacing:-.03em}
+  .calendar-day>small{font-family:var(--mono);font-size:6px;line-height:1.35}
+  .tone-green{background:var(--green);color:var(--ink)}
+  .tone-soft{background:var(--green-soft);color:var(--ink)}
+  .tone-paper{background:var(--paper);color:var(--ink)}
+  .tone-black{background:var(--ink);color:var(--ivory)}
+  .calendar-footer{
+    min-height:44px;
+    padding:10px 12px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    border-top:1px solid var(--ink);
+    font-family:var(--mono);
+    font-size:7px;
+    letter-spacing:.05em;
+  }
+  .calendar-footer span+span:before{content:"/";margin-right:10px;color:var(--muted)}
+}
+
+@media(max-width:599px){
+  .positioning .principle{
+    grid-template-columns:30px minmax(0,1fr)!important;
+    grid-template-rows:auto auto;
+    column-gap:8px!important;
+    row-gap:6px!important;
+  }
+  .positioning .principle .eyebrow{grid-column:1!important;grid-row:1!important}
+  .positioning .principle strong{grid-column:2!important;grid-row:1!important;width:auto!important}
+  .positioning .principle p{grid-column:2!important;grid-row:2!important;max-width:32ch!important}
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .verde-strategy-boards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+  .verde-board{min-height:330px;padding:24px}
+  .positioning .principle{grid-template-columns:34px 120px minmax(0,1fr)!important;gap:10px!important}
+  .calendar-days{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .calendar-day,
+  .calendar-day:nth-child(even){grid-column:auto;border-right:1px solid rgba(5,5,5,.34)}
+  .calendar-day:nth-child(4n){border-right:0}
+  .calendar-day:nth-child(n+5){border-bottom:0}
+  .calendar-day:last-child{grid-column:3/5!important;border-right:0}
+  .calendar-bar{grid-template-columns:1fr auto 1fr;font-size:8px}
+  .calendar-bar span:last-child{display:block}
+  .calendar-footer{flex-wrap:nowrap;gap:18px}
+  .calendar-footer span+span:before{margin-right:18px}
+}
+
+@media(max-width:430px){
+  .calendar-day{min-height:134px;padding:11px 9px}
+  .calendar-date b{font-size:18px}
+}
+
+</style>
 </head>
 <body>
-
 <header class="topbar">
-  <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
-  <div class="project-id">project / 03 / verde systems</div>
-  <button class="case-menu-toggle" type="button" aria-expanded="false">Menu</button>
-  <nav class="top-links" aria-label="Case study navigation">
-    <a href="#opening">Overview</a>
-    <a href="#strategy">Strategy</a>
-    <a href="#social">Digital</a>
-    <a class="back-link" href="../../index.html#work">Back to work</a>
-  </nav>
+<a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
+<div class="project-id">project / 03 / verde systems</div>
+<button aria-expanded="false" class="case-menu-toggle" type="button" aria-controls="case-study-nav">Menu</button>
+<nav aria-label="Case study navigation" class="top-links" id="case-study-nav">
+<a href="#opening">Overview</a>
+<a href="#strategy">Strategy</a>
+<a href="#social">Social</a>
+<a class="back-link" href="../../index.html#work">Back to work</a>
+</nav>
 </header>
-
-<aside class="branch-nav" aria-hidden="true">
-  <svg viewBox="0 0 40 1000" preserveAspectRatio="none">
-    <path id="branch-trunk" class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
-    <path class="active" pathLength="1" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000"/>
-    <g id="branch-dots"></g>
-  </svg>
+<aside aria-hidden="true" class="branch-nav">
+<svg preserveaspectratio="none" viewbox="0 0 40 1000">
+<path class="trunk" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000" id="branch-trunk"></path>
+<path class="active" d="M23 0 C25 110 14 150 18 245 C22 340 28 390 21 485 C15 570 10 640 15 730 C20 815 29 870 24 1000" pathlength="1"></path>
+<g id="branch-dots"></g>
+</svg>
 </aside>
-
 <main>
-  <section id="opening" class="section hero dark-section">
-    <div class="grid">
-      <div class="eyebrow">03 / INFRASTRUCTURE TECH STARTUP</div>
-      <h1>VERDE<br>SYSTEMS</h1>
-      <div class="intro">
-        <span class="eyebrow">BUILT FOR WHAT IS NEXT.</span>
-        <p>A concept brand for a technology company turning complex infrastructure into systems that feel intelligent, scalable and understandable.</p>
-      </div>
+<section class="section hero dark-section" id="opening">
+<div class="grid">
+<div class="eyebrow">03 / B2B INFRASTRUCTURE TECHNOLOGY</div>
+<h1>VERDE<br/>SYSTEMS</h1>
+<div class="intro">
+<span class="eyebrow">BUILT FOR WHAT IS NEXT.</span>
+<p>A concept social communication system for a complex infrastructure technology brand. The goal is simple: make technical ideas clear, credible and worth following.</p>
+</div>
+<div aria-label="Verde social communication brand world" class="verde-brand-world">
+<article class="signal-main">
+<span class="eyebrow">SOCIAL COMMUNICATION / CORE THESIS</span>
+<strong>COMPLEX TECH.<br/>CLEAR SIGNAL.</strong>
+<small>CLARITY / CONTEXT / PERSPECTIVE / PROOF</small>
+</article>
+<article class="signal-card signal-green">
+<span>01 / CLARITY</span>
+<strong>WHAT ACTUALLY HAPPENS WHEN INFRASTRUCTURE GETS SMARTER?</strong>
+</article>
+<article class="signal-card signal-paper">
+<span>02 / PERSPECTIVE</span>
+<strong>THE FUTURE OF INFRASTRUCTURE IS LESS VISIBLE THAN YOU THINK.</strong>
+</article>
+<article class="signal-card signal-soft">
+<span>03 / PROOF</span>
+<strong>LESS FUTURE-SPEAK. MORE CONSEQUENCE.</strong>
+</article>
+<article class="signal-card signal-context">
+<span>04 / CONTEXT</span>
+<strong>WHY DOES THIS MATTER NOW?</strong>
+</article>
+</div>
+</div>
+</section>
+<section class="section disclosure light-section">
+<div class="grid">
+<div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
+<p>Developed to demonstrate B2B social media strategy, content development, thought leadership and campaign thinking for a fictional infrastructure technology company. No client results or product-design work are implied.</p>
+</div>
+</section>
+<section class="section problem light-section" id="problem">
+<div class="grid">
+<h2>COMPLEXITY<br/>IS NOT THE<br/>MESSAGE.</h2>
+<div class="copy">
+<div class="eyebrow" style="margin-bottom:18px">THE COMMUNICATION PROBLEM</div>
+<p>Infrastructure brands often default to jargon, feature lists and generic futurism. Verde needs to keep its technical credibility while making the implications of its work easier to understand, remember and discuss.</p>
+</div>
+<div class="verde-strategy-boards">
+<article class="verde-board board-dark">
+<span class="eyebrow">THE CATEGORY PATTERN</span>
+<h3>WHAT TECH BRANDS<br/>KEEP SAYING.</h3>
+<div class="pattern-list"><span>JARGON</span><span>FEATURES</span><span>GENERIC FUTURE-SPEAK</span><span>COMPLEXITY</span></div>
+<p>Everyone explains what the technology is. Few explain why anyone should care.</p>
+</article>
+<article class="verde-board board-green">
+<span class="eyebrow">THE COMMUNICATION OPPORTUNITY</span>
+<h3>MAKE THE IDEA<br/>EASIER TO ENTER.</h3>
+<div class="pattern-list"><span>EXPLAIN</span><span>CONNECT</span><span>HAVE A VIEW</span><span>SHOW THE PROOF</span></div>
+<p>Make complex technology understandable without making it simplistic.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section audience light-section" id="audience">
+<div class="grid">
+<h2>ONE FEED.<br/>DIFFERENT<br/>LEVELS OF DETAIL.</h2>
+<p class="lead">The social system has to be useful to people who arrive with very different levels of technical familiarity.</p>
+<div class="audience-cards">
+<article class="aud-card">
+<span class="eyebrow">01 / BUYERS</span>
+<h3>WHY DOES<br/>THIS MATTER?</h3>
+<p>Decision-makers need the business consequence, operating context and reason to keep reading.</p>
+</article>
+<article class="aud-card">
+<span class="eyebrow">02 / TECHNICAL PEERS</span>
+<h3>IS THIS<br/>CREDIBLE?</h3>
+<p>Technical audiences need precision, useful specifics and language that respects what they already know.</p>
+</article>
+<article class="aud-card">
+<span class="eyebrow">03 / INDUSTRY FOLLOWERS</span>
+<h3>WHAT SHOULD<br/>I UNDERSTAND?</h3>
+<p>Broader audiences need context, perspective and a clear entry point into an otherwise complex category.</p>
+</article>
+</div>
+</div>
+</section>
+<section class="section positioning dark-section" id="strategy">
+<div class="grid">
+<div class="eyebrow">POSITIONING</div>
+<h2>COMPLEX TECH.<br/>CLEAR SIGNAL.</h2>
+<div class="positioning-side">
+<div class="statement">
+<p>Verde should feel like the expert who can explain a complicated system without hiding behind complexity. Technical enough to earn trust, clear enough to be useful.</p>
+</div>
+<div class="principles">
+<div class="principle"><span class="eyebrow">01</span><strong>Clear</strong><p>Translate technical ideas without stripping away their intelligence.</p></div>
+<div class="principle"><span class="eyebrow">02</span><strong>Relevant</strong><p>Connect the technology to consequences people can actually understand.</p></div>
+<div class="principle"><span class="eyebrow">03</span><strong>Credible</strong><p>Use specifics, evidence and informed explanation instead of buzzwords.</p></div>
+<div class="principle"><span class="eyebrow">04</span><strong>Forward</strong><p>Have a point of view on where infrastructure is going next.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section content light-section" id="content">
+<div class="grid">
+<h2>FOUR WAYS<br/>INTO A COMPLEX<br/>CATEGORY.</h2>
+<p class="lead">The content system gives Verde recurring ways to explain, contextualise and earn attention without turning social into a product manual.</p>
+<div class="territories">
+<article class="territory"><div class="num">01 / CLARITY</div><div><h3>MAKE IT<br/>UNDERSTANDABLE.</h3><p>Break down technical concepts with direct language, useful structure and one clear takeaway at a time.</p></div></article>
+<article class="territory"><div class="num">02 / CONTEXT</div><div><h3>SHOW WHERE<br/>IT FITS.</h3><p>Connect infrastructure ideas to operations, resilience, energy, cities and the systems people already depend on.</p></div></article>
+<article class="territory"><div class="num">03 / PERSPECTIVE</div><div><h3>HAVE A<br/>POINT OF VIEW.</h3><p>Use thought leadership to make the brand useful in conversations about where infrastructure is heading.</p></div></article>
+<article class="territory"><div class="num">04 / PROOF</div><div><h3>SHOW THE<br/>RECEIPTS.</h3><p>Use credible public data, technical specifics and clear examples. No invented results, no empty claims.</p></div></article>
+</div>
+</div>
+</section>
+<section class="section social light-section verde-social-final" id="social">
+<div class="grid">
+<h2>SOCIAL SHOULD<br/>MAKE THE IDEA<br/>EASIER TO ENTER.</h2>
+<p class="lead">Different formats do different jobs: explain the category, add context, show a point of view and give technical credibility somewhere to live.</p>
+<div class="verde-execution-grid" aria-label="Verde Systems social communication executions">
+  <article class="verde-exec verde-carousel-exec">
+    <div class="verde-exec-kicker"><span>01 / CLARITY</span><span>CAROUSEL / 1 OF 5</span></div>
+    <h3>WHAT ACTUALLY HAPPENS WHEN INFRASTRUCTURE GETS SMARTER?</h3>
+    <div class="verde-steps" aria-hidden="true"><span>01<br><b>SENSE</b></span><i></i><span>02<br><b>RESPOND</b></span><i></i><span>03<br><b>ADAPT</b></span></div>
+    <p>Start with one consequence, explain one idea, leave one useful takeaway.</p>
+    <div class="verde-slide-nav"><span>←</span><span>01 / 05</span><span>→</span></div>
+  </article>
 
-      <div class="hero-console">
-        <div class="console-large">
-          <div>
-            <div class="eyebrow">SYSTEM OVERVIEW / LIVE</div>
-            <div class="console-title">INFRASTRUCTURE THAT ADAPTS.</div>
-          </div>
-          <div class="console-grid">
-            <div class="console-stat">
-              <span>UPTIME</span>
-              <strong>98.7%</strong>
-            </div>
-            <div class="console-stat">
-              <span>LATENCY</span>
-              <strong>23ms</strong>
-            </div>
-            <div class="console-stat">
-              <span>ACTIVE NODES</span>
-              <strong>1,204</strong>
-            </div>
-          </div>
-        </div>
-        <div class="console-side">
-          <div>OWNED VISUAL PLACEHOLDER / INTERFACE + SYSTEM MAP</div>
-          <div>OWNED VISUAL PLACEHOLDER / ARCHITECTURE + MOTION</div>
-        </div>
-      </div>
+  <article class="verde-exec verde-perspective-exec">
+    <div class="verde-exec-kicker"><span>02 / PERSPECTIVE</span><span>STATIC</span></div>
+    <h3>THE FUTURE OF INFRASTRUCTURE IS LESS VISIBLE THAN YOU THINK.</h3>
+    <p>Good systems disappear into daily life. The communication should make the consequence visible without turning the technology into theatre.</p>
+  </article>
+
+  <article class="verde-exec verde-reel-exec">
+    <div class="verde-exec-kicker"><span>03 / SHORT FORM</span><span>0:00 / 0:60</span></div>
+    <div class="verde-reel-line" aria-hidden="true"><b></b><b></b><b></b><b></b></div>
+    <h3>INFRASTRUCTURE WORKS BEST WHEN YOU DO NOT NOTICE IT.</h3>
+    <div class="verde-reel-bottom"><span>ONE IDEA / 60 SEC</span><span class="verde-play">▶</span></div>
+  </article>
+
+  <article class="verde-exec verde-linkedin-exec">
+    <div class="verde-linkedin-head"><span class="verde-avatar">V</span><div><strong>Verde Systems</strong><small>Thought leadership · 2h</small></div><b>•••</b></div>
+    <p class="verde-linkedin-title">Resilience is not a feature. It is the ability to keep adapting when conditions change.</p>
+    <p>That changes how infrastructure brands should communicate too: less future-speak, more specific explanation of what better systems make possible.</p>
+    <div class="verde-linkedin-meta"><span>♡ 184</span><span>42 comments</span><span>↗ Share</span></div>
+  </article>
+
+  <article class="verde-exec verde-feed-exec">
+    <div class="verde-exec-kicker"><span>04 / CONTENT SYSTEM</span><span>6 POSTS</span></div>
+    <div class="verde-mini-feed" aria-label="Six post Verde content feed">
+      <div class="vf green"><small>CLARITY</small><strong>ONE IDEA.<br>CLEARER.</strong></div>
+      <div class="vf white"><small>CONTEXT</small><strong>WHY NOW?</strong></div>
+      <div class="vf black"><small>POV</small><strong>LESS<br>FUTURE-SPEAK.</strong></div>
+      <div class="vf soft"><small>PROOF</small><strong>SHOW THE<br>RECEIPTS.</strong></div>
+      <div class="vf black"><small>EXPLAINER</small><strong>60 SEC.</strong></div>
+      <div class="vf green"><small>CAMPAIGN</small><strong>BUILT FOR<br>WHAT IS NEXT.</strong></div>
     </div>
-  </section>
-
-  <section class="section disclosure light-section">
-    <div class="grid">
-      <div class="eyebrow">INDEPENDENT CONCEPT PROJECT</div>
-      <p>Developed to demonstrate B2B positioning, brand strategy, digital content systems, campaign thinking and creative direction for a fictional infrastructure technology company. No client results are implied.</p>
-    </div>
-  </section>
-
-  <section id="problem" class="section problem light-section">
-    <div class="grid">
-      <h2>COMPLEX<br>DOES NOT HAVE<br>TO FEEL<br>COMPLICATED.</h2>
-      <div class="copy">
-        <div class="eyebrow" style="margin-bottom:18px">THE PROBLEM</div>
-        <p>Infrastructure companies often communicate through dense technical language or generic futurism. Verde needs to signal technical depth while still making its value clear to decision-makers who care about performance, reliability and scale.</p>
-      </div>
-
-      <div class="visual-strip">
-        <div class="placeholder dark">PLACEHOLDER / CATEGORY LANGUAGE AUDIT</div>
-        <div class="placeholder green">PLACEHOLDER / POSITIONING MAP</div>
-        <div class="placeholder soft">PLACEHOLDER / BUYER PRIORITIES</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="audience" class="section audience light-section">
-    <div class="grid">
-      <h2>WHO NEEDS<br>TO UNDERSTAND<br>THE SYSTEM?</h2>
-      <p class="lead">Not everyone needs the same level of technical detail. The brand has to support both operational credibility and executive clarity.</p>
-
-      <div class="audience-cards">
-        <article class="aud-card">
-          <span class="eyebrow">WHO</span>
-          <h3>DECISION<br>MAKERS.</h3>
-          <p>Founders, operations leaders, technical teams and enterprise buyers evaluating risk, reliability and long-term scalability.</p>
-        </article>
-        <article class="aud-card">
-          <span class="eyebrow">WHAT THEY WANT</span>
-          <h3>PROOF<br>WITHOUT NOISE.</h3>
-          <p>Clear evidence of capability, technical confidence and a reason to trust the system under real-world pressure.</p>
-        </article>
-        <article class="aud-card">
-          <span class="eyebrow">WHAT THEY AVOID</span>
-          <h3>VAGUE<br>FUTURE TALK.</h3>
-          <p>Buzzwords, overclaiming and design that looks advanced but fails to explain what the product actually enables.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="strategy" class="section positioning dark-section">
-    <div class="grid">
-      <div class="eyebrow">POSITIONING</div>
-      <h2>INTELLIGENCE<br>YOU CAN<br>BUILD ON.</h2>
-      <div class="statement">
-        <p>Verde should feel like infrastructure with a clear mind. Technical, adaptive and precise, but always focused on the business impact the system makes possible.</p>
-      </div>
-
-      <div class="principles">
-        <div class="principle">
-          <span class="eyebrow">01</span>
-          <strong>Precise</strong>
-          <p>Say what the system does, where it works and why it matters.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">02</span>
-          <strong>Adaptive</strong>
-          <p>Show a brand built for changing environments and requirements.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">03</span>
-          <strong>Credible</strong>
-          <p>Use data, architecture and operational context as proof.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">04</span>
-          <strong>Clear</strong>
-          <p>Translate complexity without flattening technical depth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="content" class="section content light-section">
-    <div class="grid">
-      <h2>CONTENT<br>SHOULD REDUCE<br>FRICTION.</h2>
-      <p class="lead">The content system helps the audience move from understanding the problem to trusting the technology and seeing where it fits.</p>
-
-      <div class="territories">
-        <article class="territory">
-          <div class="num">01 / SYSTEM</div>
-          <div>
-            <h3>HOW IT<br>WORKS.</h3>
-            <p>Explain architecture, modularity and performance through diagrams, interface views and short technical breakdowns.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">02 / PROOF</div>
-          <div>
-            <h3>WHAT THE<br>DATA SAYS.</h3>
-            <p>Use measurable indicators, benchmarks and operating context to build trust without turning the feed into a dashboard.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">03 / IMPACT</div>
-          <div>
-            <h3>WHAT CHANGES<br>FOR THE BUSINESS.</h3>
-            <p>Connect technical capability to uptime, speed, scale, cost, risk and operational decisions.</p>
-          </div>
-        </article>
-        <article class="territory">
-          <div class="num">04 / FUTURE</div>
-          <div>
-            <h3>WHAT ARE WE<br>BUILDING TOWARD?</h3>
-            <p>Thought leadership around resilient systems, infrastructure intelligence and the future of adaptive operations.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="social" class="section social light-section">
-    <div class="grid">
-      <h2>TECHNICAL<br>WITHOUT BECOMING<br>UNREADABLE.</h2>
-      <p class="lead">The digital system combines interface fragments, system diagrams, architectural photography and concise messaging to create a recognizable technical language.</p>
-
-      <div class="social-grid">
-        <div class="placeholder dark">PLACEHOLDER / DIGITAL PLATFORM + INTERFACE SYSTEM</div>
-        <div class="placeholder green">PLACEHOLDER / DATA VISUAL</div>
-        <div class="placeholder soft">PLACEHOLDER / LINKEDIN EXPLAINER</div>
-        <div class="placeholder charcoal">PLACEHOLDER / PRODUCT MOTION FRAME</div>
-        <div class="placeholder">PLACEHOLDER / EXECUTIVE POV POST</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="campaign" class="section campaign dark-section">
-    <div class="grid">
-      <div class="eyebrow">SAMPLE CAMPAIGN</div>
-      <h2>BUILT FOR<br>WHAT IS NEXT.</h2>
-      <div class="campaign-data">
-        STATUS / ACTIVE<br>
-        SCALE / MODULAR<br>
-        UPTIME / 98.7%<br>
-        REGION / GLOBAL
-      </div>
-
-      <div class="campaign-line">
-        <div class="campaign-step">
-          <span>01 / FRAME</span>
-          <strong>The world keeps moving.</strong>
-          <p>Open with the operational reality: systems have to change without losing reliability.</p>
-        </div>
-        <div class="campaign-step">
-          <span>02 / EXPLAIN</span>
-          <strong>Show adaptability.</strong>
-          <p>Use modular diagrams, deployment scenarios and product visuals to explain how Verde responds.</p>
-        </div>
-        <div class="campaign-step">
-          <span>03 / PROVE</span>
-          <strong>Put data to work.</strong>
-          <p>Bring real metrics and system behaviour into the campaign to strengthen technical credibility.</p>
-        </div>
-        <div class="campaign-step">
-          <span>04 / CONVERT</span>
-          <strong>Make the next step clear.</strong>
-          <p>Drive technical buyers toward a demo, solution brief or architecture discussion with useful context already established.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="calendar" class="section calendar light-section">
-    <div class="grid">
-      <h2>ONE WEEK<br>OF USEFUL<br>TECHNICAL CONTENT.</h2>
-      <p class="lead">The calendar balances product understanding, operational proof and company perspective without repeating the same format.</p>
-
-      <div class="week">
-        <div class="day">
-          <div class="day-name">MON</div>
-          <strong>System explainer</strong>
-          <p>A visual breakdown of one infrastructure concept translated into clear business language.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">TUE</div>
-          <strong>Metric story</strong>
-          <p>Use one data point to explain a broader operational problem and why it matters.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">WED</div>
-          <strong>Product interface</strong>
-          <p>Show the platform in context with a short explanation of the decision it helps someone make.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">THU</div>
-          <strong>Executive perspective</strong>
-          <p>A concise opinion on infrastructure resilience, scale or system design.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">FRI</div>
-          <strong>Use case</strong>
-          <p>Walk through a deployment scenario, challenge and solution without pretending to show real client results.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SAT</div>
-          <strong>Build log</strong>
-          <p>A lighter behind-the-system look at process, prototypes or engineering thinking.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SUN</div>
-          <strong>Signal post</strong>
-          <p>A compact visual statement that reinforces the brand language and key proposition.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="measurement" class="section measure light-section">
-    <div class="grid">
-      <h2>WHAT WOULD<br>WE WATCH?</h2>
-      <p class="lead">The useful signals are not vanity engagement. We would track whether the right buyers understand the proposition, explore the product and move closer to a commercial conversation.</p>
-
-      <div class="metrics">
-        <div class="metric">
-          <span>01</span>
-          <strong>Reach</strong>
-          <p>Visibility among target industries, roles and relevant technical audiences.</p>
-        </div>
-        <div class="metric">
-          <span>02</span>
-          <strong>Depth</strong>
-          <p>Video completion, carousel completion, dwell time and saves on technical content.</p>
-        </div>
-        <div class="metric">
-          <span>03</span>
-          <strong>Intent</strong>
-          <p>Website visits, solution-page clicks, downloads and demo-page activity.</p>
-        </div>
-        <div class="metric">
-          <span>04</span>
-          <strong>Leads</strong>
-          <p>Demo requests, technical enquiries and high-fit conversations influenced by content.</p>
-        </div>
-        <div class="metric">
-          <span>05</span>
-          <strong>Trust</strong>
-          <p>Repeat engagement from technical buyers and continued interaction with deeper content.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="closing" class="section closing light-section">
-    <div class="grid">
-      <div class="eyebrow">PROJECT / 03 COMPLETE</div>
-      <h2>MAKE THE<br>COMPLEX FEEL<br>UNDERSTANDABLE,<br>NOT SMALLER.</h2>
-      <div class="next">
-        <div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
-        <div><a href="../../index.html#top">autumnbranches studio →</a></div>
-        <br>
-        <div>PREVIOUS CASE STUDY</div>
-        <div><a href="../cafe-lumiere/index.html">CAFÉ LUMIÈRE ←</a></div>
-        <br>
-        <div>NEXT CASE STUDY</div>
-        <div><a href="../mara-vale/index.html">MARA VALE →</a></div>
-      </div>
-    </div>
-  </section>
+  </article>
+</div>
+</div>
+</section>
+<section class="section campaign dark-section" id="campaign">
+<div class="grid">
+<div class="eyebrow">SAMPLE CAMPAIGN</div>
+<h2>BUILT FOR<br/>WHAT IS NEXT.</h2>
+<div class="campaign-note">
+<span class="eyebrow">CAMPAIGN IDEA</span>
+<p>Use social to make invisible infrastructure feel relevant: what is changing, why it matters, and what better systems make possible.</p>
+</div>
+<div class="campaign-line">
+<div class="campaign-step"><span>01 / FRAME</span><strong>The systems around us are changing.</strong><p>Start with the consequence, not the feature list.</p></div>
+<div class="campaign-step"><span>02 / EXPLAIN</span><strong>Make the invisible visible.</strong><p>Use simple diagrams, footage and plain-language narration to explain one idea at a time.</p></div>
+<div class="campaign-step"><span>03 / PROVE</span><strong>Use facts people can verify.</strong><p>Bring in credible public data, technical context and clear sources instead of invented performance claims.</p></div>
+<div class="campaign-step"><span>04 / INVITE</span><strong>Leave the audience with a better question.</strong><p>Use the campaign to start useful industry conversations rather than forcing a sales pitch into every post.</p></div>
+</div>
+</div>
+</section>
+<section class="section calendar light-section" id="calendar">
+<div class="grid">
+<div class="calendar-intro">
+<div class="eyebrow">CONTENT RHYTHM</div>
+<h2>ONE WEEK.<br/>ONE CLEAR<br/>SYSTEM.</h2>
+<p class="lead">A useful B2B feed alternates explanation, proof and perspective so every post is not trying to do the same job.</p>
+</div>
+<div aria-label="One week Verde Systems social content calendar" class="calendar-board">
+<div class="calendar-bar"><span>WEEK / 01</span><strong>VERDE SYSTEMS</strong><span>7 TOUCHPOINTS</span></div>
+<div class="calendar-days">
+<article class="calendar-day tone-green"><div class="calendar-date"><span>MON</span><b>01</b></div><strong>CLARITY<br/>CAROUSEL</strong><small>ONE IDEA / FIVE SLIDES</small></article>
+<article class="calendar-day tone-paper"><div class="calendar-date"><span>TUE</span><b>02</b></div><strong>CONTEXT<br/>POST</strong><small>WHY THIS MATTERS NOW</small></article>
+<article class="calendar-day tone-black"><div class="calendar-date"><span>WED</span><b>03</b></div><strong>SHORT-FORM<br/>EXPLAINER</strong><small>60 SEC / ONE SYSTEM</small></article>
+<article class="calendar-day tone-soft"><div class="calendar-date"><span>THU</span><b>04</b></div><strong>EXECUTIVE<br/>POV</strong><small>POINT OF VIEW / LINKEDIN</small></article>
+<article class="calendar-day tone-green"><div class="calendar-date"><span>FRI</span><b>05</b></div><strong>PROOF<br/>POST</strong><small>PUBLIC DATA / SOURCE IT</small></article>
+<article class="calendar-day tone-black"><div class="calendar-date"><span>SAT</span><b>06</b></div><strong>CATEGORY<br/>MYTH</strong><small>CHALLENGE THE DEFAULT</small></article>
+<article class="calendar-day tone-paper"><div class="calendar-date"><span>SUN</span><b>07</b></div><strong>SIGNAL<br/>POST</strong><small>ONE THOUGHT / LIGHT TOUCH</small></article>
+</div>
+<div class="calendar-footer"><span>CLARITY</span><span>CONTEXT</span><span>PERSPECTIVE</span><span>PROOF</span></div>
+</div>
+</div>
+</section>
+<section class="section measure light-section" id="measurement">
+<div class="grid">
+<h2>WHAT WOULD<br/>WE WATCH?</h2>
+<p class="lead">The useful question is whether Verde earns qualified attention and makes complicated ideas easier for the right audience to understand and revisit.</p>
+<div class="metrics">
+<div class="metric"><span>01</span><strong>Qualified reach</strong><p>Visibility among relevant roles, industries and technical audiences.</p></div>
+<div class="metric"><span>02</span><strong>Completion</strong><p>Carousel depth, video completion and whether people stay with the explanation.</p></div>
+<div class="metric"><span>03</span><strong>Saves</strong><p>Signals that the content is useful enough to return to later.</p></div>
+<div class="metric"><span>04</span><strong>Shares</strong><p>Whether people find the explanation relevant enough to pass into their network or team.</p></div>
+<div class="metric"><span>05</span><strong>Intent</strong><p>Profile visits, site visits and deeper exploration after consuming social content.</p></div>
+</div>
+</div>
+</section>
+<section class="section closing light-section" id="closing">
+<div class="grid">
+<div class="eyebrow">PROJECT / 03 COMPLETE</div>
+<h2>MAKE COMPLEX<br/>IDEAS WORTH<br/>FOLLOWING.</h2>
+<div class="next">
+<div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
+<div><a href="../../index.html#top">autumnbranches studio →</a></div>
+<br/>
+<div>PREVIOUS CASE STUDY</div>
+<div><a href="../cafe-lumiere/index.html">CAFÉ LUMIÈRE ←</a></div>
+<br/>
+<div>NEXT CASE STUDY</div>
+<div><a href="../mara-vale/index.html">MARA VALE →</a></div>
+</div>
+</div>
+</section>
 </main>
-
 <footer>
-  <span>autumnbranches studio</span>
-  <span>INDEPENDENT CONCEPT PROJECT / 2026</span>
+<span>autumnbranches studio</span>
+<span>INDEPENDENT CONCEPT PROJECT / 2026</span>
 </footer>
-
 <script>
   const sections = [...document.querySelectorAll('main .section')];
   const activePath = document.querySelector('.branch-nav .active');
@@ -1269,6 +1663,20 @@ if(caseMenuToggle && caseTopbar){
   window.addEventListener('resize',()=>{if(innerWidth>820)closeCaseMenu()},{passive:true});
 }
 
+</script>
+<script id="v15-navigation-enhancements">
+(() => {
+  const topbar = document.querySelector('.topbar');
+  const toggle = document.querySelector('.case-menu-toggle');
+  if (!topbar || !toggle) return;
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !topbar.classList.contains('menu-open')) return;
+    topbar.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
+    toggle.focus();
+  });
+})();
 </script>
 </body>
 </html>

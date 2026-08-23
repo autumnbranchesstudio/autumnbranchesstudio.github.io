@@ -137,6 +137,7 @@
     }
     .hero-mosaic .tile{
       border:1px solid var(--ink);
+      margin:0;
       padding:18px;
       display:flex;
       align-items:flex-end;
@@ -150,6 +151,26 @@
     .hero-mosaic .tile:nth-child(3){background:var(--brown);color:var(--ivory)}
     .hero-mosaic .tile:nth-child(4){background:var(--yellow-soft)}
     .hero-mosaic .tile:nth-child(5){background:var(--paper)}
+    .hero-mosaic .brand-world{
+      padding:0;
+      overflow:hidden;
+      position:relative;
+      min-width:0;
+      min-height:0;
+      background:var(--ink);
+    }
+    .hero-mosaic .brand-world img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:contrast(1.02) saturate(1.04) sepia(.025);
+    }
+    .hero-mosaic .brand-world-main img{object-position:center 48%}
+    .hero-mosaic .brand-world-menu img{object-position:center 50%}
+    .hero-mosaic .brand-world-street img{object-position:center 52%}
+    .hero-mosaic .brand-world-cup img{object-position:center 48%}
+    .hero-mosaic .brand-world-human img{object-position:center 44%}
 
     .disclosure{
       min-height:auto;
@@ -693,18 +714,466 @@
   .placeholder{min-height:165px!important}
 }
 
+
+/* V11 CAFÉ LUMIÈRE: compact case-study cleanup */
+.strategy-boards{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:18px!important;
+  margin-top:42px!important;
+}
+.strategy-board{margin:0;min-width:0;border:1px solid var(--ink);overflow:hidden;background:var(--paper)}
+.strategy-board img{display:block;width:100%;height:auto;aspect-ratio:2/1;object-fit:cover}
+
+@media(min-width:821px){
+  /* Page-length audit: content-driven sections rather than full-screen slides. */
+  .section{min-height:auto;padding-top:78px;padding-bottom:62px}
+  .hero{padding-top:110px;padding-bottom:70px}
+  .disclosure{padding-top:42px;padding-bottom:42px}
+  .problem h2,.audience h2,.content h2,.campaign h2,.calendar h2,.measure h2{
+    font-size:clamp(52px,5.4vw,82px);
+    line-height:.9;
+  }
+  .problem .visual-strip,.audience-cards,.territories,.campaign-line,.metrics{margin-top:38px}
+  .aud-card{min-height:220px;padding:22px 24px 28px}
+  .aud-card .eyebrow{margin-bottom:36px}
+
+  /* Positioning: thesis on the left, statement + four principles on the right. */
+  .positioning{padding-top:68px!important;padding-bottom:58px!important}
+  .positioning .grid{align-items:start}
+  .positioning>.grid>.eyebrow{grid-column:1/7;grid-row:1;margin:0}
+  .positioning h2{
+    grid-column:1/8;grid-row:2;
+    margin-top:28px!important;
+    font-size:clamp(56px,5.5vw,84px)!important;
+    line-height:.89!important;
+    max-width:7.3ch;
+  }
+  .positioning .positioning-side{
+    grid-column:8/13;grid-row:2;
+    margin-top:8px;
+    display:flex;flex-direction:column;gap:28px;min-width:0;
+  }
+  .positioning .statement{
+    grid-column:auto;grid-row:auto;margin:0!important;max-width:39ch;
+    padding-top:18px;border-top:1px solid rgba(255,255,255,.48);
+  }
+  .positioning .statement p{font-size:16px;line-height:1.48}
+  .positioning .principles{
+    grid-column:auto;grid-row:auto;margin:0!important;width:100%;
+    display:grid;grid-template-columns:1fr;
+    border-top:1px solid rgba(255,255,255,.48);
+    border-bottom:1px solid rgba(255,255,255,.48);
+  }
+  .positioning .principle{
+    min-height:0!important;padding:13px 0!important;border-right:0!important;
+    border-bottom:1px solid rgba(255,255,255,.27);
+    display:grid;grid-template-columns:34px 92px minmax(0,1fr);gap:10px;align-items:start;
+  }
+  .positioning .principle:last-child{border-bottom:0!important}
+  .positioning .principle .eyebrow{grid-column:auto!important;grid-row:auto!important;font-size:8px;padding-top:3px}
+  .positioning .principle strong{margin-top:0!important;font-size:15px;line-height:1.2}
+  .positioning .principle p{margin-top:0!important;max-width:none;font-size:12.5px;line-height:1.38}
+
+  /* Four content territories: keep the concept, improve alignment and breathing room. */
+  .content{padding-top:72px!important;padding-bottom:58px!important}
+  .content .lead{max-width:34ch}
+  .territories{margin-top:36px!important;gap:14px!important}
+  .territory{min-height:300px!important;padding:24px 26px 26px!important}
+  .territory>div:last-child{display:flex;flex-direction:column;gap:18px}
+  .territory h3{font-size:clamp(28px,2.25vw,38px);line-height:.94}
+  .territory p{margin:0!important;font-size:14px!important;line-height:1.45;max-width:27ch}
+
+  /* Campaign and measurement are content-rich, not full-screen. */
+  .campaign{padding-top:70px!important;padding-bottom:58px!important}
+  .campaign h2{margin-top:28px!important}
+  .campaign-line{margin-top:42px!important;padding:28px 0!important}
+  .campaign-step strong{font-size:clamp(20px,1.7vw,28px)!important}
+  .measure{padding-top:66px!important;padding-bottom:52px!important}
+  .metrics{margin-top:32px!important}
+  .metric{min-height:184px!important;padding:20px!important}
+  .metric strong{margin-top:30px!important;font-size:18px!important}
+  .metric p{font-size:13px;line-height:1.4}
+
+  /* Calendar: visual week board on the right, compact introduction on the left. */
+  .calendar{padding-top:62px!important;padding-bottom:50px!important}
+  .calendar .grid{align-items:start!important}
+  .calendar .calendar-intro{grid-column:1/5!important;display:flex;flex-direction:column;align-items:flex-start}
+  .calendar .calendar-intro .eyebrow{margin:0 0 24px!important}
+  .calendar .calendar-intro h2{grid-column:auto!important;margin:0!important;font-size:clamp(48px,4.8vw,72px)!important;line-height:.9!important;max-width:7ch!important}
+  .calendar .calendar-intro .lead{grid-column:auto!important;margin:24px 0 0!important;max-width:31ch!important;align-self:auto!important;font-size:14px!important;line-height:1.5!important}
+  .calendar .calendar-board{grid-column:6/13!important;border:1px solid var(--ink);background:var(--paper);min-width:0}
+  .calendar-bar{height:44px;padding:0 14px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-bottom:1px solid var(--ink);font-family:var(--mono);font-size:8px;letter-spacing:.05em}
+  .calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}
+  .calendar-bar span:last-child{text-align:right}
+  .calendar-days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+  .calendar-day{position:relative;min-width:0;min-height:184px;padding:12px 10px 13px;border-right:1px solid rgba(10,10,10,.36);display:flex;flex-direction:column;justify-content:space-between;gap:17px}
+  .calendar-day:last-child{border-right:0}
+  .calendar-date{display:flex;justify-content:space-between;align-items:start;font-family:var(--mono);font-size:7px;letter-spacing:.04em}
+  .calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85;letter-spacing:-.04em}
+  .calendar-day>strong{font-family:var(--sans);font-size:clamp(11px,.95vw,15px);line-height:.94;letter-spacing:-.035em}
+  .calendar-day>small{font-family:var(--mono);font-size:5.8px;line-height:1.35;letter-spacing:.03em}
+  .calendar-day.calendar-neighbourhood>strong{font-size:clamp(9px,.76vw,12px)!important}
+  .calendar-day.tone-yellow{background:var(--yellow);color:var(--ink)}
+  .calendar-day.tone-soft{background:var(--yellow-soft);color:var(--ink)}
+  .calendar-day.tone-paper{background:var(--paper);color:var(--ink)}
+  .calendar-day.tone-black{background:var(--ink);color:var(--ivory)}
+  .calendar-footer{min-height:34px;padding:0 12px;display:flex;align-items:center;gap:18px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:7px;letter-spacing:.05em}
+  .calendar-footer span+span:before{content:"/";margin-right:18px;color:var(--muted)}
+
+  /* Closing: short and directional. */
+  .closing{min-height:auto!important;padding-top:64px!important;padding-bottom:58px!important;align-items:start!important}
+  .closing .grid{align-items:end!important}
+  .closing .eyebrow{grid-column:1/6!important;grid-row:1!important}
+  .closing h2{
+    grid-column:1/8!important;grid-row:2!important;margin-top:28px!important;
+    font-size:clamp(54px,5.5vw,82px)!important;line-height:.9!important;max-width:9ch!important;
+  }
+  .closing .next{grid-column:9/13!important;grid-row:2!important;align-self:end!important;margin-top:0!important;padding-top:18px!important}
+}
+
+@media(max-width:820px){
+  .strategy-boards{grid-template-columns:1fr!important;gap:12px!important;margin-top:30px!important}
+  .positioning{padding-top:72px!important;padding-bottom:54px!important}
+  .positioning h2{font-size:clamp(40px,10.8vw,58px)!important;max-width:8ch!important;margin-top:24px!important}
+  .positioning .positioning-side{grid-column:1/-1!important;display:flex!important;flex-direction:column!important;gap:24px!important;margin-top:26px!important}
+  .positioning .positioning-side .statement,.positioning .positioning-side .principles{margin:0!important}
+  .positioning .principles{grid-template-columns:1fr!important}
+  .positioning .principle{min-height:0!important;padding:15px 0!important;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.28);display:grid;grid-template-columns:30px 78px minmax(0,1fr);gap:8px;align-items:start}
+  .positioning .principle:last-child{border-bottom:0}
+  .positioning .principle strong,.positioning .principle p{margin-top:0!important}
+  .positioning .principle p{font-size:12px!important}
+  .territories{gap:10px!important}
+  .territory{padding:22px!important}
+  .territory>div:last-child{gap:16px}
+
+  .calendar{padding-top:60px!important;padding-bottom:48px!important}
+  .calendar .calendar-intro,.calendar .calendar-board{grid-column:1/-1!important}
+  .calendar .calendar-intro h2{font-size:clamp(42px,12vw,58px)!important;max-width:8ch!important}
+  .calendar .calendar-intro .lead{margin-top:18px!important}
+  .calendar .calendar-board{margin-top:28px!important}
+  .calendar-days{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calendar-day{min-height:148px;border-bottom:1px solid rgba(10,10,10,.34)}
+  .calendar-day:nth-child(even){border-right:0}
+  .calendar-day:last-child{grid-column:1/-1;border-bottom:0}
+  .calendar-bar{grid-template-columns:1fr auto;font-size:7px}
+  .calendar-bar span:last-child{display:none}
+  .calendar-footer{gap:10px;flex-wrap:wrap;padding:10px 12px}
+  .calendar-footer span+span:before{margin-right:10px}
+
+  .closing{padding-top:62px!important;padding-bottom:56px!important}
+  .closing h2{font-size:clamp(38px,10vw,54px)!important;max-width:10ch!important}
+}
+
+@media(max-width:430px){
+  .calendar-day{min-height:136px;padding:11px 9px}
+  .calendar-date b{font-size:18px}
+}
+
   </style>
+<style>
+/* V11.2 CAFE LUMIERE: tighter opening + deliberate mobile brand-world mosaic. */
+.hero-mosaic figure{margin:0!important;}
+@media(min-width:821px){
+  .hero{
+    padding-top:96px!important;
+    padding-bottom:54px!important;
+  }
+  .hero h1{
+    margin-top:26px!important;
+    font-size:clamp(82px,7.6vw,138px)!important;
+    line-height:.84!important;
+    max-width:7.1ch;
+  }
+  .hero .intro{
+    align-self:center!important;
+    margin-bottom:0!important;
+    padding-top:22px;
+  }
+  .hero .hero-mosaic{
+    margin-top:34px!important;
+    grid-template-columns:1.38fr .72fr .88fr!important;
+    grid-template-rows:168px 190px!important;
+    gap:10px!important;
+  }
+}
+
+@media(max-width:820px){
+  .hero{
+    padding-top:78px!important;
+    padding-bottom:48px!important;
+  }
+  .hero h1{
+    margin-top:18px!important;
+    font-size:clamp(48px,13.4vw,70px)!important;
+    line-height:.86!important;
+    max-width:7.2ch;
+  }
+  .hero .intro{
+    margin-top:18px!important;
+    max-width:31ch!important;
+  }
+  .hero .intro .eyebrow{margin-bottom:10px!important}
+  .hero .hero-mosaic{
+    margin-top:24px!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    grid-template-rows:230px 132px 132px!important;
+    gap:8px!important;
+  }
+  .hero-mosaic .tile{
+    min-height:0!important;
+    grid-row:auto!important;
+  }
+  .hero-mosaic .brand-world-main{
+    grid-column:1/-1!important;
+    grid-row:1!important;
+  }
+  .hero-mosaic .brand-world-menu{grid-column:1!important;grid-row:2!important}
+  .hero-mosaic .brand-world-street{grid-column:2!important;grid-row:2!important}
+  .hero-mosaic .brand-world-cup{grid-column:1!important;grid-row:3!important}
+  .hero-mosaic .brand-world-human{grid-column:2!important;grid-row:3!important}
+  .hero-mosaic .brand-world-main img{object-position:center 48%}
+  .hero-mosaic .brand-world-menu img{object-position:center 48%}
+  .hero-mosaic .brand-world-street img{object-position:center 52%}
+  .hero-mosaic .brand-world-cup img{object-position:center 50%}
+  .hero-mosaic .brand-world-human img{object-position:center 43%}
+}
+
+@media(max-width:430px){
+  .hero{padding-top:72px!important;padding-bottom:42px!important}
+  .hero h1{font-size:clamp(46px,13vw,60px)!important}
+  .hero .hero-mosaic{
+    grid-template-rows:205px 116px 116px!important;
+    gap:7px!important;
+  }
+}
+</style>
+
+
+<style id="cafe-v14-social-execution">
+/* V14: finished Café Lumière 8:17 AM social execution. */
+.cafe-campaign-final{background:var(--ink);color:var(--ivory);padding-top:66px!important;padding-bottom:58px!important}
+.cafe-campaign-final .eyebrow{grid-column:1/5;color:var(--yellow)}
+.cafe-campaign-final h2{grid-column:1/7;margin-top:24px!important;color:var(--yellow);font-size:clamp(60px,6vw,92px)!important;line-height:.82!important}
+.cafe-campaign-intro{grid-column:8/13;align-self:end;margin:0 0 2px;font-size:15px;line-height:1.5;max-width:38ch;color:#ddd5c4}
+.cafe-social-showcase{grid-column:1/13;margin-top:38px;display:grid;grid-template-columns:1.08fr .92fr .92fr;grid-template-rows:215px 215px;gap:10px;min-width:0}
+.cafe-execution{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.26);min-width:0}
+.cafe-execution img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cafe-image-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.58))}
+.cafe-image-shade.light{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.38))}
+.cafe-exec-top{position:absolute;top:15px;left:16px;right:16px;display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:8px;letter-spacing:.04em;z-index:2}
+.cafe-reel-execution{grid-row:1/3}
+.cafe-reel-copy{position:absolute;left:20px;right:20px;bottom:24px;z-index:2}
+.cafe-reel-copy strong{display:block;font-size:clamp(30px,3vw,48px);line-height:.88;letter-spacing:-.055em;color:var(--ivory)}
+.cafe-reel-copy small,.cafe-photo-copy small,.cafe-neighbour-copy small{display:block;margin-top:14px;font-family:var(--mono);font-size:8px;letter-spacing:.04em}
+.cafe-play{position:absolute;right:18px;bottom:18px;width:38px;height:38px;border:1px solid rgba(255,255,255,.75);border-radius:50%;display:grid;place-items:center;font-size:10px;z-index:3}
+.cafe-photo-copy,.cafe-neighbour-copy{position:absolute;left:18px;right:18px;bottom:18px;z-index:2}
+.cafe-photo-copy strong,.cafe-neighbour-copy strong{display:block;font-size:clamp(24px,2.2vw,34px);line-height:.9;letter-spacing:-.045em}
+.cafe-story-execution{background:var(--yellow);color:var(--ink);padding:18px;display:flex;flex-direction:column;justify-content:flex-end}
+.cafe-story-execution .cafe-exec-top{color:var(--ink)}
+.cafe-story-execution>strong{font-size:clamp(27px,2.35vw,38px);line-height:.88;letter-spacing:-.05em;margin-bottom:18px;max-width:9ch}
+.cafe-story-options{display:grid;gap:6px}
+.cafe-story-options span{border:1px solid var(--ink);border-radius:999px;padding:7px 9px;text-align:center;font-family:var(--mono);font-size:7px}
+.cafe-caption-execution{background:var(--paper);color:var(--ink);padding:17px;display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.cafe-caption-head{display:flex;align-items:center;gap:10px}.cafe-avatar{width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--yellow);display:grid;place-items:center;font-weight:900}
+.cafe-caption-head strong{display:block;font-size:12px}.cafe-caption-head small{display:block;margin-top:2px;font-family:var(--mono);font-size:7px}
+.cafe-caption-execution p{font-size:11px;line-height:1.4;max-width:34ch}.cafe-caption-execution .cafe-caption-cta{font-weight:700}
+.cafe-caption-meta{display:flex;gap:13px;align-items:center;border-top:1px solid rgba(0,0,0,.16);padding-top:9px;font-family:var(--mono);font-size:8px}.cafe-caption-meta span:last-child{margin-left:auto}
+@media(max-width:820px){
+  .cafe-campaign-final{padding-top:58px!important;padding-bottom:48px!important}.cafe-campaign-final h2,.cafe-campaign-intro{grid-column:1/-1!important}.cafe-campaign-intro{margin-top:18px!important}
+  .cafe-social-showcase{grid-template-columns:1fr 1fr;grid-template-rows:280px 180px 180px;margin-top:28px;gap:8px}
+  .cafe-reel-execution{grid-column:1/-1;grid-row:1}.cafe-photo-execution{grid-column:1;grid-row:2}.cafe-story-execution{grid-column:2;grid-row:2}.cafe-neighbour-execution{grid-column:1;grid-row:3}.cafe-caption-execution{grid-column:2;grid-row:3}
+  .cafe-reel-copy strong{font-size:clamp(32px,9vw,48px)}.cafe-story-execution>strong{font-size:clamp(22px,6.2vw,30px)}.cafe-photo-copy strong,.cafe-neighbour-copy strong{font-size:clamp(20px,5.5vw,28px)}
+  .cafe-caption-execution p{font-size:9.5px}.cafe-caption-head strong{font-size:10px}
+}
+@media(max-width:430px){
+  .cafe-social-showcase{grid-template-columns:1fr;grid-template-rows:300px 190px 205px 190px auto}.cafe-reel-execution,.cafe-photo-execution,.cafe-story-execution,.cafe-neighbour-execution,.cafe-caption-execution{grid-column:1!important;grid-row:auto!important}.cafe-caption-execution{min-height:190px}
+}
+</style>
+
+<style id="v15-mobile-responsive">
+/* V15: approved mobile and tablet responsiveness repairs. */
+@media(max-width:820px){
+  .brand{
+    min-width:44px;
+    min-height:44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .case-menu-toggle{
+    min-width:44px;
+    min-height:44px;
+    padding:0 6px;
+    touch-action:manipulation;
+  }
+  .closing .next a{
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:8px 0;
+  }
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .audience-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .audience-cards .aud-card{
+    min-height:220px!important;
+    padding:22px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .audience-cards .aud-card:nth-child(even){border-right:0!important}
+  .audience-cards .aud-card:last-child{
+    grid-column:1/-1;
+    border-right:0!important;
+    border-bottom:0!important;
+  }
+
+  .territories{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .territory{min-height:260px!important}
+
+  .campaign-line{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:18px!important;
+  }
+  .campaign-step{padding:20px 0!important}
+
+  .metrics{grid-template-columns:repeat(6,minmax(0,1fr))!important}
+  .metrics .metric{
+    grid-column:span 2;
+    min-height:180px!important;
+    border-right:1px solid var(--ink)!important;
+    border-bottom:1px solid var(--ink)!important;
+  }
+  .metrics .metric:nth-child(3){border-right:0!important}
+  .metrics .metric:nth-child(4),
+  .metrics .metric:nth-child(5){grid-column:span 3;border-bottom:0!important}
+  .metrics .metric:nth-child(5){border-right:0!important}
+}
+
+@media(max-width:820px){
+  .positioning .principle .eyebrow{
+    grid-column:auto!important;
+    grid-row:auto!important;
+    margin:0!important;
+    padding-top:3px;
+  }
+  .positioning .principle strong,
+  .positioning .principle p{min-width:0}
+
+  .calendar .calendar-board{
+    border:1px solid var(--ink);
+    background:var(--paper);
+    min-width:0;
+    overflow:hidden;
+  }
+  .calendar-bar{
+    min-height:44px;
+    padding:0 14px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    border-bottom:1px solid var(--ink);
+    font-family:var(--mono);
+    font-size:7px;
+    letter-spacing:.05em;
+  }
+  .calendar-bar strong{font-family:var(--sans);font-size:11px;letter-spacing:0}
+  .calendar-bar span:last-child{display:none;text-align:right}
+  .calendar-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calendar-day{
+    position:relative;
+    min-width:0;
+    min-height:148px;
+    padding:12px 10px 13px;
+    border-right:1px solid rgba(10,10,10,.36);
+    border-bottom:1px solid rgba(10,10,10,.34);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:17px;
+  }
+  .calendar-day:nth-child(even){border-right:0}
+  .calendar-day:last-child{grid-column:1/-1;border-right:0;border-bottom:0}
+  .calendar-date{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:8px;
+    font-family:var(--mono);
+    font-size:7px;
+    letter-spacing:.04em;
+  }
+  .calendar-date b{font-family:var(--sans);font-size:20px;line-height:.85;letter-spacing:-.04em}
+  .calendar-day>strong{font-family:var(--sans);font-size:clamp(11px,3.3vw,15px);line-height:.94;letter-spacing:-.035em}
+  .calendar-day>small{font-family:var(--mono);font-size:6px;line-height:1.35;letter-spacing:.03em}
+  .calendar-day.calendar-neighbourhood>strong{font-size:clamp(10px,3vw,13px)!important}
+  .calendar-day.tone-yellow{background:var(--yellow);color:var(--ink)}
+  .calendar-day.tone-soft{background:var(--yellow-soft);color:var(--ink)}
+  .calendar-day.tone-paper{background:var(--paper);color:var(--ink)}
+  .calendar-day.tone-black{background:var(--ink);color:var(--ivory)}
+  .calendar-footer{
+    min-height:44px;
+    padding:10px 12px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    border-top:1px solid var(--ink);
+    font-family:var(--mono);
+    font-size:7px;
+    letter-spacing:.05em;
+  }
+  .calendar-footer span+span:before{content:"/";margin-right:10px;color:var(--muted)}
+}
+
+@media(max-width:599px){
+  .positioning .principle{
+    grid-template-columns:30px minmax(0,1fr)!important;
+    grid-template-rows:auto auto;
+    column-gap:8px!important;
+    row-gap:6px!important;
+  }
+  .positioning .principle .eyebrow{grid-column:1!important;grid-row:1!important}
+  .positioning .principle strong{grid-column:2!important;grid-row:1!important;width:auto!important}
+  .positioning .principle p{grid-column:2!important;grid-row:2!important;max-width:32ch!important}
+}
+
+@media(min-width:600px) and (max-width:820px){
+  .positioning .principle{grid-template-columns:34px 96px minmax(0,1fr)!important;gap:10px!important}
+  .calendar-days{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .calendar-day,
+  .calendar-day:nth-child(even){grid-column:auto;border-right:1px solid rgba(10,10,10,.36)}
+  .calendar-day:nth-child(4n){border-right:0}
+  .calendar-day:nth-child(n+5){border-bottom:0}
+  .calendar-day:last-child{grid-column:3/5!important;border-right:0}
+  .calendar-bar{grid-template-columns:1fr auto 1fr;font-size:8px}
+  .calendar-bar span:last-child{display:block}
+  .calendar-footer{flex-wrap:nowrap;gap:18px}
+  .calendar-footer span+span:before{margin-right:18px}
+}
+
+@media(max-width:430px){
+  .calendar-day{min-height:136px;padding:11px 9px}
+  .calendar-date b{font-size:18px}
+}
+
+</style>
 </head>
 <body>
 
 <header class="topbar">
   <a class="brand" href="../../index.html#top"><span>autumnbranches</span><span>studio</span></a>
   <div class="project-id">project / 02 / cafe lumiere</div>
-  <button class="case-menu-toggle" type="button" aria-expanded="false">Menu</button>
-  <nav class="top-links" aria-label="Case study navigation">
+  <button class="case-menu-toggle" type="button" aria-expanded="false" aria-controls="case-study-nav">Menu</button>
+  <nav class="top-links" aria-label="Case study navigation" id="case-study-nav">
     <a href="#opening">Overview</a>
     <a href="#strategy">Strategy</a>
-    <a href="#social">Social</a>
+    <a href="#content">Social</a>
     <a class="back-link" href="../../index.html#work">Back to work</a>
   </nav>
 </header>
@@ -727,12 +1196,22 @@
         <p>A neighbourhood café concept built around everyday ritual, real people and the energy of being somewhere worth returning to.</p>
       </div>
 
-      <div class="hero-mosaic">
-        <div class="tile">OWNED VISUAL PLACEHOLDER / DOCUMENTARY CAFÉ MOMENT</div>
-        <div class="tile">PLACEHOLDER / MENU DETAIL</div>
-        <div class="tile">PLACEHOLDER / STREET WINDOW</div>
-        <div class="tile">PLACEHOLDER / CUP + TABLE</div>
-        <div class="tile">PLACEHOLDER / MORNING CROWD</div>
+      <div class="hero-mosaic" aria-label="Café Lumière brand world">
+        <figure class="tile brand-world brand-world-main">
+          <img src="../../assets/cafe/brand-world/documentary-cafe.webp" alt="Warm, busy neighbourhood café with customers and staff in morning light">
+        </figure>
+        <figure class="tile brand-world brand-world-menu">
+          <img src="../../assets/cafe/brand-world/menu-detail.webp" alt="Café menu board surrounded by stickers and local visual ephemera">
+        </figure>
+        <figure class="tile brand-world brand-world-street">
+          <img src="../../assets/cafe/brand-world/street-neighbourhood.webp" alt="Neighbourhood café exterior with outdoor tables and people">
+        </figure>
+        <figure class="tile brand-world brand-world-cup">
+          <img src="../../assets/cafe/brand-world/cup-table.webp" alt="Coffee cup, newspaper and hand at a lived-in café table">
+        </figure>
+        <figure class="tile brand-world brand-world-human">
+          <img src="../../assets/cafe/brand-world/human-moment.webp" alt="Woman drinking coffee in warm morning sunlight">
+        </figure>
       </div>
     </div>
   </section>
@@ -752,10 +1231,13 @@
         <p>Local cafés often post products without building a recognizable personality. Café Lumière needs to become more than a place that sells coffee. It needs to feel like part of the neighbourhood's rhythm.</p>
       </div>
 
-      <div class="visual-strip">
-        <div class="placeholder dark">PLACEHOLDER / COMPETITOR FEEDS / PRODUCT-FIRST PATTERNS</div>
-        <div class="placeholder yellow">PLACEHOLDER / LOCAL CULTURE + COMMUNITY OPPORTUNITY</div>
-        <div class="placeholder soft">PLACEHOLDER / CUSTOMER RITUALS</div>
+      <div class="visual-strip strategy-boards">
+        <figure class="strategy-board strategy-board-dark">
+          <img src="../../assets/cafe/strategy/product-first.webp" alt="Product-first café content pattern board" loading="lazy" decoding="async">
+        </figure>
+        <figure class="strategy-board strategy-board-yellow">
+          <img src="../../assets/cafe/strategy/local-culture-community.webp" alt="Local culture and community opportunity board for Café Lumière" loading="lazy" decoding="async">
+        </figure>
       </div>
     </div>
   </section>
@@ -789,30 +1271,31 @@
     <div class="grid">
       <div class="eyebrow">POSITIONING</div>
       <h2>THE CAFÉ<br>AS A LOCAL<br>CHARACTER.</h2>
-      <div class="statement">
-        <p>Café Lumière should sound and behave like a familiar place with a point of view. Warm, observant, social and rooted in the everyday life around it.</p>
-      </div>
-
-      <div class="principles">
-        <div class="principle">
-          <span class="eyebrow">01</span>
-          <strong>Local</strong>
-          <p>Talk about the neighbourhood, not just the product.</p>
+      <div class="positioning-side">
+        <div class="statement">
+          <p>Café Lumière should sound and behave like a familiar place with a point of view. Warm, observant, social and rooted in the everyday life around it.</p>
         </div>
-        <div class="principle">
-          <span class="eyebrow">02</span>
-          <strong>Alive</strong>
-          <p>People, movement and real moments over perfect still life.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">03</span>
-          <strong>Familiar</strong>
-          <p>Build recurring rituals people recognize and return to.</p>
-        </div>
-        <div class="principle">
-          <span class="eyebrow">04</span>
-          <strong>Specific</strong>
-          <p>Give the café its own language instead of generic coffee captions.</p>
+        <div class="principles">
+          <div class="principle">
+            <span class="eyebrow">01</span>
+            <strong>Local</strong>
+            <p>Talk about the neighbourhood, not just the product.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">02</span>
+            <strong>Alive</strong>
+            <p>People, movement and real moments over perfect still life.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">03</span>
+            <strong>Familiar</strong>
+            <p>Build recurring rituals people recognize and return to.</p>
+          </div>
+          <div class="principle">
+            <span class="eyebrow">04</span>
+            <strong>Specific</strong>
+            <p>Give the café its own language instead of generic coffee captions.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -856,92 +1339,108 @@
     </div>
   </section>
 
-  <section id="social" class="section social">
-    <div class="grid">
-      <h2>CONTENT<br>WITH PEOPLE<br>IN IT.</h2>
-      <p class="lead">The social system favours documentary moments, recurring series and recognisable details over polished café photography for its own sake.</p>
 
-      <div class="social-grid">
-        <div class="placeholder dark">PLACEHOLDER / DOCUMENTARY PHOTO-DUMP SERIES</div>
-        <div class="placeholder yellow">PLACEHOLDER / 8:17 AM REEL COVER</div>
-        <div class="placeholder soft">PLACEHOLDER / WEEKLY MENU POST</div>
-        <div class="placeholder brown">PLACEHOLDER / STAFF STORY</div>
-        <div class="placeholder">PLACEHOLDER / LOCAL COLLABORATION</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="campaign" class="section campaign">
+  <section id="campaign" class="section campaign cafe-campaign-final">
     <div class="grid">
-      <div class="eyebrow">SAMPLE CAMPAIGN</div>
+      <div class="eyebrow">SAMPLE CAMPAIGN / SOCIAL EXECUTION</div>
       <h2>8:17 AM</h2>
-      <div class="campaign-clock">08:17</div>
+      <p class="cafe-campaign-intro">A recurring timestamp turns an ordinary morning into a recognisable social ritual. Same time, different people, weather, tables and reasons to be there.</p>
 
-      <div class="campaign-line">
-        <div class="campaign-step">
-          <span>01 / OBSERVE</span>
-          <strong>Same time. Different mornings.</strong>
-          <p>Capture the café at 8:17 across a week, with different people, weather and rhythms.</p>
-        </div>
-        <div class="campaign-step">
-          <span>02 / RECOGNISE</span>
-          <strong>Build a ritual.</strong>
-          <p>The repeated timestamp becomes a recognizable content device without becoming a rigid visual template.</p>
-        </div>
-        <div class="campaign-step">
-          <span>03 / INVITE</span>
-          <strong>Bring the neighbourhood in.</strong>
-          <p>Ask followers what their 8:17 looks like and feature selected responses through stories and short video.</p>
-        </div>
-        <div class="campaign-step">
-          <span>04 / CONVERT</span>
-          <strong>Give the ritual a reason to visit.</strong>
-          <p>Connect selected campaign moments to morning offers, seasonal items or community events without losing the story.</p>
-        </div>
+      <div class="cafe-social-showcase" aria-label="Café Lumière 8:17 AM social execution system">
+        <article class="cafe-execution cafe-reel-execution">
+          <img src="../../assets/cafe/brand-world/human-moment.webp" alt="A café guest drinking coffee in warm morning light" loading="lazy" decoding="async">
+          <div class="cafe-image-shade"></div>
+          <div class="cafe-exec-top"><span>REEL / 01</span><span>08:17</span></div>
+          <div class="cafe-reel-copy">
+            <strong>SAME TIME.<br>DIFFERENT<br>MORNINGS.</strong>
+            <small>8:17 AM / CAFÉ LUMIÈRE</small>
+          </div>
+          <span class="cafe-play" aria-hidden="true">▶</span>
+        </article>
+
+        <article class="cafe-execution cafe-photo-execution">
+          <img src="../../assets/cafe/brand-world/documentary-cafe.webp" alt="A busy warm café with regulars and staff" loading="lazy" decoding="async">
+          <div class="cafe-image-shade light"></div>
+          <div class="cafe-exec-top"><span>PHOTO DUMP / 02</span><span>MONDAY</span></div>
+          <div class="cafe-photo-copy"><strong>08:17,<br>AS IT WAS.</strong><small>PEOPLE / PLACE / MOVEMENT</small></div>
+        </article>
+
+        <article class="cafe-execution cafe-story-execution">
+          <div class="cafe-exec-top"><span>STORY / 03</span><span>ASK</span></div>
+          <strong>WHAT DOES<br>YOUR 8:17<br>LOOK LIKE?</strong>
+          <div class="cafe-story-options"><span>FIRST COFFEE</span><span>ALREADY LATE</span><span>FIVE MORE MINUTES</span></div>
+        </article>
+
+        <article class="cafe-execution cafe-neighbour-execution">
+          <img src="../../assets/cafe/brand-world/street-neighbourhood.webp" alt="Neighbourhood café storefront with outdoor tables" loading="lazy" decoding="async">
+          <div class="cafe-image-shade"></div>
+          <div class="cafe-exec-top"><span>NEIGHBOURHOOD / 04</span><span>LOCAL</span></div>
+          <div class="cafe-neighbour-copy"><strong>THE STREET<br>IS PART OF<br>THE STORY.</strong><small>NOT EVERYTHING HAS TO SELL COFFEE.</small></div>
+        </article>
+
+        <article class="cafe-execution cafe-caption-execution">
+          <div class="cafe-caption-head"><span class="cafe-avatar">L</span><div><strong>cafe.lumiere</strong><small>8:17 AM · today</small></div></div>
+          <p><strong>8:17 again.</strong> Same corner table, different weather. Someone is ordering their usual. Someone is here for the first time.</p>
+          <p class="cafe-caption-cta">Tell us what your 8:17 looked like today.</p>
+          <div class="cafe-caption-meta"><span>♡</span><span>○</span><span>↗</span><span>SAVE</span></div>
+        </article>
       </div>
     </div>
   </section>
 
   <section id="calendar" class="section calendar">
     <div class="grid">
-      <h2>ONE WEEK<br>AT LUMIÈRE.</h2>
-      <p class="lead">The calendar moves between people, product, atmosphere and community so the café never becomes a feed of identical cups.</p>
+      <div class="calendar-intro">
+        <div class="eyebrow">CONTENT RHYTHM</div>
+        <h2>ONE WEEK<br>AT LUMIÈRE.</h2>
+        <p class="lead">People, product, atmosphere and community each get a role, so the café never becomes a feed of identical cups.</p>
+      </div>
 
-      <div class="week">
-        <div class="day">
-          <div class="day-name">MON</div>
-          <strong>8:17 AM Reel</strong>
-          <p>A short documentary moment that opens the week and reinforces the recurring campaign device.</p>
+      <div class="calendar-board" aria-label="One week Café Lumière content calendar">
+        <div class="calendar-bar">
+          <span>WEEK / 01</span>
+          <strong>CAFÉ LUMIÈRE</strong>
+          <span>7 TOUCHPOINTS</span>
         </div>
-        <div class="day">
-          <div class="day-name">TUE</div>
-          <strong>Staff story</strong>
-          <p>Introduce one person behind the counter through a simple portrait and a real detail about them.</p>
+        <div class="calendar-days">
+          <article class="calendar-day tone-yellow">
+            <div class="calendar-date"><span>MON</span><b>01</b></div>
+            <strong>8:17 AM<br>REEL</strong>
+            <small>SAME TIME / DIFFERENT MORNING</small>
+          </article>
+          <article class="calendar-day tone-paper">
+            <div class="calendar-date"><span>TUE</span><b>02</b></div>
+            <strong>STAFF<br>STORY</strong>
+            <small>PERSON BEFORE PRODUCT</small>
+          </article>
+          <article class="calendar-day tone-black">
+            <div class="calendar-date"><span>WED</span><b>03</b></div>
+            <strong>MENU<br>CONTEXT</strong>
+            <small>PROCESS + PAIRING</small>
+          </article>
+          <article class="calendar-day tone-soft calendar-neighbourhood">
+            <div class="calendar-date"><span>THU</span><b>04</b></div>
+            <strong>NEIGHBOURHOOD<br>NOTE</strong>
+            <small>LOCAL RELEVANCE</small>
+          </article>
+          <article class="calendar-day tone-yellow">
+            <div class="calendar-date"><span>FRI</span><b>05</b></div>
+            <strong>FRIDAY<br>CROWD</strong>
+            <small>MOVEMENT + ATMOSPHERE</small>
+          </article>
+          <article class="calendar-day tone-black">
+            <div class="calendar-date"><span>SAT</span><b>06</b></div>
+            <strong>COMMUNITY<br>PROMPT</strong>
+            <small>ASK + LISTEN</small>
+          </article>
+          <article class="calendar-day tone-paper">
+            <div class="calendar-date"><span>SUN</span><b>07</b></div>
+            <strong>SLOW<br>POST</strong>
+            <small>SPACE TO BREATHE</small>
+          </article>
         </div>
-        <div class="day">
-          <div class="day-name">WED</div>
-          <strong>Menu context</strong>
-          <p>Show one drink or dish through ingredient, process or pairing rather than a generic product shot.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">THU</div>
-          <strong>Neighbourhood note</strong>
-          <p>Feature a nearby place, event or street detail that strengthens local relevance.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">FRI</div>
-          <strong>Friday crowd</strong>
-          <p>A photo dump or quick-cut Reel focused on movement, tables, people and atmosphere.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SAT</div>
-          <strong>Community prompt</strong>
-          <p>Stories or comments prompt around weekend routines, favourite orders or local recommendations.</p>
-        </div>
-        <div class="day">
-          <div class="day-name">SUN</div>
-          <strong>Slow post</strong>
-          <p>A quieter visual moment or note that gives the feed breathing room before the next week begins.</p>
+        <div class="calendar-footer">
+          <span>PEOPLE</span><span>RITUAL</span><span>PRODUCT</span><span>NEIGHBOURHOOD</span>
         </div>
       </div>
     </div>
@@ -985,7 +1484,7 @@
   <section id="closing" class="section closing">
     <div class="grid">
       <div class="eyebrow">PROJECT / 02 COMPLETE</div>
-      <h2>MAKE THE PLACE<br>WORTH FOLLOWING<br>BEFORE ASKING<br>PEOPLE TO VISIT.</h2>
+      <h2>MAKE THE PLACE<br>WORTH FOLLOWING.</h2>
       <div class="next">
         <div><a href="../../index.html#work">BACK TO SELECTED WORK</a></div>
         <div><a href="../../index.html#top">autumnbranches studio →</a></div>
@@ -1088,6 +1587,20 @@ if(caseMenuToggle && caseTopbar){
   window.addEventListener('resize',()=>{if(innerWidth>820)closeCaseMenu()},{passive:true});
 }
 
+</script>
+<script id="v15-navigation-enhancements">
+(() => {
+  const topbar = document.querySelector('.topbar');
+  const toggle = document.querySelector('.case-menu-toggle');
+  if (!topbar || !toggle) return;
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || !topbar.classList.contains('menu-open')) return;
+    topbar.classList.remove('menu-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
+    toggle.focus();
+  });
+})();
 </script>
 </body>
 </html>
