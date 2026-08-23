@@ -1,5 +1,48 @@
 # Autumn Branches Portfolio — Changelog
 
+## v20 — Verde short-form social card cleanup
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on v19
+
+### Request summary
+
+Remove the decorative equalizer-style bars from Verde Systems' `03 / SHORT FORM` social execution and rebalance that card so it feels as clean and intentional as the other social examples. Preserve the existing message, colours, typography language, and all unrelated page layouts.
+
+### Files changed
+
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Removed the four decorative lime bars from the Verde short-form execution.
+- Rebuilt the card as a simple three-part composition: top metadata, centered headline, and bottom `ONE IDEA / 60 SEC` / play-control row.
+- Added a restrained lime divider above the bottom metadata to give the card structure without introducing another decorative graphic.
+- Added a constrained grid column to prevent intrinsic text width from escaping the card at the 821px breakpoint.
+- Reduced the short-form headline minimum desktop size so `INFRASTRUCTURE` remains fully inside the narrow desktop card instead of clipping.
+- Increased the 431–820px execution row height so the redesigned short-form card and its paired perspective card have enough vertical room without internal clipping.
+- Preserved all existing Verde copy, colours, content order, navigation behavior, social modules, and media.
+
+### Bugs fixed
+
+- Decorative bars reading like an unrelated chart/equalizer inside the short-form social execution.
+- Potential internal clipping of the redesigned card around 768–820px.
+- Long headline word overflow at the 821px desktop breakpoint.
+
+### Testing performed
+
+- Chromium layout and geometry checks at 375, 390, 430, 768, 820, 821, 1024, 1280, and 1440px.
+- Confirmed the short-form card has no horizontal or vertical internal overflow at the tested widths.
+- Confirmed the full document has no horizontal overflow at the tested widths.
+- Confirmed no page JavaScript errors were introduced by the change.
+- Visual spot checks completed at 375, 768, and 1440px.
+
+### Known limitations
+
+- As with prior versions, final GitHub Pages review in the user's live Chrome/Safari environments remains recommended after deployment.
+
 ## v19 — Verde fixed-header anchor landing correction
 
 **Revision date:** 2026-08-23  

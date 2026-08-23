@@ -2,11 +2,11 @@
 
 ## Version state
 
-- Current user-approved baseline: **v17 — Nura six-post feed structural repair**
-- Current delivered candidate: **v19 — Verde fixed-header anchor landing correction**
+- Current user-approved baseline: **v19 — Verde fixed-header anchor landing correction**
+- Current delivered candidate: **v20 — Verde short-form social card cleanup**
 - Previous locked original baseline: **v14**
-- v19 starts from v18 and preserves all v15–v18 responsive, browser, Story-card, footer-navigation, Nura feed, and case-study anchor repairs.
-- Candidate archive: `autumnbranches-site-v19-verde-anchor-landing.zip`
+- v20 starts from v19 and preserves all v15–v19 responsive, browser, Story-card, footer-navigation, Nura feed, and case-study anchor repairs.
+- Candidate archive: `autumnbranches-site-v20-verde-short-form-card.zip`
 
 ## Purpose and creative direction
 
@@ -61,6 +61,7 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 - Existing fixed headers, branch rails, transitions, carousels, work rail, media crops, section order, and unrelated case-study compositions remain unchanged.
 - v18 standardized fixed-header in-page anchor landing across Café Lumière, Nura Wellness, and Verde Systems using `scroll-margin-top: var(--header-h)`.
 - v19 adds a Verde-specific explicit navigation calculation because live Chrome review showed native anchor positioning still landing too high there. Verde Overview / Strategy / Social links now scroll the destination section boundary below the measured fixed-header height, preserving the section top padding.
+- v20 removes the decorative equalizer bars from Verde's `03 / SHORT FORM` social execution and replaces that internal treatment with a cleaner metadata / headline / footer composition. The card is also protected against 768–821px internal clipping without changing the other social executions.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -112,9 +113,9 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User review/acceptance of the delivered v19 Verde anchor correction.
-- After acceptance, deploy the updated Verde HTML and continuity records to GitHub Pages and verify Overview / Strategy / Social landing positions in the same browser that exposed the issue.
+- User review/acceptance of the delivered v20 Verde short-form card cleanup.
+- After acceptance, deploy the updated Verde HTML and continuity records to GitHub Pages and verify the short-form execution at desktop and mobile widths.
 
 ## Recommended next step
 
-Deploy v19, hard-refresh Verde Systems, and verify Overview / Strategy / Social landing positions from the fixed case-study navigation. If accepted, use v19 as the baseline for the next portfolio additions.
+Deploy v20, hard-refresh Verde Systems, and verify the revised `03 / SHORT FORM` execution in the live site. If accepted, use v20 as the baseline for the next portfolio additions.
