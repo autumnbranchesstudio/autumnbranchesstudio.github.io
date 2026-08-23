@@ -2,12 +2,11 @@
 
 ## Version state
 
-- Current user-approved baseline: **v15 — mobile-responsive implementation**
-- Current deployed/intermediate revision: **v16 — browser layout repairs and navigation legibility**
-- Current delivered candidate: **v17 — Nura six-post feed structural repair**
+- Current user-approved baseline: **v17 — Nura six-post feed structural repair**
+- Current delivered candidate: **v18 — case-study navigation anchor landing repair**
 - Previous locked original baseline: **v14**
-- v17 starts from v16 so the approved/requested Café Story repair and closing-navigation type adjustment are preserved.
-- Candidate archive: `autumnbranches-site-v17-nura-feed-structure.zip`
+- v18 starts from the user-accepted v17 build and preserves all v16/v17 browser, Story-card, footer-navigation, and Nura feed repairs.
+- Candidate archive: `autumnbranches-site-v18-navigation-anchor-fix.zip`
 
 ## Purpose and creative direction
 
@@ -60,6 +59,7 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 - v16 introduced three requested exceptions: the Café 8:17 AM Story card internal layout, preliminary Nura feed safeguards, and larger closing-navigation type on all case studies.
 - v17 replaces the preliminary Nura feed safeguard with a structural responsive treatment: the feed and its footer use natural height instead of fixed-height row compression; feed-card gutters are increased; from 821px through 1279px the six-post feed spans the full social-grid width and the four supporting social modules form a two-column grid; from 1050px through 1279px the six feed cards use one six-column row; at 1280px and above the approved wide-desktop social composition is retained.
 - Existing fixed headers, branch rails, transitions, carousels, work rail, media crops, section order, and unrelated case-study compositions remain unchanged.
+- v18 standardizes fixed-header in-page anchor landing across Café Lumière, Nura Wellness, and Verde Systems to match Mara Vale: menu-linked sections use `scroll-margin-top: var(--header-h)` so section starts sit immediately below the fixed header at both desktop and mobile header heights.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -111,9 +111,9 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User review/acceptance of the delivered v17 Nura feed structural repair.
-- After acceptance, deploy the v17 Nura page and continuity records to GitHub Pages and verify the six-post feed in the Chrome/browser condition where v16 appeared compressed.
+- User review/acceptance of the delivered v18 case-study navigation anchor repair.
+- After acceptance, deploy the three updated case-study HTML files and continuity records to GitHub Pages and verify menu landing positions on the live site.
 
 ## Recommended next step
 
-Deploy v17 over the current GitHub Pages files, hard-refresh the live Nura page, and verify the six-post feed at the browser width/zoom that exposed the v16 problem. Once accepted, record v17 as the working baseline for the next additions.
+Deploy v18, hard-refresh Café Lumière, Nura Wellness, and Verde Systems, and verify Overview / Strategy / Social landing positions from the fixed case-study navigation. If accepted, use v18 as the baseline for the next portfolio additions.

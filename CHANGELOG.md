@@ -1,5 +1,48 @@
 # Autumn Branches Portfolio — Changelog
 
+## v18 — Case-study navigation anchor landing repair
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on user-accepted v17
+
+### Request summary
+
+Make fixed-header case-study menu links land with the destination section fully visible, using Mara Vale's already-correct Strategy landing as the reference. Café Lumière, Nura Wellness, and Verde Systems were landing the section start behind the fixed header, cutting off the POSITIONING label. Apply the same behavior to every in-page section target on those pages without changing section layouts.
+
+### Files changed
+
+- `projects/cafe-lumiere/index.html`
+- `projects/nura-wellness/index.html`
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Added the same fixed-header anchor offset behavior already used by Mara Vale to every `.section` target on Café Lumière, Nura Wellness, and Verde Systems.
+- Overview, Strategy, Social, and any other section-ID anchors on those pages now reserve the current `--header-h` above the destination when browser anchor scrolling occurs.
+- The offset automatically follows the existing 66px desktop header and 60px mobile/tablet header variable values.
+- Preserved all section padding, typography, colors, grids, branch rails, content, and interactions.
+
+### Bugs fixed
+
+- Café Lumière Strategy landing placing POSITIONING underneath/too close to the fixed header.
+- Nura Wellness Strategy landing placing POSITIONING underneath/too close to the fixed header.
+- Verde Systems Strategy landing placing POSITIONING underneath/too close to the fixed header.
+- Equivalent fixed-header clipping risk for the other menu-linked sections on those three case studies.
+
+### Testing performed
+
+- Verified all case-study menu anchor targets exist and are section elements.
+- Compared implementation with Mara Vale's existing `.section { scroll-margin-top: var(--header-h) }` behavior.
+- Browser anchor landing geometry checks performed for Strategy and Social/Content targets at 375px, 768px, and 1440px; all menu hash targets, including Overview, were statically verified to exist.
+- Confirmed no document-level horizontal overflow and no local asset/path changes.
+
+### Known limitations
+
+- Final live GitHub Pages verification is still recommended because browser zoom and extension/toolbars can alter the visible viewport, although the anchor offset is based on the site's actual fixed-header CSS variable rather than a hard-coded desktop-only pixel value.
+
+
 ## v17 — Nura six-post feed structural repair
 
 **Revision date:** 2026-08-23  
