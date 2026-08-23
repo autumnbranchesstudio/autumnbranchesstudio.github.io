@@ -1,5 +1,44 @@
 # Autumn Branches Portfolio — Changelog
 
+## v19 — Verde fixed-header anchor landing correction
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on v18
+
+### Request summary
+
+Correct Verde Systems after live review showed its Strategy navigation still landing too high, with the POSITIONING label partially hidden behind the fixed header. Preserve the section design and the v18 behavior on the other case studies.
+
+### Files changed
+
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Added an explicit in-page navigation handler for Verde's Overview, Strategy, and Social links.
+- The handler calculates the live fixed-header height and scrolls the destination section boundary immediately below it, preserving the destination section's own top padding.
+- Keeps reduced-motion behavior by switching to an immediate scroll when the user requests reduced motion.
+- Keeps the URL hash updated without triggering a second browser-native anchor jump.
+- Added the same precise correction when a Verde page is opened directly with a valid section hash.
+- Retained the v18 `scroll-margin-top` rule as a CSS fallback.
+
+### Bugs fixed
+
+- Verde Strategy landing with `POSITIONING` clipped underneath the fixed header in the live browser.
+- Potential browser-to-browser variation in Verde's native fixed-header anchor positioning.
+
+### Testing performed
+
+- Verified the Verde menu contains valid `#opening`, `#strategy`, and `#social` targets.
+- Checked the explicit target calculation against the live header height at narrow mobile, tablet, short-desktop, and standard desktop viewport sizes.
+- Confirmed the change is isolated to Verde navigation JavaScript; no section CSS, copy, media, or layout rules were modified.
+
+### Known limitations
+
+- Live GitHub Pages should still be hard-refreshed after deployment to ensure the browser is running the new inline script rather than a cached v18 document.
+
 ## v18 — Case-study navigation anchor landing repair
 
 **Revision date:** 2026-08-23  

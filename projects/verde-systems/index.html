@@ -1693,5 +1693,40 @@ if(caseMenuToggle && caseTopbar){
   });
 })();
 </script>
+
+<script id="v19-verde-anchor-navigation">
+/* V19: explicit fixed-header landing for Verde in-page navigation. */
+(() => {
+  const topbar = document.querySelector('.topbar');
+  const links = document.querySelectorAll('.top-links a[href^="#"]');
+  if (!topbar || !links.length) return;
+
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const scrollToSection = (hash, updateHistory = true) => {
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const headerHeight = topbar.getBoundingClientRect().height;
+    const targetY = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerHeight);
+    window.scrollTo({ top: targetY, behavior: reducedMotion() ? 'auto' : 'smooth' });
+    if (updateHistory && window.location.hash !== hash) history.pushState(null, '', hash);
+  };
+
+  links.forEach(link => {
+    link.addEventListener('click', event => {
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+      event.preventDefault();
+      scrollToSection(hash);
+    });
+  });
+
+  if (window.location.hash && document.querySelector(window.location.hash)) {
+    window.addEventListener('load', () => {
+      window.setTimeout(() => scrollToSection(window.location.hash, false), 0);
+    }, { once: true });
+  }
+})();
+</script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 ## Version state
 
 - Current user-approved baseline: **v17 — Nura six-post feed structural repair**
-- Current delivered candidate: **v18 — case-study navigation anchor landing repair**
+- Current delivered candidate: **v19 — Verde fixed-header anchor landing correction**
 - Previous locked original baseline: **v14**
-- v18 starts from the user-accepted v17 build and preserves all v16/v17 browser, Story-card, footer-navigation, and Nura feed repairs.
-- Candidate archive: `autumnbranches-site-v18-navigation-anchor-fix.zip`
+- v19 starts from v18 and preserves all v15–v18 responsive, browser, Story-card, footer-navigation, Nura feed, and case-study anchor repairs.
+- Candidate archive: `autumnbranches-site-v19-verde-anchor-landing.zip`
 
 ## Purpose and creative direction
 
@@ -59,7 +59,8 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 - v16 introduced three requested exceptions: the Café 8:17 AM Story card internal layout, preliminary Nura feed safeguards, and larger closing-navigation type on all case studies.
 - v17 replaces the preliminary Nura feed safeguard with a structural responsive treatment: the feed and its footer use natural height instead of fixed-height row compression; feed-card gutters are increased; from 821px through 1279px the six-post feed spans the full social-grid width and the four supporting social modules form a two-column grid; from 1050px through 1279px the six feed cards use one six-column row; at 1280px and above the approved wide-desktop social composition is retained.
 - Existing fixed headers, branch rails, transitions, carousels, work rail, media crops, section order, and unrelated case-study compositions remain unchanged.
-- v18 standardizes fixed-header in-page anchor landing across Café Lumière, Nura Wellness, and Verde Systems to match Mara Vale: menu-linked sections use `scroll-margin-top: var(--header-h)` so section starts sit immediately below the fixed header at both desktop and mobile header heights.
+- v18 standardized fixed-header in-page anchor landing across Café Lumière, Nura Wellness, and Verde Systems using `scroll-margin-top: var(--header-h)`.
+- v19 adds a Verde-specific explicit navigation calculation because live Chrome review showed native anchor positioning still landing too high there. Verde Overview / Strategy / Social links now scroll the destination section boundary below the measured fixed-header height, preserving the section top padding.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -111,9 +112,9 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User review/acceptance of the delivered v18 case-study navigation anchor repair.
-- After acceptance, deploy the three updated case-study HTML files and continuity records to GitHub Pages and verify menu landing positions on the live site.
+- User review/acceptance of the delivered v19 Verde anchor correction.
+- After acceptance, deploy the updated Verde HTML and continuity records to GitHub Pages and verify Overview / Strategy / Social landing positions in the same browser that exposed the issue.
 
 ## Recommended next step
 
-Deploy v18, hard-refresh Café Lumière, Nura Wellness, and Verde Systems, and verify Overview / Strategy / Social landing positions from the fixed case-study navigation. If accepted, use v18 as the baseline for the next portfolio additions.
+Deploy v19, hard-refresh Verde Systems, and verify Overview / Strategy / Social landing positions from the fixed case-study navigation. If accepted, use v19 as the baseline for the next portfolio additions.
