@@ -3,10 +3,10 @@
 ## Version state
 
 - Current user-approved baseline: **v20 — deployed and user-approved**
-- Current delivered candidate: **v21 — unified sans-serif typography + Instagram contact control**
+- Current delivered candidate: **v22 — unified typography + active Instagram contact link**
 - Previous locked original baseline: **v14**
-- v21 starts from deployed v20 and preserves all prior responsive, browser, feed, anchor, and Verde social-card repairs.
-- Candidate archive: `autumnbranches-site-v21-unified-typography-instagram.zip`
+- v22 starts from v21, activates the supplied Instagram profile URL, and preserves all prior responsive, browser, feed, anchor, typography, and Verde social-card repairs.
+- Candidate archive: `autumnbranches-site-v22-instagram-link.zip`
 
 ## Purpose and creative direction
 
@@ -116,10 +116,9 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User review/acceptance of the v21 unified typography pass.
-- User to provide the final Instagram profile URL so the pending contact control can become an active external link.
-- After approval, deploy v21 to GitHub Pages and verify typography wrapping in the live browser.
+- User review/acceptance of the v22 typography + Instagram-link build.
+- After approval, deploy v22 to GitHub Pages and verify the Instagram link and typography wrapping in the live browser.
 
 ## Recommended next step
 
-Review v21 at desktop, tablet, and phone widths. If accepted, deploy it and then supply the Instagram URL for the next small revision.
+Review v22 at desktop, tablet, and phone widths. If accepted, deploy it to GitHub Pages and verify the Instagram button opens the supplied profile correctly.

@@ -1,5 +1,39 @@
 # Autumn Branches Portfolio — Changelog
 
+## v22 — Activate Instagram contact link
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on v21
+
+### Request summary
+
+Activate the existing homepage Instagram contact control using the supplied Autumn Branches Studio Instagram profile URL.
+
+### Files changed
+
+- `index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Converted the pending Instagram contact control into a real external link.
+- Linked it to the supplied Autumn Branches Studio Instagram profile.
+- Opens Instagram in a new tab with `noopener noreferrer`.
+- Added an accessible link label and visible keyboard focus treatment.
+- Removed the disabled/pending state styling; no other portfolio layout or content was changed.
+
+### Testing performed
+
+- Verified the supplied Instagram URL is present exactly once in `index.html`.
+- Verified the control is a focusable anchor with external-link safety attributes.
+- Verified no pending/disabled Instagram state remains.
+- Verified packaged local references remain unchanged.
+
+### Known limitations
+
+- Final live verification should be performed after GitHub Pages deploys v22.
+
 ## v21 — Unified sans-serif typography + Instagram contact control
 
 **Revision date:** 2026-08-23  

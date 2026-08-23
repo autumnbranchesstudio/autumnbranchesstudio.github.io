@@ -1509,7 +1509,7 @@ button{font:inherit;color:inherit}
 .contact-option-label,.contact-or,.call-form label>span{font-size:11px}
 .contact-foot{font-size:12px}
 
-/* Instagram is deliberately non-clickable until the final URL is supplied. */
+/* Instagram contact link. */
 .contact-direct-actions{
   display:flex;
   justify-content:center;
@@ -1530,10 +1530,13 @@ button{font:inherit;color:inherit}
   font-weight:800;
   letter-spacing:.035em;
   text-transform:uppercase;
-  opacity:.72;
-  cursor:default;
+  opacity:1;
+  cursor:pointer;
+  text-decoration:none;
 }
 .contact-instagram span{font-size:15px;line-height:1}
+.contact-instagram:hover{background:rgba(244,241,233,.08)}
+.contact-instagram:focus-visible{outline:2px solid var(--ivory);outline-offset:4px}
 
 @media(max-width:820px){
   .hero-bottom .origin,.service-detail .index{font-size:10px!important}
@@ -1714,7 +1717,7 @@ button{font:inherit;color:inherit}
           <span class="contact-email-address">reachautumnbranches@gmail.com</span>
         </a>
 
-        <span class="contact-instagram" aria-disabled="true" title="Instagram link will be added when supplied">INSTAGRAM <span aria-hidden="true">↗</span></span>
+        <a class="contact-instagram" href="https://www.instagram.com/autumnbranchesstudio?igsi=c3Jsd28yYmlqbnRp&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Autumn Branches Studio on Instagram">INSTAGRAM <span aria-hidden="true">↗</span></a>
       </div>
 
       <div class="contact-or">OR</div>
