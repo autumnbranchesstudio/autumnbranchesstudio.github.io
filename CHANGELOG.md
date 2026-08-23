@@ -1,9 +1,71 @@
 # Autumn Branches Portfolio — Changelog
 
+## v16 — Browser layout repairs and navigation legibility
+
+**Revision date:** 2026-08-23  
+**Status:** Delivered candidate based on the user-approved v15 baseline
+
+### Request summary
+
+Repair three issues identified after live/browser review: the Nura Wellness six-post feed becoming crowded or overlapping in some desktop/Chromium viewport conditions; the Café Lumière 8:17 AM Story execution clipping and misaligning; and closing case-study navigation type appearing too small. Preserve all other approved layouts and content.
+
+### Files changed
+
+- `projects/cafe-lumiere/index.html`
+- `projects/mara-vale/index.html`
+- `projects/nura-wellness/index.html`
+- `projects/verde-systems/index.html`
+- `PROJECT_HANDOFF.md`
+- `CHANGELOG.md`
+
+### Changes completed
+
+- Reworked only the Café 8:17 AM Story card's internal flow so its top metadata, headline, and poll options fit without clipping at phone, tablet, and desktop widths.
+- Added Nura feed safeguards that keep feed tiles on natural aspect-ratio rows and reduce headline scaling in the narrow-desktop/tablet ranges where Chromium could crowd the tile artwork.
+- Increased closing-navigation typography consistently across all four case studies: 14px on desktop and 12px through 820px.
+- Preserved all copy, assets, colours, section order, and unrelated desktop compositions.
+
+### Bugs fixed
+
+- Café Story card headline being pushed above the card and colliding with its `STORY / ASK` metadata.
+- Nura feed headline crowding/clipping near the 821px desktop breakpoint and in constrained desktop/browser viewport conditions.
+- Case-study closing navigation appearing undersized relative to the surrounding section.
+
+### Testing performed
+
+Target widths checked after the repair:
+
+- 375px
+- 390px
+- 430px
+- 768px
+- 820px
+- 821px
+- 1024px
+- 1180px
+- 1280px
+- 1440px
+
+Checks included Café Story element bounds and child clipping, Nura feed-tile dimensions and text containment, case-study closing-navigation wrapping, document horizontal overflow, local asset references, inline JavaScript syntax, and visual spot checks in Chromium.
+
+Results:
+
+- No horizontal overflow detected on any of the five pages at the ten tested widths.
+- No Café Story child clipping detected.
+- No Nura feed-tile overlap or headline escape detected.
+- Closing navigation renders at 12px through 820px and 14px from 821px upward without internal overflow.
+- No missing packaged references or inline JavaScript syntax errors detected.
+
+### Known limitations
+
+- Physical Safari/Chrome device testing remains recommended after deployment.
+- The homepage video and all media files are unchanged from v15.
+- Shared case-study styles remain inline by design; no refactor was introduced.
+
 ## v15 — Mobile-responsive implementation
 
 **Revision date:** 2026-08-23  
-**Status:** Delivered candidate implementing the approved mobile-audit scope
+**Status:** Approved baseline; superseded for new work by v16 candidate
 
 ### Request summary
 

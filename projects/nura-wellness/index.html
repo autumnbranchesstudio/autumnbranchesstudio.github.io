@@ -1474,6 +1474,48 @@
 }
 
 </style>
+
+<style id="v16-closing-nav-type">
+/* V16: approved closing-navigation legibility adjustment. */
+.closing .next{font-size:14px!important;line-height:1.65!important}
+@media(max-width:820px){
+  .closing .next{font-size:12px!important;line-height:1.7!important}
+}
+</style>
+
+
+<style id="v16-nura-feed-repair">
+/* V16: make the six-post feed resilient to Chromium/viewport differences. */
+.feed-grid-six{
+  grid-auto-rows:auto!important;
+  align-items:start!important;
+}
+.feed-grid-six .feed-tile{align-self:start!important}
+@media(min-width:821px) and (max-width:1180px){
+  .feed-perspective>strong,.feed-campaign>strong,.feed-community>strong{
+    font-size:clamp(12px,1.55vw,18px)!important;
+    line-height:.9!important;
+  }
+  .feed-ritual-clean .ritual-title{
+    margin-top:18%!important;
+    font-size:clamp(12px,1.5vw,17px)!important;
+    line-height:.92!important;
+  }
+  .feed-community>strong{max-width:10ch!important}
+}
+@media(min-width:600px) and (max-width:820px){
+  .feed-perspective>strong,.feed-campaign>strong,.feed-community>strong{
+    font-size:clamp(14px,2.2vw,18px)!important;
+    line-height:.9!important;
+  }
+  .feed-ritual-clean .ritual-title{
+    margin-top:20%!important;
+    font-size:clamp(15px,2.35vw,19px)!important;
+    line-height:.92!important;
+  }
+}
+</style>
+
 </head>
 <body>
 

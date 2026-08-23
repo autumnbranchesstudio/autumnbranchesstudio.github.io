@@ -2,10 +2,11 @@
 
 ## Version state
 
-- Current delivered candidate: **v15 — mobile-responsive implementation**
-- Previous locked and approved baseline: **v14**
-- v15 status: Implements the approved audit scope and is awaiting post-delivery acceptance.
-- Source archive for v15: `autumnbranches-site-v15-mobile-responsive.zip`
+- Current user-approved baseline: **v15 — mobile-responsive implementation**
+- Current delivered candidate: **v16 — browser layout repairs and navigation legibility**
+- Previous locked original baseline: **v14**
+- v16 is based only on the approved v15 files and does not restore older layouts.
+- Candidate archive: `autumnbranches-site-v16-browser-layout-fixes.zip`
 
 ## Purpose and creative direction
 
@@ -54,10 +55,9 @@ The site is static and self-contained. CSS and JavaScript are embedded in each H
 
 ## Approved desktop behaviour
 
-- Widths at and above 821px retain the v14 desktop implementation.
-- v15 was compared with v14 at 821px, 1024px, and 1440px.
-- Computed layout signatures and full-page pixel comparisons were identical at the tested desktop widths.
-- Existing fixed headers, branch rails, transitions, carousels, work rail, media crops, and case-study compositions remain unchanged.
+- v15 preserved the v14 desktop implementation at and above 821px.
+- v16 contains three explicitly requested exceptions only: the Café 8:17 AM Story card internal layout, Nura feed typography/row safeguards in constrained desktop widths, and larger closing-navigation type on all case studies.
+- Existing fixed headers, branch rails, transitions, carousels, work rail, media crops, section order, and unrelated case-study compositions remain unchanged.
 
 ## Approved mobile and tablet behaviour in v15
 
@@ -109,9 +109,9 @@ Page-specific interactions:
 
 ## Outstanding requests
 
-- User acceptance of the delivered v15 archive.
-- No other content or visual request is currently approved.
+- User review/acceptance of the delivered v16 repair archive.
+- After acceptance, deploy v16 to GitHub Pages and verify the repaired Café Story card and Nura feed in the browser(s) where the issues were observed.
 
 ## Recommended next step
 
-Review v15 on at least one physical iPhone/Safari device and one Android/Chrome device. Once accepted, record v15 as the current approved version and use it—not v14—as the baseline for v16.
+Deploy v16 over the current GitHub Pages files, hard-refresh the live site, and verify the three repaired areas. Once accepted, record v16 as the approved baseline for the next content/design additions.

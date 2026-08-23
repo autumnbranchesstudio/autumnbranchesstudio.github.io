@@ -1163,6 +1163,45 @@
 }
 
 </style>
+
+<style id="v16-closing-nav-type">
+/* V16: approved closing-navigation legibility adjustment. */
+.closing .next{font-size:14px!important;line-height:1.65!important}
+@media(max-width:820px){
+  .closing .next{font-size:12px!important;line-height:1.7!important}
+}
+</style>
+
+
+<style id="v16-cafe-story-repair">
+/* V16: prevent the 8:17 AM story execution card from clipping across browsers. */
+.cafe-story-execution{
+  justify-content:flex-start!important;
+  gap:9px!important;
+  padding:15px 18px 13px!important;
+}
+.cafe-story-execution .cafe-exec-top{
+  position:static!important;
+  inset:auto!important;
+  flex:0 0 auto;
+  margin:0!important;
+}
+.cafe-story-execution>strong{
+  margin:0!important;
+  max-width:10ch!important;
+  font-size:clamp(22px,1.9vw,27px)!important;
+  line-height:.9!important;
+}
+.cafe-story-options{margin-top:auto!important;gap:5px!important}
+.cafe-story-options span{padding:4px 8px!important;line-height:1.15!important}
+@media(max-width:820px){
+  .cafe-story-execution{gap:7px!important;padding:13px 16px 11px!important}
+  .cafe-story-execution>strong{font-size:22px!important;line-height:.9!important}
+  .cafe-story-options{gap:4px!important}
+  .cafe-story-options span{padding:3px 7px!important;font-size:6.5px!important}
+}
+</style>
+
 </head>
 <body>
 
