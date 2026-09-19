@@ -1196,27 +1196,68 @@
 .form-note.is-success{color:#b9b9b9}
 .form-note.is-error{color:#f0a6a6}
 
-/* Mobile interaction refinement — Studio links stay legible; Expertise reveals on scroll. */
+/* v25 Stage 2.26 — fluid mobile chapter interactions */
 @media(max-width:760px){
+  /* Studio becomes a true scroll-driven scene on phone: the frame stays put while
+     Cinema -> Literature -> Architecture takes turns becoming the active lens. */
+  .studio-home{
+    height:220svh!important;
+    min-height:220svh!important;
+    position:relative;
+  }
+  .studio-sticky{
+    position:sticky!important;
+    top:0!important;
+    height:100svh!important;
+    min-height:100svh!important;
+    padding:calc(86px + env(safe-area-inset-top)) var(--mobile-pad) calc(42px + env(safe-area-inset-bottom))!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    grid-template-rows:auto minmax(150px,auto)!important;
+    align-content:center!important;
+    gap:28px!important;
+    overflow:hidden!important;
+  }
+  .studio-words{gap:3px!important;align-content:center!important}
   .studio-word{
-    opacity:.68!important;
-    transform:none!important;
-    filter:none!important;
-    touch-action:manipulation;
+    opacity:.34;
+    transform:translateX(0);
+    transition:opacity .42s var(--ease),transform .5s var(--ease)!important;
+    will-change:opacity,transform;
+    -webkit-tap-highlight-color:transparent;
   }
-  .studio-word.is-active,
-  .studio-word:hover,
-  .studio-word:focus-visible{
-    opacity:1!important;
-    transform:none!important;
-    filter:none!important;
-  }
+  .studio-word.is-active{opacity:1}
+  .studio-word:hover,.studio-word:focus-visible{filter:none}
   .studio-copy{
-    margin-top:12px!important;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,.16);
+    width:100%!important;
+    max-width:100%!important;
+    min-height:158px;
+    margin:0!important;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.17);
+    align-content:start!important;
+    transition:opacity .24s ease,transform .34s var(--ease)!important;
   }
-  .service-strip{
-    transition:height .46s var(--ease),background .3s ease!important;
+  .studio-copy p{max-width:35ch!important}
+
+  /* Expertise keeps a stable footprint so auto-reveal never jumps the page.
+     Scroll controls which tile is open; tapping is optional. */
+  .service-strip,
+  .service-strip:hover,
+  .service-strip:focus-visible,
+  .service-strip.active{
+    height:260px!important;
+    min-height:260px!important;
+    background:#050505;
+    transition:background .42s ease,color .42s ease!important;
   }
+  .service-strip.active{background:var(--blue)!important}
+  .service-layer{
+    transition:opacity .32s ease,transform .48s var(--ease)!important;
+    will-change:opacity,transform;
+  }
+  .service-strip .service-title{opacity:1;transform:translateY(0)}
+  .service-strip .service-detail{opacity:0;transform:translateY(18%)}
+  .service-strip.active .service-title{opacity:0;transform:translateY(-22%)}
+  .service-strip.active .service-detail{opacity:1;transform:translateY(0)}
 }
