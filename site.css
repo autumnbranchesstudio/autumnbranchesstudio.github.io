@@ -1196,68 +1196,105 @@
 .form-note.is-success{color:#b9b9b9}
 .form-note.is-error{color:#f0a6a6}
 
-/* v25 Stage 2.26 — fluid mobile chapter interactions */
+/* v25 Stage 2.27 — mobile scroll choreography (homepage) */
 @media(max-width:760px){
-  /* Studio becomes a true scroll-driven scene on phone: the frame stays put while
-     Cinema -> Literature -> Architecture takes turns becoming the active lens. */
+  /* Studio is one pinned chapter. Scroll, not tap, controls the active lens. */
   .studio-home{
-    height:220svh!important;
-    min-height:220svh!important;
-    position:relative;
+    height:250svh!important;
+    min-height:250svh!important;
+    position:relative!important;
+    background:#050505!important;
   }
   .studio-sticky{
     position:sticky!important;
     top:0!important;
     height:100svh!important;
     min-height:100svh!important;
-    padding:calc(86px + env(safe-area-inset-top)) var(--mobile-pad) calc(42px + env(safe-area-inset-bottom))!important;
+    padding:calc(92px + env(safe-area-inset-top)) var(--mobile-pad) calc(34px + env(safe-area-inset-bottom))!important;
     display:grid!important;
     grid-template-columns:1fr!important;
-    grid-template-rows:auto minmax(150px,auto)!important;
+    grid-template-rows:auto auto!important;
     align-content:center!important;
-    gap:28px!important;
+    gap:30px!important;
     overflow:hidden!important;
   }
   .studio-words{gap:3px!important;align-content:center!important}
   .studio-word{
-    opacity:.34;
-    transform:translateX(0);
-    transition:opacity .42s var(--ease),transform .5s var(--ease)!important;
-    will-change:opacity,transform;
+    max-width:100%!important;
+    font-size:clamp(43px,12.5vw,58px)!important;
+    line-height:.88!important;
+    letter-spacing:-.064em!important;
+    opacity:.28!important;
+    transform:none!important;
+    filter:none!important;
+    transition:opacity .18s linear, transform .28s var(--ease)!important;
     -webkit-tap-highlight-color:transparent;
   }
-  .studio-word.is-active{opacity:1}
-  .studio-word:hover,.studio-word:focus-visible{filter:none}
+  .studio-word.is-active{
+    opacity:1!important;
+    transform:translateX(7px)!important;
+  }
+  .studio-word:hover,.studio-word:focus-visible{
+    filter:none!important;
+  }
   .studio-copy{
     width:100%!important;
     max-width:100%!important;
-    min-height:158px;
+    min-height:170px!important;
     margin:0!important;
-    padding-top:22px;
-    border-top:1px solid rgba(255,255,255,.17);
+    padding-top:24px!important;
+    border-top:1px solid rgba(255,255,255,.17)!important;
+    gap:16px!important;
     align-content:start!important;
-    transition:opacity .24s ease,transform .34s var(--ease)!important;
   }
-  .studio-copy p{max-width:35ch!important}
+  .studio-copy p{
+    font-size:17px!important;
+    line-height:1.48!important;
+    max-width:34ch!important;
+  }
+  .studio-meta{font-size:9px!important;line-height:1.5!important}
 
-  /* Expertise keeps a stable footprint so auto-reveal never jumps the page.
-     Scroll controls which tile is open; tapping is optional. */
+  /* Expertise rows keep one stable size. JS continuously reveals content by scroll position. */
+  .expertise{padding-bottom:54px!important}
+  .services{border-top:1px solid rgba(255,255,255,.28)!important;border-bottom:1px solid rgba(255,255,255,.28)!important}
   .service-strip,
   .service-strip:hover,
   .service-strip:focus-visible,
   .service-strip.active{
-    height:260px!important;
-    min-height:260px!important;
+    height:300px!important;
+    min-height:300px!important;
     background:#050505;
-    transition:background .42s ease,color .42s ease!important;
+    outline:none!important;
+    transition:none!important;
   }
-  .service-strip.active{background:var(--blue)!important}
-  .service-layer{
-    transition:opacity .32s ease,transform .48s var(--ease)!important;
-    will-change:opacity,transform;
+  .service-layer{padding:26px var(--mobile-pad)!important;transition:none!important}
+  .service-title{
+    font-size:clamp(33px,9.5vw,45px)!important;
+    line-height:.91!important;
+    white-space:normal!important;
+    max-width:12ch!important;
+    opacity:1;
+    transform:none;
   }
-  .service-strip .service-title{opacity:1;transform:translateY(0)}
-  .service-strip .service-detail{opacity:0;transform:translateY(18%)}
-  .service-strip.active .service-title{opacity:0;transform:translateY(-22%)}
-  .service-strip.active .service-detail{opacity:1;transform:translateY(0)}
+  .service-detail{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+    align-content:center!important;
+    opacity:0;
+    transform:translateY(20px);
+  }
+  .service-detail .index{font-size:9px!important}
+  .service-detail .items{grid-template-columns:1fr 1fr!important;gap:11px 18px!important}
+  .service-detail .items span{font-size:clamp(17px,5vw,21px)!important;line-height:1.05!important}
+  .service-strip:hover .service-title,
+  .service-strip:focus-visible .service-title,
+  .service-strip.active .service-title{opacity:1;transform:none}
+  .service-strip:hover .service-detail,
+  .service-strip:focus-visible .service-detail,
+  .service-strip.active .service-detail{opacity:0;transform:translateY(20px)}
+}
+
+@media(max-width:390px){
+  .service-strip,.service-strip:hover,.service-strip:focus-visible,.service-strip.active{height:318px!important;min-height:318px!important}
+  .service-detail .items{grid-template-columns:1fr!important;gap:9px!important}
 }
