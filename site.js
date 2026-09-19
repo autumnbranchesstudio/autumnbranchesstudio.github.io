@@ -33,16 +33,59 @@
  function queueStudio(){if(studioRaf)return;studioRaf=requestAnimationFrame(updateStudio)}
  addEventListener('scroll',queueStudio,{passive:true});addEventListener('resize',queueStudio,{passive:true});addEventListener('pageshow',queueStudio);queueStudio();if(words.length)renderStudio(0,true);
 
- // Expertise: mobile rows reveal continuously as each tile moves through the viewport reading zone.
+ // Expertise: on mobile, exactly one tile opens at a time as its top crosses the reading line.
  const serviceRows=[...document.querySelectorAll('.service-strip')];
  const mobileServices=matchMedia('(max-width:760px)');
- let serviceRaf=0;
- function mix(a,b,t){return Math.round(a+(b-a)*t)}
- function paintService(row,p){const title=row.querySelector('.service-title'),detail=row.querySelector('.service-detail');const q=clamp((p-.18)/.64,0,1);const titleOpacity=1-q;const detailOpacity=q;row.style.backgroundColor=`rgb(${mix(5,1,q)},${mix(5,59,q)},${mix(5,254,q)})`;if(title){title.style.opacity=titleOpacity.toFixed(3);title.style.transform=`translateY(${(-18*q).toFixed(1)}px)`}if(detail){detail.style.opacity=detailOpacity.toFixed(3);detail.style.transform=`translateY(${(20*(1-q)).toFixed(1)}px)`}row.classList.toggle('active',q>.55)}
- function updateServices(){serviceRaf=0;if(!serviceRows.length)return;if(!mobileServices.matches){serviceRows.forEach(r=>{r.style.backgroundColor='';const t=r.querySelector('.service-title'),d=r.querySelector('.service-detail');if(t){t.style.opacity='';t.style.transform=''}if(d){d.style.opacity='';d.style.transform=''}r.classList.remove('active')});return}const vh=innerHeight||document.documentElement.clientHeight,target=vh*.58,range=vh*.42;serviceRows.forEach(row=>{const rr=row.getBoundingClientRect(),center=(rr.top+rr.bottom)/2;const p=clamp(1-Math.abs(center-target)/range,0,1);paintService(row,p)})}
+ let serviceRaf=0,serviceRequested=-2,serviceActive=-1,serviceTimer=0;
+ function resetServiceInline(row){
+   row.style.backgroundColor='';
+   const title=row.querySelector('.service-title'),detail=row.querySelector('.service-detail');
+   if(title){title.style.opacity='';title.style.transform=''}
+   if(detail){detail.style.opacity='';detail.style.transform=''}
+ }
+ function requestService(next){
+   if(next===serviceRequested)return;
+   serviceRequested=next;
+   clearTimeout(serviceTimer);
+   serviceRows.forEach(r=>r.classList.remove('active'));
+   serviceActive=-1;
+   if(next<0)return;
+   serviceTimer=setTimeout(()=>{
+     if(serviceRequested!==next)return;
+     serviceRows.forEach((r,j)=>r.classList.toggle('active',j===next));
+     serviceActive=next;
+   },110);
+ }
+ function updateServices(){
+   serviceRaf=0;
+   if(!serviceRows.length)return;
+   if(!mobileServices.matches){
+     clearTimeout(serviceTimer);serviceRequested=-2;serviceActive=-1;
+     serviceRows.forEach(r=>{resetServiceInline(r);r.classList.remove('active')});
+     return;
+   }
+   const vh=innerHeight||document.documentElement.clientHeight;
+   const trigger=vh*.60;
+   const topGuard=78;
+   let next=-1;
+   serviceRows.forEach((row,i)=>{
+     resetServiceInline(row);
+     const rr=row.getBoundingClientRect();
+     if(rr.top<=trigger && rr.bottom>topGuard)next=i;
+   });
+   requestService(next);
+ }
  function queueServices(){if(serviceRaf)return;serviceRaf=requestAnimationFrame(updateServices)}
- serviceRows.forEach((row,i)=>{row.addEventListener('mouseenter',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});row.addEventListener('mouseleave',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});row.addEventListener('focus',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});row.addEventListener('blur',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))})});
- addEventListener('scroll',queueServices,{passive:true});addEventListener('resize',queueServices,{passive:true});addEventListener('pageshow',queueServices);if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{queueStudio();queueServices()});queueServices();
+ serviceRows.forEach((row,i)=>{
+   row.addEventListener('mouseenter',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});
+   row.addEventListener('mouseleave',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
+   row.addEventListener('focus',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});
+   row.addEventListener('blur',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
+   row.addEventListener('click',()=>{if(mobileServices.matches)requestService(i)});
+ });
+ addEventListener('scroll',queueServices,{passive:true});addEventListener('resize',queueServices,{passive:true});addEventListener('pageshow',queueServices);
+ if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{requestService(-1);queueStudio();queueServices()});
+ queueServices();
  // Contact form -> Formspree inbox delivery with an in-page success state.
  const form=document.getElementById('callForm');
  if(form)form.addEventListener('submit',async e=>{

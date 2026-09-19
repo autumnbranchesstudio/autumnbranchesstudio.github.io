@@ -1298,3 +1298,50 @@
   .service-strip,.service-strip:hover,.service-strip:focus-visible,.service-strip.active{height:318px!important;min-height:318px!important}
   .service-detail .items{grid-template-columns:1fr!important;gap:9px!important}
 }
+
+/* Mobile service sequence v2.28 — one reveal at a time, scroll controlled. */
+@media(max-width:760px){
+  .service-strip,
+  .service-strip:hover,
+  .service-strip:focus-visible{
+    height:154px!important;
+    min-height:154px!important;
+    background:#050505!important;
+    outline:none!important;
+    overflow:hidden!important;
+    transition:height .42s cubic-bezier(.22,.8,.22,1),background .30s ease!important;
+  }
+  .service-strip.active{
+    height:318px!important;
+    min-height:318px!important;
+    background:var(--blue)!important;
+  }
+  .service-layer{
+    transition:opacity .24s ease,transform .38s cubic-bezier(.22,.8,.22,1)!important;
+  }
+  .service-title,
+  .service-strip:hover .service-title,
+  .service-strip:focus-visible .service-title{
+    opacity:1!important;
+    transform:none!important;
+  }
+  .service-detail,
+  .service-strip:hover .service-detail,
+  .service-strip:focus-visible .service-detail{
+    opacity:0!important;
+    transform:translateY(18px)!important;
+    pointer-events:none!important;
+  }
+  .service-strip.active .service-title{
+    opacity:0!important;
+    transform:translateY(-18px)!important;
+  }
+  .service-strip.active .service-detail{
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
+  }
+}
+@media(max-width:390px){
+  .service-strip.active{height:338px!important;min-height:338px!important}
+}
