@@ -84,8 +84,12 @@
  const closeMenu=()=>{const p=document.querySelector('.menu-plane'),t=document.querySelector('.menu-trigger');if(p?.classList.contains('is-open')){p.classList.remove('is-open');t?.setAttribute('aria-expanded','false');document.body.style.overflow=''}};
  const homeIds=new Set(['intro','studio','expertise','thinking','contact']);
  const sectionFromUrl=u=>{try{const x=u instanceof URL?u:new URL(u,location.href);const q=x.searchParams.get('section');const h=x.hash.slice(1);return homeIds.has(q)?q:(homeIds.has(h)?h:null)}catch{return null}};
- const rememberHomeTarget=u=>{const id=sectionFromUrl(u);if(id)sessionStorage.setItem('ab:home-target',id);return id};
+ const sectionFromReturn=u=>{try{const x=u instanceof URL?u:new URL(u,location.href);const raw=x.searchParams.get('return');return raw?sectionFromUrl(new URL(raw,x)):null}catch{return null}};
+ const rememberHomeTarget=u=>{const id=sectionFromUrl(u)||sectionFromReturn(u);if(id)sessionStorage.setItem('ab:home-target',id);return id};
  const absoluteReturn=raw=>{const u=new URL(raw,location.href),id=sectionFromUrl(u);if(id){u.searchParams.set('section',id);u.hash=id;sessionStorage.setItem('ab:home-target',id)}return u.href};
+ const currentHomeSection=()=>{if(document.body.dataset.page!=='home')return null;const headerH=document.querySelector('.site-header')?.offsetHeight||78,probe=headerH+Math.min(110,innerHeight*.18);let best=null,bestDist=Infinity;homeIds.forEach(id=>{const el=document.getElementById(id);if(!el)return;const r=el.getBoundingClientRect();if(r.top<=probe&&r.bottom>=probe){best=id;bestDist=0;return}const d=Math.min(Math.abs(r.top-probe),Math.abs(r.bottom-probe));if(d<bestDist){best=id;bestDist=d}});return best};
+ const homeTargetForLink=(a,u)=>sectionFromReturn(u)||sectionFromUrl(u)||(homeIds.has(a.dataset.page)?a.dataset.page:null)||(a.dataset.page==='work'?'intro':null)||(a.closest('section[id]')&&homeIds.has(a.closest('section[id]').id)?a.closest('section[id]').id:null)||currentHomeSection();
+ const primeHomeHistory=id=>{if(document.body.dataset.page!=='home'||!homeIds.has(id))return;const here=new URL(location.href);here.searchParams.set('section',id);here.hash=id;sessionStorage.setItem('ab:home-target',id);const state={...(history.state||{}),abHomeTarget:id};history.replaceState(state,'',here.pathname+here.search+here.hash)};
  document.querySelectorAll('a[href]').forEach(a=>{
    const raw=a.getAttribute('href')||'';
    if(a.classList.contains('js-smart-back')||a.closest('.project-card')||raw.startsWith('mailto:')||raw.startsWith('http'))return;
@@ -93,7 +97,8 @@
      if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank')return;
      const u=new URL(a.href,location.href);if(u.origin!==location.origin)return;
      rememberHomeTarget(u);
-     if(u.pathname===location.pathname&&u.hash){const target=document.querySelector(u.hash);if(target){e.preventDefault();closeMenu();history.replaceState(null,'',u.hash);const hh=document.querySelector('.site-header')?.offsetHeight||78;const y=target.getBoundingClientRect().top+scrollY-hh;window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}return}
+     if(u.pathname===location.pathname&&u.hash){const target=document.querySelector(u.hash);if(target){e.preventDefault();closeMenu();const id=sectionFromUrl(u);if(id){const here=new URL(location.href);here.searchParams.set('section',id);here.hash=id;history.replaceState({...(history.state||{}),abHomeTarget:id},'',here.pathname+here.search+here.hash)}else history.replaceState(history.state,'',u.hash);const hh=document.querySelector('.site-header')?.offsetHeight||78;const y=target.getBoundingClientRect().top+scrollY-hh;window.scrollTo({top:Math.max(0,y),behavior:reduce?'auto':'smooth'})}return}
+     if(document.body.dataset.page==='home'){const backTo=homeTargetForLink(a,u);if(backTo)primeHomeHistory(backTo)}
      if(reduce)return;
      e.preventDefault();curtain.classList.remove('entering');curtain.classList.add('leaving');setTimeout(()=>location.href=u.href,410);
    });
@@ -107,16 +112,15 @@
    const go=()=>{location.href=destination};
    if(reduce){go();return}curtain.classList.remove('entering');curtain.classList.add('leaving');setTimeout(go,390);
  }));
- // On Home, land deterministically on the requested chapter. Re-run after layout settles and on BFCache restores.
+ // On Home, land deterministically on the requested chapter. Recompute on every history restore so iOS/Safari BFCache never falls back to the entry avatar.
  if(document.body.dataset.page==='home'){
    if('scrollRestoration' in history)history.scrollRestoration='manual';
-   const params=new URLSearchParams(location.search),hash=location.hash.slice(1),stored=sessionStorage.getItem('ab:home-target');
-   const requested=homeIds.has(params.get('section'))?params.get('section'):(homeIds.has(hash)?hash:(homeIds.has(stored)?stored:null));
-   if(requested){
-     sessionStorage.removeItem('ab:home-target');
-     const place=()=>{const target=document.getElementById(requested);if(!target)return;const hh=document.querySelector('.site-header')?.offsetHeight||78;const y=target.getBoundingClientRect().top+scrollY-hh;window.scrollTo({top:Math.max(0,y),behavior:'auto'})};
-     requestAnimationFrame(()=>requestAnimationFrame(place));[80,220,520].forEach(ms=>setTimeout(place,ms));addEventListener('pageshow',place,{once:true});
-   }
+   const requestedHomeTarget=()=>{const params=new URLSearchParams(location.search),hash=location.hash.slice(1),state=history.state?.abHomeTarget,stored=sessionStorage.getItem('ab:home-target');return homeIds.has(params.get('section'))?params.get('section'):(homeIds.has(hash)?hash:(homeIds.has(state)?state:(homeIds.has(stored)?stored:null)))};
+   const placeHomeTarget=()=>{const requested=requestedHomeTarget();if(!requested)return false;const target=document.getElementById(requested);if(!target)return false;const hh=document.querySelector('.site-header')?.offsetHeight||78;const y=target.getBoundingClientRect().top+scrollY-hh;window.scrollTo({top:Math.max(0,y),behavior:'auto'});sessionStorage.removeItem('ab:home-target');return true};
+   const settleHomeTarget=()=>{if(!requestedHomeTarget())return;placeHomeTarget();requestAnimationFrame(()=>requestAnimationFrame(placeHomeTarget));[60,160,360,700].forEach(ms=>setTimeout(placeHomeTarget,ms))};
+   settleHomeTarget();
+   addEventListener('pageshow',()=>{resetRouteCurtain();settleHomeTarget()});
+   addEventListener('popstate',settleHomeTarget);
  }
  // Section reveal rhythm for project pages.
  const reveals=[...document.querySelectorAll('.reveal')];if('IntersectionObserver'in window&&!reduce){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8%'});reveals.forEach(el=>io.observe(el))}else reveals.forEach(el=>el.classList.add('in-view'));
