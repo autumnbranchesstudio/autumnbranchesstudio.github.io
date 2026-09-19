@@ -80,6 +80,7 @@
      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
      if(!response.ok)throw new Error('Form submission failed');
      form.reset();
+     if(typeof window.gtag==='function')window.gtag('event','generate_lead',{method:'contact_form'});
      if(status){status.classList.add('is-success');status.textContent='Message received. We’ll be in touch.'}
      if(button)button.innerHTML='Sent <span>✓</span>';
    }catch(err){
