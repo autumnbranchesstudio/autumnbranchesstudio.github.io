@@ -1,0 +1,19 @@
+{
+  "name": "autumnbranches studio",
+  "short_name": "autumnbranches",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "description": "Creative strategy studio for personal branding, content creation, social media strategy and website development, shaped around how each brand needs to show up.",
+  "icons": [
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
