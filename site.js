@@ -18,95 +18,56 @@
  function entryProgress(){if(!entry)return 1;const r=entry.getBoundingClientRect(),max=entry.offsetHeight-innerHeight;return clamp(-r.top/Math.max(1,max),0,1)}
  function tickEntry(){if(entry&&svg){const target=entryProgress();smoothP+=(target-smoothP)*.17;const e=ease(smoothP);svg.setAttribute('viewBox',`${lerp(start.x,end.x,e)} ${lerp(start.y,end.y,e)} ${lerp(start.w,end.w,e)} ${lerp(start.h,end.h,e)}`);fill.style.opacity=String(clamp((smoothP-.72)/.22,0,1));if(cap)cap.style.opacity=String(1-clamp(smoothP*3.2,0,1))}requestAnimationFrame(tickEntry)}requestAnimationFrame(tickEntry);
  function maybeSettle(){clearTimeout(settleTimer);if(settled||!intro||(location.hash&&location.hash!=='#intro')||new URLSearchParams(location.search).has('section'))return;settleTimer=setTimeout(()=>{if(entryProgress()>.86){settled=true;intro.scrollIntoView({behavior:'smooth',block:'start'})}},100)}addEventListener('scroll',()=>{if(scrollY<8&&!location.hash)settled=false;maybeSettle()},{passive:true});
- // Home Studio lenses. On mobile, scroll alone controls the active lens; tapping a word only follows its link.
+ // Home Studio lenses. Mobile is scroll-driven; tap only follows the link.
  const studio=document.querySelector('.studio-home'),words=[...document.querySelectorAll('.studio-word')],scopy=document.querySelector('.studio-copy');const studioText=[
   {meta:'Framing / pacing / sequence / emotion',copy:'We use cinema as a way to think about attention: what enters the frame, what stays out, and when the audience is ready for the next beat.'},
   {meta:'Voice / character / narrative / point of view',copy:'Literature keeps the work human. It asks who is speaking, what they believe, and why someone should keep listening.'},
   {meta:'Structure / hierarchy / rhythm / space',copy:'Architecture teaches us to organise information so people can move through it clearly, with hierarchy, rhythm and room to breathe.'}
  ];let hoverIndex=null,last=-1,studioSwapTimer=0;
  const mobileStudio=matchMedia('(max-width:760px)');
- function renderStudio(i,immediate=false){if(i===last&&hoverIndex===null)return;last=i;words.forEach((w,j)=>w.classList.toggle('is-active',j===i));if(!scopy)return;const d=studioText[i],paint=()=>{scopy.innerHTML=`<p>${d.copy}</p><div class="studio-meta">${d.meta}</div>`;requestAnimationFrame(()=>scopy.classList.remove('is-switching'))};clearTimeout(studioSwapTimer);if(immediate){paint();return}scopy.classList.add('is-switching');studioSwapTimer=setTimeout(paint,90)}
- function pinStudioFocus(i){words.forEach((w,j)=>{const on=j===i;w.style.opacity=on?'1':'.24';w.style.transform=on?'translateX(14px)':'translateX(0px)'})}
+ function renderStudio(i,immediate=false){if(i===last&&hoverIndex===null)return;last=i;words.forEach((w,j)=>w.classList.toggle('is-active',j===i));if(!scopy)return;const d=studioText[i],paint=()=>{scopy.innerHTML=`<p>${d.copy}</p><div class="studio-meta">${d.meta}</div>`;requestAnimationFrame(()=>scopy.classList.remove('is-switching'))};clearTimeout(studioSwapTimer);if(immediate){paint();return}scopy.classList.add('is-switching');studioSwapTimer=setTimeout(paint,70)}
+ function pinStudioFocus(i){words.forEach((w,j)=>{const on=j===i;w.style.opacity=on?'1':'.24';w.style.transform=on?'translateX(12px)':'translateX(0px)'})}
  words.forEach((w,i)=>{w.addEventListener('mouseenter',()=>{if(mobileStudio.matches)return;hoverIndex=i;pinStudioFocus(i);renderStudio(i)});w.addEventListener('mouseleave',()=>{if(mobileStudio.matches)return;hoverIndex=null;last=-1});w.addEventListener('focus',()=>{if(mobileStudio.matches)return;hoverIndex=i;pinStudioFocus(i);renderStudio(i)});w.addEventListener('blur',()=>{if(mobileStudio.matches)return;hoverIndex=null;last=-1})});
- let studioRaf=0;
- function updateStudio(){studioRaf=0;if(!studio||hoverIndex!==null)return;const r=studio.getBoundingClientRect();if(r.bottom<=0||r.top>=innerHeight)return;const travel=Math.max(1,studio.offsetHeight-innerHeight);const p=clamp(-r.top/travel,0,1);const centers=[0,.5,1];words.forEach((w,j)=>{const focus=clamp(1-Math.abs(p-centers[j])*2,0,1);const min=mobileStudio.matches?.28:.30,max=1;w.style.opacity=(min+(max-min)*focus).toFixed(3);w.style.transform=`translateX(${((mobileStudio.matches?7:11)*focus).toFixed(1)}px)`});const idx=p<.25?0:(p<.75?1:2);renderStudio(idx)}
- function queueStudio(){if(studioRaf)return;studioRaf=requestAnimationFrame(updateStudio)}
- addEventListener('scroll',queueStudio,{passive:true});addEventListener('resize',queueStudio,{passive:true});addEventListener('pageshow',queueStudio);queueStudio();if(words.length)renderStudio(0,true);
+ let studioTarget=0,studioVisual=0,studioVisible=false;
+ function measureStudio(){if(!studio||hoverIndex!==null)return;const r=studio.getBoundingClientRect(),vh=window.visualViewport?.height||innerHeight;studioVisible=r.bottom>0&&r.top<vh;if(!studioVisible)return;const travel=Math.max(1,studio.offsetHeight-vh);studioTarget=clamp(-r.top/travel,0,1)}
+ function animateStudio(){if(studio&&hoverIndex===null&&studioVisible){studioVisual+=(studioTarget-studioVisual)*.16;if(Math.abs(studioTarget-studioVisual)<.0005)studioVisual=studioTarget;const pos=studioVisual*2;words.forEach((w,j)=>{const focus=clamp(1-Math.abs(pos-j),0,1),e=focus*focus*(3-2*focus);w.style.opacity=(.24+.76*e).toFixed(3);w.style.transform=`translateX(${(8*e).toFixed(1)}px)`});renderStudio(clamp(Math.round(pos),0,2))}requestAnimationFrame(animateStudio)}
+ addEventListener('scroll',measureStudio,{passive:true});addEventListener('resize',measureStudio,{passive:true});addEventListener('pageshow',measureStudio);if(window.visualViewport)visualViewport.addEventListener('resize',measureStudio,{passive:true});if(words.length){renderStudio(0,true);measureStudio();requestAnimationFrame(animateStudio)}
 
- // Expertise: mobile scroll sequence. One tile is active at a time, with stable row geometry so the middle tile cannot be skipped when rows switch state.
- const serviceRows=[...document.querySelectorAll('.service-strip')];
+ // Expertise: mobile reveal is driven entirely by scroll position. No tap is required and only one tile can be open.
+ const serviceRows=[...document.querySelectorAll('.service-strip')],services=document.querySelector('.services');
  const mobileServices=matchMedia('(max-width:760px)');
- let serviceRaf=0,serviceRequested=-1,serviceActive=-1,serviceTimer=0,serviceStepTimer=0;
- function resetServiceInline(row){
-   row.style.backgroundColor='';
-   const title=row.querySelector('.service-title'),detail=row.querySelector('.service-detail');
-   if(title){title.style.opacity='';title.style.transform=''}
-   if(detail){detail.style.opacity='';detail.style.transform=''}
- }
- function openService(next){
-   if(next===serviceRequested && next===serviceActive)return;
-   clearTimeout(serviceTimer);
-   serviceRequested=next;
+ let serviceShown=-1,serviceRequested=-2,serviceTimer=0,serviceRaf=0;
+ function paintService(index,immediate=false){
+   if(index===serviceRequested && (index===serviceShown || serviceTimer))return;
+   serviceRequested=index;clearTimeout(serviceTimer);
    serviceRows.forEach(r=>r.classList.remove('active'));
-   serviceActive=-1;
-   if(next<0)return;
-   serviceTimer=setTimeout(()=>{
-     if(serviceRequested!==next)return;
-     serviceRows.forEach((r,j)=>r.classList.toggle('active',j===next));
-     serviceActive=next;
-   },120);
+   serviceShown=-1;
+   if(index<0)return;
+   const open=()=>{if(serviceRequested!==index)return;serviceRows.forEach((r,j)=>r.classList.toggle('active',j===index));serviceShown=index;serviceTimer=0};
+   if(immediate)open();else serviceTimer=setTimeout(open,90);
  }
- function visibleServiceCandidate(){
-   const vh=innerHeight||document.documentElement.clientHeight;
-   const line=vh*.57;
-   let candidate=-1,best=Infinity;
-   serviceRows.forEach((row,i)=>{
-     resetServiceInline(row);
-     const rr=row.getBoundingClientRect();
-     if(rr.bottom<=76 || rr.top>=vh)return;
-     const center=(rr.top+rr.bottom)/2;
-     const distance=Math.abs(center-line);
-     if(distance<best){best=distance;candidate=i}
-   });
-   return candidate;
- }
- function requestSequentialService(candidate){
-   if(candidate<0){openService(-1);return}
-   clearTimeout(serviceStepTimer);
-   let base=serviceRequested>=0?serviceRequested:serviceActive;
-   if(base<0){openService(candidate);return}
-   let next=candidate;
-   if(candidate>base+1)next=base+1;
-   if(candidate<base-1)next=base-1;
-   openService(next);
-   if(next!==candidate){
-     serviceStepTimer=setTimeout(()=>{
-       const latest=visibleServiceCandidate();
-       requestSequentialService(latest);
-     },300);
+ function mobileServiceCandidate(){
+   if(!services||!serviceRows.length)return -1;
+   const vh=window.visualViewport?.height||innerHeight;
+   const headerH=document.querySelector('.site-header')?.offsetHeight||78;
+   const readY=headerH+(vh-headerH)*.56;
+   const sr=services.getBoundingClientRect();
+   if(readY<sr.top||readY>=sr.bottom)return -1;
+   for(let i=0;i<serviceRows.length;i++){
+     const rr=serviceRows[i].getBoundingClientRect();
+     if(readY>=rr.top&&readY<rr.bottom)return i;
    }
+   return -1;
  }
- function updateServices(){
-   serviceRaf=0;
-   if(!serviceRows.length)return;
-   if(!mobileServices.matches){
-     clearTimeout(serviceTimer);clearTimeout(serviceStepTimer);serviceRequested=-1;serviceActive=-1;
-     serviceRows.forEach(r=>{resetServiceInline(r);r.classList.remove('active')});
-     return;
-   }
-   requestSequentialService(visibleServiceCandidate());
- }
+ function updateServices(){serviceRaf=0;if(!serviceRows.length)return;if(!mobileServices.matches){clearTimeout(serviceTimer);serviceRequested=-2;serviceShown=-1;serviceRows.forEach(r=>r.classList.remove('active'));return}let candidate=mobileServiceCandidate();if(candidate>=0&&serviceRequested>=0&&Math.abs(candidate-serviceRequested)>1){candidate=serviceRequested+Math.sign(candidate-serviceRequested);paintService(candidate);setTimeout(queueServices,150);return}paintService(candidate)}
  function queueServices(){if(serviceRaf)return;serviceRaf=requestAnimationFrame(updateServices)}
  serviceRows.forEach((row,i)=>{
-   row.addEventListener('mouseenter',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});
+   row.addEventListener('mouseenter',()=>{if(!mobileServices.matches)serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))});
    row.addEventListener('mouseleave',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
-   row.addEventListener('focus',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});
+   row.addEventListener('focus',()=>{if(!mobileServices.matches)serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))});
    row.addEventListener('blur',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
-   row.addEventListener('click',()=>{if(mobileServices.matches)openService(i)});
  });
- addEventListener('scroll',queueServices,{passive:true});addEventListener('resize',queueServices,{passive:true});addEventListener('pageshow',queueServices);
- if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{openService(-1);queueStudio();queueServices()});
- queueServices();
+ addEventListener('scroll',queueServices,{passive:true});addEventListener('resize',queueServices,{passive:true});addEventListener('pageshow',queueServices);if(window.visualViewport)visualViewport.addEventListener('resize',queueServices,{passive:true});if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{paintService(-1,true);measureStudio();queueServices()});queueServices();
  // Contact form -> Formspree inbox delivery with an in-page success state.
  const form=document.getElementById('callForm');
  if(form)form.addEventListener('submit',async e=>{

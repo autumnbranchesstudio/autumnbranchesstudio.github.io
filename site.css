@@ -1394,3 +1394,60 @@
 @media(max-width:390px){
   .service-strip,.service-strip:hover,.service-strip:focus-visible,.service-strip.active{height:300px!important;min-height:300px!important}
 }
+
+
+/* v25 Stage 2.30 — final mobile scroll choreography */
+@media(max-width:760px){
+  /* Keep native finger scrolling fluid; JS only changes visual state. */
+  html,body{overscroll-behavior-y:auto!important}
+  .studio-word{transition:opacity .22s linear,transform .32s cubic-bezier(.22,.8,.22,1)!important}
+  .studio-copy{transition:opacity .18s ease,transform .28s cubic-bezier(.22,.8,.22,1)!important}
+
+  .services{overflow-anchor:none!important}
+  .service-strip,
+  .service-strip:hover,
+  .service-strip:focus,
+  .service-strip:focus-visible,
+  .service-strip.active{
+    height:clamp(310px,39svh,350px)!important;
+    min-height:clamp(310px,39svh,350px)!important;
+    overflow:hidden!important;
+    outline:none!important;
+    background:#050505!important;
+    transition:background-color .34s ease,border-color .34s ease!important;
+  }
+  .service-strip.active{background:var(--blue)!important}
+  .service-layer{padding:28px 20px!important;transition:opacity .28s ease,transform .36s cubic-bezier(.22,.8,.22,1)!important}
+  .service-title,
+  .service-strip:hover .service-title,
+  .service-strip:focus .service-title,
+  .service-strip:focus-visible .service-title{
+    opacity:1!important;
+    transform:none!important;
+  }
+  .service-detail,
+  .service-strip:hover .service-detail,
+  .service-strip:focus .service-detail,
+  .service-strip:focus-visible .service-detail{
+    opacity:0!important;
+    transform:translateY(18px)!important;
+    pointer-events:none!important;
+  }
+  .service-strip.active .service-title{
+    opacity:0!important;
+    transform:translateY(-16px)!important;
+  }
+  .service-strip.active .service-detail{
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
+  }
+  .service-detail{align-content:center!important}
+  .service-detail .items{grid-template-columns:1fr 1fr!important;gap:12px 18px!important}
+  .service-detail .items span{font-size:clamp(17px,5vw,21px)!important;line-height:1.08!important}
+}
+@media(max-width:390px){
+  .service-strip,.service-strip:hover,.service-strip:focus,.service-strip:focus-visible,.service-strip.active{height:330px!important;min-height:330px!important}
+  .service-detail .items{grid-template-columns:1fr 1fr!important;gap:10px 13px!important}
+  .service-detail .items span{font-size:clamp(16px,4.8vw,19px)!important}
+}
