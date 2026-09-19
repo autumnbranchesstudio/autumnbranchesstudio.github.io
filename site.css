@@ -1345,3 +1345,52 @@
 @media(max-width:390px){
   .service-strip.active{height:338px!important;min-height:338px!important}
 }
+
+
+/* Mobile service sequence v2.29 — stable geometry prevents Personal Branding -> Social Media skips. */
+@media(max-width:760px){
+  .services{overflow-anchor:none!important}
+  .service-strip,
+  .service-strip:hover,
+  .service-strip:focus-visible,
+  .service-strip.active{
+    height:286px!important;
+    min-height:286px!important;
+    overflow:hidden!important;
+    outline:none!important;
+    transition:background .32s ease!important;
+  }
+  .service-strip,
+  .service-strip:hover,
+  .service-strip:focus-visible{background:#050505!important}
+  .service-strip.active{background:var(--blue)!important}
+  .service-layer{padding:28px 20px!important;transition:opacity .25s ease,transform .36s cubic-bezier(.22,.8,.22,1)!important}
+  .service-title,
+  .service-strip:hover .service-title,
+  .service-strip:focus-visible .service-title{
+    opacity:1!important;
+    transform:none!important;
+  }
+  .service-detail,
+  .service-strip:hover .service-detail,
+  .service-strip:focus-visible .service-detail{
+    opacity:0!important;
+    transform:translateY(16px)!important;
+    pointer-events:none!important;
+  }
+  .service-strip.active .service-title{
+    opacity:0!important;
+    transform:translateY(-16px)!important;
+  }
+  .service-strip.active .service-detail{
+    opacity:1!important;
+    transform:none!important;
+    pointer-events:auto!important;
+  }
+  .service-detail{align-content:center!important}
+  .service-detail .items{grid-template-columns:1fr 1fr!important;gap:11px 18px!important}
+  .service-detail .items span{font-size:clamp(17px,5vw,21px)!important;line-height:1.05!important}
+}
+@media(max-width:390px){
+  .service-strip,.service-strip:hover,.service-strip:focus-visible,.service-strip.active{height:300px!important;min-height:300px!important}
+}

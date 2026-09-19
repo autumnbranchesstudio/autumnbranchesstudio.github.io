@@ -33,20 +33,20 @@
  function queueStudio(){if(studioRaf)return;studioRaf=requestAnimationFrame(updateStudio)}
  addEventListener('scroll',queueStudio,{passive:true});addEventListener('resize',queueStudio,{passive:true});addEventListener('pageshow',queueStudio);queueStudio();if(words.length)renderStudio(0,true);
 
- // Expertise: on mobile, exactly one tile opens at a time as its top crosses the reading line.
+ // Expertise: mobile scroll sequence. One tile is active at a time, with stable row geometry so the middle tile cannot be skipped when rows switch state.
  const serviceRows=[...document.querySelectorAll('.service-strip')];
  const mobileServices=matchMedia('(max-width:760px)');
- let serviceRaf=0,serviceRequested=-2,serviceActive=-1,serviceTimer=0;
+ let serviceRaf=0,serviceRequested=-1,serviceActive=-1,serviceTimer=0,serviceStepTimer=0;
  function resetServiceInline(row){
    row.style.backgroundColor='';
    const title=row.querySelector('.service-title'),detail=row.querySelector('.service-detail');
    if(title){title.style.opacity='';title.style.transform=''}
    if(detail){detail.style.opacity='';detail.style.transform=''}
  }
- function requestService(next){
-   if(next===serviceRequested)return;
-   serviceRequested=next;
+ function openService(next){
+   if(next===serviceRequested && next===serviceActive)return;
    clearTimeout(serviceTimer);
+   serviceRequested=next;
    serviceRows.forEach(r=>r.classList.remove('active'));
    serviceActive=-1;
    if(next<0)return;
@@ -54,26 +54,47 @@
      if(serviceRequested!==next)return;
      serviceRows.forEach((r,j)=>r.classList.toggle('active',j===next));
      serviceActive=next;
-   },110);
+   },120);
+ }
+ function visibleServiceCandidate(){
+   const vh=innerHeight||document.documentElement.clientHeight;
+   const line=vh*.57;
+   let candidate=-1,best=Infinity;
+   serviceRows.forEach((row,i)=>{
+     resetServiceInline(row);
+     const rr=row.getBoundingClientRect();
+     if(rr.bottom<=76 || rr.top>=vh)return;
+     const center=(rr.top+rr.bottom)/2;
+     const distance=Math.abs(center-line);
+     if(distance<best){best=distance;candidate=i}
+   });
+   return candidate;
+ }
+ function requestSequentialService(candidate){
+   if(candidate<0){openService(-1);return}
+   clearTimeout(serviceStepTimer);
+   let base=serviceRequested>=0?serviceRequested:serviceActive;
+   if(base<0){openService(candidate);return}
+   let next=candidate;
+   if(candidate>base+1)next=base+1;
+   if(candidate<base-1)next=base-1;
+   openService(next);
+   if(next!==candidate){
+     serviceStepTimer=setTimeout(()=>{
+       const latest=visibleServiceCandidate();
+       requestSequentialService(latest);
+     },300);
+   }
  }
  function updateServices(){
    serviceRaf=0;
    if(!serviceRows.length)return;
    if(!mobileServices.matches){
-     clearTimeout(serviceTimer);serviceRequested=-2;serviceActive=-1;
+     clearTimeout(serviceTimer);clearTimeout(serviceStepTimer);serviceRequested=-1;serviceActive=-1;
      serviceRows.forEach(r=>{resetServiceInline(r);r.classList.remove('active')});
      return;
    }
-   const vh=innerHeight||document.documentElement.clientHeight;
-   const trigger=vh*.60;
-   const topGuard=78;
-   let next=-1;
-   serviceRows.forEach((row,i)=>{
-     resetServiceInline(row);
-     const rr=row.getBoundingClientRect();
-     if(rr.top<=trigger && rr.bottom>topGuard)next=i;
-   });
-   requestService(next);
+   requestSequentialService(visibleServiceCandidate());
  }
  function queueServices(){if(serviceRaf)return;serviceRaf=requestAnimationFrame(updateServices)}
  serviceRows.forEach((row,i)=>{
@@ -81,10 +102,10 @@
    row.addEventListener('mouseleave',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
    row.addEventListener('focus',()=>{if(!mobileServices.matches){serviceRows.forEach((r,j)=>r.classList.toggle('active',j===i))}});
    row.addEventListener('blur',()=>{if(!mobileServices.matches)serviceRows.forEach(r=>r.classList.remove('active'))});
-   row.addEventListener('click',()=>{if(mobileServices.matches)requestService(i)});
+   row.addEventListener('click',()=>{if(mobileServices.matches)openService(i)});
  });
  addEventListener('scroll',queueServices,{passive:true});addEventListener('resize',queueServices,{passive:true});addEventListener('pageshow',queueServices);
- if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{requestService(-1);queueStudio();queueServices()});
+ if(mobileServices.addEventListener)mobileServices.addEventListener('change',()=>{openService(-1);queueStudio();queueServices()});
  queueServices();
  // Contact form -> Formspree inbox delivery with an in-page success state.
  const form=document.getElementById('callForm');
